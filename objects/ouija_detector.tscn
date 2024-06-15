@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://wry4x8x1djv4"]
+
+[ext_resource type="Texture2D" uid="uid://babpxsb0lofes" path="res://textures/object/ouija.png" id="1_n6pxs"]
+
+[sub_resource type="GDScript" id="GDScript_wbope"]
+script/source = "extends MouseDetector
+
+func _ready():
+	super._ready()
+	clicked.connect(_on_ouija_clicked)
+
+func _on_ouija_clicked(event: InputEventMouseButton):
+	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		Singletons.main.ouija_clicked()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f353b"]
+size = Vector3(2, 0.2, 2)
+
+[node name="OuijaDetector" type="Area3D"]
+script = SubResource("GDScript_wbope")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_f353b")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-3.2, 0, 2.79753e-07, 0, 3.2, 0, -2.79753e-07, 0, -3.2, 0, 0.05, 0)
+axis = 1
+texture = ExtResource("1_n6pxs")

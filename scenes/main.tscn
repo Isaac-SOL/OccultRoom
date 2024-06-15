@@ -1,12 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=7 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
 [ext_resource type="Script" path="res://scripts/camera_rotation.gd" id="2_xlx1h"]
 [ext_resource type="Script" path="res://scripts/room_camera.gd" id="4_j5ui4"]
 
-[node name="Main" type="Node3D"]
+[sub_resource type="BoxMesh" id="BoxMesh_602p5"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0h33"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("holding_object")]
 script = ExtResource("1_rshqp")
+holding_object = NodePath("Node3D")
 
 [node name="Room" parent="." instance=ExtResource("1_vjk08")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
@@ -21,3 +28,18 @@ projection = 1
 size = 9.0
 script = ExtResource("4_j5ui4")
 ouija_size = 2.0
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.328667, 0)
+
+[node name="Object" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_602p5")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_l0h33")
+
+[node name="Object2" type="MeshInstance3D" parent="Node3D/Object"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.256557, 0.26647, 0)
+mesh = SubResource("BoxMesh_602p5")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_l0h33")

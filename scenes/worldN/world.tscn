@@ -1,16 +1,17 @@
-[gd_scene load_steps=15 format=3 uid="uid://exeb5f1cinn7"]
+[gd_scene load_steps=16 format=3 uid="uid://exeb5f1cinn7"]
 
-[ext_resource type="PackedScene" uid="uid://d0fyb8y16pja" path="res://scenes/bed/bed.tscn" id="1_0ldax"]
-[ext_resource type="PackedScene" uid="uid://dn77yd4l16weq" path="res://scenes/floor/floor.tscn" id="2_081g6"]
-[ext_resource type="PackedScene" uid="uid://cwyeroginfom3" path="res://scenes/floor/wall_1.tscn" id="3_8h3oe"]
-[ext_resource type="PackedScene" uid="uid://cn3aqry6xnj18" path="res://scenes/floor/wall_2.tscn" id="4_fk86o"]
-[ext_resource type="PackedScene" uid="uid://cd1b7dok184rq" path="res://scenes/floor/wall_3.tscn" id="5_krsx5"]
-[ext_resource type="PackedScene" uid="uid://do8gjgsy0r07n" path="res://scenes/floor/wall_4.tscn" id="6_25jbo"]
-[ext_resource type="PackedScene" uid="uid://dmhsk5o2frurl" path="res://scenes/table/table.tscn" id="7_p7f7b"]
-[ext_resource type="PackedScene" uid="uid://b0sp4h8u5thh5" path="res://scenes/ouija/ouija_board.tscn" id="8_dlyfg"]
-[ext_resource type="PackedScene" uid="uid://jkrxv6iyw51s" path="res://scenes/ouija/ouija_cursor.tscn" id="9_x7vnq"]
+[ext_resource type="PackedScene" uid="uid://d0fyb8y16pja" path="res://scenes/meubles/bed.tscn" id="1_0ldax"]
+[ext_resource type="PackedScene" uid="uid://dn77yd4l16weq" path="res://scenes/chambre/floor.tscn" id="2_081g6"]
+[ext_resource type="PackedScene" uid="uid://cwyeroginfom3" path="res://scenes/chambre/wall_1.tscn" id="3_8h3oe"]
+[ext_resource type="PackedScene" uid="uid://cn3aqry6xnj18" path="res://scenes/chambre/wall_2.tscn" id="4_fk86o"]
+[ext_resource type="PackedScene" uid="uid://cd1b7dok184rq" path="res://scenes/chambre/wall_3.tscn" id="5_krsx5"]
+[ext_resource type="PackedScene" uid="uid://do8gjgsy0r07n" path="res://scenes/chambre/wall_4.tscn" id="6_25jbo"]
+[ext_resource type="PackedScene" uid="uid://dmhsk5o2frurl" path="res://scenes/meubles/table.tscn" id="7_p7f7b"]
+[ext_resource type="PackedScene" uid="uid://b0sp4h8u5thh5" path="res://scenes/artefacts/ouija/ouija_board.tscn" id="8_dlyfg"]
+[ext_resource type="PackedScene" uid="uid://jkrxv6iyw51s" path="res://scenes/artefacts/ouija/ouija_cursor.tscn" id="9_x7vnq"]
 [ext_resource type="PackedScene" uid="uid://t613cf1f1w7u" path="res://scenes/artefacts/baguette.tscn" id="10_5sx0n"]
 [ext_resource type="PackedScene" uid="uid://bpf8xek506hi1" path="res://scenes/artefacts/totem.tscn" id="11_bnitq"]
+[ext_resource type="PackedScene" uid="uid://begg35e7wjo3e" path="res://scenes/meubles/etagere.tscn" id="12_qisx2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m58k6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,7 +39,7 @@ shadow_enabled = true
 omni_range = 20.6087
 
 [node name="bed2" parent="." instance=ExtResource("1_0ldax")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.49244)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13, 0, 4.50756)
 
 [node name="floor" parent="." instance=ExtResource("2_081g6")]
 
@@ -59,11 +60,17 @@ visible = false
 [node name="ouija_cursor" parent="." instance=ExtResource("9_x7vnq")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.530467, 0.847706, 0, -0.847706, 0.530467, -1.25276, 11.3501, 6.03213)
+transform = Transform3D(0.707107, 0.331563, -0.624552, 0, 0.883251, 0.468901, 0.707107, -0.331563, 0.624552, -19.2528, 11.3501, 20.0321)
 current = true
 
 [node name="baguette" parent="." instance=ExtResource("10_5sx0n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7, 2, 0.2)
 
 [node name="totem" parent="." instance=ExtResource("11_bnitq")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -11.3, 0, -11.1)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -12.3, 0, -13.1)
+
+[node name="etagere" parent="." instance=ExtResource("12_qisx2")]
+transform = Transform3D(-1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 14, 0, -5)
+
+[node name="etagere2" parent="." instance=ExtResource("12_qisx2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, -14)

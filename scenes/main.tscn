@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://cuughpl51whns"]
+
+[ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
+[ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
+[ext_resource type="Script" path="res://scripts/camera_rotation.gd" id="2_xlx1h"]
+[ext_resource type="Script" path="res://scripts/room_camera.gd" id="4_j5ui4"]
+[ext_resource type="PackedScene" uid="uid://bdbr8ihjq30u" path="res://objects/candle.tscn" id="5_3sew3"]
+[ext_resource type="PackedScene" uid="uid://bkf1vadtu7p38" path="res://objects/test_thing.tscn" id="5_nnanj"]
+[ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="6_whrdl"]
+
+[node name="Main" type="Node3D" node_paths=PackedStringArray("holding_object")]
+script = ExtResource("1_rshqp")
+holding_object = NodePath("TestThing")
+
+[node name="Room" parent="." instance=ExtResource("1_vjk08")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
+
+[node name="CameraRotation" type="Node3D" parent="."]
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
+script = ExtResource("2_xlx1h")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRotation"]
+transform = Transform3D(1, -8.9407e-08, 2.08616e-07, -4.47035e-08, 0.866025, 0.5, -2.68221e-07, -0.5, 0.866025, 0, 6.73205, 10.3137)
+projection = 1
+size = 9.0
+script = ExtResource("4_j5ui4")
+ouija_size = 2.0
+
+[node name="TestThing" parent="." instance=ExtResource("5_nnanj")]
+
+[node name="Candle" parent="." instance=ExtResource("5_3sew3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.88456, 0.228254, 0)
+
+[node name="ObjectPlacementPoint" parent="." node_paths=PackedStringArray("holding_object") instance=ExtResource("6_whrdl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9074, 0, 0)
+holding_object = NodePath("../Candle")

@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdbr8ihjq30u"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_ik0v4"]
+[ext_resource type="Script" path="res://scripts/candle.gd" id="1_p3h5u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pxnf"]
+albedo_color = Color(0.533037, 0.533037, 0.533037, 1)
+metallic = 1.0
+anisotropy_enabled = true
+anisotropy = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8ked"]
+albedo_color = Color(1, 1, 0.694118, 1)
+
+[node name="CandleObject" type="Node3D"]
+script = ExtResource("1_ik0v4")
+hints = Array[int]([0])
+
+[node name="Candle" type="Node3D" parent="."]
+script = ExtResource("1_p3h5u")
+min_size = 3.45
+max_size = 3.55
+flicker_interval = 0.12
+
+[node name="Light" type="OmniLight3D" parent="Candle"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.900969, 0)
+shadow_enabled = true
+omni_range = 3.5
+omni_attenuation = 0.307786
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Candle"]
+cast_shadow = 0
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Candle/CSGCombiner3D"]
+radius = 0.3
+height = 0.1
+material = SubResource("StandardMaterial3D_4pxnf")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Candle/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254849, 0)
+radius = 0.1
+height = 0.5
+material = SubResource("StandardMaterial3D_e8ked")

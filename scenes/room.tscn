@@ -1,0 +1,86 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnmco5mvxbmif"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4lg0k"]
+
+[sub_resource type="Sky" id="Sky_56k6r"]
+sky_material = SubResource("ProceduralSkyMaterial_4lg0k")
+
+[sub_resource type="Environment" id="Environment_x8wh7"]
+background_mode = 2
+sky = SubResource("Sky_56k6r")
+ambient_light_source = 3
+reflected_light_source = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bbacu"]
+
+[sub_resource type="GDScript" id="GDScript_wbope"]
+script/source = "extends MouseDetector
+
+func _ready():
+	clicked.connect(_on_ouija_clicked)
+
+func _on_ouija_clicked(event: InputEventMouseButton):
+	print(\"ouija clicked\")
+	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		Singletons.main.ouija_clicked()
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f353b"]
+size = Vector3(2, 0.2, 2)
+
+[node name="Room" type="Node3D"]
+
+[node name="LevelGeometry" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -4.5)
+size = Vector3(10, 1, 10)
+
+[node name="Bed" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, -1)
+size = Vector3(4, 2, 3)
+
+[node name="Table" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -4)
+size = Vector3(1, 2, 1)
+
+[node name="Ouija Table" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -4.5)
+size = Vector3(2, 2, 2)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x8wh7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 11, 9, 0)
+shadow_enabled = true
+
+[node name="Walls" type="Node3D" parent="."]
+
+[node name="Wall1" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(5, 0, 0, 0, -4.37114e-08, 3, 0, -1, -1.31134e-07, 4.5, 2.5, 0.5)
+mesh = SubResource("PlaneMesh_bbacu")
+skeleton = NodePath("../..")
+
+[node name="Wall2" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-2.18557e-07, 1, 1.31134e-07, 0, -4.37114e-08, 3, 5, 4.37114e-08, -1.55842e-14, -0.5, 2.5, -4.5)
+mesh = SubResource("PlaneMesh_bbacu")
+skeleton = NodePath("../..")
+
+[node name="Wall3" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(-5, -8.74228e-08, 9.85217e-15, -1.34111e-21, -4.37114e-08, 3, -4.37114e-07, 1, 1.31134e-07, 4.5, 2.5, -9.5)
+mesh = SubResource("PlaneMesh_bbacu")
+skeleton = NodePath("../..")
+
+[node name="Wall4" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(6.55671e-07, -1, -1.31134e-07, -3.45869e-21, -4.37114e-08, 3, -5, -1.31134e-07, -6.53803e-15, 9.5, 2.5, -4.5)
+mesh = SubResource("PlaneMesh_bbacu")
+skeleton = NodePath("../..")
+
+[node name="OuijaDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.5, -4.5)
+script = SubResource("GDScript_wbope")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OuijaDetector"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_f353b")

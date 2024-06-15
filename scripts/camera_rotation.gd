@@ -21,6 +21,4 @@ func rotate_right():
 
 func realign_rotation():
 	rotation.y = Util.clamp_angle(rotation.y, PI)
-	print(target_rotation / PI)
 	target_rotation = Util.clamp_angle(target_rotation, PI)
-	print(target_rotation / PI)

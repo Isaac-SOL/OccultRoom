@@ -17,10 +17,10 @@ reflected_light_source = 2
 script/source = "extends MouseDetector
 
 func _ready():
+	super._ready()
 	clicked.connect(_on_ouija_clicked)
 
 func _on_ouija_clicked(event: InputEventMouseButton):
-	print(\"ouija clicked\")
 	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		Singletons.main.ouija_clicked()
 "

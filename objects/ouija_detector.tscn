@@ -1,30 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://wry4x8x1djv4"]
+[gd_scene load_steps=7 format=3 uid="uid://wry4x8x1djv4"]
 
+[ext_resource type="Script" path="res://scripts/ouija_detector.gd" id="1_ejanw"]
 [ext_resource type="Texture2D" uid="uid://babpxsb0lofes" path="res://textures/object/ouija.png" id="1_n6pxs"]
-
-[sub_resource type="GDScript" id="GDScript_wbope"]
-script/source = "extends MouseDetector
-
-func _ready():
-	super._ready()
-	clicked.connect(_on_ouija_clicked)
-
-func _on_ouija_clicked(event: InputEventMouseButton):
-	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		Singletons.main.ouija_clicked()
-"
+[ext_resource type="Script" path="res://scripts/ouija_system.gd" id="2_b34w5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f353b"]
-size = Vector3(2, 0.2, 2)
+size = Vector3(2.1, 0.3, 2.1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_xbeis"]
+radius = 0.07
+height = 0.14
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nmtm"]
+albedo_color = Color(0.572669, 1.1792e-06, 3.36915e-07, 1)
+metallic = 1.0
+roughness = 0.61
+anisotropy_enabled = true
+anisotropy = 0.5
 
 [node name="OuijaDetector" type="Area3D"]
-script = SubResource("GDScript_wbope")
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_ejanw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_f353b")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(-3.2, 0, 2.79753e-07, 0, 3.2, 0, -2.79753e-07, 0, -3.2, 0, 0.05, 0)
+[node name="OuijaSystem" type="Node3D" parent="."]
+script = ExtResource("2_b34w5")
+rock_speed = 0.2
+
+[node name="Sprite3D" type="Sprite3D" parent="OuijaSystem"]
+transform = Transform3D(-0.8, 0, 1.20797e-07, 0, 0.8, 0, -1.20797e-07, 0, -0.8, 0, 0.01, 0)
 axis = 1
+texture_filter = 2
 texture = ExtResource("1_n6pxs")
+
+[node name="Positions" type="Node3D" parent="OuijaSystem"]
+
+[node name="None" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+gizmo_extents = 0.05
+
+[node name="Door" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.602, 0.01, 0.538)
+gizmo_extents = 0.05
+
+[node name="Moon" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00733626, 0.01, 0.538)
+gizmo_extents = 0.05
+
+[node name="Center" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672266, 0.01, 0.538)
+gizmo_extents = 0.05
+
+[node name="North" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672266, 0.01, 0.82228)
+gizmo_extents = 0.05
+
+[node name="East" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.905255, 0.01, 0.48546)
+gizmo_extents = 0.05
+
+[node name="South" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669898, 0.01, 0.265364)
+gizmo_extents = 0.05
+
+[node name="West" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.394667, 0.01, 0.478383)
+gizmo_extents = 0.05
+
+[node name="NorthWest" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.522269, 0.01, 0.689469)
+gizmo_extents = 0.05
+
+[node name="NorthEast" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.849687, 0.01, 0.689469)
+gizmo_extents = 0.05
+
+[node name="SouthEast" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.80254, 0.01, 0.330323)
+gizmo_extents = 0.05
+
+[node name="SouthWest" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.527702, 0.01, 0.358341)
+gizmo_extents = 0.05
+
+[node name="Contact" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.795018, 0.01, -0.682161)
+gizmo_extents = 0.05
+
+[node name="Close" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.514655, 0.01, -0.682161)
+gizmo_extents = 0.05
+
+[node name="Mid" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00316209, 0.01, -0.682161)
+gizmo_extents = 0.05
+
+[node name="Far" type="Marker3D" parent="OuijaSystem/Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.833387, 0.01, -0.682161)
+gizmo_extents = 0.05
+
+[node name="Rock" type="MeshInstance3D" parent="OuijaSystem"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+mesh = SubResource("SphereMesh_xbeis")
+surface_material_override/0 = SubResource("StandardMaterial3D_4nmtm")

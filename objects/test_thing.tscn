@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkf1vadtu7p38"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_2effn"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_602p5"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0h33"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="TestThing" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.328667, 0)
+script = ExtResource("1_2effn")
+hints = Array[int]([2, 3, 10, 11])
+
+[node name="Object" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_602p5")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_l0h33")
+
+[node name="Object2" type="MeshInstance3D" parent="Object"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.256557, 0.26647, 0)
+mesh = SubResource("BoxMesh_602p5")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_l0h33")

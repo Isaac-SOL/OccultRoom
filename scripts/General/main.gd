@@ -1,5 +1,8 @@
 class_name Main extends Node3D
 
+signal grabbed_object(object: Node3D)
+signal released_object(object: Node3D, point: ObjectPlacementPoint)
+
 @export var holding_object: Node3D
 
 func _ready():
@@ -30,3 +33,19 @@ func turn_object_right():
 
 func move_object_to(point: ObjectPlacementPoint):
 	holding_object.global_position = point.get_hover_point()
+
+func grab_object(object: Node3D):
+	holding_object = object
+	grabbed_object.emit(holding_object)
+
+func release_object(point: ObjectPlacementPoint) -> Node3D:
+	var temp_object := holding_object
+	holding_object = null
+	released_object.emit(temp_object, point)
+	return temp_object
+
+func ouija_object_placed(object: PlaceableObject, _point: OuijaPlacementPoint):
+	Singletons.ouija_system.move_rock_sequence(object.hints)
+
+func ouija_object_removed(_object: PlaceableObject, _point: OuijaPlacementPoint):
+	Singletons.ouija_system.cancel_current_movement()

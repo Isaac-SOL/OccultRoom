@@ -11,6 +11,8 @@ signal stopped_moving
 var move_progress: float = 0
 var cancel_move: bool = false
 var moving: bool = false
+var waiting_move: bool = false
+var current_sequence: Array[Pos] = []
 
 enum Pos {
 	NONE = 0,
@@ -42,34 +44,41 @@ func _ready():
 func _process(delta):
 	if moving:
 		var prog_distance := (target_move_pos - last_move_pos).length()
-		move_progress += delta * rock_speed
-		var prog_clamped := clampf(move_progress, 0, (target_move_pos - last_move_pos).length())
-		%Rock.position = lerp(last_move_pos, target_move_pos, prog_clamped / (prog_distance + 1e-5))
-		if move_progress >= prog_distance:
-			position_reached.emit()
+		if move_progress < prog_distance:
+			move_progress += delta * rock_speed
+			var prog_clamped := clampf(move_progress, 0, (target_move_pos - last_move_pos).length())
+			%Rock.position = lerp(last_move_pos, target_move_pos, prog_clamped / (prog_distance + 1e-5))
+			if move_progress >= prog_distance:
+				position_reached.emit()
 
 func get_pos(pos: Pos) -> Vector3:
 	return positions[pos].position
 
 func move_rock_sequence(sequence: Array[Pos]):
-	if moving:
+	current_sequence = sequence  # Anytime an object is placed it overrides previous sequence
+	if moving and not waiting_move:
+		waiting_move = true
 		await stopped_moving
+		waiting_move = false
 	moving = true
 	last_move_pos = get_pos(Pos.NONE)
 	await get_tree().create_timer(rock_wait).timeout
-	for pos: Pos in sequence:
-		target_move_pos = get_pos(pos)
-		await position_reached
-		last_move_pos = target_move_pos
-		await get_tree().create_timer(rock_wait).timeout
-		move_progress = 0
+	for pos: Pos in current_sequence:
+		move_to_pos(pos)
 		if cancel_move:
 			break
-	target_move_pos = get_pos(Pos.NONE)
+	if last_move_pos != get_pos(Pos.NONE):
+		move_to_pos(Pos.NONE)
+	moving = false
+	cancel_move = false
+	stopped_moving.emit()
+
+func move_to_pos(pos: Pos):
+	target_move_pos = get_pos(pos)
+	await position_reached
 	last_move_pos = target_move_pos
 	await get_tree().create_timer(rock_wait).timeout
-	moving = false
-	stopped_moving.emit()
+	move_progress = 0
 
 func cancel_current_movement():
 	cancel_move = true

@@ -3,7 +3,7 @@ class_name ObjectPlacementPoint extends MouseDetector
 signal object_placed(object: PlaceableObject, point: ObjectPlacementPoint)
 signal object_removed(object: PlaceableObject, point: ObjectPlacementPoint)
 
-@export var holding_object: Node3D
+@export var holding_object: PlaceableObject
 
 func _ready():
 	super._ready()
@@ -26,13 +26,14 @@ func _on_disown_mouse():
 
 func _on_placement_clicked(event: InputEventMouseButton):
 	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if holding_object and not Singletons.main.holding_object:
+		if holding_object and not Singletons.main.holding_object and holding_object.in_light():
 			release_object()
 		elif Singletons.main.holding_object and not holding_object:
 			grab_object()
 
 func release_object():
-	holding_object.global_position = get_hover_point()
+	holding_object.set_holder(null)
+	holding_object.move_to_smooth(get_hover_point(), holding_object.target_rotation)
 	Singletons.main.grab_object(holding_object)
 	var temp_object = holding_object
 	holding_object = null
@@ -40,5 +41,6 @@ func release_object():
 
 func grab_object():
 	holding_object = Singletons.main.release_object(self)
-	holding_object.global_position = get_ground_point()
+	holding_object.set_holder(self)
+	holding_object.place_at(get_ground_point())
 	object_placed.emit(holding_object, self)

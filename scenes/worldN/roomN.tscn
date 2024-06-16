@@ -1,0 +1,441 @@
+[gd_scene load_steps=23 format=3 uid="uid://dgq2l7pc8ci2r"]
+
+[ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_7nr0p"]
+[ext_resource type="PackedScene" uid="uid://dn77yd4l16weq" path="res://scenes/chambre/floor.tscn" id="1_m7lyj"]
+[ext_resource type="PackedScene" uid="uid://cwyeroginfom3" path="res://scenes/chambre/wall_1.tscn" id="2_hp7js"]
+[ext_resource type="PackedScene" uid="uid://b2vaujr4s1f23" path="res://objects/ouija_placement_point.tscn" id="2_mnr6a"]
+[ext_resource type="PackedScene" uid="uid://wry4x8x1djv4" path="res://objects/ouija_detector.tscn" id="3_25oj3"]
+[ext_resource type="PackedScene" uid="uid://cn3aqry6xnj18" path="res://scenes/chambre/wall_2.tscn" id="3_yq1n3"]
+[ext_resource type="PackedScene" uid="uid://cd1b7dok184rq" path="res://scenes/chambre/wall_3.tscn" id="4_vcbw8"]
+[ext_resource type="PackedScene" uid="uid://do8gjgsy0r07n" path="res://scenes/chambre/wall_4.tscn" id="5_mur1d"]
+[ext_resource type="PackedScene" uid="uid://t613cf1f1w7u" path="res://scenes/artefacts/baguette.tscn" id="6_bavuh"]
+[ext_resource type="PackedScene" uid="uid://b0sp4h8u5thh5" path="res://scenes/artefacts/ouija/ouija_board.tscn" id="7_sa58c"]
+[ext_resource type="PackedScene" uid="uid://jkrxv6iyw51s" path="res://scenes/artefacts/ouija/ouija_cursor.tscn" id="8_n25my"]
+[ext_resource type="PackedScene" uid="uid://begg35e7wjo3e" path="res://scenes/furnitures/etagere.tscn" id="10_x0fxx"]
+[ext_resource type="PackedScene" uid="uid://dmhsk5o2frurl" path="res://scenes/furnitures/table.tscn" id="11_2d1bu"]
+[ext_resource type="PackedScene" uid="uid://bpf8xek506hi1" path="res://scenes/furnitures/totem.tscn" id="12_4tj4p"]
+[ext_resource type="PackedScene" uid="uid://cjise7anhsepl" path="res://scenes/artefacts/pandora_box.tscn" id="15_jbd8j"]
+[ext_resource type="PackedScene" uid="uid://cj7ngfioppdlb" path="res://scenes/artefacts/crystal_ball.tscn" id="16_qkdpg"]
+[ext_resource type="PackedScene" uid="uid://d3x7emqm0kl3w" path="res://scenes/furnitures/box.tscn" id="17_8itcb"]
+[ext_resource type="PackedScene" uid="uid://dok0jaispvaq8" path="res://scenes/furnitures/presentoire.tscn" id="18_iae62"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bbacu"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4lg0k"]
+
+[sub_resource type="Sky" id="Sky_56k6r"]
+sky_material = SubResource("ProceduralSkyMaterial_4lg0k")
+
+[sub_resource type="Environment" id="Environment_x8wh7"]
+background_mode = 1
+sky = SubResource("Sky_56k6r")
+ambient_light_source = 1
+reflected_light_source = 1
+
+[node name="Room" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="Walls" type="CSGCombiner3D" parent="CSGCombiner3D"]
+visible = false
+
+[node name="wall1" parent="CSGCombiner3D/Walls" instance=ExtResource("2_hp7js")]
+
+[node name="Backface" type="MeshInstance3D" parent="CSGCombiner3D/Walls/wall1"]
+transform = Transform3D(-1.80349e-06, 1, -3.17344e-07, 2.35863e-14, 4.37114e-08, 7.26, 17.8678, -6.23846e-07, 9.97073e-15, 18.3, 2.8, 0.0999996)
+cast_shadow = 3
+mesh = SubResource("PlaneMesh_bbacu")
+skeleton = NodePath("../../../..")
+
+[node name="wall2" parent="CSGCombiner3D/Walls" instance=ExtResource("3_yq1n3")]
+
+[node name="wall3" parent="CSGCombiner3D/Walls" instance=ExtResource("4_vcbw8")]
+
+[node name="wall4" parent="CSGCombiner3D/Walls" instance=ExtResource("5_mur1d")]
+
+[node name="floor" parent="CSGCombiner3D" instance=ExtResource("1_m7lyj")]
+
+[node name="Artefacts" type="Node3D" parent="CSGCombiner3D"]
+
+[node name="baguette" parent="CSGCombiner3D/Artefacts" instance=ExtResource("6_bavuh")]
+
+[node name="ouija_board" parent="CSGCombiner3D/Artefacts" instance=ExtResource("7_sa58c")]
+
+[node name="ouija_cursor" parent="CSGCombiner3D/Artefacts" instance=ExtResource("8_n25my")]
+
+[node name="Furnitures" type="Node3D" parent="CSGCombiner3D"]
+
+[node name="etagere" parent="CSGCombiner3D/Furnitures" instance=ExtResource("10_x0fxx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -14)
+
+[node name="table" parent="CSGCombiner3D/Furnitures" instance=ExtResource("11_2d1bu")]
+
+[node name="totem" parent="CSGCombiner3D/Furnitures" instance=ExtResource("12_4tj4p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="LevelGeometry" type="CSGCombiner3D" parent="."]
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0, -4.5)
+size = Vector3(10, 1, 10)
+
+[node name="Bed" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, -1)
+size = Vector3(4, 2, 3)
+
+[node name="Table" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -4)
+size = Vector3(1, 2, 1)
+
+[node name="Ouija Table" type="CSGBox3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -4.5)
+size = Vector3(2, 2, 2)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -4)
+radius = 0.4
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -5)
+radius = 0.4
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x8wh7")
+
+[node name="PlacementPoints" type="Node3D" parent="."]
+transform = Transform3D(2.88, 0, 0, 0, 1, 0, 0, 0, 2.97, -12.9, 0, 13.3)
+
+[node name="ObjectPlacementPoint" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="ObjectPlacementPoint2" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1)
+
+[node name="ObjectPlacementPoint3" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
+
+[node name="ObjectPlacementPoint4" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -3)
+
+[node name="ObjectPlacementPoint5" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4)
+
+[node name="ObjectPlacementPoint6" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
+
+[node name="ObjectPlacementPoint7" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6)
+
+[node name="ObjectPlacementPoint8" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -7)
+
+[node name="ObjectPlacementPoint9" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -8)
+
+[node name="ObjectPlacementPoint10" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -9)
+
+[node name="ObjectPlacementPoint11" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -9)
+
+[node name="ObjectPlacementPoint12" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -8)
+
+[node name="ObjectPlacementPoint13" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -7)
+
+[node name="ObjectPlacementPoint14" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -6)
+
+[node name="ObjectPlacementPoint15" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -5)
+
+[node name="ObjectPlacementPoint16" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -4)
+
+[node name="ObjectPlacementPoint17" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -3)
+
+[node name="ObjectPlacementPoint18" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -2)
+
+[node name="ObjectPlacementPoint19" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -1)
+
+[node name="ObjectPlacementPoint20" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, 0)
+
+[node name="ObjectPlacementPoint21" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
+
+[node name="ObjectPlacementPoint22" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -1)
+
+[node name="ObjectPlacementPoint23" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -2)
+
+[node name="ObjectPlacementPoint24" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -3)
+
+[node name="ObjectPlacementPoint25" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -4)
+
+[node name="ObjectPlacementPoint26" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -5)
+
+[node name="ObjectPlacementPoint27" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -6)
+
+[node name="ObjectPlacementPoint28" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -7)
+
+[node name="ObjectPlacementPoint29" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -8)
+
+[node name="ObjectPlacementPoint30" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -9)
+
+[node name="ObjectPlacementPoint31" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -9)
+
+[node name="ObjectPlacementPoint32" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -8)
+
+[node name="ObjectPlacementPoint33" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -7)
+
+[node name="ObjectPlacementPoint34" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -6)
+
+[node name="ObjectPlacementPoint35" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -5)
+
+[node name="OuijaPlacementPoint" parent="PlacementPoints" instance=ExtResource("2_mnr6a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -4)
+
+[node name="ObjectPlacementPoint37" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -3)
+
+[node name="ObjectPlacementPoint38" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -2)
+
+[node name="ObjectPlacementPoint39" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -1)
+
+[node name="ObjectPlacementPoint40" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 0)
+
+[node name="ObjectPlacementPoint41" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, 0)
+
+[node name="ObjectPlacementPoint42" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -1)
+
+[node name="ObjectPlacementPoint43" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -2)
+
+[node name="ObjectPlacementPoint44" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -3)
+
+[node name="ObjectPlacementPoint45" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -4)
+
+[node name="ObjectPlacementPoint46" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -5)
+
+[node name="ObjectPlacementPoint47" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -6)
+
+[node name="ObjectPlacementPoint48" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -7)
+
+[node name="ObjectPlacementPoint49" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -8)
+
+[node name="ObjectPlacementPoint50" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.5, -9)
+
+[node name="ObjectPlacementPoint51" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -9)
+
+[node name="ObjectPlacementPoint52" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -8)
+
+[node name="ObjectPlacementPoint53" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -7)
+
+[node name="ObjectPlacementPoint54" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -6)
+
+[node name="ObjectPlacementPoint55" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -5)
+
+[node name="ObjectPlacementPoint56" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+process_mode = 4
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -4)
+
+[node name="ObjectPlacementPoint57" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -3)
+
+[node name="ObjectPlacementPoint58" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -2)
+
+[node name="ObjectPlacementPoint59" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -1)
+
+[node name="ObjectPlacementPoint60" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 0)
+
+[node name="ObjectPlacementPoint61" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, 0)
+
+[node name="ObjectPlacementPoint62" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -1)
+
+[node name="ObjectPlacementPoint63" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -2)
+
+[node name="ObjectPlacementPoint64" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -3)
+
+[node name="ObjectPlacementPoint65" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -4)
+
+[node name="ObjectPlacementPoint66" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -5)
+
+[node name="ObjectPlacementPoint67" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -6)
+
+[node name="ObjectPlacementPoint68" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -7)
+
+[node name="ObjectPlacementPoint69" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -8)
+
+[node name="ObjectPlacementPoint70" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -9)
+
+[node name="ObjectPlacementPoint71" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -9)
+
+[node name="ObjectPlacementPoint72" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -8)
+
+[node name="ObjectPlacementPoint73" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -7)
+
+[node name="ObjectPlacementPoint74" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -6)
+
+[node name="ObjectPlacementPoint75" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -5)
+
+[node name="ObjectPlacementPoint76" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -4)
+
+[node name="ObjectPlacementPoint77" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -3)
+
+[node name="ObjectPlacementPoint78" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -2)
+
+[node name="ObjectPlacementPoint79" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -1)
+
+[node name="ObjectPlacementPoint80" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, 0)
+
+[node name="ObjectPlacementPoint81" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, 0)
+
+[node name="ObjectPlacementPoint82" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -1)
+
+[node name="ObjectPlacementPoint83" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -2)
+
+[node name="ObjectPlacementPoint84" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -3)
+
+[node name="ObjectPlacementPoint85" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -4)
+
+[node name="ObjectPlacementPoint86" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -5)
+
+[node name="ObjectPlacementPoint87" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -6)
+
+[node name="ObjectPlacementPoint88" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -7)
+
+[node name="ObjectPlacementPoint89" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -8)
+
+[node name="ObjectPlacementPoint90" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -9)
+
+[node name="ObjectPlacementPoint91" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -9)
+
+[node name="ObjectPlacementPoint92" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -8)
+
+[node name="ObjectPlacementPoint93" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -7)
+
+[node name="ObjectPlacementPoint94" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -6)
+
+[node name="ObjectPlacementPoint95" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -5)
+
+[node name="ObjectPlacementPoint96" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -4)
+
+[node name="ObjectPlacementPoint97" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -3)
+
+[node name="ObjectPlacementPoint98" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -2)
+
+[node name="ObjectPlacementPoint99" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -1)
+
+[node name="ObjectPlacementPoint100" parent="PlacementPoints" instance=ExtResource("1_7nr0p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 0)
+
+[node name="OuijaDetector" parent="." instance=ExtResource("3_25oj3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.31, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.961516, -0.12941, 0.242363, -0.0752158, 0.724444, 0.685218, -0.264252, -0.677077, 0.686831, 7, 39, 31)
+shadow_enabled = true
+directional_shadow_split_1 = 0.01
+
+[node name="EditorLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.25745, 4, 0.22568)
+shadow_enabled = true
+editor_only = true
+omni_range = 10.0
+omni_attenuation = 1.41421
+
+[node name="pandora_box" parent="." instance=ExtResource("15_jbd8j")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, -14)
+
+[node name="crystal_ball" parent="." instance=ExtResource("16_qkdpg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8, -2.4, 4.3)
+
+[node name="box" parent="." instance=ExtResource("17_8itcb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -9)
+
+[node name="presentoire" parent="." instance=ExtResource("18_iae62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9, 0, 1.1)
+
+[node name="etagere" parent="." instance=ExtResource("10_x0fxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4, 0, 12)

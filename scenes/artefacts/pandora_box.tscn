@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjise7anhsepl"]
+
+[ext_resource type="PackedScene" uid="uid://dktp752oygjwu" path="res://assets/3Dmodels/pandora_box.glb" id="1_3fpag"]
+
+[node name="pandora_box" instance=ExtResource("1_3fpag")]

@@ -1,5 +1,6 @@
 class_name PlaceableObject extends Area3D
 
+@export var special_name: String = ""
 @export var move_speed: float = 25
 @export var hints: Array[OuijaSystem.Pos]
 @export var holder: ObjectPlacementPoint = null
@@ -112,3 +113,6 @@ func _on_object_input_event(_camera: Node, event: InputEvent, _position: Vector3
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			if not CameraManager.ouija:
 				inspect()
+
+func set_clickable(clickable: bool):
+	set_deferred("input_ray_pickable", clickable)

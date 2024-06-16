@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://chgay07txbipr"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_st8cp"]
+[ext_resource type="Texture2D" uid="uid://c1stu14cicd4m" path="res://assets/textures/object/star.png" id="2_7gsgx"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d81ih"]
+top_radius = 0.35
+bottom_radius = 0.45
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ftsxx"]
+height = 1.0
+radius = 0.45
+
+[node name="Stool" type="Area3D" groups=["PlaceableObject"]]
+collision_layer = 4
+collision_mask = 23
+script = ExtResource("1_st8cp")
+special_name = "Stool"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_d81ih")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_ftsxx")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.01, 0)
+axis = 1
+texture = ExtResource("2_7gsgx")

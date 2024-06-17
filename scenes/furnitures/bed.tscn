@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0fyb8y16pja"]
+
+[ext_resource type="PackedScene" uid="uid://dkm2sxpltdeny" path="res://assets/3Dmodels/bed.glb" id="1_vwohn"]
+
+[node name="bed" instance=ExtResource("1_vwohn")]

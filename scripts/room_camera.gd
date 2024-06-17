@@ -1,6 +1,6 @@
 class_name RoomCamera extends Camera3D
 
-@export var room_size: float = 9
+@export var room_size: float = 20
 @export var ouija_size: float = 1
 @export var zoom_speed: float = 8
 

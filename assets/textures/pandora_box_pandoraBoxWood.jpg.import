@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbflco2frsxx1"
-path.bptc="res://.godot/imported/pandora_box_pandoraBoxWood.jpg-8cdcc674a87e2feadb19d9d17dab107f.bptc.ctex"
+uid="uid://cbqn6peiyc311"
+path.s3tc="res://.godot/imported/pandora_box_pandoraBoxWood.jpg-8cdcc674a87e2feadb19d9d17dab107f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -15,12 +15,12 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/textures/pandora_box_pandoraBoxWood.jpg"
-dest_files=["res://.godot/imported/pandora_box_pandoraBoxWood.jpg-8cdcc674a87e2feadb19d9d17dab107f.bptc.ctex"]
+dest_files=["res://.godot/imported/pandora_box_pandoraBoxWood.jpg-8cdcc674a87e2feadb19d9d17dab107f.s3tc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=true
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

@@ -1,5 +1,8 @@
 class_name PlaceableObject extends Area3D
 
+signal start_inspecting
+signal stop_inspecting
+
 @export var special_name: String = ""
 @export var move_speed: float = 25
 @export var hints: Array[OuijaSystem.Pos]
@@ -87,10 +90,12 @@ func inspect():
 			inspecting = true
 			save_transform()
 			Singletons.main.inspect_object(self)
+			start_inspecting.emit()
 	else:
 		inspecting = false
 		raw_rotation = global_rotation
 		Singletons.main.stop_inspect_object(self)
+		stop_inspecting.emit()
 
 func in_light() -> bool:
 	for area: Node in get_tree().get_nodes_in_group("LightArea"):

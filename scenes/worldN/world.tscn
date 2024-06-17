@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://exeb5f1cinn7"]
+[gd_scene load_steps=27 format=3 uid="uid://exeb5f1cinn7"]
 
 [ext_resource type="PackedScene" uid="uid://d0fyb8y16pja" path="res://scenes/furnitures/bed.tscn" id="1_0ldax"]
 [ext_resource type="PackedScene" uid="uid://dn77yd4l16weq" path="res://scenes/chambre/floor.tscn" id="2_081g6"]
@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://dtx6gycsfd0nk" path="res://scenes/artefacts/chandelier.tscn" id="19_202db"]
 [ext_resource type="PackedScene" uid="uid://dgdxrp8y31pje" path="res://scenes/artefacts/bougeoir_abougie.tscn" id="20_sgpcm"]
 [ext_resource type="PackedScene" uid="uid://f122y7vdq6jl" path="res://scenes/artefacts/bougie.tscn" id="21_royfy"]
+[ext_resource type="PackedScene" uid="uid://f53q20fxned8" path="res://scenes/furnitures/pillow.tscn" id="22_spxbf"]
+[ext_resource type="PackedScene" uid="uid://bw7wpj5dy713c" path="res://scenes/artefacts/pandora_key.tscn" id="23_yfs3v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m58k6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -117,3 +119,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11531, 1.94644, -1.42677)
 
 [node name="bougie4" parent="." instance=ExtResource("21_royfy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0846853, 1.94644, -1.42677)
+
+[node name="pillow" parent="." instance=ExtResource("22_spxbf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.2, 0, 2.3)
+
+[node name="pandora_key" parent="." instance=ExtResource("23_yfs3v")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 13.7, 4.4, -5.7)

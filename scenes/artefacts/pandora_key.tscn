@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw7wpj5dy713c"]
+
+[ext_resource type="PackedScene" uid="uid://cg5i8ymsqn74l" path="res://assets/3Dmodels/pandora_key.glb" id="1_puikc"]
+
+[node name="pandora_key" instance=ExtResource("1_puikc")]
+
+[node name="pandora_key" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.167456, -0.00917654, 0)

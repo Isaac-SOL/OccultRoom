@@ -94,7 +94,6 @@ func inspect():
 
 func in_light() -> bool:
 	for area: Node in get_tree().get_nodes_in_group("LightArea"):
-		print(area)
 		if area is Area3D and area.overlaps_area(self):
 			return true
 	return false

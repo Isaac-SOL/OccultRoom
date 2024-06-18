@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://exeb5f1cinn7"]
+[gd_scene load_steps=32 format=3 uid="uid://exeb5f1cinn7"]
 
 [ext_resource type="PackedScene" uid="uid://d0fyb8y16pja" path="res://scenes/furnitures/bed.tscn" id="1_0ldax"]
 [ext_resource type="PackedScene" uid="uid://dn77yd4l16weq" path="res://scenes/chambre/floor.tscn" id="2_081g6"]
@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://bpoapbk4abjms" path="res://scenes/furnitures/large_table.tscn" id="24_n8sjw"]
 [ext_resource type="PackedScene" uid="uid://bqss1cd48i76n" path="res://scenes/furnitures/tabouret.tscn" id="25_0gflc"]
 [ext_resource type="PackedScene" uid="uid://bu4pt4ijj1en2" path="res://scenes/artefacts/sonnette.tscn" id="26_npyor"]
+[ext_resource type="PackedScene" uid="uid://wq5rg8bsyb6a" path="res://scenes/artefacts/ouija/pyramid_cursor.tscn" id="27_t0l3m"]
+[ext_resource type="PackedScene" uid="uid://j3rta3tt3lyo" path="res://scenes/artefacts/ouija/ouija_text.tscn" id="28_ctjo6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m58k6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -47,6 +49,7 @@ environment = SubResource("Environment_rpfrh")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.33257, 0)
+visible = false
 light_color = Color(1, 0.905882, 0.776471, 1)
 light_energy = 6.619
 shadow_enabled = true
@@ -73,6 +76,7 @@ visible = false
 
 [node name="ouija_cursor" parent="." instance=ExtResource("9_x7vnq")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+visible = false
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.707107, 0.331563, -0.624552, 0, 0.883251, 0.468901, 0.707107, -0.331563, 0.624552, -19.2528, 11.3501, 20.0321)
@@ -140,3 +144,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 2)
 
 [node name="sonnette" parent="." instance=ExtResource("26_npyor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39677, 2, 1.54128)
+
+[node name="pyramid_cursor" parent="." instance=ExtResource("27_t0l3m")]
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -0.2, 0, 0)
+
+[node name="ouija_text" parent="." instance=ExtResource("28_ctjo6")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)

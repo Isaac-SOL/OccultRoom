@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl8xhq3ii4wqj"
-path.bptc="res://.godot/imported/box_rust_coarse_01_diff_1k.jpg-e10eabccd56f103860708719d78edc23.bptc.ctex"
+uid="uid://jctis33by1iu"
+path.bptc="res://.godot/imported/bougeoir_Abougie_Totem.png-f9f2ac02e176dfc81eb4b18922f50736.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5ed85d8cb75600f90185859281d2f65e"
+"md5": "fbcb99c00ff2bad1749a61f4bb9dea9f"
 }
 
 [deps]
 
-source_file="res://assets/3Dmodels/box_rust_coarse_01_diff_1k.jpg"
-dest_files=["res://.godot/imported/box_rust_coarse_01_diff_1k.jpg-e10eabccd56f103860708719d78edc23.bptc.ctex"]
+source_file="res://assets/3Dmodels/bougeoir_Abougie_Totem.png"
+dest_files=["res://.godot/imported/bougeoir_Abougie_Totem.png-f9f2ac02e176dfc81eb4b18922f50736.bptc.ctex"]
 
 [params]
 

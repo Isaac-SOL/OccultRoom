@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl8xhq3ii4wqj"
-path.bptc="res://.godot/imported/box_rust_coarse_01_diff_1k.jpg-e10eabccd56f103860708719d78edc23.bptc.ctex"
+uid="uid://pb5kh6uw150y"
+path.bptc="res://.godot/imported/table_wood_table_001_diff_1k.jpg-b20b14a7912e7229729751b4df920855.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "5ed85d8cb75600f90185859281d2f65e"
+"md5": "23b5e6896bba402d214f7ef8d8f8339c"
 }
 
 [deps]
 
-source_file="res://assets/3Dmodels/box_rust_coarse_01_diff_1k.jpg"
-dest_files=["res://.godot/imported/box_rust_coarse_01_diff_1k.jpg-e10eabccd56f103860708719d78edc23.bptc.ctex"]
+source_file="res://assets/3Dmodels/table_wood_table_001_diff_1k.jpg"
+dest_files=["res://.godot/imported/table_wood_table_001_diff_1k.jpg-b20b14a7912e7229729751b4df920855.bptc.ctex"]
 
 [params]
 

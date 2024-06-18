@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dgq2l7pc8ci2r"]
+[gd_scene load_steps=31 format=3 uid="uid://dgq2l7pc8ci2r"]
 
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_7nr0p"]
 [ext_resource type="PackedScene" uid="uid://dn77yd4l16weq" path="res://scenes/chambre/floor.tscn" id="1_m7lyj"]
@@ -14,7 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://begg35e7wjo3e" path="res://scenes/furnitures/etagere.tscn" id="10_x0fxx"]
 [ext_resource type="PackedScene" uid="uid://dmhsk5o2frurl" path="res://scenes/furnitures/table.tscn" id="11_2d1bu"]
 [ext_resource type="PackedScene" uid="uid://bpf8xek506hi1" path="res://scenes/furnitures/totem.tscn" id="12_4tj4p"]
+[ext_resource type="PackedScene" uid="uid://j3rta3tt3lyo" path="res://scenes/artefacts/ouija/ouija_text.tscn" id="14_jwgkf"]
 [ext_resource type="PackedScene" uid="uid://cjise7anhsepl" path="res://scenes/artefacts/pandora_box.tscn" id="15_jbd8j"]
+[ext_resource type="PackedScene" uid="uid://wq5rg8bsyb6a" path="res://scenes/artefacts/ouija/pyramid_cursor.tscn" id="15_tss0s"]
 [ext_resource type="PackedScene" uid="uid://cj7ngfioppdlb" path="res://scenes/artefacts/crystal_ball.tscn" id="16_qkdpg"]
 [ext_resource type="PackedScene" uid="uid://d3x7emqm0kl3w" path="res://scenes/furnitures/box.tscn" id="17_8itcb"]
 [ext_resource type="PackedScene" uid="uid://dok0jaispvaq8" path="res://scenes/furnitures/presentoire.tscn" id="18_iae62"]
@@ -69,6 +71,7 @@ skeleton = NodePath("../../../..")
 [node name="ouija_board" parent="CSGCombiner3D/Artefacts" instance=ExtResource("7_sa58c")]
 
 [node name="ouija_cursor" parent="CSGCombiner3D/Artefacts" instance=ExtResource("8_n25my")]
+visible = false
 
 [node name="pandora_box" parent="CSGCombiner3D/Artefacts" instance=ExtResource("15_jbd8j")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, -14)
@@ -91,6 +94,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 1.9, 1.5)
 [node name="bougie3" parent="CSGCombiner3D/Artefacts" instance=ExtResource("21_g838x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 1.9, 1.5)
 
+[node name="ouija_text" parent="CSGCombiner3D/Artefacts" instance=ExtResource("14_jwgkf")]
+
+[node name="pyramid_cursor" parent="CSGCombiner3D/Artefacts" instance=ExtResource("15_tss0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7, 0, 0)
+
 [node name="Furnitures" type="Node3D" parent="CSGCombiner3D"]
 
 [node name="etagere" parent="CSGCombiner3D/Furnitures" instance=ExtResource("10_x0fxx")]
@@ -109,6 +117,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9, 0, 1.1)
 
 [node name="etagere2" parent="CSGCombiner3D/Furnitures" instance=ExtResource("10_x0fxx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4, 0, 12)
+
+[node name="tabouret" parent="CSGCombiner3D/Furnitures" instance=ExtResource("22_hf4p6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 13)
+
+[node name="bed" parent="CSGCombiner3D/Furnitures" instance=ExtResource("23_plpog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 12)
+
+[node name="large_table" parent="CSGCombiner3D/Furnitures" instance=ExtResource("24_50myp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 5)
+
+[node name="table2" parent="CSGCombiner3D/Furnitures" instance=ExtResource("11_2d1bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -11)
 
 [node name="LevelGeometry" type="CSGCombiner3D" parent="."]
 visible = false
@@ -449,6 +469,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, 0)
 
 [node name="OuijaDetector" parent="." instance=ExtResource("3_25oj3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.31, 0)
+visible = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.961516, -0.12941, 0.242363, -0.0752158, 0.724444, 0.685218, -0.264252, -0.677077, 0.686831, 7, 39, 31)
@@ -461,15 +482,3 @@ shadow_enabled = true
 editor_only = true
 omni_range = 10.0
 omni_attenuation = 1.41421
-
-[node name="tabouret" parent="." instance=ExtResource("22_hf4p6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 13)
-
-[node name="bed" parent="." instance=ExtResource("23_plpog")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 12)
-
-[node name="large_table" parent="." instance=ExtResource("24_50myp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 5)
-
-[node name="table" parent="." instance=ExtResource("11_2d1bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -11)

@@ -2,25 +2,25 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c77750omkanbi"
-path.s3tc="res://.godot/imported/genie_Totem.png-b61a95a48a88efe208d8071cdc42a8ab.s3tc.ctex"
+uid="uid://qpwmcmirs0vu"
+path.bptc="res://.godot/imported/large_table_wood_table_001_diff_1k.jpg-6939fb6ebcde40b4bc1616fe9300a9f2.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "fbcb99c00ff2bad1749a61f4bb9dea9f"
+"md5": "23b5e6896bba402d214f7ef8d8f8339c"
 }
 
 [deps]
 
-source_file="res://assets/textures/genie_Totem.png"
-dest_files=["res://.godot/imported/genie_Totem.png-b61a95a48a88efe208d8071cdc42a8ab.s3tc.ctex"]
+source_file="res://assets/textures/large_table_wood_table_001_diff_1k.jpg"
+dest_files=["res://.godot/imported/large_table_wood_table_001_diff_1k.jpg-6939fb6ebcde40b4bc1616fe9300a9f2.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

@@ -1,4 +1,4 @@
-class_name Candle extends Node3D
+class_name Candle_light extends Node3D
 
 @export var min_size: float = 3
 @export var max_size: float = 4

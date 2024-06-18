@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu4pt4ijj1en2"]
+
+[ext_resource type="PackedScene" uid="uid://dlrqc1xnf6wea" path="res://assets/3Dmodels/sonnette.glb" id="1_ggcnq"]
+
+[node name="sonnette" instance=ExtResource("1_ggcnq")]

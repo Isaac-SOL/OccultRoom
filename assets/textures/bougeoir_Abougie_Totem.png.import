@@ -2,30 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kinna0w47bem"
-path.s3tc="res://.godot/imported/bougeoir_Abougie_Totem.png-6fcfbc9c79059c8ea6790ed3aa45e8cc.s3tc.ctex"
+uid="uid://cy7bya6bb7ehi"
+path="res://.godot/imported/bougeoir_Abougie_Totem.png-6fcfbc9c79059c8ea6790ed3aa45e8cc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "fbcb99c00ff2bad1749a61f4bb9dea9f"
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/bougeoir_Abougie_Totem.png"
-dest_files=["res://.godot/imported/bougeoir_Abougie_Totem.png-6fcfbc9c79059c8ea6790ed3aa45e8cc.s3tc.ctex"]
+dest_files=["res://.godot/imported/bougeoir_Abougie_Totem.png-6fcfbc9c79059c8ea6790ed3aa45e8cc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -35,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

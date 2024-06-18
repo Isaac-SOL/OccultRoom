@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dgq2l7pc8ci2r"]
+[gd_scene load_steps=29 format=3 uid="uid://dgq2l7pc8ci2r"]
 
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_7nr0p"]
 [ext_resource type="PackedScene" uid="uid://dn77yd4l16weq" path="res://scenes/chambre/floor.tscn" id="1_m7lyj"]
@@ -18,6 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://cj7ngfioppdlb" path="res://scenes/artefacts/crystal_ball.tscn" id="16_qkdpg"]
 [ext_resource type="PackedScene" uid="uid://d3x7emqm0kl3w" path="res://scenes/furnitures/box.tscn" id="17_8itcb"]
 [ext_resource type="PackedScene" uid="uid://dok0jaispvaq8" path="res://scenes/furnitures/presentoire.tscn" id="18_iae62"]
+[ext_resource type="PackedScene" uid="uid://dgdxrp8y31pje" path="res://scenes/artefacts/bougeoir_abougie.tscn" id="19_7v0ik"]
+[ext_resource type="PackedScene" uid="uid://dtx6gycsfd0nk" path="res://scenes/artefacts/chandelier.tscn" id="20_ts8ne"]
+[ext_resource type="PackedScene" uid="uid://f122y7vdq6jl" path="res://scenes/artefacts/bougie.tscn" id="21_g838x"]
+[ext_resource type="PackedScene" uid="uid://bqss1cd48i76n" path="res://scenes/furnitures/tabouret.tscn" id="22_hf4p6"]
+[ext_resource type="PackedScene" uid="uid://d0fyb8y16pja" path="res://scenes/furnitures/bed.tscn" id="23_plpog"]
+[ext_resource type="PackedScene" uid="uid://bpoapbk4abjms" path="res://scenes/furnitures/large_table.tscn" id="24_50myp"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bbacu"]
 
@@ -43,6 +49,7 @@ visible = false
 
 [node name="Backface" type="MeshInstance3D" parent="CSGCombiner3D/Walls/wall1"]
 transform = Transform3D(-1.80349e-06, 1, -3.17344e-07, 2.35863e-14, 4.37114e-08, 7.26, 17.8678, -6.23846e-07, 9.97073e-15, 18.3, 2.8, 0.0999996)
+visible = false
 cast_shadow = 3
 mesh = SubResource("PlaneMesh_bbacu")
 skeleton = NodePath("../../../..")
@@ -63,6 +70,27 @@ skeleton = NodePath("../../../..")
 
 [node name="ouija_cursor" parent="CSGCombiner3D/Artefacts" instance=ExtResource("8_n25my")]
 
+[node name="pandora_box" parent="CSGCombiner3D/Artefacts" instance=ExtResource("15_jbd8j")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, -14)
+
+[node name="crystal_ball" parent="CSGCombiner3D/Artefacts" instance=ExtResource("16_qkdpg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8, -2.4, 4.3)
+
+[node name="bougeoir_Abougie" parent="CSGCombiner3D/Artefacts" instance=ExtResource("19_7v0ik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -2)
+
+[node name="chandelier" parent="CSGCombiner3D/Artefacts" instance=ExtResource("20_ts8ne")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -7, 0, -14)
+
+[node name="bougie" parent="CSGCombiner3D/Artefacts" instance=ExtResource("21_g838x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 1.9, 1.5)
+
+[node name="bougie2" parent="CSGCombiner3D/Artefacts" instance=ExtResource("21_g838x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 1.9, 1.5)
+
+[node name="bougie3" parent="CSGCombiner3D/Artefacts" instance=ExtResource("21_g838x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 1.9, 1.5)
+
 [node name="Furnitures" type="Node3D" parent="CSGCombiner3D"]
 
 [node name="etagere" parent="CSGCombiner3D/Furnitures" instance=ExtResource("10_x0fxx")]
@@ -72,6 +100,15 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 
 
 [node name="totem" parent="CSGCombiner3D/Furnitures" instance=ExtResource("12_4tj4p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="box" parent="CSGCombiner3D/Furnitures" instance=ExtResource("17_8itcb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -9)
+
+[node name="presentoire" parent="CSGCombiner3D/Furnitures" instance=ExtResource("18_iae62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9, 0, 1.1)
+
+[node name="etagere2" parent="CSGCombiner3D/Furnitures" instance=ExtResource("10_x0fxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4, 0, 12)
 
 [node name="LevelGeometry" type="CSGCombiner3D" parent="."]
 visible = false
@@ -425,17 +462,14 @@ editor_only = true
 omni_range = 10.0
 omni_attenuation = 1.41421
 
-[node name="pandora_box" parent="." instance=ExtResource("15_jbd8j")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 0, -14)
+[node name="tabouret" parent="." instance=ExtResource("22_hf4p6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 13)
 
-[node name="crystal_ball" parent="." instance=ExtResource("16_qkdpg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8, -2.4, 4.3)
+[node name="bed" parent="." instance=ExtResource("23_plpog")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 12)
 
-[node name="box" parent="." instance=ExtResource("17_8itcb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, -9)
+[node name="large_table" parent="." instance=ExtResource("24_50myp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 5)
 
-[node name="presentoire" parent="." instance=ExtResource("18_iae62")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9, 0, 1.1)
-
-[node name="etagere" parent="." instance=ExtResource("10_x0fxx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4, 0, 12)
+[node name="table" parent="." instance=ExtResource("11_2d1bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -11)

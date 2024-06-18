@@ -54,10 +54,10 @@ func release_object(point: ObjectPlacementPoint) -> Node3D:
 	return temp_object
 
 func ouija_object_placed(object: PlaceableObject, _point: OuijaPlacementPoint):
-	Singletons.ouija_system.move_rock_sequence(object.hints)
+	Singletons.ouija_system._on_object_placed(object)
 
 func ouija_object_removed(_object: PlaceableObject, _point: OuijaPlacementPoint):
-	Singletons.ouija_system.cancel_current_movement()
+	Singletons.ouija_system._on_object_removed()
 
 func inspect_object(object: PlaceableObject):
 	inspecting = object

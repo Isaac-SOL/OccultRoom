@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://f122y7vdq6jl"]
+
+[ext_resource type="PackedScene" uid="uid://b7h2qscqsy6am" path="res://assets/3Dmodels/bougie.glb" id="1_du2b7"]
+[ext_resource type="Material" uid="uid://5es7glaa8vnf" path="res://assets/particules/fire_process_material.tres" id="2_ds56l"]
+[ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="3_3uwgy"]
+[ext_resource type="Script" path="res://scripts/candle.gd" id="4_clvm2"]
+
+[sub_resource type="Gradient" id="Gradient_bewny"]
+offsets = PackedFloat32Array(0.0213904, 0.871658)
+colors = PackedColorArray(0.192157, 0.592157, 0.819608, 1, 0.614353, 0.0768664, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kom04"]
+gradient = SubResource("Gradient_bewny")
+
+[sub_resource type="Curve" id="Curve_1suwq"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.325991, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_cxnh3"]
+curve = SubResource("Curve_1suwq")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_81wsx"]
+angle_min = -720.0
+angle_max = 362.7
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+scale_min = 2.0
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_cxnh3")
+color_ramp = SubResource("GradientTexture1D_kom04")
+
+[node name="bougie" instance=ExtResource("1_du2b7")]
+
+[node name="GPUParticles3D_fire" type="GPUParticles3D" parent="." index="1"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0, 0.985, 0)
+emitting = false
+amount = 6
+process_material = ExtResource("2_ds56l")
+draw_pass_1 = ExtResource("3_3uwgy")
+
+[node name="GPUParticles3D_dark" type="GPUParticles3D" parent="." index="2"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0, 0.985, 0)
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_81wsx")
+draw_pass_1 = ExtResource("3_3uwgy")
+
+[node name="Candle_light" type="Node3D" parent="." index="3"]
+script = ExtResource("4_clvm2")
+min_size = 3.45
+max_size = 3.55
+flicker_interval = 0.12
+
+[node name="Light" type="OmniLight3D" parent="Candle_light" index="0"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60097, 0)
+light_color = Color(1, 1, 0.780392, 1)
+shadow_enabled = true
+omni_range = 3.5
+omni_attenuation = 0.307786

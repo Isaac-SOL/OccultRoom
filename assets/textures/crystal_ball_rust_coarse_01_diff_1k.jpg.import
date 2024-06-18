@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsq4mun6414bo"
-path.s3tc="res://.godot/imported/crystal_ball_rust_coarse_01_diff_1k.jpg-6029f1481ff1fa2e07e280b2ae7da550.s3tc.ctex"
+path.bptc="res://.godot/imported/crystal_ball_rust_coarse_01_diff_1k.jpg-6029f1481ff1fa2e07e280b2ae7da550.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -15,12 +15,12 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/textures/crystal_ball_rust_coarse_01_diff_1k.jpg"
-dest_files=["res://.godot/imported/crystal_ball_rust_coarse_01_diff_1k.jpg-6029f1481ff1fa2e07e280b2ae7da550.s3tc.ctex"]
+dest_files=["res://.godot/imported/crystal_ball_rust_coarse_01_diff_1k.jpg-6029f1481ff1fa2e07e280b2ae7da550.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

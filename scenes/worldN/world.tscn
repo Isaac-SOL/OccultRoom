@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://exeb5f1cinn7"]
+[gd_scene load_steps=30 format=3 uid="uid://exeb5f1cinn7"]
 
 [ext_resource type="PackedScene" uid="uid://d0fyb8y16pja" path="res://scenes/furnitures/bed.tscn" id="1_0ldax"]
 [ext_resource type="PackedScene" uid="uid://dn77yd4l16weq" path="res://scenes/chambre/floor.tscn" id="2_081g6"]
@@ -17,6 +17,15 @@
 [ext_resource type="PackedScene" uid="uid://d3x7emqm0kl3w" path="res://scenes/furnitures/box.tscn" id="15_moeuk"]
 [ext_resource type="PackedScene" uid="uid://cfxeaotupdbrl" path="res://scenes/artefacts/chest_key.tscn" id="16_pap8a"]
 [ext_resource type="PackedScene" uid="uid://cjise7anhsepl" path="res://scenes/artefacts/pandora_box.tscn" id="17_udlvd"]
+[ext_resource type="PackedScene" uid="uid://e1b784hots7d" path="res://scenes/artefacts/genie.tscn" id="18_i2j1v"]
+[ext_resource type="PackedScene" uid="uid://dtx6gycsfd0nk" path="res://scenes/artefacts/chandelier.tscn" id="19_202db"]
+[ext_resource type="PackedScene" uid="uid://dgdxrp8y31pje" path="res://scenes/artefacts/bougeoir_abougie.tscn" id="20_sgpcm"]
+[ext_resource type="PackedScene" uid="uid://f122y7vdq6jl" path="res://scenes/artefacts/bougie.tscn" id="21_royfy"]
+[ext_resource type="PackedScene" uid="uid://f53q20fxned8" path="res://scenes/furnitures/pillow.tscn" id="22_spxbf"]
+[ext_resource type="PackedScene" uid="uid://bw7wpj5dy713c" path="res://scenes/artefacts/pandora_key.tscn" id="23_yfs3v"]
+[ext_resource type="PackedScene" uid="uid://bpoapbk4abjms" path="res://scenes/furnitures/large_table.tscn" id="24_n8sjw"]
+[ext_resource type="PackedScene" uid="uid://bqss1cd48i76n" path="res://scenes/furnitures/tabouret.tscn" id="25_0gflc"]
+[ext_resource type="PackedScene" uid="uid://bu4pt4ijj1en2" path="res://scenes/artefacts/sonnette.tscn" id="26_npyor"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m58k6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -82,16 +91,52 @@ transform = Transform3D(-1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, -1, 14, 0,
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5, 0, -14)
 
 [node name="crystal_ball" parent="." instance=ExtResource("13_eskyd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 5.6, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4, 0.0999999, -13)
 
 [node name="presentoire" parent="." instance=ExtResource("14_j24iu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -13)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 14)
 
 [node name="box" parent="." instance=ExtResource("15_moeuk")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3, 0, -13)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 13, 0, 13)
 
 [node name="chest_key" parent="." instance=ExtResource("16_pap8a")]
-transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, -7, 4.5, -8)
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, 1, 0, -1, 2.98023e-08, -5.2, 4.5, -12.4)
 
 [node name="pandora_box" parent="." instance=ExtResource("17_udlvd")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 14, 0, -1)
+transform = Transform3D(-1.19209e-07, 0, -1, 0, 1, 0, 1, 0, -1.19209e-07, 9, 0, -13)
+
+[node name="genie" parent="." instance=ExtResource("18_i2j1v")]
+transform = Transform3D(0.12613, 0, -0.992014, 0, 1, 0, 0.992014, 0, 0.12613, 13.4103, 2.21464, -4.38376)
+
+[node name="chandelier" parent="." instance=ExtResource("19_202db")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2214, 2.5, 8.8829)
+
+[node name="bougeoir_Abougie" parent="." instance=ExtResource("20_sgpcm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 1.7, 2)
+
+[node name="bougie2" parent="." instance=ExtResource("21_royfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.28469, 1.94644, -1.42677)
+
+[node name="bougie3" parent="." instance=ExtResource("21_royfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.11531, 1.94644, -1.42677)
+
+[node name="bougie4" parent="." instance=ExtResource("21_royfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0846853, 1.94644, -1.42677)
+
+[node name="pillow" parent="." instance=ExtResource("22_spxbf")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.2, 0, 2.3)
+
+[node name="pandora_key" parent="." instance=ExtResource("23_yfs3v")]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 13.7, 4.4, -5.7)
+
+[node name="large_table" parent="." instance=ExtResource("24_n8sjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3212, 0, 7.33372)
+
+[node name="large_table2" parent="." instance=ExtResource("24_n8sjw")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, -13)
+
+[node name="tabouret" parent="." instance=ExtResource("25_0gflc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 2)
+
+[node name="sonnette" parent="." instance=ExtResource("26_npyor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.39677, 2, 1.54128)

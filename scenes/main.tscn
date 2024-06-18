@@ -1,36 +1,67 @@
-[gd_scene load_steps=8 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=10 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
 [ext_resource type="Script" path="res://scripts/camera_rotation.gd" id="2_xlx1h"]
 [ext_resource type="Script" path="res://scripts/room_camera.gd" id="4_j5ui4"]
-[ext_resource type="PackedScene" uid="uid://bdbr8ihjq30u" path="res://objects/candle.tscn" id="5_3sew3"]
-[ext_resource type="PackedScene" uid="uid://bkf1vadtu7p38" path="res://objects/test_thing.tscn" id="5_nnanj"]
-[ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="6_whrdl"]
+[ext_resource type="Material" uid="uid://de7wyw0dv0jn6" path="res://shaders_mats/blur5x5.tres" id="5_tjfw7"]
 
-[node name="Main" type="Node3D" node_paths=PackedStringArray("holding_object")]
+[sub_resource type="SphereMesh" id="SphereMesh_t3pin"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nh86h"]
+albedo_color = Color(0, 0, 0, 1)
+emission_enabled = true
+emission = Color(0.37791, 0.1482, 0.39, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tkjhf"]
+plane = Plane(0, 0, 1, 0)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2cvp0"]
+size = Vector2(20, 20)
+orientation = 2
+
+[node name="Main" type="Node3D"]
 script = ExtResource("1_rshqp")
-holding_object = NodePath("TestThing")
 
 [node name="Room" parent="." instance=ExtResource("1_vjk08")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
+
+[node name="Moon" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.493771, 0.626944, 0.602604, -0.397357, 0.779064, -0.484939, -0.773497, 2.98023e-08, 0.633799, 6.56214, -4.62451, 13.7876)
+mesh = SubResource("SphereMesh_t3pin")
+surface_material_override/0 = SubResource("StandardMaterial3D_nh86h")
 
 [node name="CameraRotation" type="Node3D" parent="."]
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
 script = ExtResource("2_xlx1h")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRotation"]
-transform = Transform3D(1, -8.9407e-08, 2.08616e-07, -4.47035e-08, 0.866025, 0.5, -2.68221e-07, -0.5, 0.866025, 0, 6.73205, 10.3137)
+transform = Transform3D(1, -8.9407e-08, 2.68221e-07, -4.47035e-08, 0.866025, 0.5, -2.38419e-07, -0.5, 0.866025, 2.86102e-06, 11.732, 18.9739)
 projection = 1
 size = 9.0
 script = ExtResource("4_j5ui4")
+room_size = 9.0
 ouija_size = 2.0
 
-[node name="TestThing" parent="." instance=ExtResource("5_nnanj")]
+[node name="InspectPosition" type="Marker3D" parent="CameraRotation/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(-4.37114e-07, 2.38418e-07, -10, -4.05311e-06, 10, 2.38418e-07, 10, 4.05311e-06, -4.37114e-07, 0, 0, -6)
 
-[node name="Candle" parent="." instance=ExtResource("5_3sew3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.88456, 0.228254, 0)
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraRotation/Camera3D"]
+spot_range = 10.0
 
-[node name="ObjectPlacementPoint" parent="." node_paths=PackedStringArray("holding_object") instance=ExtResource("6_whrdl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9074, 0, 0)
-holding_object = NodePath("../Candle")
+[node name="BlockerArea" type="Area3D" parent="CameraRotation/Camera3D"]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 8
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRotation/Camera3D/BlockerArea"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, -2.98023e-08, -5.96046e-08, 1, -4.76837e-07, 0, -12)
+shape = SubResource("WorldBoundaryShape3D_tkjhf")
+
+[node name="Blurrer" type="MeshInstance3D" parent="CameraRotation/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, -2.98023e-08, -5.96046e-08, 1, -4.76837e-07, 0, -12)
+visible = false
+mesh = SubResource("PlaneMesh_2cvp0")
+surface_material_override/0 = ExtResource("5_tjfw7")

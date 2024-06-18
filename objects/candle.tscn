@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdbr8ihjq30u"]
+[gd_scene load_steps=7 format=3 uid="uid://bdbr8ihjq30u"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_ik0v4"]
 [ext_resource type="Script" path="res://scripts/candle.gd" id="1_p3h5u"]
@@ -12,11 +12,21 @@ anisotropy = 1.0
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8ked"]
 albedo_color = Color(1, 1, 0.694118, 1)
 
-[node name="CandleObject" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dhtoy"]
+radius = 0.310658
+height = 0.957331
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3uycd"]
+radius = 3.5
+
+[node name="CandleObject" type="Area3D" groups=["PlaceableObject"]]
+collision_layer = 4
+collision_mask = 23
 script = ExtResource("1_ik0v4")
 hints = Array[int]([0])
 
 [node name="Candle" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 script = ExtResource("1_p3h5u")
 min_size = 3.45
 max_size = 3.55
@@ -25,7 +35,9 @@ flicker_interval = 0.12
 [node name="Light" type="OmniLight3D" parent="Candle"]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.900969, 0)
+light_color = Color(1, 0.874, 0.64, 1)
 shadow_enabled = true
+shadow_bias = 0.01
 omni_range = 3.5
 omni_attenuation = 0.307786
 
@@ -42,3 +54,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.254849, 0)
 radius = 0.1
 height = 0.5
 material = SubResource("StandardMaterial3D_e8ked")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.236, 0)
+shape = SubResource("CapsuleShape3D_dhtoy")
+
+[node name="LightArea" type="Area3D" parent="." groups=["LightArea"]]
+collision_layer = 16
+collision_mask = 4
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightArea"]
+shape = SubResource("SphereShape3D_3uycd")

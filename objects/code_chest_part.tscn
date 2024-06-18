@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://buxjlhhoe0gki"]
+
+[ext_resource type="Script" path="res://scripts/code_part.gd" id="1_g1ok8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bl8li"]
+radius = 0.102232
+
+[node name="CodePart" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224541, 0.41)
+collision_layer = 32
+collision_mask = 0
+input_ray_pickable = false
+script = ExtResource("1_g1ok8")
+
+[node name="Text" type="Label3D" parent="."]
+unique_name_in_owner = true
+shaded = true
+texture_filter = 4
+text = "0"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_bl8li")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

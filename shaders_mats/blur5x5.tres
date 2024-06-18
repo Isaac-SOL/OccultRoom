@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://de7wyw0dv0jn6"]
+
+[ext_resource type="Shader" path="res://shaders_mats/blur5x5.gdshader" id="1_wcexk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qnssf"]
+render_priority = 0
+shader = ExtResource("1_wcexk")
+shader_parameter/vertical = true
+
+[resource]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_qnssf")
+shader = ExtResource("1_wcexk")
+shader_parameter/vertical = null

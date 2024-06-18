@@ -4,7 +4,7 @@ class_name RoomCamera extends Camera3D
 @export var ouija_size: float = 1
 @export var zoom_speed: float = 8
 
-var target_size: float = room_size
+@onready var target_size: float = room_size
 
 const base_rotation: float = -30
 

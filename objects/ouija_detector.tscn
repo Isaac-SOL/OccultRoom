@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://wry4x8x1djv4"]
 
 [ext_resource type="Script" path="res://scripts/ouija_detector.gd" id="1_ejanw"]
-[ext_resource type="Texture2D" uid="uid://babpxsb0lofes" path="res://textures/object/ouija.png" id="1_n6pxs"]
 [ext_resource type="Script" path="res://scripts/ouija_system.gd" id="2_b34w5"]
+[ext_resource type="Texture2D" uid="uid://babpxsb0lofes" path="res://assets/textures/object/ouija.png" id="3_it141"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f353b"]
 size = Vector3(2.1, 0.3, 2.1)
@@ -18,7 +18,7 @@ roughness = 0.61
 anisotropy_enabled = true
 anisotropy = 0.5
 
-[node name="OuijaDetector" type="Area3D"]
+[node name="OuijaDetector" type="Area3D" groups=["SpecialDetector"]]
 collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_ejanw")
@@ -34,8 +34,8 @@ rock_speed = 0.2
 [node name="Sprite3D" type="Sprite3D" parent="OuijaSystem"]
 transform = Transform3D(-0.8, 0, 1.20797e-07, 0, 0.8, 0, -1.20797e-07, 0, -0.8, 0, 0.01, 0)
 axis = 1
-texture_filter = 2
-texture = ExtResource("1_n6pxs")
+texture_filter = 4
+texture = ExtResource("3_it141")
 
 [node name="Positions" type="Node3D" parent="OuijaSystem"]
 

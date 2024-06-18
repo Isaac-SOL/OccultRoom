@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkf1vadtu7p38"]
+[gd_scene load_steps=5 format=3 uid="uid://bkf1vadtu7p38"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_2effn"]
 
@@ -8,8 +8,12 @@ size = Vector3(0.5, 0.5, 0.5)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l0h33"]
 albedo_color = Color(1, 0, 0, 1)
 
-[node name="TestThing" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.328667, 0)
+[sub_resource type="BoxShape3D" id="BoxShape3D_3lemh"]
+size = Vector3(0.655396, 0.654388, 0.499054)
+
+[node name="TestThing" type="Area3D" groups=["PlaceableObject"]]
+collision_layer = 4
+collision_mask = 23
 script = ExtResource("1_2effn")
 hints = Array[int]([2, 3, 10, 11])
 
@@ -24,3 +28,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.256557, 0.26647, 0)
 mesh = SubResource("BoxMesh_602p5")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_l0h33")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0581665, 0.323471, -0.00526428)
+shape = SubResource("BoxShape3D_3lemh")

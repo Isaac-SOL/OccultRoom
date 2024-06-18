@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://4axxv4ncukbv"]
+
+[ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_bkskb"]
+
+[sub_resource type="GDScript" id="GDScript_lvtxp"]
+script/source = "extends ObjectPlacementPoint
+
+func _ready():
+	super._ready()
+	object_placed.connect(_on_stool_object_placed)
+
+func _on_stool_object_placed(object: PlaceableObject, _point: ObjectPlacementPoint):
+	if object.special_name == \"Stool\":
+		object.set_clickable(false)
+		Singletons.room.stool_placed()
+"
+
+[node name="StoolPlacementPoint" instance=ExtResource("1_bkskb")]
+script = SubResource("GDScript_lvtxp")

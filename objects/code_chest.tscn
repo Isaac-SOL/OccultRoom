@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://dikduy73dav8r"]
+
+[ext_resource type="Script" path="res://scripts/code_chest.gd" id="1_huyrt"]
+[ext_resource type="PackedScene" uid="uid://buxjlhhoe0gki" path="res://objects/code_chest_part.tscn" id="2_70s15"]
+[ext_resource type="PackedScene" uid="uid://t613cf1f1w7u" path="res://scenes/artefacts/baguette.tscn" id="3_vnjd2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rr5o5"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e4f7w"]
+albedo_color = Color(0.2701, 0.30076, 0.73, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7g7tq"]
+size = Vector3(0.8, 0.8, 0.8)
+
+[node name="CodeChest" type="Area3D"]
+collision_layer = 4
+collision_mask = 23
+script = ExtResource("1_huyrt")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+mesh = SubResource("BoxMesh_rr5o5")
+surface_material_override/0 = SubResource("StandardMaterial3D_e4f7w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("BoxShape3D_7g7tq")
+
+[node name="Code1" parent="." instance=ExtResource("2_70s15")]
+
+[node name="Code2" parent="." instance=ExtResource("2_70s15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.228492, 0.434941, 0.41)
+
+[node name="Code3" parent="." instance=ExtResource("2_70s15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00125393, 0.632737, 0.41)
+
+[node name="Code4" parent="." instance=ExtResource("2_70s15")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215353, 0.428501, 0.41)
+
+[node name="Content" type="Node3D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="baguette" parent="Content" instance=ExtResource("3_vnjd2")]
+transform = Transform3D(0.565685, 0, 0.565685, 0, 0.8, 0, -0.565685, 0, 0.565685, 0.0759617, -0.1, 0.0853564)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c76cjmp0s243t"]
+[gd_scene load_steps=8 format=3 uid="uid://c76cjmp0s243t"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_q0mg5"]
 [ext_resource type="Script" path="res://scripts/camera_rotation.gd" id="3_0d2h6"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://bdbr8ihjq30u" path="res://objects/candle.tscn" id="6_stehr"]
 [ext_resource type="PackedScene" uid="uid://dgq2l7pc8ci2r" path="res://scenes/worldN/roomN.tscn" id="7_pp12s"]
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="7_tn71d"]
-[ext_resource type="PackedScene" uid="uid://f53q20fxned8" path="res://scenes/furnitures/pillow.tscn" id="9_del1s"]
-[ext_resource type="PackedScene" uid="uid://bpoapbk4abjms" path="res://scenes/furnitures/large_table.tscn" id="10_wkdb3"]
 
 [node name="Main" type="Node3D" node_paths=PackedStringArray("holding_object")]
 script = ExtResource("1_q0mg5")
@@ -35,9 +33,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9074, 0, 0)
 holding_object = NodePath("../Candle")
 
 [node name="RoomN" parent="." instance=ExtResource("7_pp12s")]
-
-[node name="pillow" parent="." instance=ExtResource("9_del1s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 13)
-
-[node name="large_table" parent="." instance=ExtResource("10_wkdb3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -12)

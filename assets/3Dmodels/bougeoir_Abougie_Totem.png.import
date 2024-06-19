@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4aiep5a7i0du"
-path.s3tc="res://.godot/imported/bougeoir_Abougie_Totem.png-f9f2ac02e176dfc81eb4b18922f50736.s3tc.ctex"
+uid="uid://jctis33by1iu"
+path.bptc="res://.godot/imported/bougeoir_Abougie_Totem.png-f9f2ac02e176dfc81eb4b18922f50736.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -15,12 +15,12 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/bougeoir_Abougie_Totem.png"
-dest_files=["res://.godot/imported/bougeoir_Abougie_Totem.png-f9f2ac02e176dfc81eb4b18922f50736.s3tc.ctex"]
+dest_files=["res://.godot/imported/bougeoir_Abougie_Totem.png-f9f2ac02e176dfc81eb4b18922f50736.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

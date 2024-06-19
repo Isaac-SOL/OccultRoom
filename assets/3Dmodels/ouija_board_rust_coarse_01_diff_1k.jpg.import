@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl8xhq3ii4wqj"
-path.bptc="res://.godot/imported/box_rust_coarse_01_diff_1k.jpg-e10eabccd56f103860708719d78edc23.bptc.ctex"
+uid="uid://cgcseww3gkvjg"
+path.bptc="res://.godot/imported/ouija_board_rust_coarse_01_diff_1k.jpg-a494bfcfe422a4fdf349190bce583227.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/3Dmodels/box_rust_coarse_01_diff_1k.jpg"
-dest_files=["res://.godot/imported/box_rust_coarse_01_diff_1k.jpg-e10eabccd56f103860708719d78edc23.bptc.ctex"]
+source_file="res://assets/3Dmodels/ouija_board_rust_coarse_01_diff_1k.jpg"
+dest_files=["res://.godot/imported/ouija_board_rust_coarse_01_diff_1k.jpg-a494bfcfe422a4fdf349190bce583227.bptc.ctex"]
 
 [params]
 

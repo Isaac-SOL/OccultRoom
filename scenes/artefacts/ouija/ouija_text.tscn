@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://j3rta3tt3lyo"]
+
+[ext_resource type="PackedScene" uid="uid://dbkljqbnxm36r" path="res://assets/3Dmodels/ouija_text.glb" id="1_0d032"]
+
+[node name="ouija_text" instance=ExtResource("1_0d032")]

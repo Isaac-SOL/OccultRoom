@@ -20,6 +20,9 @@ var saved_scale: Vector3
 var unclickable_timer: float = 0
 
 func _ready():
+	collision_layer = 1 << 2
+	if not is_in_group("PlaceableObject"):
+		add_to_group("PlaceableObject")
 	mouse_entered.connect(_on_object_mouse_entered)
 	mouse_exited.connect(_on_object_mouse_exited)
 	input_event.connect(_on_object_input_event)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmit33gq3mpqq"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_i7h7f"]
+[ext_resource type="PackedScene" uid="uid://bu4pt4ijj1en2" path="res://scenes/artefacts/sonnette.tscn" id="2_36025"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vnxo4"]
+height = 0.105757
+radius = 0.123381
+
+[node name="sonnette_p" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0183709, 0)
+script = ExtResource("1_i7h7f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_vnxo4")
+
+[node name="sonnette" parent="." instance=ExtResource("2_36025")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134814, -0.58072, -0.0367461)

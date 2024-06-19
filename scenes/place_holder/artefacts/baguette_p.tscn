@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ci1gei2tmwrcj"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_7wr48"]
+[ext_resource type="PackedScene" uid="uid://t613cf1f1w7u" path="res://scenes/artefacts/baguette.tscn" id="2_8wcqk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ocqet"]
+radius = 0.1
+height = 0.6
+
+[node name="baguette_p" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0648518, 0)
+script = ExtResource("1_7wr48")
+
+[node name="baguette" parent="." instance=ExtResource("2_8wcqk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, 0, 0.1, 0)
+shape = SubResource("CapsuleShape3D_ocqet")

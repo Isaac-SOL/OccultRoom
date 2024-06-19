@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cnmco5mvxbmif"]
+[gd_scene load_steps=36 format=3 uid="uid://cnmco5mvxbmif"]
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_1vuhw"]
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_kn5p5"]
@@ -10,9 +10,26 @@
 [ext_resource type="PackedScene" uid="uid://bkf1vadtu7p38" path="res://objects/test_thing.tscn" id="5_adnc5"]
 [ext_resource type="PackedScene" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
 [ext_resource type="PackedScene" uid="uid://bdbr8ihjq30u" path="res://objects/candle.tscn" id="6_0a66o"]
-[ext_resource type="PackedScene" uid="uid://chgay07txbipr" path="res://objects/stool.tscn" id="7_ngax3"]
-[ext_resource type="PackedScene" uid="uid://dikduy73dav8r" path="res://objects/code_chest.tscn" id="12_r5a1l"]
+[ext_resource type="PackedScene" uid="uid://ddjavseixmy1n" path="res://objects/stool.tscn" id="7_ngax3"]
+[ext_resource type="PackedScene" path="res://objects/code_chest.tscn" id="12_r5a1l"]
+[ext_resource type="PackedScene" uid="uid://d0fyb8y16pja" path="res://scenes/furnitures/bed.tscn" id="13_bkm2f"]
 [ext_resource type="Script" path="res://scripts/General/object_placer.gd" id="13_ck4kk"]
+[ext_resource type="PackedScene" uid="uid://dn77yd4l16weq" path="res://scenes/chambre/floor.tscn" id="14_1yyvb"]
+[ext_resource type="PackedScene" uid="uid://cjise7anhsepl" path="res://scenes/artefacts/pandora_box.tscn" id="15_ctb33"]
+[ext_resource type="PackedScene" uid="uid://begg35e7wjo3e" path="res://scenes/furnitures/etagere.tscn" id="16_oba0m"]
+[ext_resource type="PackedScene" uid="uid://bqss1cd48i76n" path="res://scenes/furnitures/tabouret.tscn" id="17_1lwlg"]
+[ext_resource type="PackedScene" uid="uid://dmhsk5o2frurl" path="res://scenes/furnitures/table.tscn" id="18_68qm6"]
+[ext_resource type="PackedScene" uid="uid://bpoapbk4abjms" path="res://scenes/furnitures/large_table.tscn" id="19_ka81q"]
+[ext_resource type="PackedScene" uid="uid://ci1gei2tmwrcj" path="res://scenes/place_holder/artefacts/baguette_p.tscn" id="20_5tmdo"]
+[ext_resource type="PackedScene" uid="uid://f53q20fxned8" path="res://scenes/furnitures/pillow.tscn" id="20_kof2s"]
+[ext_resource type="PackedScene" uid="uid://ubs3m3sum8sf" path="res://scenes/place_holder/artefacts/bougeoir_p.tscn" id="21_xxcbi"]
+[ext_resource type="PackedScene" uid="uid://du2tmpiagabfs" path="res://scenes/place_holder/artefacts/chandelier_p.tscn" id="22_0qjls"]
+[ext_resource type="PackedScene" uid="uid://bjn4xgwnjmqj" path="res://scenes/place_holder/artefacts/chest_key_p.tscn" id="23_adsxp"]
+[ext_resource type="PackedScene" uid="uid://dehme7jiixlxf" path="res://scenes/place_holder/artefacts/crystal_ball_p.tscn" id="24_rhh4s"]
+[ext_resource type="PackedScene" uid="uid://tu5b57jvbo15" path="res://scenes/place_holder/artefacts/genie_p.tscn" id="25_bondq"]
+[ext_resource type="PackedScene" uid="uid://bchf7pbgoe4nb" path="res://scenes/place_holder/artefacts/pandora_key_p.tscn" id="26_l1t6v"]
+[ext_resource type="PackedScene" uid="uid://dmit33gq3mpqq" path="res://scenes/place_holder/artefacts/sonnette_p.tscn" id="27_o4ndo"]
+[ext_resource type="PackedScene" uid="uid://b7wlrjf1l416h" path="res://scenes/place_holder/artefacts/thor_hammer_p.tscn" id="28_uvhel"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4lg0k"]
 
@@ -40,19 +57,26 @@ size = Vector3(10, 1, 10)
 
 [node name="Bed" type="CSGBox3D" parent="LevelGeometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.5, -1)
+visible = false
 size = Vector3(4, 2, 3)
 
 [node name="Table" type="CSGBox3D" parent="LevelGeometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -4)
+visible = false
 size = Vector3(1, 2, 1)
 
 [node name="Ouija Table" type="CSGBox3D" parent="LevelGeometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 0.5, -4.5)
+visible = false
 size = Vector3(2, 2, 2)
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="LevelGeometry"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, -5)
+visible = false
 radius = 0.4
+
+[node name="floor" parent="LevelGeometry" instance=ExtResource("14_1yyvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0, -4.5)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_x8wh7")
@@ -63,13 +87,13 @@ environment = SubResource("Environment_x8wh7")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.5, 2.5, 0.5)
 
 [node name="Wall1A" type="MeshInstance3D" parent="Walls/Node3D"]
-transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 1, 2, 5.96046e-08, 0)
 cast_shadow = 0
 mesh = SubResource("PlaneMesh_bbacu")
 skeleton = NodePath("../../..")
 
 [node name="Backface" type="MeshInstance3D" parent="Walls/Node3D/Wall1A"]
-transform = Transform3D(-1.1, 1.50996e-07, 2.32934e-22, -1.66095e-07, -1, 0, 2.32934e-22, -3.19746e-29, 1.1, 0, -0.1, 0)
+transform = Transform3D(-1.1, 1.50996e-07, 2.32934e-22, -1.66095e-07, -1, -7.10543e-15, 0, -7.10543e-15, 1.1, 0, -0.1, 0)
 cast_shadow = 3
 mesh = SubResource("PlaneMesh_bbacu")
 skeleton = NodePath("../../../..")
@@ -147,7 +171,7 @@ mesh = SubResource("PlaneMesh_bbacu")
 skeleton = NodePath("../..")
 
 [node name="Backface" type="MeshInstance3D" parent="Walls/Wall4"]
-transform = Transform3D(-1.1, 1.50996e-07, 4.23516e-22, -1.66095e-07, -1, -7.10543e-15, -4.23516e-22, 2.49153e-22, 2.09, 0, -0.1, 3)
+transform = Transform3D(-1.1, 1.50996e-07, 1.69407e-21, -1.66095e-07, -1, -7.10543e-15, 1.27055e-21, 2.49153e-22, 2.09, 0, -0.0999994, 3)
 cast_shadow = 3
 mesh = SubResource("PlaneMesh_bbacu")
 skeleton = NodePath("../../..")
@@ -185,8 +209,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -2)
 [node name="ObjectPlacementPoint4" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -3)
 
-[node name="ObjectPlacementPoint5" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4)
+[node name="ObjectPlacementPoint8" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -3)
+
+[node name="ObjectPlacementPoint111" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -1)
+
+[node name="ObjectPlacementPoint112" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+
+[node name="ObjectPlacementPoint20" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3)
+
+[node name="ObjectPlacementPoint72" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -2)
+
+[node name="ObjectPlacementPoint106" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1)
+
+[node name="ObjectPlacementPoint35" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, -3)
+
+[node name="ObjectPlacementPoint36" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, -2)
+
+[node name="ObjectPlacementPoint108" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, -1)
+
+[node name="ObjectPlacementPoint109" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
 
 [node name="ObjectPlacementPoint6" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
@@ -194,14 +245,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
 [node name="ObjectPlacementPoint7" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6)
 
-[node name="ObjectPlacementPoint9" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -8)
-
 [node name="ObjectPlacementPoint10" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -9)
 
 [node name="ObjectPlacementPoint11" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.1, -9)
 
 [node name="ObjectPlacementPoint12" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.5, -8)
@@ -338,17 +386,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -2)
 [node name="ObjectPlacementPoint59" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, -1)
 
-[node name="ObjectPlacementPoint60" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 0)
-
 [node name="ObjectPlacementPoint61" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, 0)
 
 [node name="ObjectPlacementPoint62" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -1)
 
 [node name="ObjectPlacementPoint63" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.5, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -2)
 
 [node name="ObjectPlacementPoint64" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.5, -3)
@@ -390,22 +435,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -3)
 
 [node name="ObjectPlacementPoint78" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -2)
 
 [node name="ObjectPlacementPoint79" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.1, -1)
 
 [node name="ObjectPlacementPoint80" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 1.1, 0)
 
 [node name="ObjectPlacementPoint81" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.1, 0)
 
 [node name="ObjectPlacementPoint82" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.5, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.1, -1)
 
 [node name="ObjectPlacementPoint83" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1.5, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -2)
 
 [node name="ObjectPlacementPoint84" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -3)
@@ -428,32 +473,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -8)
 [node name="ObjectPlacementPoint90" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -9)
 
-[node name="ObjectPlacementPoint91" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -9)
+[node name="ObjectPlacementPoint97" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.3, -9)
+
+[node name="ObjectPlacementPoint105" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.3, -8)
+
+[node name="ObjectPlacementPoint101" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -9)
+
+[node name="ObjectPlacementPoint104" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2, -8)
+
+[node name="ObjectPlacementPoint102" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.6, -9)
+
+[node name="ObjectPlacementPoint103" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.6, -8)
 
 [node name="ObjectPlacementPoint92" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -8)
 
-[node name="ObjectPlacementPoint93" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -7)
-
 [node name="ObjectPlacementPoint94" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.4, -6)
 
 [node name="ObjectPlacementPoint95" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -5)
 
 [node name="ObjectPlacementPoint96" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, -4)
-
-[node name="ObjectPlacementPoint98" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -4)
 
 [node name="ObjectPlacementPoint99" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, -1)
+transform = Transform3D(1, 0.000105889, 4.35831e-07, -0.000105889, 1, 6.09394e-05, -4.35831e-07, -6.09394e-05, 1, 9, 1.1, -1)
 
 [node name="ObjectPlacementPoint100" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1, 0)
 
 [node name="ThingPlacementPoint" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.5, -8)
@@ -480,8 +534,40 @@ holding_object = NodePath("../../Objects/Stool")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -3)
 holding_object = NodePath("../../Objects/CodeChest")
 
-[node name="PandoraPlace" parent="PlacementPoints" instance=ExtResource("1_kn5p5")]
+[node name="pandoraPlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -7)
+holding_object = NodePath("../../Objects/artefacts/pandora_box")
+
+[node name="geniePlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -2)
+holding_object = NodePath("../../Objects/artefacts/genie_p")
+
+[node name="presentoirePlace" parent="PlacementPoints" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.5, 0)
+
+[node name="baguettePlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+holding_object = NodePath("../../Objects/artefacts/baguette_p")
+
+[node name="bougeoirPlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.1, -2)
+holding_object = NodePath("../../Objects/artefacts/bougeoir_p")
+
+[node name="crystalBallPlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.4, -7)
+holding_object = NodePath("../../Objects/artefacts/crystal_ball_p")
+
+[node name="thorHammePlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4)
+holding_object = NodePath("../../Objects/artefacts/thor_hammer_p")
+
+[node name="chandelierPlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -8)
+holding_object = NodePath("../../Objects/artefacts/chandelier_p")
+
+[node name="sonnettePlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -9)
+holding_object = NodePath("../../Objects/artefacts/sonnette_p")
 
 [node name="OuijaDetector" parent="." instance=ExtResource("1_xcxt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.5, -4.5)
@@ -526,8 +612,78 @@ holder = NodePath("../../PlacementPoints/StoolOriginPoint")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -3)
 holder = NodePath("../../PlacementPoints/ChestPlacementPoint")
 
+[node name="furnitures" type="Node3D" parent="Objects"]
+
+[node name="bed" parent="Objects/furnitures" instance=ExtResource("13_bkm2f")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 8.1, 0, -0.5)
+
+[node name="etagere" parent="Objects/furnitures" instance=ExtResource("16_oba0m")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9.1, 0, -8.5)
+
+[node name="etagere2" parent="Objects/furnitures" instance=ExtResource("16_oba0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, -0.1, 0, -0.7)
+
+[node name="tabouret" parent="Objects/furnitures" instance=ExtResource("17_1lwlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, -9)
+
+[node name="table" parent="Objects/furnitures" instance=ExtResource("18_68qm6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0, -4.5)
+
+[node name="large_table" parent="Objects/furnitures" instance=ExtResource("19_ka81q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -8.5)
+
+[node name="pillow" parent="Objects/furnitures" instance=ExtResource("20_kof2s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 0, -0.6)
+
+[node name="tabouret2" parent="Objects/furnitures" instance=ExtResource("17_1lwlg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 0, -2)
+
+[node name="etagere3" parent="Objects/furnitures" instance=ExtResource("16_oba0m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.1, -0.1, 0, -2.6)
+
+[node name="large_table2" parent="Objects/furnitures" instance=ExtResource("19_ka81q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9, 0, -6.7)
+
+[node name="artefacts" type="Node3D" parent="Objects"]
+
+[node name="baguette_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("20_5tmdo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+holder = NodePath("../../../PlacementPoints/baguettePlace")
+
+[node name="bougeoir_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("21_xxcbi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.1, -2)
+holder = NodePath("../../../PlacementPoints/bougeoirPlace")
+
+[node name="chandelier_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("22_0qjls")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -8)
+holder = NodePath("../../../PlacementPoints/chandelierPlace")
+
+[node name="chest_key_p" parent="Objects/artefacts" instance=ExtResource("23_adsxp")]
+
+[node name="crystal_ball_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("24_rhh4s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.4, -7)
+holder = NodePath("../../../PlacementPoints/crystalBallPlace")
+
+[node name="genie_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("25_bondq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, -2)
+holder = NodePath("../../../PlacementPoints/geniePlace")
+
+[node name="pandora_key_p" parent="Objects/artefacts" instance=ExtResource("26_l1t6v")]
+
+[node name="sonnette_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("27_o4ndo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -9)
+holder = NodePath("../../../PlacementPoints/sonnettePlace")
+
+[node name="thor_hammer_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("28_uvhel")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -4)
+holder = NodePath("../../../PlacementPoints/thorHammePlace")
+
+[node name="pandora_box" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("15_ctb33")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -7)
+holder = NodePath("../../../PlacementPoints/pandoraPlace")
+
 [node name="ObjectPlacer" type="Node" parent="." node_paths=PackedStringArray("object", "point")]
 script = ExtResource("13_ck4kk")
-object = NodePath("../Objects/TestThing")
-point = NodePath("../PlacementPoints/ThingPlacementPoint")
+object = NodePath("../Objects/artefacts/thor_hammer_p")
+point = NodePath("../PlacementPoints/thorHammePlace")
 info = "Object linked to placement point!"

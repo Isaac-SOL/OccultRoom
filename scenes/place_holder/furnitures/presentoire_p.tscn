@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce0y02q4swkxw"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_ady6s"]
+[ext_resource type="PackedScene" uid="uid://dok0jaispvaq8" path="res://scenes/furnitures/presentoire.tscn" id="2_lsqx7"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uidim"]
+height = 0.677608
+
+[node name="presentoire_p" type="Area3D"]
+script = ExtResource("1_ady6s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369408, 0)
+shape = SubResource("CylinderShape3D_uidim")
+
+[node name="presentoire" parent="." instance=ExtResource("2_lsqx7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.54945, 0)

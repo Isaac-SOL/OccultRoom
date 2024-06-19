@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bchf7pbgoe4nb"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_b1n6f"]
+[ext_resource type="PackedScene" uid="uid://bw7wpj5dy713c" path="res://scenes/artefacts/pandora_key.tscn" id="2_cjb8h"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_y13n1"]
+height = 1.02408
+radius = 0.15546
+
+[node name="pandora_key_p" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.167688, 0)
+script = ExtResource("1_b1n6f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.00425858, -0.999991, 0, 0.999991, 0.00425858, 0, 0, 0, 1, -0.112129, 0, 0)
+shape = SubResource("CylinderShape3D_y13n1")
+
+[node name="pandora_key" parent="." instance=ExtResource("2_cjb8h")]

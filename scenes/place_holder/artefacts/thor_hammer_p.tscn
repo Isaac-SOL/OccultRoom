@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7wlrjf1l416h"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_hyc0r"]
+[ext_resource type="PackedScene" uid="uid://dor07xss62thm" path="res://scenes/artefacts/thor_hammer.tscn" id="2_bl3up"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kyeml"]
+size = Vector3(0.345642, 0.640686, 0.489014)
+
+[node name="thor_hammer_p" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000760823, 0)
+script = ExtResource("1_hyc0r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0243225, 0.334249, 0.0311279)
+shape = SubResource("BoxShape3D_kyeml")
+
+[node name="thor_hammer" parent="." instance=ExtResource("2_bl3up")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113235, -0.557871, -0.0333407)

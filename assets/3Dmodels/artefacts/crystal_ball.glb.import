@@ -31,9 +31,9 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "materials": {
-"Matériau.001": {
+"crystal_purple": {
 "use_external/enabled": true,
-"use_external/path": "res://assets/textures/new_standard_material_3d.tres"
+"use_external/path": "res://assets/textures/glass_crystal_ball_material.tres"
 }
 }
 }

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://du2tmpiagabfs"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_xo3lc"]
+[ext_resource type="PackedScene" uid="uid://dtx6gycsfd0nk" path="res://scenes/artefacts/chandelier.tscn" id="2_v3r0v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d7wor"]
+
+[node name="chandelier_p" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0412639, 0)
+script = ExtResource("1_xo3lc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30715, 0)
+shape = SubResource("BoxShape3D_d7wor")
+
+[node name="chandelier" parent="." instance=ExtResource("2_v3r0v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.59285, 0)

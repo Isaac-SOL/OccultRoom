@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnmco5mvxbmif"]
+[gd_scene load_steps=19 format=3 uid="uid://cnmco5mvxbmif"]
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_1vuhw"]
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_kn5p5"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bdbr8ihjq30u" path="res://objects/candle.tscn" id="6_0a66o"]
 [ext_resource type="PackedScene" uid="uid://chgay07txbipr" path="res://objects/stool.tscn" id="7_ngax3"]
 [ext_resource type="PackedScene" uid="uid://dikduy73dav8r" path="res://objects/code_chest.tscn" id="12_r5a1l"]
+[ext_resource type="Script" path="res://scripts/General/object_placer.gd" id="13_ck4kk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4lg0k"]
 
@@ -524,3 +525,9 @@ holder = NodePath("../../PlacementPoints/StoolOriginPoint")
 [node name="CodeChest" parent="Objects" node_paths=PackedStringArray("holder") instance=ExtResource("12_r5a1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -3)
 holder = NodePath("../../PlacementPoints/ChestPlacementPoint")
+
+[node name="ObjectPlacer" type="Node" parent="." node_paths=PackedStringArray("object", "point")]
+script = ExtResource("13_ck4kk")
+object = NodePath("../Objects/TestThing")
+point = NodePath("../PlacementPoints/ThingPlacementPoint")
+info = "Object linked to placement point!"

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c30j07jdxl6eg"
-path.s3tc="res://.godot/imported/bed_wood_table_001_diff_1k.jpg-33ec10dd4a88576c0ef3ebe957d43080.s3tc.ctex"
+path.bptc="res://.godot/imported/bed_wood_table_001_diff_1k.jpg-33ec10dd4a88576c0ef3ebe957d43080.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -15,12 +15,12 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/bed_wood_table_001_diff_1k.jpg"
-dest_files=["res://.godot/imported/bed_wood_table_001_diff_1k.jpg-33ec10dd4a88576c0ef3ebe957d43080.s3tc.ctex"]
+dest_files=["res://.godot/imported/bed_wood_table_001_diff_1k.jpg-33ec10dd4a88576c0ef3ebe957d43080.bptc.ctex"]
 
 [params]
 
 compress/mode=2
-compress/high_quality=false
+compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0

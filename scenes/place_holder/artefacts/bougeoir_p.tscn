@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ubs3m3sum8sf"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_uno4a"]
+[ext_resource type="PackedScene" uid="uid://dgdxrp8y31pje" path="res://scenes/artefacts/bougeoir_abougie.tscn" id="2_ospvo"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_eltx0"]
+height = 0.6
+radius = 0.3
+
+[node name="bougeoir_p" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0335576, 0)
+script = ExtResource("1_uno4a")
+
+[node name="bougeoir_Abougie" parent="." instance=ExtResource("2_ospvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("CylinderShape3D_eltx0")

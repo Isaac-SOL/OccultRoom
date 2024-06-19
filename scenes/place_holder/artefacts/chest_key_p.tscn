@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjn4xgwnjmqj"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_jqupm"]
+[ext_resource type="PackedScene" uid="uid://cfxeaotupdbrl" path="res://scenes/artefacts/chest_key.tscn" id="2_e6t2e"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_58hcc"]
+height = 0.6
+radius = 0.1
+
+[node name="chest_key_p" type="Area3D"]
+script = ExtResource("1_jqupm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("CylinderShape3D_58hcc")
+
+[node name="chest_key" parent="." instance=ExtResource("2_e6t2e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.115, -0.54, -0.05)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://tu5b57jvbo15"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_ii211"]
+[ext_resource type="PackedScene" uid="uid://e1b784hots7d" path="res://scenes/artefacts/genie.tscn" id="2_l3ch5"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l5ek2"]
+radius = 0.1
+height = 0.6
+
+[node name="genie_p" type="Area3D"]
+script = ExtResource("1_ii211")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.0475, 0.1, -0.1125)
+shape = SubResource("CapsuleShape3D_l5ek2")
+
+[node name="genie" parent="." instance=ExtResource("2_l3ch5")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0125, -0.565, 0.0525)

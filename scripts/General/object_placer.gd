@@ -6,7 +6,7 @@ extends Node
 @export var click_to_place_object: bool : set = _click
 @export_multiline var info: String = "Assign the object and point you want to link then click the box."
 
-func _click(new_state: bool):
+func _click(_new_state: bool):
 	if object and point:
 		if object.holder:
 			object.holder.holding_object = null

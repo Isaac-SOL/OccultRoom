@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtx6gycsfd0nk"]
 
-[ext_resource type="PackedScene" uid="uid://cjj5k0iwpa2je" path="res://assets/3Dmodels/chandelier.glb" id="1_2og5s"]
+[ext_resource type="PackedScene" uid="uid://cjj5k0iwpa2je" path="res://assets/3Dmodels/artefacts/chandelier.glb" id="1_2og5s"]
 [ext_resource type="Material" uid="uid://5es7glaa8vnf" path="res://assets/particules/fire_process_material.tres" id="2_8n7b8"]
 [ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="3_f2lwq"]
 [ext_resource type="Script" path="res://scripts/candle.gd" id="4_jaiot"]

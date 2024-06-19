@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://cj7ngfioppdlb"]
 
-[ext_resource type="PackedScene" uid="uid://b73al4taq0une" path="res://assets/3Dmodels/crystal_ball.glb" id="1_mb6fm"]
+[ext_resource type="PackedScene" uid="uid://b73al4taq0une" path="res://assets/3Dmodels/artefacts/crystal_ball.glb" id="1_mb6fm"]
 
 [node name="crystal_ball" instance=ExtResource("1_mb6fm")]

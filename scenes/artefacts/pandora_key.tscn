@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bw7wpj5dy713c"]
 
-[ext_resource type="PackedScene" uid="uid://cg5i8ymsqn74l" path="res://assets/3Dmodels/pandora_key.glb" id="1_puikc"]
+[ext_resource type="PackedScene" uid="uid://cg5i8ymsqn74l" path="res://assets/3Dmodels/artefacts/pandora_key.glb" id="1_puikc"]
 
 [node name="pandora_key" instance=ExtResource("1_puikc")]
 

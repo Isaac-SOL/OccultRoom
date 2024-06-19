@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://f53q20fxned8"]
 
-[ext_resource type="PackedScene" uid="uid://vkdxtiwlnqlr" path="res://assets/3Dmodels/pillow.glb" id="1_5or38"]
+[ext_resource type="PackedScene" uid="uid://vkdxtiwlnqlr" path="res://assets/3Dmodels/furnitures/pillow.glb" id="1_5or38"]
 
 [node name="pillow" instance=ExtResource("1_5or38")]

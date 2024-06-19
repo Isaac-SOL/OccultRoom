@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://jkrxv6iyw51s"]
 
-[ext_resource type="PackedScene" uid="uid://c3lcad2ajpfhn" path="res://assets/3Dmodels/ouija_cursor.glb" id="1_ct6ey"]
+[ext_resource type="PackedScene" uid="uid://c3lcad2ajpfhn" path="res://assets/3Dmodels/artefacts/ouija_cursor.glb" id="1_ct6ey"]
 
 [node name="ouija_cursor" instance=ExtResource("1_ct6ey")]

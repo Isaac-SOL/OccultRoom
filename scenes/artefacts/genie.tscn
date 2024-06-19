@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://e1b784hots7d"]
 
-[ext_resource type="PackedScene" uid="uid://behcx1ryovuxy" path="res://assets/3Dmodels/genie.glb" id="1_xar76"]
+[ext_resource type="PackedScene" uid="uid://behcx1ryovuxy" path="res://assets/3Dmodels/artefacts/genie.glb" id="1_xar76"]
 
 [node name="genie" instance=ExtResource("1_xar76")]

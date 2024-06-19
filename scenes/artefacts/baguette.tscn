@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://t613cf1f1w7u"]
 
-[ext_resource type="PackedScene" uid="uid://drm7iwte6lpsu" path="res://assets/3Dmodels/baguette.glb" id="1_qfoxj"]
+[ext_resource type="PackedScene" uid="uid://drm7iwte6lpsu" path="res://assets/3Dmodels/artefacts/baguette.glb" id="1_qfoxj"]
 
 [node name="baguette" instance=ExtResource("1_qfoxj")]

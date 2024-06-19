@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b2vaujr4s1f23" path="res://objects/ouija_placement_point.tscn" id="2_tkrdm"]
 [ext_resource type="Texture2D" uid="uid://cc3y8ue8tnx1h" path="res://assets/textures/triskele.png" id="3_ogsj7"]
 [ext_resource type="PackedScene" uid="uid://bkf1vadtu7p38" path="res://objects/test_thing.tscn" id="5_adnc5"]
-[ext_resource type="PackedScene" uid="uid://4axxv4ncukbv" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
+[ext_resource type="PackedScene" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
 [ext_resource type="PackedScene" uid="uid://bdbr8ihjq30u" path="res://objects/candle.tscn" id="6_0a66o"]
 [ext_resource type="PackedScene" uid="uid://chgay07txbipr" path="res://objects/stool.tscn" id="7_ngax3"]
 [ext_resource type="PackedScene" uid="uid://dikduy73dav8r" path="res://objects/code_chest.tscn" id="12_r5a1l"]
@@ -135,7 +135,7 @@ mesh = SubResource("PlaneMesh_bbacu")
 skeleton = NodePath("../..")
 
 [node name="Backface" type="MeshInstance3D" parent="Walls/Wall3"]
-transform = Transform3D(-1.1, 1.50996e-07, 0, -1.66095e-07, -1, 0, 0, 0, 1.1, 0, -0.1, 0)
+transform = Transform3D(-1.1, 1.50996e-07, -1.01644e-20, -1.66095e-07, -1, 0, 9.99578e-21, 0, 1.1, 0, -0.1, 1)
 cast_shadow = 3
 mesh = SubResource("PlaneMesh_bbacu")
 skeleton = NodePath("../../..")
@@ -193,9 +193,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -5)
 
 [node name="ObjectPlacementPoint7" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -6)
-
-[node name="ObjectPlacementPoint8" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -7)
 
 [node name="ObjectPlacementPoint9" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -8)
@@ -482,6 +479,9 @@ holding_object = NodePath("../../Objects/Stool")
 [node name="ChestPlacementPoint" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -3)
 holding_object = NodePath("../../Objects/CodeChest")
+
+[node name="PandoraPlace" parent="PlacementPoints" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -7)
 
 [node name="OuijaDetector" parent="." instance=ExtResource("1_xcxt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.5, -4.5)

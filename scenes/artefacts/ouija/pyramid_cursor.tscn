@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://wq5rg8bsyb6a"]
 
-[ext_resource type="PackedScene" uid="uid://bjj6thkwpsqhk" path="res://assets/3Dmodels/pyramid_cursor.glb" id="1_is77n"]
+[ext_resource type="PackedScene" uid="uid://bjj6thkwpsqhk" path="res://assets/3Dmodels/artefacts/pyramid_cursor.glb" id="1_is77n"]
 
 [node name="pyramid_cursor" instance=ExtResource("1_is77n")]

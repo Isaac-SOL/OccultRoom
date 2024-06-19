@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dok0jaispvaq8"]
 
-[ext_resource type="PackedScene" uid="uid://dvn1wjblhqo38" path="res://assets/3Dmodels/presentoire.glb" id="1_tvk28"]
+[ext_resource type="PackedScene" uid="uid://dvn1wjblhqo38" path="res://assets/3Dmodels/furnitures/presentoire.glb" id="1_tvk28"]
 
 [sub_resource type="Gradient" id="Gradient_18icy"]
 offsets = PackedFloat32Array(0.0213904, 0.385027, 1)

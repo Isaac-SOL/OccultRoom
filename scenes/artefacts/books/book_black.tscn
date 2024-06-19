@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvdo1p8gpjf6g"]
+
+[ext_resource type="PackedScene" uid="uid://bl33123qcgcqs" path="res://assets/3Dmodels/artefacts/book_black.glb" id="1_wp3f1"]
+
+[node name="book_black" instance=ExtResource("1_wp3f1")]

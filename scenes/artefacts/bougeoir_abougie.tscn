@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dgdxrp8y31pje"]
 
-[ext_resource type="PackedScene" uid="uid://bdwkouwvrmdm0" path="res://assets/3Dmodels/bougeoir_Abougie.glb" id="1_qde21"]
+[ext_resource type="PackedScene" uid="uid://bdwkouwvrmdm0" path="res://assets/3Dmodels/artefacts/bougeoir_Abougie.glb" id="1_qde21"]
 [ext_resource type="Material" uid="uid://5es7glaa8vnf" path="res://assets/particules/fire_process_material.tres" id="2_debbu"]
 [ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="3_hkm5g"]
 [ext_resource type="Script" path="res://scripts/candle.gd" id="4_d5y0f"]

@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://bpf8xek506hi1"]
 
-[ext_resource type="PackedScene" uid="uid://5mq5ryvvpbbd" path="res://assets/3Dmodels/totem.glb" id="1_jpv3y"]
+[ext_resource type="PackedScene" uid="uid://5mq5ryvvpbbd" path="res://assets/3Dmodels/furnitures/totem.glb" id="1_jpv3y"]
 
 [node name="totem" instance=ExtResource("1_jpv3y")]

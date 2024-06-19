@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://f122y7vdq6jl"]
 
-[ext_resource type="PackedScene" uid="uid://b7h2qscqsy6am" path="res://assets/3Dmodels/bougie.glb" id="1_du2b7"]
+[ext_resource type="PackedScene" uid="uid://b7h2qscqsy6am" path="res://assets/3Dmodels/artefacts/bougie.glb" id="1_du2b7"]
 [ext_resource type="Material" uid="uid://5es7glaa8vnf" path="res://assets/particules/fire_process_material.tres" id="2_ds56l"]
 [ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="3_3uwgy"]
 [ext_resource type="Script" path="res://scripts/candle.gd" id="4_clvm2"]

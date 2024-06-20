@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=11 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
 [ext_resource type="Script" path="res://scripts/camera_rotation.gd" id="2_xlx1h"]
 [ext_resource type="Script" path="res://scripts/room_camera.gd" id="4_j5ui4"]
 [ext_resource type="Material" uid="uid://de7wyw0dv0jn6" path="res://shaders_mats/blur5x5.tres" id="5_tjfw7"]
+[ext_resource type="PackedScene" uid="uid://bjdd44yp5226i" path="res://scenes/menus/pause_menu.tscn" id="6_o1hb0"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_t3pin"]
 
@@ -20,7 +21,7 @@ plane = Plane(0, 0, 1, 0)
 size = Vector2(20, 20)
 orientation = 2
 
-[node name="Main" type="Node3D"]
+[node name="Main" type="Node3D" groups=["MainGroup"]]
 script = ExtResource("1_rshqp")
 
 [node name="Room" parent="." instance=ExtResource("1_vjk08")]
@@ -64,3 +65,5 @@ transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, -2.98023e-08, -5.96046e-08,
 visible = false
 mesh = SubResource("PlaneMesh_2cvp0")
 surface_material_override/0 = ExtResource("5_tjfw7")
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_o1hb0")]

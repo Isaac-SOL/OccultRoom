@@ -7,11 +7,19 @@ signal released_object(object: Node3D, point: ObjectPlacementPoint)
 
 var object_list: Array[PlaceableObject] = []
 var inspecting: PlaceableObject = null
+var pause = false
 
 func _ready():
 	Singletons.main = self
+	$PauseMenu.hide()
+	Global.prevscene = get_tree().current_scene.scene_file_path
 
 func _process(_delta):
+	#Play game song
+	#NodeAudio.playAudio(NodeAudio.audioGame)
+	#Pause menus
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
 	if Input.is_action_just_pressed("left"):
 		if not inspecting: CameraManager.rotate_left()
 		else: inspecting.inspect_rotate_left()
@@ -68,3 +76,12 @@ func stop_inspect_object(object:PlaceableObject):
 	object.move_back()
 	%BlockerArea.set_deferred("input_ray_pickable", false)
 	inspecting = null
+		
+func pauseMenu():
+	if pause:
+		$PauseMenu.hide()
+		Engine.time_scale = 1
+	else:
+		$PauseMenu.show()
+		Engine.time_scale = 0
+	pause = !pause

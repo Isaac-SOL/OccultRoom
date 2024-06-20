@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://dp3n5kv3jxvhh"]
+
+[ext_resource type="Script" path="res://imports/rebind_button.gd" id="1_ds8rj"]
+[ext_resource type="Theme" uid="uid://ujjtd62wvxsf" path="res://imports/pixel_theme.tres" id="1_onrut"]
+[ext_resource type="StyleBox" uid="uid://cln15kpjcsiss" path="res://imports/style_box_normal.tres" id="3_gj0wm"]
+[ext_resource type="StyleBox" uid="uid://ddmyelf7ggrso" path="res://imports/style_box_hover.tres" id="4_7aaoe"]
+[ext_resource type="StyleBox" uid="uid://b3p1lms34esoy" path="res://imports/style_box_click.tres" id="5_drk10"]
+
+[node name="RebindButton" type="Control" groups=["RebindButtonGroup"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_ds8rj")
+metadata/_edit_group_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 908.0
+offset_bottom = 56.0
+scale = Vector2(0.7, 0.7)
+theme = ExtResource("1_onrut")
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92549, 0.815686, 1)
+text = "Action"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.92549, 0.815686, 1)
+theme_override_styles/normal = ExtResource("3_gj0wm")
+theme_override_styles/hover = ExtResource("4_7aaoe")
+theme_override_styles/pressed = ExtResource("5_drk10")
+toggle_mode = true
+text = "Action_key"
+
+[connection signal="toggled" from="HBoxContainer/Button" to="." method="_on_button_toggled"]

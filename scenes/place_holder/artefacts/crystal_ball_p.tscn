@@ -1,19 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://dehme7jiixlxf"]
+[gd_scene load_steps=10 format=3 uid="uid://dehme7jiixlxf"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_tk0gf"]
 [ext_resource type="PackedScene" uid="uid://cj7ngfioppdlb" path="res://scenes/artefacts/crystal_ball.tscn" id="2_f1el1"]
+[ext_resource type="AudioStream" uid="uid://bfce58thsio7m" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_000.ogg" id="3_pjqcw"]
+[ext_resource type="AudioStream" uid="uid://blmrwm8ih1sp4" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_001.ogg" id="4_45ykf"]
+[ext_resource type="AudioStream" uid="uid://b28fil2tgjdbx" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_002.ogg" id="5_fm0p1"]
+[ext_resource type="AudioStream" uid="uid://cjmj52qpsvbs8" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_003.ogg" id="6_cmb3g"]
+[ext_resource type="AudioStream" uid="uid://dkkncu1gctmth" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_004.ogg" id="7_hylh8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jfp12"]
 height = 0.8
 radius = 0.4
 
-[node name="crystal_ball_p" type="Area3D"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ittyt"]
+streams_count = 5
+stream_0/stream = ExtResource("3_pjqcw")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_45ykf")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_fm0p1")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_cmb3g")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_hylh8")
+stream_4/weight = 1.0
+
+[node name="crystal_ball_p" type="Area3D" groups=["CrystalBall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00878441, 0)
 script = ExtResource("1_tk0gf")
+special_name = "CrystalBall"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.392108, 0)
 shape = SubResource("CylinderShape3D_jfp12")
 
 [node name="crystal_ball" parent="." instance=ExtResource("2_f1el1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -1.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120891, -1.4, -0.0365601)
+
+[node name="VisionPosition" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45397, 0)
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_ittyt")
+volume_db = -10.0

@@ -1,17 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://du2tmpiagabfs"]
+[gd_scene load_steps=11 format=3 uid="uid://du2tmpiagabfs"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_xo3lc"]
 [ext_resource type="PackedScene" uid="uid://dtx6gycsfd0nk" path="res://scenes/artefacts/chandelier.tscn" id="2_v3r0v"]
+[ext_resource type="AudioStream" uid="uid://56evmw7rr2yi" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_000.ogg" id="3_uiafr"]
+[ext_resource type="AudioStream" uid="uid://cjyicm5xvocuv" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_001.ogg" id="4_sl8fj"]
+[ext_resource type="AudioStream" uid="uid://d2aarqt171o15" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_002.ogg" id="5_rjiib"]
+[ext_resource type="AudioStream" uid="uid://djsvv2o2rch23" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_003.ogg" id="6_nhwrw"]
+[ext_resource type="AudioStream" uid="uid://b6yt0acfhken8" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_004.ogg" id="7_nedjq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7wor"]
+size = Vector3(0.261261, 0.866699, 0.465332)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_n0wxx"]
+radius = 3.5
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qvdy0"]
+streams_count = 5
+stream_0/stream = ExtResource("3_uiafr")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_sl8fj")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_rjiib")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_nhwrw")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_nedjq")
+stream_4/weight = 1.0
 
 [node name="chandelier_p" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0412639, 0)
 script = ExtResource("1_xo3lc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30715, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030838, 0.395285, -0.0153809)
 shape = SubResource("BoxShape3D_d7wor")
 
 [node name="chandelier" parent="." instance=ExtResource("2_v3r0v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.59285, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.59285, -0.046401)
+
+[node name="LightArea" type="Area3D" parent="." groups=["LightArea"]]
+collision_layer = 16
+collision_mask = 4
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LightArea"]
+shape = SubResource("SphereShape3D_n0wxx")
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_qvdy0")
+volume_db = -10.0

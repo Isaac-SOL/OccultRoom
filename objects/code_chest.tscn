@@ -1,8 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://dikduy73dav8r"]
+[gd_scene load_steps=18 format=3 uid="uid://dikduy73dav8r"]
 
 [ext_resource type="Script" path="res://scripts/code_chest.gd" id="1_huyrt"]
 [ext_resource type="PackedScene" uid="uid://buxjlhhoe0gki" path="res://objects/code_chest_part.tscn" id="2_70s15"]
-[ext_resource type="PackedScene" uid="uid://t613cf1f1w7u" path="res://scenes/artefacts/baguette.tscn" id="3_vnjd2"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_118m8"]
+[ext_resource type="PackedScene" uid="uid://dgdxrp8y31pje" path="res://scenes/artefacts/bougeoir_abougie.tscn" id="3_bysmr"]
+[ext_resource type="AudioStream" uid="uid://d0vwel7ch5hpa" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_000.ogg" id="5_7silj"]
+[ext_resource type="AudioStream" uid="uid://b2bqup2dq0h80" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_001.ogg" id="6_tb33j"]
+[ext_resource type="AudioStream" uid="uid://5ggehqqratbi" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_002.ogg" id="7_54tqi"]
+[ext_resource type="AudioStream" uid="uid://bww8sad4r5gai" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_003.ogg" id="8_2jplf"]
+[ext_resource type="AudioStream" uid="uid://ce7eg7kl2tggj" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_004.ogg" id="9_2duv1"]
+[ext_resource type="AudioStream" uid="uid://dj7pcexdwtj0w" path="res://assets/audio/Kenney/doorClose_1.ogg" id="10_qg64p"]
+
+[sub_resource type="Resource" id="Resource_3smn1"]
+script = ExtResource("2_118m8")
+base_condition = 3
+close = false
+
+[sub_resource type="Resource" id="Resource_ofq88"]
+script = ExtResource("2_118m8")
+base_condition = 2
+close = false
 
 [sub_resource type="BoxMesh" id="BoxMesh_rr5o5"]
 size = Vector3(0.8, 0.8, 0.8)
@@ -13,10 +30,30 @@ albedo_color = Color(0.2701, 0.30076, 0.73, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7g7tq"]
 size = Vector3(0.8, 0.8, 0.8)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_a1jub"]
+radius = 3.5
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fwtyv"]
+streams_count = 5
+stream_0/stream = ExtResource("5_7silj")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_tb33j")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_54tqi")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_2jplf")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("9_2duv1")
+stream_4/weight = 1.0
+
 [node name="CodeChest" type="Area3D"]
 collision_layer = 4
 collision_mask = 23
 script = ExtResource("1_huyrt")
+code = "2104"
+hints = Array[int]([7, 1, 1, 6, 1, 5, 8, 1, 1, 1, 1])
+conditions = Array[ExtResource("2_118m8")]([SubResource("Resource_3smn1"), SubResource("Resource_ofq88")])
+needs_valid_placement = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
@@ -43,5 +80,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215353, 0.428501, 0.41)
 unique_name_in_owner = true
 visible = false
 
-[node name="baguette" parent="Content" instance=ExtResource("3_vnjd2")]
-transform = Transform3D(0.565685, 0, 0.565685, 0, 0.8, 0, -0.565685, 0, 0.565685, 0.0759617, -0.1, 0.0853564)
+[node name="bougeoir_Abougie" parent="Content" instance=ExtResource("3_bysmr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136058, -0.566442, -0.0379242)
+
+[node name="LightArea" type="Area3D" parent="Content" groups=["LightArea"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0335576, 0)
+collision_layer = 16
+collision_mask = 4
+input_ray_pickable = false
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Content/LightArea"]
+shape = SubResource("SphereShape3D_a1jub")
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_fwtyv")
+volume_db = -10.0
+
+[node name="OpenAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_qg64p")
+volume_db = -10.0

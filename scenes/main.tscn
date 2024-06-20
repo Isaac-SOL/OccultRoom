@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=24 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
 [ext_resource type="Script" path="res://scripts/camera_rotation.gd" id="2_xlx1h"]
+[ext_resource type="AudioStream" uid="uid://cl7yx3m7c1yoq" path="res://assets/audio/Kenney/MagicShortLow.ogg" id="3_w5kr4"]
 [ext_resource type="Script" path="res://scripts/room_camera.gd" id="4_j5ui4"]
 [ext_resource type="Material" uid="uid://de7wyw0dv0jn6" path="res://shaders_mats/blur5x5.tres" id="5_tjfw7"]
+[ext_resource type="Shader" path="res://shaders_mats/crystal_inner_shader.gdshader" id="6_hrxhi"]
+[ext_resource type="Theme" uid="uid://ciwtpa400up3y" path="res://ui/in_game_theme.tres" id="6_o16yu"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_t3pin"]
 
@@ -13,6 +16,42 @@ albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission = Color(0.37791, 0.1482, 0.39, 1)
 
+[sub_resource type="GDScript" id="GDScript_x1w2v"]
+script/source = "extends Node3D
+
+@onready var ball: Node3D = get_tree().get_first_node_in_group(\"CrystalBall\").get_node(\"VisionPosition\")
+
+func _process(_delta):
+	global_position = ball.global_position
+	global_rotation = %Camera3D.global_rotation
+	scale = ball.get_parent_node_3d().scale
+"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_hvdoy"]
+viewport_path = NodePath("CrystalViewport")
+
+[sub_resource type="Gradient" id="Gradient_1m5tx"]
+offsets = PackedFloat32Array(0, 0.613527, 0.855072, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0.716049, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8wrkx"]
+gradient = SubResource("Gradient_1m5tx")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m1u2t"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_hrxhi")
+shader_parameter/crystal_texture = SubResource("ViewportTexture_hvdoy")
+shader_parameter/mask_texture = SubResource("GradientTexture2D_8wrkx")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_juffk"]
+size = Vector2(64, 64)
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tkjhf"]
 plane = Plane(0, 0, 1, 0)
 
@@ -20,22 +59,89 @@ plane = Plane(0, 0, 1, 0)
 size = Vector2(20, 20)
 orientation = 2
 
+[sub_resource type="Gradient" id="Gradient_cxhlg"]
+offsets = PackedFloat32Array(0, 0.8159, 1)
+colors = PackedColorArray(1, 1, 1, 0.196078, 1, 1, 1, 0.0237919, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_aigiy"]
+gradient = SubResource("Gradient_cxhlg")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[sub_resource type="GDScript" id="GDScript_kr5dd"]
+script/source = "extends Sprite3D
+
+@export var speed: float = 5
+
+var target_scale: Vector3 = Vector3.ZERO
+
+func _process(delta):
+	scale = Util.decayv3(scale, target_scale, speed * delta)
+"
+
+[sub_resource type="GDScript" id="GDScript_x2obc"]
+script/source = "extends Node3D
+
+var target: Node3D
+
+func _process(_delta):
+	global_rotation = %CameraRotation.global_rotation
+	if target:
+		global_position = target.global_position
+"
+
+[sub_resource type="GDScript" id="GDScript_hhhcl"]
+script/source = "extends Label
+
+@export_multiline var base_text: String
+@export_multiline var inspect_text: String
+
+func _ready():
+	text = base_text
+
+func set_inspect(inspect: bool):
+	text = inspect_text if inspect else base_text
+"
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_rshqp")
 
 [node name="Room" parent="." instance=ExtResource("1_vjk08")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
+
+[node name="MagicAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_w5kr4")
+volume_db = -10.0
 
 [node name="Moon" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.493771, 0.626944, 0.602604, -0.397357, 0.779064, -0.484939, -0.773497, 2.98023e-08, 0.633799, 6.56214, -4.62451, 13.7876)
 mesh = SubResource("SphereMesh_t3pin")
 surface_material_override/0 = SubResource("StandardMaterial3D_nh86h")
 
+[node name="CrystalSpritePivot" type="Node3D" parent="."]
+transform = Transform3D(-0.707107, 0.353554, -0.612372, -5.96047e-08, 0.866025, 0.5, 0.707107, 0.353554, -0.612372, -9.38879, 9.59802, -9.38879)
+script = SubResource("GDScript_x1w2v")
+
+[node name="CrystalSprite" type="Sprite3D" parent="CrystalSpritePivot"]
+unique_name_in_owner = true
+transform = Transform3D(1, 5.96046e-08, 0, -1.78814e-07, 1, 1.93715e-07, -2.08616e-07, -1.19209e-07, 1, 0, 0, 0.4)
+material_override = SubResource("ShaderMaterial_m1u2t")
+billboard = 1
+render_priority = 1
+texture = SubResource("PlaceholderTexture2D_juffk")
+
 [node name="CameraRotation" type="Node3D" parent="."]
+unique_name_in_owner = true
 transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
 script = ExtResource("2_xlx1h")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRotation"]
+unique_name_in_owner = true
 transform = Transform3D(1, -8.9407e-08, 2.68221e-07, -4.47035e-08, 0.866025, 0.5, -2.38419e-07, -0.5, 0.866025, 2.86102e-06, 11.732, 18.9739)
 projection = 1
 size = 9.0
@@ -47,6 +153,10 @@ unique_name_in_owner = true
 transform = Transform3D(-4.37114e-07, 2.38418e-07, -10, -4.05311e-06, 10, 2.38418e-07, 10, 4.05311e-06, -4.37114e-07, 0, 0, -6)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraRotation/Camera3D"]
+spot_range = 10.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="CameraRotation/Camera3D"]
+transform = Transform3D(-1, 7.45058e-08, -2.38419e-07, 2.98023e-08, 0.965926, 0.258819, 3.27826e-07, 0.258819, -0.965926, -9.53674e-07, 0.999999, -11)
 spot_range = 10.0
 
 [node name="BlockerArea" type="Area3D" parent="CameraRotation/Camera3D"]
@@ -64,3 +174,89 @@ transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, -2.98023e-08, -5.96046e-08,
 visible = false
 mesh = SubResource("PlaneMesh_2cvp0")
 surface_material_override/0 = ExtResource("5_tjfw7")
+
+[node name="HighlightSprite" type="Sprite3D" parent="CameraRotation/Camera3D"]
+unique_name_in_owner = true
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -12)
+texture = SubResource("GradientTexture2D_aigiy")
+script = SubResource("GDScript_kr5dd")
+
+[node name="CrystalViewport" type="SubViewport" parent="."]
+unique_name_in_owner = true
+size = Vector2i(128, 128)
+
+[node name="CrystalTargetPosition" type="Node3D" parent="CrystalViewport"]
+unique_name_in_owner = true
+transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 0, 0, 0)
+script = SubResource("GDScript_x2obc")
+
+[node name="Camera3D" type="Camera3D" parent="CrystalViewport/CrystalTargetPosition"]
+transform = Transform3D(1, -1.19209e-07, 2.68221e-07, -4.47035e-08, 0.866025, 0.5, -2.68221e-07, -0.5, 0.866025, 4.76837e-07, 6.232, 9.44762)
+projection = 1
+size = 3.0
+
+[node name="ChangeVisionTimer" type="Timer" parent="CrystalViewport/CrystalTargetPosition"]
+wait_time = 20.0
+autostart = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="LabelLeft" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -58.0
+offset_right = 223.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("6_o16yu")
+text = "Left / Right: Turn around
+Space: Look at table"
+vertical_alignment = 2
+script = SubResource("GDScript_hhhcl")
+base_text = "Left / Right: Turn around
+Space: Look at table"
+inspect_text = "Left / Right / Up / Down: Look"
+
+[node name="LabelRight" type="Label" parent="UI"]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -223.0
+offset_top = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("6_o16yu")
+text = "Mouse Left: Pick up / Put down
+Mouse Right: Inspect
+Mouse Wheel: Turn held object"
+horizontal_alignment = 2
+vertical_alignment = 2
+script = SubResource("GDScript_hhhcl")
+base_text = "Mouse Left: Pick up / Put down
+Mouse Right: Inspect
+Mouse Wheel: Turn held object"
+inspect_text = "Mouse Left: Touch
+Mouse Right: Put down"
+
+[node name="LabelTopLeft" type="Label" parent="UI"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 0, 1)
+offset_right = 223.0
+offset_bottom = 58.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("6_o16yu")
+text = "Objects left: 5"
+
+[connection signal="object_placed" from="Room" to="." method="_on_room_object_placed"]
+[connection signal="stool_just_placed" from="Room" to="." method="_on_room_stool_just_placed"]
+[connection signal="timeout" from="CrystalViewport/CrystalTargetPosition/ChangeVisionTimer" to="." method="_on_change_vision_timer_timeout"]

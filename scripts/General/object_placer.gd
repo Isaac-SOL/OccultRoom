@@ -15,6 +15,7 @@ func _click(_new_state: bool):
 		object.holder = point
 		point.holding_object = object
 		object.global_position = point.global_position
+		point = null
 		info = "Object linked to placement point!"
 	else:
 		info = "Assign the object and point you want to link then click the box."

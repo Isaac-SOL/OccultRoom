@@ -1,14 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7wlrjf1l416h"]
+[gd_scene load_steps=12 format=3 uid="uid://b7wlrjf1l416h"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_hyc0r"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_ab4eg"]
 [ext_resource type="PackedScene" uid="uid://dor07xss62thm" path="res://scenes/artefacts/thor_hammer.tscn" id="2_bl3up"]
+[ext_resource type="AudioStream" uid="uid://vc6ug8owfakw" path="res://assets/audio/Kenney/Impacts/impactMining_000.ogg" id="4_vx86o"]
+[ext_resource type="AudioStream" uid="uid://dlvl8ivpvouug" path="res://assets/audio/Kenney/Impacts/impactMining_001.ogg" id="5_vf42y"]
+[ext_resource type="AudioStream" uid="uid://cji5pejrec6ag" path="res://assets/audio/Kenney/Impacts/impactMining_002.ogg" id="6_vpfwv"]
+[ext_resource type="AudioStream" uid="uid://dtksfy8v68jya" path="res://assets/audio/Kenney/Impacts/impactMining_003.ogg" id="7_uu7ke"]
+[ext_resource type="AudioStream" uid="uid://57lnqonebyf2" path="res://assets/audio/Kenney/Impacts/impactMining_004.ogg" id="8_fchan"]
+
+[sub_resource type="Resource" id="Resource_ycw30"]
+script = ExtResource("2_ab4eg")
+base_condition = 6
+close = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kyeml"]
 size = Vector3(0.345642, 0.640686, 0.489014)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_678wn"]
+streams_count = 5
+stream_0/stream = ExtResource("4_vx86o")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_vf42y")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_vpfwv")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_uu7ke")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_fchan")
+stream_4/weight = 1.0
+
 [node name="thor_hammer_p" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000760823, 0)
 script = ExtResource("1_hyc0r")
+hints = Array[int]([6, 14])
+conditions = Array[ExtResource("2_ab4eg")]([SubResource("Resource_ycw30")])
+needs_valid_placement = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0243225, 0.334249, 0.0311279)
@@ -16,3 +43,8 @@ shape = SubResource("BoxShape3D_kyeml")
 
 [node name="thor_hammer" parent="." instance=ExtResource("2_bl3up")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113235, -0.557871, -0.0333407)
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_678wn")
+volume_db = -10.0

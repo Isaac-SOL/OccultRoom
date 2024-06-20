@@ -41,3 +41,10 @@ func open_chest():
 		code_part.visible = false
 		code_part.set_active(false)
 	%Content.visible = true
+	var light_area = find_child("LightArea")
+	if light_area:
+		light_area.set_deferred("monitoring", true)
+		light_area.set_deferred("monitorable", true)
+	hints = [OuijaSystem.Pos.FLATWOODS, OuijaSystem.Pos.FAR,
+			 OuijaSystem.Pos.MOON, OuijaSystem.Pos.FAR]
+	%OpenAudio.play()

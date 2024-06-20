@@ -2,7 +2,7 @@ class_name Candle_light extends Node3D
 
 @export var min_size: float = 3
 @export var max_size: float = 4
-@export var pos_randomization: float = 0.2
+@export var pos_randomization: float = 0.1
 @export var flicker_interval: float = 0.1
 
 var target_size: float = (max_size + min_size) / 2

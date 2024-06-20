@@ -1,9 +1,20 @@
-[gd_scene load_steps=36 format=3 uid="uid://cjise7anhsepl"]
+[gd_scene load_steps=44 format=3 uid="uid://cjise7anhsepl"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_iqfgy"]
 [ext_resource type="Script" path="res://scripts/furnitures/pandora_box.gd" id="2_1x4we"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_fqmv1"]
 [ext_resource type="Texture2D" uid="uid://b8v6bummgmd1i" path="res://assets/3Dmodels/artefacts/pandora_box_pandoraBoxWood.jpg" id="2_qadyy"]
 [ext_resource type="Texture2D" uid="uid://b6deapgdniqq" path="res://assets/3Dmodels/artefacts/pandora_box_Totem.png" id="3_ikjxa"]
+[ext_resource type="AudioStream" uid="uid://k4ih1bgg4g7p" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_000.ogg" id="6_5yoqr"]
+[ext_resource type="AudioStream" uid="uid://cdgm2ffprudag" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_001.ogg" id="7_2847o"]
+[ext_resource type="AudioStream" uid="uid://c5rj5ya0enh8h" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_002.ogg" id="8_2tuhe"]
+[ext_resource type="AudioStream" uid="uid://ich42yeb30g8" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_003.ogg" id="9_dqhj8"]
+[ext_resource type="AudioStream" uid="uid://c8bw08hgmydj0" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_004.ogg" id="10_0h3po"]
+
+[sub_resource type="Resource" id="Resource_3a8ib"]
+script = ExtResource("2_fqmv1")
+base_condition = 13
+close = false
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nhfav"]
 resource_name = "GreenWood"
@@ -262,18 +273,34 @@ size = Vector2(0.05, 0.05)
 [sub_resource type="BoxShape3D" id="BoxShape3D_svxq6"]
 size = Vector3(0.7, 0.6, 0.7)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_5avxp"]
+streams_count = 5
+stream_0/stream = ExtResource("6_5yoqr")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("7_2847o")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("8_2tuhe")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("9_dqhj8")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("10_0h3po")
+stream_4/weight = 1.0
+
 [node name="pandora_box" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.1, 0)
 collision_layer = 4
 collision_mask = 23
 script = ExtResource("1_iqfgy")
+hints = Array[int]([13, 15])
+conditions = Array[ExtResource("2_fqmv1")]([SubResource("Resource_3a8ib")])
+needs_valid_placement = true
 
 [node name="pandora_box" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 script = ExtResource("2_1x4we")
 
 [node name="pandora_box_top" type="MeshInstance3D" parent="pandora_box"]
-transform = Transform3D(0.396842, 0.140297, 0, -0.140297, 0.396842, 0, 0, 0, 0.420912, -0.403736, 1.41601, 0.0526201)
+transform = Transform3D(0.396842, 0.140298, 0, -0.140298, 0.396842, 0, 0, 0, 0.420912, -0.403736, 1.41601, 0.0526201)
 mesh = SubResource("ArrayMesh_tug4l")
 skeleton = NodePath("")
 
@@ -300,3 +327,16 @@ draw_pass_1 = SubResource("QuadMesh_rjg5y")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.3, 0.05)
 shape = SubResource("BoxShape3D_svxq6")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.409236, 0.275115, 0.0594203)
+shaded = true
+text = "Do not try
+to open"
+font_size = 16
+outline_size = 6
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_5avxp")
+volume_db = -5.0

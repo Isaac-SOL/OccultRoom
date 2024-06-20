@@ -1,5 +1,6 @@
 class_name PlaceableObject extends Area3D
 
+signal object_placed(object: PlaceableObject)
 signal start_inspecting
 signal stop_inspecting
 
@@ -8,6 +9,9 @@ signal stop_inspecting
 @export var hints: Array[OuijaSystem.Pos]
 @export var holder: ObjectPlacementPoint = null
 @export_range(0, 7) var rotation_discrete: int = 0
+@export var small: bool = false
+@export var conditions: Array[ObjectCondition]
+@export var needs_valid_placement: bool = false
 
 var inspecting: bool = false
 @onready var target_position: Vector3 = global_position
@@ -23,6 +27,8 @@ func _ready():
 	collision_layer = 1 << 2
 	if not is_in_group("PlaceableObject"):
 		add_to_group("PlaceableObject")
+	if needs_valid_placement and not is_in_group("ValidationObject"):
+		add_to_group("ValidationObject")
 	mouse_entered.connect(_on_object_mouse_entered)
 	mouse_exited.connect(_on_object_mouse_exited)
 	input_event.connect(_on_object_input_event)
@@ -49,6 +55,8 @@ func place_at(pos: Vector3):
 	target_rotation = global_rotation  # Recalibrate angle
 	raw_rotation = global_rotation
 	unclickable_timer = 0
+	%ImpactAudio.play()
+	object_placed.emit(self)
 
 func save_transform():
 	saved_position = target_position
@@ -89,7 +97,7 @@ func move_back():
 
 func inspect():
 	if not inspecting:
-		if in_light():
+		if in_light() and not Singletons.main.holding_object:
 			inspecting = true
 			save_transform()
 			Singletons.main.inspect_object(self)
@@ -106,6 +114,24 @@ func in_light() -> bool:
 			return true
 	return false
 
+func check_valid() -> bool:
+	for condition: ObjectCondition in conditions:
+		if not check_condition_valid(condition):
+			return false
+	return true
+
+func check_condition_valid(condition: ObjectCondition) -> bool:
+	match condition.base_condition:
+		OuijaSystem.Pos.LIGHT:
+			return condition.close == in_light()
+		_:
+			var target: Vector3 = Singletons.main.position_from_symbol(condition.base_condition)
+			if condition.close and (global_position - target).length() < 3.5:
+				return true
+			if not condition.close and (global_position - target).length() > 10:
+				return true
+	return false
+
 func _on_object_mouse_entered():
 	pass
 
@@ -117,9 +143,16 @@ func _on_object_input_event(_camera: Node, event: InputEvent, _position: Vector3
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if not inspecting and holder:
 				holder._on_placement_clicked(event)
+			elif inspecting:
+				%ImpactAudio.play()
+				add_random_rotation()
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			if not CameraManager.ouija:
 				inspect()
+
+func add_random_rotation():
+	raw_rotation += Vector3(randf_range(-0.05, 0.05), randf_range(-0.05, 0.05), randf_range(-0.05, 0.05))
+	global_rotation = raw_rotation
 
 func set_clickable(clickable: bool):
 	set_deferred("input_ray_pickable", clickable)

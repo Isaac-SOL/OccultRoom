@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc6ynp41gf7l4"]
-
-[ext_resource type="PackedScene" uid="uid://d2uphfybcp3lg" path="res://assets/3Dmodels/artefacts/tapis_ouija.glb" id="1_4trm1"]
-
-[node name="tapis_ouija" instance=ExtResource("1_4trm1")]

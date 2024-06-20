@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b0jprtmb4kasc"
-path="res://.godot/imported/table.glb-308bd015c7472ae822a7c2324ba7c3ad.scn"
+path="res://.godot/imported/ouija_table.glb-e5b826fb1faddbc8d41dcbfd8dc2dde8.scn"
 
 [deps]
 
-source_file="res://assets/3Dmodels/furnitures/table.glb"
-dest_files=["res://.godot/imported/table.glb-308bd015c7472ae822a7c2324ba7c3ad.scn"]
+source_file="res://assets/3Dmodels/furnitures/ouija_table.glb"
+dest_files=["res://.godot/imported/ouija_table.glb-e5b826fb1faddbc8d41dcbfd8dc2dde8.scn"]
 
 [params]
 

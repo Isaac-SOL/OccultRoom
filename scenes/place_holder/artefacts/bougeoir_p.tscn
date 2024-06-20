@@ -8,12 +8,12 @@ height = 0.6
 radius = 0.3
 
 [node name="bougeoir_p" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0335576, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00356027, 0)
 script = ExtResource("1_uno4a")
 
 [node name="bougeoir_Abougie" parent="." instance=ExtResource("2_ospvo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.56266, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23734, 0)
 shape = SubResource("CylinderShape3D_eltx0")

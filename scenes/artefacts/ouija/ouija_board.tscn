@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0sp4h8u5thh5"]
-
-[ext_resource type="PackedScene" uid="uid://bm31mio02td46" path="res://assets/3Dmodels/artefacts/ouija_board.glb" id="1_ah2ic"]
-
-[node name="ouija_board" instance=ExtResource("1_ah2ic")]

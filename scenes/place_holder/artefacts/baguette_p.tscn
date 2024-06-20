@@ -1,19 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci1gei2tmwrcj"]
+[gd_scene load_steps=10 format=3 uid="uid://ci1gei2tmwrcj"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_7wr48"]
 [ext_resource type="PackedScene" uid="uid://t613cf1f1w7u" path="res://scenes/artefacts/baguette.tscn" id="2_8wcqk"]
+[ext_resource type="AudioStream" uid="uid://dhy7riwwuy0p1" path="res://assets/audio/Kenney/Impacts/impactWood_light_000.ogg" id="3_mdxh4"]
+[ext_resource type="AudioStream" uid="uid://ctfy7fano23m0" path="res://assets/audio/Kenney/Impacts/impactWood_light_001.ogg" id="4_uau8q"]
+[ext_resource type="AudioStream" uid="uid://b4mvmk722nbpr" path="res://assets/audio/Kenney/Impacts/impactWood_light_002.ogg" id="5_31txq"]
+[ext_resource type="AudioStream" uid="uid://b8ewcm18tow0y" path="res://assets/audio/Kenney/Impacts/impactWood_light_003.ogg" id="6_2lf77"]
+[ext_resource type="AudioStream" uid="uid://bkw6ygqy2o8cf" path="res://assets/audio/Kenney/Impacts/impactWood_light_004.ogg" id="7_47m4t"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ocqet"]
 radius = 0.1
-height = 0.6
+height = 0.673456
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1n6lq"]
+streams_count = 5
+stream_0/stream = ExtResource("3_mdxh4")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_uau8q")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_31txq")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_2lf77")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_47m4t")
+stream_4/weight = 1.0
 
 [node name="baguette_p" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0648518, 0)
 script = ExtResource("1_7wr48")
+small = true
 
 [node name="baguette" parent="." instance=ExtResource("2_8wcqk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.5, 0)
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.137793, -0.608566, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, 0, 0.1, 0)
+transform = Transform3D(1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, -1, -4.37114e-08, 1, -4.37114e-08, 0, 0.0458207, 0)
 shape = SubResource("CapsuleShape3D_ocqet")
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_1n6lq")
+volume_db = -15.0

@@ -1,32 +1,94 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddjavseixmy1n"]
+[gd_scene load_steps=16 format=3 uid="uid://ddjavseixmy1n"]
 
-[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_st8cp"]
+[ext_resource type="Script" path="res://scripts/stool.gd" id="1_nca3c"]
 [ext_resource type="Texture2D" uid="uid://c1stu14cicd4m" path="res://assets/textures/object/star.png" id="2_7gsgx"]
+[ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="3_3eodl"]
+[ext_resource type="Texture2D" uid="uid://7pil0oa2t4nf" path="res://assets/textures/question_mark.png" id="4_5ik21"]
+[ext_resource type="AudioStream" uid="uid://k4ih1bgg4g7p" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_000.ogg" id="5_1oyua"]
+[ext_resource type="AudioStream" uid="uid://cdgm2ffprudag" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_001.ogg" id="6_ras3m"]
+[ext_resource type="AudioStream" uid="uid://c5rj5ya0enh8h" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_002.ogg" id="7_8fuo3"]
+[ext_resource type="AudioStream" uid="uid://ich42yeb30g8" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_003.ogg" id="8_bxm04"]
+[ext_resource type="AudioStream" uid="uid://c8bw08hgmydj0" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_004.ogg" id="9_xyack"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a08d1"]
+albedo_color = Color(0.25, 0, 0, 1)
+roughness = 0.5
+anisotropy_enabled = true
+anisotropy = 0.2
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_d81ih"]
+material = SubResource("StandardMaterial3D_a08d1")
 top_radius = 0.35
+bottom_radius = 0.2
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g5cuo"]
+material = SubResource("StandardMaterial3D_a08d1")
+top_radius = 0.2
 bottom_radius = 0.45
-height = 1.0
+height = 0.5
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ftsxx"]
 height = 1.0
 radius = 0.45
 
+[sub_resource type="Gradient" id="Gradient_u572q"]
+offsets = PackedFloat32Array(0, 0.51417, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.485601, 0.000166388, 0.485597, 1, 0, 0, 0, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g0cnd"]
+streams_count = 5
+stream_0/stream = ExtResource("5_1oyua")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("6_ras3m")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("7_8fuo3")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("8_bxm04")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("9_xyack")
+stream_4/weight = 1.0
+
 [node name="Stool" type="Area3D" groups=["PlaceableObject"]]
 collision_layer = 4
 collision_mask = 23
-script = ExtResource("1_st8cp")
+script = ExtResource("1_nca3c")
 special_name = "Stool"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 mesh = SubResource("CylinderMesh_d81ih")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("CylinderMesh_g5cuo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_ftsxx")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
+[node name="EyeSprite" type="Sprite3D" parent="."]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, -0.01, 0)
+modulate = Color(0, 0, 0, 1)
 axis = 1
 texture = ExtResource("2_7gsgx")
+script = ExtResource("3_3eodl")
+animated_gradient = SubResource("Gradient_u572q")
+gradient_length = 2.0
+animated = true
+
+[node name="StarSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01, 0)
+visible = false
+modulate = Color(0, 0, 0, 1)
+axis = 1
+texture_filter = 2
+texture = ExtResource("4_5ik21")
+script = ExtResource("3_3eodl")
+animated_gradient = SubResource("Gradient_u572q")
+gradient_length = 2.0
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_g0cnd")
+volume_db = -10.0

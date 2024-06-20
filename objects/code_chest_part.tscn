@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://buxjlhhoe0gki"]
+[gd_scene load_steps=4 format=3 uid="uid://buxjlhhoe0gki"]
 
 [ext_resource type="Script" path="res://scripts/code_part.gd" id="1_g1ok8"]
+[ext_resource type="AudioStream" uid="uid://bydq6qsnkgnio" path="res://assets/audio/Kenney/lock_2.ogg" id="2_2e2hh"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_bl8li"]
 radius = 0.102232
@@ -20,5 +21,10 @@ text = "0"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_bl8li")
+
+[node name="ClickAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_2e2hh")
+volume_db = -25.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -4,6 +4,7 @@ signal object_placed(object: PlaceableObject, point: ObjectPlacementPoint)
 signal object_removed(object: PlaceableObject, point: ObjectPlacementPoint)
 
 @export var holding_object: PlaceableObject
+@export var small: bool = false
 
 func _ready():
 	super._ready()
@@ -18,7 +19,7 @@ func get_ground_point() -> Vector3:
 	return %ObjectPositionGround.global_position
 
 func _on_own_mouse():
-	if Singletons.main.holding_object and not holding_object:
+	if Singletons.main.holding_object and not holding_object and not (small and not Singletons.main.holding_object.small):
 		Singletons.main.move_object_to(self)
 
 func _on_disown_mouse():
@@ -28,7 +29,7 @@ func _on_placement_clicked(event: InputEventMouseButton):
 	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if holding_object and not Singletons.main.holding_object and holding_object.in_light():
 			release_object()
-		elif Singletons.main.holding_object and not holding_object:
+		elif Singletons.main.holding_object and not holding_object and not (small and not Singletons.main.holding_object.small):
 			grab_object()
 
 func release_object():

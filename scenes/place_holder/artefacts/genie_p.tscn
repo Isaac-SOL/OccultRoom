@@ -1,14 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://tu5b57jvbo15"]
+[gd_scene load_steps=12 format=3 uid="uid://tu5b57jvbo15"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_ii211"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_dktc4"]
 [ext_resource type="PackedScene" uid="uid://e1b784hots7d" path="res://scenes/artefacts/genie.tscn" id="2_l3ch5"]
+[ext_resource type="AudioStream" uid="uid://cumh23y75ug33" path="res://assets/audio/Kenney/Impacts/impactTin_medium_000.ogg" id="4_rvrk7"]
+[ext_resource type="AudioStream" uid="uid://cvgrl1duc604y" path="res://assets/audio/Kenney/Impacts/impactTin_medium_001.ogg" id="5_h7655"]
+[ext_resource type="AudioStream" uid="uid://b6lco7hxtbtkh" path="res://assets/audio/Kenney/Impacts/impactTin_medium_002.ogg" id="6_cum2n"]
+[ext_resource type="AudioStream" uid="uid://bkf1cbc5g6kv0" path="res://assets/audio/Kenney/Impacts/impactTin_medium_003.ogg" id="7_pchfi"]
+[ext_resource type="AudioStream" uid="uid://cx8sg4ljinv3d" path="res://assets/audio/Kenney/Impacts/impactTin_medium_004.ogg" id="8_x3nlv"]
+
+[sub_resource type="Resource" id="Resource_b7yxg"]
+script = ExtResource("2_dktc4")
+base_condition = 3
+close = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l5ek2"]
 radius = 0.1
 height = 0.6
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e883s"]
+streams_count = 5
+stream_0/stream = ExtResource("4_rvrk7")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_h7655")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_cum2n")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_pchfi")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_x3nlv")
+stream_4/weight = 1.0
+
 [node name="genie_p" type="Area3D"]
 script = ExtResource("1_ii211")
+hints = Array[int]([3, 14])
+small = true
+conditions = Array[ExtResource("2_dktc4")]([SubResource("Resource_b7yxg")])
+needs_valid_placement = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0.0475, 0.1, -0.1125)
@@ -16,3 +44,8 @@ shape = SubResource("CapsuleShape3D_l5ek2")
 
 [node name="genie" parent="." instance=ExtResource("2_l3ch5")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0125, -0.565, 0.0525)
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_e883s")
+volume_db = -10.0

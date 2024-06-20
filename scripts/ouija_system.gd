@@ -2,10 +2,12 @@ class_name OuijaSystem extends Node3D
 
 enum Pos {
 	NONE = 0,
-	DOOR, MOON,
+	SHAKE,
+	MOON, FLATWOODS, LIGHT,
 	NORTH, EAST, SOUTH, WEST,
 	NORTH_WEST, NORTH_EAST, SOUTH_EAST, SOUTH_WEST,
-	CONTACT, CLOSE, MID, FAR
+	TRISKELE,
+	CLOSE, FAR
 }
 enum State {IDLE, PAUSING, MOVING}
 
@@ -28,8 +30,9 @@ var positions: Dictionary = {}
 func _ready():
 	Singletons.ouija_system = self
 	positions[Pos.NONE] = $Positions/None
-	positions[Pos.DOOR] = $Positions/Door
 	positions[Pos.MOON] = $Positions/Moon
+	positions[Pos.FLATWOODS] = $Positions/Flatwoods
+	positions[Pos.LIGHT] = $Positions/Light
 	positions[Pos.NORTH] = $Positions/North
 	positions[Pos.EAST] = $Positions/East
 	positions[Pos.SOUTH] = $Positions/South
@@ -38,9 +41,8 @@ func _ready():
 	positions[Pos.NORTH_EAST] = $Positions/NorthEast
 	positions[Pos.SOUTH_EAST] = $Positions/SouthEast
 	positions[Pos.SOUTH_WEST] = $Positions/SouthWest
-	positions[Pos.CONTACT] = $Positions/Contact
+	positions[Pos.TRISKELE] = $Positions/Triskele
 	positions[Pos.CLOSE] = $Positions/Close
-	positions[Pos.MID] = $Positions/Mid
 	positions[Pos.FAR] = $Positions/Far
 	position_reached.connect(_on_position_reached)
 	pause_finished.connect(_on_pause_finished)
@@ -81,6 +83,7 @@ func _on_position_reached():
 	assert(state == State.MOVING)
 	last_move_pos = target_move_pos
 	idx_in_sequence += 1
+	%MoveAudio.stop()
 	state = State.PAUSING
 	await get_tree().create_timer(1).timeout
 	pause_finished.emit()
@@ -93,8 +96,13 @@ func _on_pause_finished():
 			replaced = false
 			idx_in_sequence = 0
 			move_progress = 0
-			target_move_pos = get_pos(current_sequence[idx_in_sequence])
 			state = State.MOVING
+			if current_sequence[idx_in_sequence] == Pos.SHAKE:
+				%ShakeAudio.play()
+				_on_position_reached()
+			else:
+				target_move_pos = get_pos(current_sequence[idx_in_sequence])
+				%MoveAudio.play()
 		else:
 			# End reached, no next move scheduled
 			state = State.IDLE
@@ -103,9 +111,15 @@ func _on_pause_finished():
 			# Current movement has finished or been cancelled, must return to base position
 			move_progress = 0
 			target_move_pos = get_pos(Pos.NONE)
+			%MoveAudio.play()
 			state = State.MOVING
 		else:
 			# Current movement is in progress and going fine
 			move_progress = 0
-			target_move_pos = get_pos(current_sequence[idx_in_sequence])
 			state = State.MOVING
+			if current_sequence[idx_in_sequence] == Pos.SHAKE:
+				%ShakeAudio.play()
+				_on_position_reached()
+			else:
+				target_move_pos = get_pos(current_sequence[idx_in_sequence])
+				%MoveAudio.play()

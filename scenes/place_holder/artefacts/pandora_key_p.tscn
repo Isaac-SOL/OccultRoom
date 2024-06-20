@@ -1,19 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://bchf7pbgoe4nb"]
+[gd_scene load_steps=12 format=3 uid="uid://bchf7pbgoe4nb"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_b1n6f"]
 [ext_resource type="PackedScene" uid="uid://bw7wpj5dy713c" path="res://scenes/artefacts/pandora_key.tscn" id="2_cjb8h"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_f1lea"]
+[ext_resource type="AudioStream" uid="uid://d0vwel7ch5hpa" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_000.ogg" id="4_ue02c"]
+[ext_resource type="AudioStream" uid="uid://b2bqup2dq0h80" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_001.ogg" id="5_jp5c6"]
+[ext_resource type="AudioStream" uid="uid://5ggehqqratbi" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_002.ogg" id="6_ktxlc"]
+[ext_resource type="AudioStream" uid="uid://bww8sad4r5gai" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_003.ogg" id="7_7sivb"]
+[ext_resource type="AudioStream" uid="uid://ce7eg7kl2tggj" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_004.ogg" id="8_isrqw"]
+
+[sub_resource type="Resource" id="Resource_jf25b"]
+script = ExtResource("2_f1lea")
+base_condition = 13
+close = true
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_y13n1"]
 height = 1.02408
-radius = 0.15546
+radius = 0.2
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v3ybj"]
+streams_count = 5
+stream_0/stream = ExtResource("4_ue02c")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_jp5c6")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_ktxlc")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_7sivb")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_isrqw")
+stream_4/weight = 1.0
 
 [node name="pandora_key_p" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.167688, 0)
 script = ExtResource("1_b1n6f")
+hints = Array[int]([13, 14])
+small = true
+conditions = Array[ExtResource("2_f1lea")]([SubResource("Resource_jf25b")])
+needs_valid_placement = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+<<<<<<< HEAD
 transform = Transform3D(0.00425858, -0.999991, 0, 0.999991, 0.00425858, 0, 0, 0, 1, 0.0431009, 0, 0)
 shape = SubResource("CylinderShape3D_y13n1")
 
 [node name="pandora_key" parent="." instance=ExtResource("2_cjb8h")]
 transform = Transform3D(1, 0, 0, 0, 0.0437414, 0.999043, 0, -0.999043, 0.0437414, 0.15523, 0, 0)
+=======
+transform = Transform3D(-1.86148e-10, 4.3711e-08, 1, 0.999991, 0.00425858, 0, -0.00425858, 0.999991, -4.37114e-08, 9.69321e-05, 0.204462, 0.107099)
+shape = SubResource("CylinderShape3D_y13n1")
+
+[node name="pandora_key" parent="." instance=ExtResource("2_cjb8h")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.167688, 0)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.03729, 0.172127, 0.456882)
+shaded = true
+text = "Not
+a key"
+font_size = 16
+outline_size = 6
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_v3ybj")
+volume_db = -10.0
+>>>>>>> level

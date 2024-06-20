@@ -1,0 +1,93 @@
+[gd_scene load_steps=16 format=3 uid="uid://bm6pk301avrfr"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_wtmm3"]
+[ext_resource type="AudioStream" uid="uid://b4i5h181hkrm4" path="res://assets/audio/Kenney/Impacts/impactMetal_medium_000.ogg" id="2_k8xm8"]
+[ext_resource type="AudioStream" uid="uid://bq32b5pd4b16u" path="res://assets/audio/Kenney/Impacts/impactMetal_medium_001.ogg" id="3_0u5bk"]
+[ext_resource type="AudioStream" uid="uid://b8s4ebsl8lxqw" path="res://assets/audio/Kenney/Impacts/impactMetal_medium_002.ogg" id="4_iywhu"]
+[ext_resource type="AudioStream" uid="uid://b03ojcniiekv3" path="res://assets/audio/Kenney/Impacts/impactMetal_medium_003.ogg" id="5_4cior"]
+[ext_resource type="AudioStream" uid="uid://futm4y18j37l" path="res://assets/audio/Kenney/Impacts/impactMetal_medium_004.ogg" id="6_kyt22"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bd375"]
+albedo_color = Color(0.49, 0.49, 0.49, 1)
+metallic = 1.0
+roughness = 0.35
+anisotropy = 0.41
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2551x"]
+material = SubResource("StandardMaterial3D_bd375")
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gblnu"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_2g011"]
+material = SubResource("StandardMaterial3D_gblnu")
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.1
+
+[sub_resource type="GDScript" id="GDScript_tgmke"]
+script/source = "extends Node3D
+
+func _process(_delta):
+	look_at(Vector3(9, 2.5, -9.5), Vector3.UP)
+"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eiqcn"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_b22tl"]
+material = SubResource("StandardMaterial3D_eiqcn")
+size = Vector2(0.05, 0.2)
+orientation = 1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_3mwl8"]
+height = 0.235395
+radius = 0.296464
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ec7us"]
+streams_count = 5
+stream_0/stream = ExtResource("2_k8xm8")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("3_0u5bk")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("4_iywhu")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("5_4cior")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("6_kyt22")
+stream_4/weight = 1.0
+
+[node name="Compass" type="Area3D" groups=["PlaceableObjet"]]
+collision_layer = 4
+collision_mask = 23
+script = ExtResource("1_wtmm3")
+small = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("CylinderMesh_2551x")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.07, 0)
+mesh = SubResource("CylinderMesh_2g011")
+
+[node name="NeedleRotation" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12626, 0)
+script = SubResource("GDScript_tgmke")
+
+[node name="Needle" type="MeshInstance3D" parent="NeedleRotation"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0762172)
+mesh = SubResource("QuadMesh_b22tl")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.123016, 0)
+shape = SubResource("CylinderShape3D_3mwl8")
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_ec7us")
+volume_db = -10.0

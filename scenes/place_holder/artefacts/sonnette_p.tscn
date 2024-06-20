@@ -1,18 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmit33gq3mpqq"]
+[gd_scene load_steps=10 format=3 uid="uid://dmit33gq3mpqq"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_i7h7f"]
 [ext_resource type="PackedScene" uid="uid://bu4pt4ijj1en2" path="res://scenes/artefacts/sonnette.tscn" id="2_36025"]
+[ext_resource type="AudioStream" uid="uid://b58rphfckemmj" path="res://assets/audio/Kenney/Impacts/impactMetal_light_000.ogg" id="3_0b4ua"]
+[ext_resource type="AudioStream" uid="uid://wovgmpppkkmg" path="res://assets/audio/Kenney/Impacts/impactMetal_light_001.ogg" id="4_qrndr"]
+[ext_resource type="AudioStream" uid="uid://cepyqhhk1q2b1" path="res://assets/audio/Kenney/Impacts/impactMetal_light_002.ogg" id="5_vuvqq"]
+[ext_resource type="AudioStream" uid="uid://bsq0o1oelucgj" path="res://assets/audio/Kenney/Impacts/impactMetal_light_003.ogg" id="6_644ls"]
+[ext_resource type="AudioStream" uid="uid://kwrxvhfee4sv" path="res://assets/audio/Kenney/Impacts/impactMetal_light_004.ogg" id="7_0sgby"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vnxo4"]
-height = 0.105757
-radius = 0.123381
+height = 0.177921
+radius = 0.199932
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uskd5"]
+streams_count = 5
+stream_0/stream = ExtResource("3_0b4ua")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_qrndr")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_vuvqq")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_644ls")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_0sgby")
+stream_4/weight = 1.0
 
 [node name="sonnette_p" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0183709, 0)
 script = ExtResource("1_i7h7f")
+small = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0772982, 0)
 shape = SubResource("CylinderShape3D_vnxo4")
 
 [node name="sonnette" parent="." instance=ExtResource("2_36025")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.134814, -0.58072, -0.0367461)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020735, -0.0165735, -0.00148697)
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_uskd5")
+volume_db = -10.0

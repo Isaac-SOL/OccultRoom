@@ -1,8 +1,112 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1sptf4m07fnq"]
+[gd_scene load_steps=21 format=3 uid="uid://ch1m8srqoa0sc"]
 
 [ext_resource type="PackedScene" uid="uid://dktp752oygjwu" path="res://assets/3Dmodels/artefacts/pandora_box.glb" id="1_3or2a"]
+[ext_resource type="Script" path="res://scripts/furnitures/pandora_box.gd" id="2_vt31q"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dn7i8"]
+animation = &"close_pandora"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_svupo"]
+animation = &"open_pandora"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3allx"]
+animation = &"pandora_close"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p5e2q"]
+animation = &"pandora_open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_btt3n"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vuvb7"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_07qms"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ydwe4"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l11fk"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_palhd"]
+states/close_pandora/node = SubResource("AnimationNodeAnimation_dn7i8")
+states/close_pandora/position = Vector2(531.556, 189.333)
+states/open_pandora/node = SubResource("AnimationNodeAnimation_svupo")
+states/open_pandora/position = Vector2(542.667, 53.3333)
+states/pandora_close/node = SubResource("AnimationNodeAnimation_3allx")
+states/pandora_close/position = Vector2(340, 99.4074)
+states/pandora_open/node = SubResource("AnimationNodeAnimation_p5e2q")
+states/pandora_open/position = Vector2(718, 109.333)
+transitions = ["Start", "pandora_close", SubResource("AnimationNodeStateMachineTransition_btt3n"), "pandora_close", "open_pandora", SubResource("AnimationNodeStateMachineTransition_vuvb7"), "open_pandora", "pandora_open", SubResource("AnimationNodeStateMachineTransition_07qms"), "pandora_open", "close_pandora", SubResource("AnimationNodeStateMachineTransition_ydwe4"), "close_pandora", "pandora_close", SubResource("AnimationNodeStateMachineTransition_l11fk")]
+
+[sub_resource type="Gradient" id="Gradient_k6c1y"]
+offsets = PackedFloat32Array(0.0213904, 0.871658)
+colors = PackedColorArray(0.192157, 0.592157, 0.258824, 1, 0.0700433, 0.194451, 0.112794, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ew6gu"]
+gradient = SubResource("Gradient_k6c1y")
+
+[sub_resource type="Curve" id="Curve_rei7f"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_85qd6"]
+curve = SubResource("Curve_rei7f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e4mfk"]
+angle_min = -720.0
+angle_max = 362.7
+direction = Vector3(0, 1, 0)
+spread = 5.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 5.0
+linear_accel_max = 5.0
+scale_min = 10.0
+scale_max = 20.0
+scale_curve = SubResource("CurveTexture_85qd6")
+color_ramp = SubResource("GradientTexture1D_ew6gu")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r1mf1"]
+load_path = "res://.godot/imported/fire_02.png-ec3d5f3f6b03a217cabb41312821f242.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6nj57"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_texture = SubResource("CompressedTexture2D_r1mf1")
+heightmap_scale = -16.0
+texture_filter = 0
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_il7md"]
+material = SubResource("StandardMaterial3D_6nj57")
+size = Vector2(0.05, 0.05)
 
 [node name="pandora_box" instance=ExtResource("1_3or2a")]
+script = ExtResource("2_vt31q")
 
 [node name="pandora_box_top" parent="." index="0"]
-transform = Transform3D(0.396842, 0.140298, 0, -0.140298, 0.396842, 0, 0, 0, 0.420912, -0.403721, 1.41629, 0.0526164)
+transform = Transform3D(0.396842, 0.140297, 0, -0.140297, 0.396842, 0, 0, 0, 0.420912, -0.257334, 0.370496, -8.28095e-05)
+
+[node name="pandora_box_bot" parent="." index="1"]
+transform = Transform3D(0.420912, 0, 0, 0, 0.420912, 0, 0, 0, 0.420912, 0.00273417, -0.074494, -8.24034e-05)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeStateMachine_palhd")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="GPUParticles3D_pandora" type="GPUParticles3D" parent="." index="4"]
+transform = Transform3D(0.001, 0, 0, 0, 0.062, 0, 0, 0, 0.081, -0.1, 1.185, 0)
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_e4mfk")
+draw_pass_1 = SubResource("QuadMesh_il7md")

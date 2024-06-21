@@ -1,0 +1,56 @@
+[gd_scene load_steps=13 format=3 uid="uid://c81raljowb8rj"]
+
+[ext_resource type="PackedScene" uid="uid://dl5b1u3esns0l" path="res://assets/3Dmodels/artefacts/code_chest.glb" id="1_4lrfm"]
+[ext_resource type="Script" path="res://scripts/furnitures/code_chest.gd" id="2_x2hbf"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_go2ac"]
+animation = &"close_code_chest"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hvhjq"]
+animation = &"code_chest_close"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7bdrm"]
+animation = &"code_chest_open"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1rtyp"]
+animation = &"open_code_chest"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d7c7r"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wxejr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ttggw"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_12frx"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rigap"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xcogk"]
+states/close_code_chest/node = SubResource("AnimationNodeAnimation_go2ac")
+states/close_code_chest/position = Vector2(558.667, 197.667)
+states/code_chest_close/node = SubResource("AnimationNodeAnimation_hvhjq")
+states/code_chest_close/position = Vector2(386, 106.667)
+states/code_chest_open/node = SubResource("AnimationNodeAnimation_7bdrm")
+states/code_chest_open/position = Vector2(728, 100.259)
+states/open_code_chest/node = SubResource("AnimationNodeAnimation_1rtyp")
+states/open_code_chest/position = Vector2(568, 13)
+transitions = ["Start", "code_chest_close", SubResource("AnimationNodeStateMachineTransition_d7c7r"), "code_chest_close", "open_code_chest", SubResource("AnimationNodeStateMachineTransition_wxejr"), "open_code_chest", "code_chest_open", SubResource("AnimationNodeStateMachineTransition_ttggw"), "code_chest_open", "close_code_chest", SubResource("AnimationNodeStateMachineTransition_12frx"), "close_code_chest", "code_chest_close", SubResource("AnimationNodeStateMachineTransition_rigap")]
+graph_offset = Vector2(-138, -43)
+
+[node name="code_chest" instance=ExtResource("1_4lrfm")]
+script = ExtResource("2_x2hbf")
+
+[node name="code_chest_top" parent="." index="0"]
+transform = Transform3D(0.296111, 0, 0, 0, 0.296111, 0, 0, 0, 0.512686, -0.25002, 0.383271, 0)
+
+[node name="code_chest_bot" parent="." index="1"]
+transform = Transform3D(0.296111, 0, 0, 0, 0.296111, 0, 0, 0, 0.512686, 0, 0.2376, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeStateMachine_xcogk")
+anim_player = NodePath("../AnimationPlayer")

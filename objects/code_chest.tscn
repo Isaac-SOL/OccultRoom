@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dikduy73dav8r"]
+[gd_scene load_steps=19 format=3 uid="uid://dikduy73dav8r"]
 
 [ext_resource type="Script" path="res://scripts/code_chest.gd" id="1_huyrt"]
 [ext_resource type="PackedScene" uid="uid://buxjlhhoe0gki" path="res://objects/code_chest_part.tscn" id="2_70s15"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bww8sad4r5gai" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_003.ogg" id="8_2jplf"]
 [ext_resource type="AudioStream" uid="uid://ce7eg7kl2tggj" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_004.ogg" id="9_2duv1"]
 [ext_resource type="AudioStream" uid="uid://dj7pcexdwtj0w" path="res://assets/audio/Kenney/doorClose_1.ogg" id="10_qg64p"]
+[ext_resource type="PackedScene" uid="uid://c81raljowb8rj" path="res://scenes/artefacts/code_chest.tscn" id="11_2won7"]
 
 [sub_resource type="Resource" id="Resource_3smn1"]
 script = ExtResource("2_118m8")
@@ -28,7 +29,7 @@ size = Vector3(0.8, 0.8, 0.8)
 albedo_color = Color(0.2701, 0.30076, 0.73, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7g7tq"]
-size = Vector3(0.8, 0.8, 0.8)
+size = Vector3(0.640369, 0.624731, 1.09392)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_a1jub"]
 radius = 3.5
@@ -58,23 +59,25 @@ needs_valid_placement = true
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+visible = false
 mesh = SubResource("BoxMesh_rr5o5")
 surface_material_override/0 = SubResource("StandardMaterial3D_e4f7w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00878298, 0.312366, 0.00155033)
 shape = SubResource("BoxShape3D_7g7tq")
 
 [node name="Code1" parent="." instance=ExtResource("2_70s15")]
+transform = Transform3D(1.50996e-08, 0, 0.2, 0, 0.2, 0, -0.2, 0, 1.50996e-08, 0.332425, 0.390128, 0.00101775)
 
 [node name="Code2" parent="." instance=ExtResource("2_70s15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.228492, 0.434941, 0.41)
+transform = Transform3D(1.50996e-08, 0, 0.2, 0, 0.2, 0, -0.2, 0, 1.50996e-08, 0.332425, 0.429484, -0.041428)
 
 [node name="Code3" parent="." instance=ExtResource("2_70s15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00125393, 0.632737, 0.41)
+transform = Transform3D(1.50996e-08, 0, 0.2, 0, 0.2, 0, -0.2, 0, 1.50996e-08, 0.332425, 0.464398, -0.000236183)
 
 [node name="Code4" parent="." instance=ExtResource("2_70s15")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215353, 0.428501, 0.41)
+transform = Transform3D(1.50996e-08, 0, 0.2, 0, 0.2, 0, -0.2, 0, 1.50996e-08, 0.332425, 0.428501, 0.042875)
 
 [node name="Content" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -103,3 +106,5 @@ volume_db = -10.0
 unique_name_in_owner = true
 stream = ExtResource("10_qg64p")
 volume_db = -10.0
+
+[node name="code_chest" parent="." instance=ExtResource("11_2won7")]

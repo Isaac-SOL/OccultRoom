@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://b00bfo0pfcc7e"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_4g2cs"]
-[ext_resource type="PackedScene" uid="uid://d1sptf4m07fnq" path="res://scenes/artefacts/pandora_box.tscn" id="2_8dfqs"]
 [ext_resource type="AudioStream" uid="uid://k4ih1bgg4g7p" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_000.ogg" id="3_2dchx"]
 [ext_resource type="AudioStream" uid="uid://cdgm2ffprudag" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_001.ogg" id="4_s3jjh"]
 [ext_resource type="AudioStream" uid="uid://c5rj5ya0enh8h" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_002.ogg" id="5_bumxb"]
 [ext_resource type="AudioStream" uid="uid://ich42yeb30g8" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_003.ogg" id="6_abl11"]
+[ext_resource type="PackedScene" uid="uid://ch1m8srqoa0sc" path="res://scenes/artefacts/pandora_box.tscn" id="7_b2npq"]
 [ext_resource type="AudioStream" uid="uid://c8bw08hgmydj0" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_004.ogg" id="7_kuu1e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svxq6"]
@@ -34,10 +34,9 @@ script = ExtResource("1_4g2cs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.2, 0.05)
 shape = SubResource("BoxShape3D_svxq6")
 
-[node name="pandora_box" parent="." instance=ExtResource("2_8dfqs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, 0)
-
 [node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_0ylgx")
 volume_db = -10.0
+
+[node name="pandora_box" parent="." instance=ExtResource("7_b2npq")]

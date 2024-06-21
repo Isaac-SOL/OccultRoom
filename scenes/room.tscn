@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_1vuhw"]
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_kn5p5"]
-[ext_resource type="Texture2D" uid="uid://c1stu14cicd4m" path="res://assets/textures/object/star.png" id="1_pj54u"]
 [ext_resource type="PackedScene" uid="uid://wry4x8x1djv4" path="res://objects/ouija_detector.tscn" id="1_xcxt8"]
-[ext_resource type="Texture2D" uid="uid://7m2p5yfaxe0a" path="res://assets/textures/flatwoods.png" id="2_qj5kl"]
 [ext_resource type="PackedScene" uid="uid://b2vaujr4s1f23" path="res://objects/ouija_placement_point.tscn" id="2_tkrdm"]
-[ext_resource type="Texture2D" uid="uid://cc3y8ue8tnx1h" path="res://assets/textures/triskele.png" id="3_ogsj7"]
+[ext_resource type="Texture2D" uid="uid://d3k2ufxfo1yoe" path="res://assets/textures/symbols/unity-symbol-100.png" id="3_emjou"]
+[ext_resource type="Texture2D" uid="uid://cskdi3l4e5ptn" path="res://assets/textures/symbols/triskelion-96.png" id="4_7pbam"]
 [ext_resource type="PackedScene" uid="uid://bkf1vadtu7p38" path="res://objects/test_thing.tscn" id="5_adnc5"]
 [ext_resource type="Texture2D" uid="uid://c3k47cmqjkgcb" path="res://assets/textures/door.png" id="5_l8kh7"]
-[ext_resource type="PackedScene" uid="uid://4axxv4ncukbv" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
+[ext_resource type="PackedScene" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
+[ext_resource type="Texture2D" uid="uid://bj016jvyxdu12" path="res://assets/textures/symbols/modify/illuminati-100-w.png" id="6_jdx8u"]
 [ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="7_emt5d"]
 [ext_resource type="PackedScene" uid="uid://dikduy73dav8r" path="res://objects/code_chest.tscn" id="12_r5a1l"]
 [ext_resource type="PackedScene" uid="uid://d0fyb8y16pja" path="res://scenes/furnitures/bed.tscn" id="13_bkm2f"]
@@ -115,7 +115,7 @@ mesh = SubResource("PlaneMesh_bbacu")
 skeleton = NodePath("../../..")
 
 [node name="Backface" type="MeshInstance3D" parent="Walls/Node3D/Wall1A"]
-transform = Transform3D(-1.1, 1.50996e-07, 2.32934e-22, -1.66095e-07, -1, -7.10543e-15, 0, -7.10543e-15, 1.1, 0, -0.1, 0)
+transform = Transform3D(-1.1, 1.50996e-07, 2.32934e-22, -1.66095e-07, -1, -1.06581e-14, 0, -1.06581e-14, 1.1, 0, -0.1, 0)
 cast_shadow = 3
 mesh = SubResource("PlaneMesh_bbacu")
 skeleton = NodePath("../../../..")
@@ -199,16 +199,16 @@ mesh = SubResource("PlaneMesh_bbacu")
 skeleton = NodePath("../../..")
 
 [node name="Flatwoods" type="Sprite3D" parent="Walls"]
-transform = Transform3D(-5, 0, -4.37114e-07, 0, 5, 0, 4.37114e-07, 0, -5, 8.5, 4.5, 0.49)
+transform = Transform3D(-1.60218, 0.325967, 1.42936e-07, 0.325967, 1.60218, 0, -1.40067e-07, 2.84969e-08, -1.635, 8.5, 4.5, 0.49)
 double_sided = false
 texture_filter = 2
-texture = ExtResource("2_qj5kl")
+texture = ExtResource("3_emjou")
 
 [node name="Triskele" type="Sprite3D" parent="Walls"]
-transform = Transform3D(6.55671e-07, 0, -5, 0, 5, 0, 5, 0, 6.55671e-07, 9.49, 3.5, -6.5)
+transform = Transform3D(-6.17833e-08, 4.08935e-08, -1.695, 0.935533, 1.41344, 0, 1.41344, -0.935533, -7.40908e-08, 9.49, 3.5, -6.5)
 double_sided = false
 texture_filter = 2
-texture = ExtResource("3_ogsj7")
+texture = ExtResource("4_7pbam")
 
 [node name="Door" type="Sprite3D" parent="Walls"]
 transform = Transform3D(2, 0, 3.49691e-07, 0, 2, 0, -3.49691e-07, 0, 2, 3.5, 1.78935, -9.49)
@@ -219,10 +219,10 @@ texture = ExtResource("5_l8kh7")
 
 [node name="StoolBottom" type="Sprite3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.688882, -6.0224e-08, -3.82137e-15, 0, -3.0112e-08, 1, -6.0224e-08, 0.688882, 4.37114e-08, 3, 0.601797, -4)
+transform = Transform3D(-0.559, -8.44067e-08, -5.35279e-15, 0, -2.44347e-08, 0.811, -8.44067e-08, 0.559, 3.54499e-08, 3, 0.601797, -4)
 modulate = Color(0, 0, 0, 1)
 texture_filter = 4
-texture = ExtResource("1_pj54u")
+texture = ExtResource("6_jdx8u")
 script = ExtResource("7_emt5d")
 animated_gradient = SubResource("Gradient_tibh6")
 gradient_length = 4.0
@@ -632,7 +632,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.6, -8)
 holder = NodePath("../../PlacementPoints/ThingPlacementPoint")
 
 [node name="CodeChest" parent="Objects" node_paths=PackedStringArray("holder") instance=ExtResource("12_r5a1l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, -3)
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9, 0.6, -3)
 holder = NodePath("../../PlacementPoints/ChestPlacementPoint")
 
 [node name="Compass" parent="Objects" node_paths=PackedStringArray("holder") instance=ExtResource("15_310g3")]

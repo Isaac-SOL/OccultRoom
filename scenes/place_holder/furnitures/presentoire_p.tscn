@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://scripts/stool.gd" id="1_ga1j0"]
 [ext_resource type="PackedScene" uid="uid://dok0jaispvaq8" path="res://scenes/furnitures/presentoire.tscn" id="2_lsqx7"]
-[ext_resource type="Texture2D" uid="uid://c1stu14cicd4m" path="res://assets/textures/object/star.png" id="3_16rjw"]
 [ext_resource type="AudioStream" uid="uid://05jkbyq3av5o" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_000.ogg" id="3_eqi87"]
+[ext_resource type="Texture2D" uid="uid://bj016jvyxdu12" path="res://assets/textures/symbols/modify/illuminati-100-w.png" id="3_yweta"]
 [ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="4_osw0e"]
 [ext_resource type="AudioStream" uid="uid://biqq7cnkxqdik" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_001.ogg" id="4_p0kx2"]
-[ext_resource type="Texture2D" uid="uid://7pil0oa2t4nf" path="res://assets/textures/question_mark.png" id="5_asuy2"]
 [ext_resource type="AudioStream" uid="uid://2drx2gf5p062" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_002.ogg" id="5_eltur"]
+[ext_resource type="Texture2D" uid="uid://1yt0crdbi7kn" path="res://assets/textures/symbols/modify/pentagram-devil-100-w.png" id="5_m5t2w"]
 [ext_resource type="AudioStream" uid="uid://bqwosq5rv0ea5" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_003.ogg" id="6_7bwmy"]
 [ext_resource type="AudioStream" uid="uid://eoer4nwxjqhl" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_004.ogg" id="7_7uo5j"]
 
@@ -42,23 +42,24 @@ shape = SubResource("CylinderShape3D_uidim")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0278114, -0.54945, -0.0451934)
 
 [node name="EyeSprite" type="Sprite3D" parent="."]
-transform = Transform3D(0.556369, 0, 0, 0, 0.7, 0, 0, 0, 0.556369, 0, -0.01, 0)
+transform = Transform3D(0.452, 0, 0, 0, 0.57, 0, 0, 0, 0.452, 0, -0.01, 0)
 modulate = Color(0, 0, 0, 1)
 axis = 1
-texture = ExtResource("3_16rjw")
+texture = ExtResource("3_yweta")
 script = ExtResource("4_osw0e")
 animated_gradient = SubResource("Gradient_ts2v4")
 gradient_length = 2.0
 animated = true
 
 [node name="StarSprite" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697988, 0)
+transform = Transform3D(0.825, 0, 0, 0, 0.825, 0, 0, 0, 0.825, 0, 0.697988, 0)
 visible = false
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0.301961, 0, 0, 1)
 axis = 1
 texture_filter = 2
-texture = ExtResource("5_asuy2")
+texture = ExtResource("5_m5t2w")
 script = ExtResource("4_osw0e")
+base_color = Color(0.372549, 0, 0, 1)
 animated_gradient = SubResource("Gradient_ts2v4")
 gradient_length = 2.0
 

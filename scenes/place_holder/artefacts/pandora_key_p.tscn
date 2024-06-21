@@ -39,7 +39,7 @@ conditions = Array[ExtResource("2_f1lea")]([SubResource("Resource_jf25b")])
 needs_valid_placement = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-1.86148e-10, 4.3711e-08, 1, 0.999991, 0.00425858, 0, -0.00425858, 0.999991, -4.37114e-08, 9.69321e-05, 0.204462, 0.107099)
+transform = Transform3D(-1.86148e-10, 4.3711e-08, 1, 0.999991, 0.00425858, -4.70589e-16, -0.00425858, 0.999991, -4.37114e-08, 9.69321e-05, 0.204462, 0.107099)
 shape = SubResource("CylinderShape3D_y13n1")
 
 [node name="pandora_key" parent="." instance=ExtResource("2_cjb8h")]

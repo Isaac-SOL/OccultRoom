@@ -34,3 +34,6 @@ func position_from_symbol(symbol: OuijaSystem.Pos) -> Vector3:
 
 func _on_object_placed(object: PlaceableObject):
 	object_placed.emit(object)
+
+func set_eye_animated(animated: bool):
+	%StoolBottom.set_animated(animated)

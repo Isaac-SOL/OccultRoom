@@ -62,6 +62,8 @@ func get_pos(pos: Pos) -> Vector3:
 
 func _on_object_placed(object: PlaceableObject):
 	current_sequence = object.hints
+	if not current_sequence.is_empty():
+		%MagicAudio.play()
 	match state:
 		State.IDLE:
 			idx_in_sequence = 0

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="OccultRoom"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/menus/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -28,7 +28,7 @@ window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/mode=2
 window/stretch/mode="viewport"
-mouse_cursor/custom_image="res://assets/textures/symbols/modify/pyramid-mouse.png"
+mouse_cursor/custom_image="res://assets/textures/mouse/pyramid-mouse.png"
 
 [editor]
 

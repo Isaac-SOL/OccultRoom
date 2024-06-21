@@ -19,6 +19,7 @@ var dialog: bool = false
 var ouija_message_next: bool = false
 var crystal_message_next: bool = false
 var ouija_explanation_next: bool = false
+var already_inspected: bool = true
 
 
 func _ready():
@@ -29,6 +30,8 @@ func _ready():
 	%PauseMenu.hide()
 	Global.prevscene = get_tree().current_scene.scene_file_path
 	
+	%LookHint.visible = true
+	
 	await get_tree().create_timer(5).timeout
 	await start_multi_dialog([0.5, 0.5, 0.5,
 		"There is a spirit in this room.",
@@ -38,6 +41,10 @@ func _ready():
 	%Room.set_eye_animated(true)
 	ouija_message_next = true
 	crystal_message_next = true
+	%PickupHint.visible = true
+	%FreeTurnHint.visible = true
+	%TableHint.visible = true
+	already_inspected = false
 
 func _process(delta):
 	# Play game song
@@ -50,21 +57,38 @@ func _process(delta):
 	# Input
 	if not dialog:
 		if Input.is_action_just_pressed("left"):
-			if not inspecting: CameraManager.rotate_left()
-			else: inspecting.inspect_rotate_left()
+			if not inspecting:
+				CameraManager.rotate_left()
+				%LookHint.visible = false
+			else:
+				inspecting.inspect_rotate_left()
 		elif Input.is_action_just_pressed("right"):
-			if not inspecting: CameraManager.rotate_right()
-			else: inspecting.inspect_rotate_right()
+			if not inspecting:
+				CameraManager.rotate_right()
+				%LookHint.visible = false
+			else:
+				inspecting.inspect_rotate_right()
 		elif Input.is_action_just_pressed("up"):
-			if inspecting: inspecting.inspect_rotate_up()
+			if inspecting:
+				inspecting.inspect_rotate_up()
+				%TurnHint.visible = false
 		elif Input.is_action_just_pressed("down"):
-			if inspecting: inspecting.inspect_rotate_down()
+			if inspecting:
+				inspecting.inspect_rotate_down()
+				%TurnHint.visible = false
 		elif Input.is_action_just_pressed("special"):
-			if not inspecting: CameraManager.toggle_ouija()
+			if not inspecting:
+				CameraManager.toggle_ouija()
+				if not CameraManager.ouija:
+					%TableHint.visible = false
 		elif Input.is_action_just_pressed("turn_left"):
-			if not inspecting: turn_object_left()
+			if not inspecting:
+				turn_object_left()
+				%FreeTurnHint.visible = false
 		elif Input.is_action_just_pressed("turn_right"):
-			if not inspecting: turn_object_right()
+			if not inspecting:
+				turn_object_right()
+				%FreeTurnHint.visible = false
 	
 	# Scene management
 	if dialog_unclickable_time > 0:
@@ -121,6 +145,8 @@ func inspect_object(object: PlaceableObject):
 		await get_tree().create_timer(0.3).timeout
 		start_multi_dialog(["Visions of the future...", "Or hints, maybe?"])
 		crystal_message_next = false
+	if not already_inspected:
+		%TurnHint.visible = true
 
 func stop_inspect_object(object:PlaceableObject):
 	object.move_back()
@@ -129,7 +155,9 @@ func stop_inspect_object(object:PlaceableObject):
 	%HighlightSprite.target_scale = Vector3.ZERO
 	%LabelLeft.set_inspect(false)
 	%LabelRight.set_inspect(false)
+	%InspectHint.visible = false
 	inspecting = null
+	already_inspected = true
 		
 func pauseMenu():
 	if pause:
@@ -169,6 +197,9 @@ func _on_room_stool_just_placed():
 
 func _on_room_object_placed(_object):
 	check_valid_objects()
+	%PickupHint.visible = false
+	if not already_inspected:
+		%InspectHint.visible = true
 
 func _on_change_vision_timer_timeout():
 	if not targeting_stool:

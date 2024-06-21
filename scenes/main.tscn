@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=47 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -16,6 +16,12 @@
 [ext_resource type="AudioStream" uid="uid://bqwosq5rv0ea5" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_003.ogg" id="7_q3smn"]
 [ext_resource type="AudioStream" uid="uid://eoer4nwxjqhl" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_004.ogg" id="8_h256d"]
 [ext_resource type="Shader" uid="uid://02rsxnac7vv4" path="res://shaders_mats/noise_shader.tres" id="8_t2fxk"]
+[ext_resource type="Texture2D" uid="uid://b5xp58v40peoi" path="res://assets/textures/look_around_hint.png" id="15_w5546"]
+[ext_resource type="Texture2D" uid="uid://i3udstbqhgnw" path="res://assets/textures/pickup_hint.png" id="16_2d4bi"]
+[ext_resource type="Texture2D" uid="uid://f4jlgk556d3i" path="res://assets/textures/free_turn_hint.png" id="17_legkf"]
+[ext_resource type="Texture2D" uid="uid://dkcclecvpkvum" path="res://assets/textures/table_hint.png" id="18_tf8sk"]
+[ext_resource type="Texture2D" uid="uid://bysc4u4i16e02" path="res://assets/textures/inspect_hint.png" id="19_4aftl"]
+[ext_resource type="Texture2D" uid="uid://cvulckh5b7y0" path="res://assets/textures/turn_object_hint.png" id="20_srbnq"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jo56l"]
 streams_count = 5
@@ -289,6 +295,106 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HintsContainer" type="VFlowContainer" parent="UI"]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="LookHint" type="TextureRect" parent="UI/HintsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("15_w5546")
+
+[node name="Panel" type="Panel" parent="UI/HintsContainer/LookHint"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PickupHint" type="TextureRect" parent="UI/HintsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("16_2d4bi")
+
+[node name="Panel" type="Panel" parent="UI/HintsContainer/PickupHint"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FreeTurnHint" type="TextureRect" parent="UI/HintsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("17_legkf")
+
+[node name="Panel" type="Panel" parent="UI/HintsContainer/FreeTurnHint"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TableHint" type="TextureRect" parent="UI/HintsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("18_tf8sk")
+
+[node name="Panel" type="Panel" parent="UI/HintsContainer/TableHint"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InspectHint" type="TextureRect" parent="UI/HintsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("19_4aftl")
+
+[node name="Panel" type="Panel" parent="UI/HintsContainer/InspectHint"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TurnHint" type="TextureRect" parent="UI/HintsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("20_srbnq")
+
+[node name="Panel" type="Panel" parent="UI/HintsContainer/TurnHint"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="DialogControl" type="Control" parent="UI"]
 unique_name_in_owner = true

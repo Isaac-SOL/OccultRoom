@@ -5,4 +5,4 @@
 [node name="pandora_box" instance=ExtResource("1_3or2a")]
 
 [node name="pandora_box_top" parent="." index="0"]
-transform = Transform3D(0.14396, -0.395528, 0, 0.395528, 0.14396, 0, 0, 0, 0.420912, -0.403721, 1.41629, 0.0526164)
+transform = Transform3D(0.396842, 0.140298, 0, -0.140298, 0.396842, 0, 0, 0, 0.420912, -0.403721, 1.41629, 0.0526164)

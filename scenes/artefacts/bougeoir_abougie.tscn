@@ -15,7 +15,7 @@ process_material = ExtResource("2_debbu")
 draw_pass_1 = ExtResource("3_hkm5g")
 
 [node name="Candle_light" type="Node3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126621, -0.39974, 0.0474031)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126621, -0.033994, 0.0474031)
 script = ExtResource("4_d5y0f")
 min_size = 3.45
 max_size = 3.55

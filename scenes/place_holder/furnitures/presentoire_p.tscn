@@ -1,17 +1,68 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce0y02q4swkxw"]
+[gd_scene load_steps=14 format=3 uid="uid://ce0y02q4swkxw"]
 
-[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_ady6s"]
+[ext_resource type="Script" path="res://scripts/stool.gd" id="1_ga1j0"]
 [ext_resource type="PackedScene" uid="uid://dok0jaispvaq8" path="res://scenes/furnitures/presentoire.tscn" id="2_lsqx7"]
+[ext_resource type="Texture2D" uid="uid://c1stu14cicd4m" path="res://assets/textures/object/star.png" id="3_16rjw"]
+[ext_resource type="AudioStream" uid="uid://05jkbyq3av5o" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_000.ogg" id="3_eqi87"]
+[ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="4_osw0e"]
+[ext_resource type="AudioStream" uid="uid://biqq7cnkxqdik" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_001.ogg" id="4_p0kx2"]
+[ext_resource type="Texture2D" uid="uid://7pil0oa2t4nf" path="res://assets/textures/question_mark.png" id="5_asuy2"]
+[ext_resource type="AudioStream" uid="uid://2drx2gf5p062" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_002.ogg" id="5_eltur"]
+[ext_resource type="AudioStream" uid="uid://bqwosq5rv0ea5" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_003.ogg" id="6_7bwmy"]
+[ext_resource type="AudioStream" uid="uid://eoer4nwxjqhl" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_004.ogg" id="7_7uo5j"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_uidim"]
 height = 0.677608
 
-[node name="presentoire_p" type="Area3D"]
-script = ExtResource("1_ady6s")
+[sub_resource type="Gradient" id="Gradient_ts2v4"]
+offsets = PackedFloat32Array(0, 0.51417, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.485601, 0.000166388, 0.485597, 1, 0, 0, 0, 1)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2fnc8"]
+streams_count = 5
+stream_0/stream = ExtResource("3_eqi87")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_p0kx2")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_eltur")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_7bwmy")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_7uo5j")
+stream_4/weight = 1.0
+
+[node name="presentoire_p" type="Area3D" groups=["Stool"]]
+script = ExtResource("1_ga1j0")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369408, 0)
 shape = SubResource("CylinderShape3D_uidim")
 
 [node name="presentoire" parent="." instance=ExtResource("2_lsqx7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.54945, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0278114, -0.54945, -0.0451934)
+
+[node name="EyeSprite" type="Sprite3D" parent="."]
+transform = Transform3D(0.556369, 0, 0, 0, 0.7, 0, 0, 0, 0.556369, 0, -0.01, 0)
+modulate = Color(0, 0, 0, 1)
+axis = 1
+texture = ExtResource("3_16rjw")
+script = ExtResource("4_osw0e")
+animated_gradient = SubResource("Gradient_ts2v4")
+gradient_length = 2.0
+animated = true
+
+[node name="StarSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.697988, 0)
+visible = false
+modulate = Color(0, 0, 0, 1)
+axis = 1
+texture_filter = 2
+texture = ExtResource("5_asuy2")
+script = ExtResource("4_osw0e")
+animated_gradient = SubResource("Gradient_ts2v4")
+gradient_length = 2.0
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_2fnc8")
+volume_db = -10.0

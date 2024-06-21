@@ -20,6 +20,7 @@ var ouija_message_next: bool = false
 var crystal_message_next: bool = false
 var ouija_explanation_next: bool = false
 var already_inspected: bool = true
+@export var intro: bool = true
 
 
 func _ready():
@@ -31,6 +32,8 @@ func _ready():
 	Global.prevscene = get_tree().current_scene.scene_file_path
 	
 	%LookHint.visible = true
+	if not intro:
+		return
 	
 	await get_tree().create_timer(5).timeout
 	await start_multi_dialog([0.5, 0.5, 0.5,

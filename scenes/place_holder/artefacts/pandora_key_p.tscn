@@ -39,13 +39,6 @@ conditions = Array[ExtResource("2_f1lea")]([SubResource("Resource_jf25b")])
 needs_valid_placement = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-<<<<<<< HEAD
-transform = Transform3D(0.00425858, -0.999991, 0, 0.999991, 0.00425858, 0, 0, 0, 1, 0.0431009, 0, 0)
-shape = SubResource("CylinderShape3D_y13n1")
-
-[node name="pandora_key" parent="." instance=ExtResource("2_cjb8h")]
-transform = Transform3D(1, 0, 0, 0, 0.0437414, 0.999043, 0, -0.999043, 0.0437414, 0.15523, 0, 0)
-=======
 transform = Transform3D(-1.86148e-10, 4.3711e-08, 1, 0.999991, 0.00425858, 0, -0.00425858, 0.999991, -4.37114e-08, 9.69321e-05, 0.204462, 0.107099)
 shape = SubResource("CylinderShape3D_y13n1")
 
@@ -64,4 +57,3 @@ outline_size = 6
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_v3ybj")
 volume_db = -10.0
->>>>>>> level

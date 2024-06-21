@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmhsk5o2frurl"]
+[gd_scene load_steps=2 format=3 uid="uid://dtr12fgi36m3m"]
 
-[ext_resource type="PackedScene" path="res://assets/3Dmodels/furnitures/ouija_table.glb" id="1_4e1dr"]
+[ext_resource type="PackedScene" uid="uid://b0jprtmb4kasc" path="res://assets/3Dmodels/furnitures/ouija_table.glb" id="1_4e1dr"]
 
-[node name="table" instance=ExtResource("1_4e1dr")]
+[node name="ouija_table" instance=ExtResource("1_4e1dr")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)

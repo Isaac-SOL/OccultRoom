@@ -15,11 +15,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00356027, 0)
 script = ExtResource("1_uno4a")
 
 [node name="bougeoir_Abougie" parent="." instance=ExtResource("2_ospvo")]
-<<<<<<< HEAD
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.56266, 0)
-=======
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.136058, -0.6, -0.0379242)
->>>>>>> level
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23734, 0)

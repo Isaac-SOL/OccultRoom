@@ -4,26 +4,20 @@ signal grabbed_object(object: Node3D)
 signal released_object(object: Node3D, point: ObjectPlacementPoint)
 
 @export var holding_object: Node3D
-
-var object_list: Array[PlaceableObject] = []
-var inspecting: PlaceableObject = null
-<<<<<<< HEAD
-var pause = false
-
-func _ready():
-	Singletons.main = self
-	$PauseMenu.hide()
-	Global.prevscene = get_tree().current_scene.scene_file_path
-=======
 @onready var crystal_viewport: SubViewport = %CrystalViewport
 var targeting_stool: bool = true
+var object_list: Array[PlaceableObject] = []
+var inspecting: PlaceableObject = null
+var pause = false
+
 
 func _ready():
 	Singletons.main = self
 	await get_tree().process_frame
 	check_valid_objects()
 	%CrystalTargetPosition.target = get_tree().get_first_node_in_group("Stool")
->>>>>>> level
+	$PauseMenu.hide()
+	Global.prevscene = get_tree().current_scene.scene_file_path
 
 func _process(_delta):
 	#Play game song
@@ -95,7 +89,6 @@ func stop_inspect_object(object:PlaceableObject):
 	%LabelLeft.set_inspect(false)
 	%LabelRight.set_inspect(false)
 	inspecting = null
-<<<<<<< HEAD
 		
 func pauseMenu():
 	if pause:
@@ -105,7 +98,6 @@ func pauseMenu():
 		$PauseMenu.show()
 		Engine.time_scale = 0
 	pause = !pause
-=======
 
 func position_from_symbol(symbol: OuijaSystem.Pos) -> Vector3:
 	return %Room.position_from_symbol(symbol)
@@ -135,4 +127,3 @@ func _on_change_vision_timer_timeout():
 	if not targeting_stool:
 		var valid_objects: Array = get_tree().get_nodes_in_group("ValidationObject")
 		%CrystalTargetPosition.target = valid_objects.pick_random()
->>>>>>> level

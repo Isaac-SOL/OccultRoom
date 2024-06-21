@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=25 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -6,8 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://cl7yx3m7c1yoq" path="res://assets/audio/Kenney/MagicShortLow.ogg" id="3_w5kr4"]
 [ext_resource type="Script" path="res://scripts/room_camera.gd" id="4_j5ui4"]
 [ext_resource type="Material" uid="uid://de7wyw0dv0jn6" path="res://shaders_mats/blur5x5.tres" id="5_tjfw7"]
-[ext_resource type="PackedScene" uid="uid://bjdd44yp5226i" path="res://scenes/menus/pause_menu.tscn" id="6_o1hb0"]
 [ext_resource type="Shader" path="res://shaders_mats/crystal_inner_shader.gdshader" id="6_hrxhi"]
+[ext_resource type="PackedScene" uid="uid://bjdd44yp5226i" path="res://scenes/menus/pause_menu.tscn" id="6_o1hb0"]
 [ext_resource type="Theme" uid="uid://ciwtpa400up3y" path="res://ui/in_game_theme.tres" id="6_o16yu"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_t3pin"]
@@ -59,7 +59,6 @@ plane = Plane(0, 0, 1, 0)
 [sub_resource type="PlaneMesh" id="PlaneMesh_2cvp0"]
 size = Vector2(20, 20)
 orientation = 2
-
 
 [sub_resource type="Gradient" id="Gradient_cxhlg"]
 offsets = PackedFloat32Array(0, 0.8159, 1)
@@ -177,12 +176,13 @@ visible = false
 mesh = SubResource("PlaneMesh_2cvp0")
 surface_material_override/0 = ExtResource("5_tjfw7")
 
-[node name="PauseMenu" parent="." instance=ExtResource("6_o1hb0")]
 [node name="HighlightSprite" type="Sprite3D" parent="CameraRotation/Camera3D"]
 unique_name_in_owner = true
 transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -12)
 texture = SubResource("GradientTexture2D_aigiy")
 script = SubResource("GDScript_kr5dd")
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_o1hb0")]
 
 [node name="CrystalViewport" type="SubViewport" parent="."]
 unique_name_in_owner = true

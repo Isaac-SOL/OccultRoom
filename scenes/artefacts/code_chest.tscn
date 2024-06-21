@@ -45,10 +45,13 @@ graph_offset = Vector2(-138, -43)
 [node name="code_chest" instance=ExtResource("1_4lrfm")]
 script = ExtResource("2_x2hbf")
 
-[node name="code_chest_top" parent="." index="0"]
-transform = Transform3D(0.296111, 0, 0, 0, 0.296111, 0, 0, 0, 0.512686, -0.25002, 0.383271, 0)
+[node name="rose_des_vents" parent="." index="0"]
+transform = Transform3D(-0.0166309, 0.151027, 0, -0.151027, -0.0166309, 0, 0, 0, 0.151939, 0.280299, 0.192527, 0)
 
-[node name="code_chest_bot" parent="." index="1"]
+[node name="code_chest_top" parent="." index="1"]
+transform = Transform3D(0.296111, 0, 0, 0, 0.296111, 0, 0, 0, 0.512686, -0.27627, 0.378692, 0)
+
+[node name="code_chest_bot" parent="." index="2"]
 transform = Transform3D(0.296111, 0, 0, 0, 0.296111, 0, 0, 0, 0.512686, 0, 0.2376, 0)
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]

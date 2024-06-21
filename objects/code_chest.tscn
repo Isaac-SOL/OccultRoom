@@ -95,16 +95,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00878298, 0.312366, 0.0015
 shape = SubResource("BoxShape3D_7g7tq")
 
 [node name="Code1" parent="." instance=ExtResource("2_70s15")]
-transform = Transform3D(1.50996e-08, 0, 0.2, 0, 0.2, 0, -0.2, 0, 1.50996e-08, 0.332425, 0.390128, 0.00101775)
+transform = Transform3D(2.97338e-08, 0.0494614, 0.39693, -3.73423e-09, 0.39693, -0.0494614, -0.4, -2.88846e-11, 2.99674e-08, 0.297048, 0.127366, 0.00101775)
 
 [node name="Code2" parent="." instance=ExtResource("2_70s15")]
-transform = Transform3D(1.50996e-08, 0, 0.2, 0, 0.2, 0, -0.2, 0, 1.50996e-08, 0.332425, 0.429484, -0.041428)
+transform = Transform3D(2.97338e-08, 0.0494614, 0.39693, -3.73423e-09, 0.39693, -0.0494614, -0.4, -2.88846e-11, 2.99674e-08, 0.301914, 0.191025, -0.0704298)
 
 [node name="Code3" parent="." instance=ExtResource("2_70s15")]
-transform = Transform3D(1.50996e-08, 0, 0.2, 0, 0.2, 0, -0.2, 0, 1.50996e-08, 0.332425, 0.464398, -0.000236183)
+transform = Transform3D(2.97338e-08, 0.0494614, 0.39693, -3.73423e-09, 0.39693, -0.0494614, -0.4, -2.88846e-11, 2.99674e-08, 0.306232, 0.262765, -0.000236183)
 
 [node name="Code4" parent="." instance=ExtResource("2_70s15")]
-transform = Transform3D(1.50996e-08, 0, 0.2, 0, 0.2, 0, -0.2, 0, 1.50996e-08, 0.332425, 0.428501, 0.042875)
+transform = Transform3D(2.97338e-08, 0.0494614, 0.39693, -3.73423e-09, 0.39693, -0.0494614, -0.4, -2.88846e-11, 2.99674e-08, 0.301793, 0.190049, 0.0728698)
 
 [node name="Content" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -124,6 +124,8 @@ monitorable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Content/LightArea"]
 shape = SubResource("SphereShape3D_a1jub")
 
+[node name="code_chest" parent="." instance=ExtResource("11_2won7")]
+
 [node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_fwtyv")
@@ -134,8 +136,6 @@ unique_name_in_owner = true
 stream = ExtResource("10_qg64p")
 volume_db = -10.0
 
-[node name="code_chest" parent="." instance=ExtResource("11_2won7")]
-
 [node name="Outline" type="Node3D" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -144,12 +144,12 @@ visible = false
 transform = Transform3D(0.296111, 0, 0, 0, 0.296111, 0, 0, 0, 0.512686, -0.25002, 0.383271, 0)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_cnjag")
-skeleton = NodePath("../../code_chest/code_chest_top")
+skeleton = NodePath("")
 surface_material_override/0 = ExtResource("12_ocnv7")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Outline"]
 transform = Transform3D(0.296111, 0, 0, 0, 0.296111, 0, 0, 0, 0.512686, 0, 0.2376, 0)
 cast_shadow = 0
 mesh = SubResource("ArrayMesh_gomwi")
-skeleton = NodePath("../../code_chest/code_chest_bot")
+skeleton = NodePath("")
 surface_material_override/0 = ExtResource("12_ocnv7")

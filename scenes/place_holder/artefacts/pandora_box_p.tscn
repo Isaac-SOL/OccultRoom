@@ -10,7 +10,7 @@
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_wj7h5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svxq6"]
-size = Vector3(0.7, 0.6, 0.7)
+size = Vector3(0.6, 0.6, 0.6)
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_0ylgx"]
 streams_count = 5
@@ -58,7 +58,7 @@ collision_mask = 23
 script = ExtResource("1_4g2cs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15, 0.2, 0.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23517e-08, 0.3, 1.86265e-08)
 shape = SubResource("BoxShape3D_svxq6")
 
 [node name="ImpactAudio" type="AudioStreamPlayer" parent="."]

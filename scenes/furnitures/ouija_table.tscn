@@ -4,3 +4,12 @@
 
 [node name="ouija_table" instance=ExtResource("1_4e1dr")]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="Ouijaboard" parent="." index="1"]
+transform = Transform3D(0.621062, 0, 0, 0, 0.0254814, 0, 0, 0, 0.497494, 0.126434, 0.509487, 0.0526133)
+
+[node name="Texte_ouija" parent="." index="2"]
+transform = Transform3D(-0.156485, 0, -5.09893e-08, 0, 0.11709, 0, 5.09893e-08, 0, -0.156485, 0.14826, 1.25778, 0.0168033)
+
+[node name="tapis_table" parent="." index="3"]
+transform = Transform3D(0, 0, 3.10131, 0, 2.37703, 0, -2.65995, 0, 0, 0.160991, 1.1082, 0.0782348)

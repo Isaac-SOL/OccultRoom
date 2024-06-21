@@ -28,7 +28,6 @@ stream_4/stream = ExtResource("7_nedjq")
 stream_4/weight = 1.0
 
 [node name="chandelier_p" type="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0412639, 0)
 script = ExtResource("1_xo3lc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -36,7 +35,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030838, 0.395285, -0.015380
 shape = SubResource("BoxShape3D_d7wor")
 
 [node name="chandelier" parent="." instance=ExtResource("2_v3r0v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.59285, -0.046401)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.552, -0.046)
 
 [node name="LightArea" type="Area3D" parent="." groups=["LightArea"]]
 collision_layer = 16

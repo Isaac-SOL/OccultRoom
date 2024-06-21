@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=26 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -94,6 +94,12 @@ func _process(_delta):
 		global_position = target.global_position
 "
 
+[sub_resource type="Environment" id="Environment_5x05i"]
+background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.59, 0, 0.59, 1)
+reflected_light_source = 1
+
 [sub_resource type="GDScript" id="GDScript_hhhcl"]
 script/source = "extends Label
 
@@ -157,7 +163,7 @@ transform = Transform3D(-4.37114e-07, 2.38418e-07, -10, -4.05311e-06, 10, 2.3841
 spot_range = 10.0
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="CameraRotation/Camera3D"]
-transform = Transform3D(-1, 7.45058e-08, -2.38419e-07, 2.98023e-08, 0.965926, 0.258819, 3.27826e-07, 0.258819, -0.965926, -9.53674e-07, 0.999999, -11)
+transform = Transform3D(-1, 1.93715e-07, -3.57628e-07, 0, 0.866025, 0.5, 4.17233e-07, 0.5, -0.866025, -4.76837e-07, 2.83195, -10.2412)
 spot_range = 10.0
 
 [node name="BlockerArea" type="Area3D" parent="CameraRotation/Camera3D"]
@@ -167,7 +173,7 @@ collision_mask = 8
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRotation/Camera3D/BlockerArea"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, -2.98023e-08, -5.96046e-08, 1, -4.76837e-07, 0, -12)
+transform = Transform3D(1, 0, 0, -2.98023e-08, 1, 0, -2.98023e-08, -2.98023e-08, 1, -9.53674e-07, -4.76837e-07, -12)
 shape = SubResource("WorldBoundaryShape3D_tkjhf")
 
 [node name="Blurrer" type="MeshInstance3D" parent="CameraRotation/Camera3D"]
@@ -194,7 +200,8 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 script = SubResource("GDScript_x2obc")
 
 [node name="Camera3D" type="Camera3D" parent="CrystalViewport/CrystalTargetPosition"]
-transform = Transform3D(1, -1.19209e-07, 2.68221e-07, -4.47035e-08, 0.866025, 0.5, -2.68221e-07, -0.5, 0.866025, 4.76837e-07, 6.232, 9.44762)
+transform = Transform3D(1, -8.9407e-08, 2.68221e-07, -4.47035e-08, 0.866025, 0.5, -2.38419e-07, -0.5, 0.866025, 0, 5.732, 8.5816)
+environment = SubResource("Environment_5x05i")
 projection = 1
 size = 3.0
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ci1gei2tmwrcj"]
+[gd_scene load_steps=12 format=3 uid="uid://ci1gei2tmwrcj"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_7wr48"]
 [ext_resource type="PackedScene" uid="uid://t613cf1f1w7u" path="res://scenes/artefacts/baguette.tscn" id="2_8wcqk"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b4mvmk722nbpr" path="res://assets/audio/Kenney/Impacts/impactWood_light_002.ogg" id="5_31txq"]
 [ext_resource type="AudioStream" uid="uid://b8ewcm18tow0y" path="res://assets/audio/Kenney/Impacts/impactWood_light_003.ogg" id="6_2lf77"]
 [ext_resource type="AudioStream" uid="uid://bkw6ygqy2o8cf" path="res://assets/audio/Kenney/Impacts/impactWood_light_004.ogg" id="7_47m4t"]
+[ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_s0113"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ocqet"]
 radius = 0.1
@@ -25,6 +26,11 @@ stream_3/weight = 1.0
 stream_4/stream = ExtResource("7_47m4t")
 stream_4/weight = 1.0
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_334h8"]
+flip_faces = true
+radius = 0.055
+height = 0.655
+
 [node name="baguette_p" type="Area3D"]
 script = ExtResource("1_7wr48")
 small = true
@@ -40,3 +46,11 @@ shape = SubResource("CapsuleShape3D_ocqet")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_1n6lq")
 volume_db = -15.0
+
+[node name="Outline" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.02804, 0)
+visible = false
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_334h8")
+surface_material_override/0 = ExtResource("8_s0113")

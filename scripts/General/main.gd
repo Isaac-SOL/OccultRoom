@@ -9,6 +9,7 @@ signal dialog_clicked
 var targeting_stool: bool = true
 var object_list: Array[PlaceableObject] = []
 var inspecting: PlaceableObject = null
+var inspect_scale_factor: float = 1
 var pause = false
 @onready var noise_mat: ShaderMaterial = %NoiseRect.material
 var noise_tween: Tween
@@ -88,10 +89,14 @@ func _process(delta):
 			if not inspecting:
 				turn_object_left()
 				%FreeTurnHint.visible = false
+			else:
+				zoom_inspect_object()
 		elif Input.is_action_just_pressed("turn_right"):
 			if not inspecting:
 				turn_object_right()
 				%FreeTurnHint.visible = false
+			else:
+				unzoom_inspect_object()
 	
 	# Scene management
 	if dialog_unclickable_time > 0:
@@ -138,6 +143,7 @@ func ouija_object_removed(_object: PlaceableObject, _point: OuijaPlacementPoint)
 
 func inspect_object(object: PlaceableObject):
 	inspecting = object
+	inspect_scale_factor = 1
 	%BlockerArea.set_deferred("input_ray_pickable", true)
 	object.move_to_smooth(%InspectPosition.global_position, %InspectPosition.global_rotation, %InspectPosition.scale)
 	%HighlightSprite.speed = 1
@@ -150,6 +156,7 @@ func inspect_object(object: PlaceableObject):
 		crystal_message_next = false
 	if not already_inspected:
 		%TurnHint.visible = true
+		%ZoomHint.visible = true
 
 func stop_inspect_object(object:PlaceableObject):
 	object.move_back()
@@ -161,7 +168,21 @@ func stop_inspect_object(object:PlaceableObject):
 	%InspectHint.visible = false
 	inspecting = null
 	already_inspected = true
-		
+
+func zoom_inspect_object():
+	inspect_scale_factor += 0.2
+	if inspect_scale_factor > 3:
+		inspect_scale_factor = 3
+	inspecting.move_to_smooth(inspecting.target_position, inspecting.target_rotation, %InspectPosition.scale * inspect_scale_factor)
+	%ZoomHint.visible = false
+
+func unzoom_inspect_object():
+	inspect_scale_factor -= 0.2
+	if inspect_scale_factor < 0.4:
+		inspect_scale_factor = 0.4
+	inspecting.move_to_smooth(inspecting.target_position, inspecting.target_rotation, %InspectPosition.scale * inspect_scale_factor)
+	%ZoomHint.visible = false
+
 func pauseMenu():
 	if pause:
 		%PauseMenu.hide()
@@ -191,6 +212,8 @@ func _on_room_stool_just_placed():
 	targeting_stool = false
 	%MagicAudio.play()
 	_on_change_vision_timer_timeout()
+	
+	if not intro: return
 	
 	await get_tree().create_timer(1).timeout
 	await start_multi_dialog([1.0, 1.0, "It does as it pleases!",

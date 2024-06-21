@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dehme7jiixlxf"]
 
-[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_tk0gf"]
+[ext_resource type="Script" path="res://scripts/crystal_ball.gd" id="1_5cbiw"]
 [ext_resource type="PackedScene" uid="uid://cj7ngfioppdlb" path="res://scenes/artefacts/crystal_ball.tscn" id="2_f1el1"]
 [ext_resource type="AudioStream" uid="uid://bfce58thsio7m" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_000.ogg" id="3_pjqcw"]
 [ext_resource type="AudioStream" uid="uid://blmrwm8ih1sp4" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_001.ogg" id="4_45ykf"]
@@ -54,7 +54,7 @@ _surfaces = [{
 
 [node name="crystal_ball_p" type="Area3D" groups=["CrystalBall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00878441, 0)
-script = ExtResource("1_tk0gf")
+script = ExtResource("1_5cbiw")
 special_name = "CrystalBall"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

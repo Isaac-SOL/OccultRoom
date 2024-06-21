@@ -61,6 +61,7 @@ script = ExtResource("2_3xxqa")
 transform = Transform3D(0.323779, 0, 0, 0, 0.323779, 0, 0, 0, 0.323779, 0.0260121, 0.896188, 0.0526025)
 
 [node name="GPUParticles3D_presentoire" type="GPUParticles3D" parent="." index="1"]
+unique_name_in_owner = true
 transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0, 1.185, 0)
 amount = 6
 visibility_aabb = AABB(-4, -3.5, -4, 8, 7, 8)

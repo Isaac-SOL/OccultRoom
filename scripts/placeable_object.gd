@@ -3,6 +3,7 @@ class_name PlaceableObject extends Area3D
 signal object_placed(object: PlaceableObject)
 signal start_inspecting
 signal stop_inspecting
+signal touched
 
 @export var special_name: String = ""
 @export var move_speed: float = 25
@@ -148,6 +149,7 @@ func _on_object_input_event(_camera: Node, event: InputEvent, _position: Vector3
 			elif inspecting:
 				%ImpactAudio.play()
 				add_random_rotation()
+				touched.emit()
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			if not CameraManager.ouija:
 				inspect()

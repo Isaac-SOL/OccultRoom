@@ -211,7 +211,7 @@ func _on_room_stool_just_placed():
 	%LabelTopLeft.visible = true
 	targeting_stool = false
 	%MagicAudio.play()
-	_on_change_vision_timer_timeout()
+	_on_crystal_touched()
 	
 	if not intro: return
 	
@@ -227,7 +227,7 @@ func _on_room_object_placed(_object):
 	if not already_inspected:
 		%InspectHint.visible = true
 
-func _on_change_vision_timer_timeout():
+func _on_crystal_touched():
 	if not targeting_stool:
 		var valid_objects: Array = get_tree().get_nodes_in_group("ValidationObject")
 		%CrystalTargetPosition.target = valid_objects.pick_random()

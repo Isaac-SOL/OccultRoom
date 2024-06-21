@@ -64,6 +64,7 @@ func _on_object_placed(object: PlaceableObject):
 	current_sequence = object.hints
 	if not current_sequence.is_empty():
 		%MagicAudio.play()
+		Singletons.stool.set_active(true)
 	match state:
 		State.IDLE:
 			idx_in_sequence = 0
@@ -80,6 +81,7 @@ func _on_object_removed():
 	match state:
 		State.PAUSING, State.MOVING:
 			replaced = false
+	Singletons.stool.set_active(false)
 
 func _on_position_reached():
 	assert(state == State.MOVING)
@@ -121,6 +123,7 @@ func _on_pause_finished():
 			state = State.MOVING
 			if current_sequence[idx_in_sequence] == Pos.SHAKE:
 				%ShakeAudio.play()
+				Singletons.shaker.shake(0.1, 0.5)
 				_on_position_reached()
 			else:
 				target_move_pos = get_pos(current_sequence[idx_in_sequence])

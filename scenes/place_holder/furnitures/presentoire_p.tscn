@@ -53,6 +53,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369408, 0)
 shape = SubResource("CylinderShape3D_uidim")
 
 [node name="presentoire" parent="." instance=ExtResource("2_lsqx7")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0278114, -0.54945, -0.0451934)
 
 [node name="EyeSprite" type="Sprite3D" parent="."]

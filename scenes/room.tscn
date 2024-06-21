@@ -687,13 +687,13 @@ mesh = SubResource("BoxMesh_82ovq")
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 4.32373, -0.0285225, -4.5226)
 
 [node name="bougie" parent="Objects/furnitures" instance=ExtResource("31_27d00")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50072, 1.33225, -3.9176)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50072, 1.33225, -3.62133)
 
 [node name="bougie2" parent="Objects/furnitures" instance=ExtResource("31_27d00")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.92133, 1.33225, -3.9176)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.92133, 1.33225, -3.62133)
 
 [node name="bougie3" parent="Objects/furnitures" instance=ExtResource("31_27d00")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09172, 1.33225, -3.9176)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09172, 1.33225, -3.62133)
 
 [node name="artefacts" type="Node3D" parent="Objects"]
 

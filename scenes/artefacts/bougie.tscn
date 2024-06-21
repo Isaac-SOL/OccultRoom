@@ -66,6 +66,7 @@ flicker_interval = 0.12
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60097, 0)
 light_color = Color(1, 1, 0.780392, 1)
+light_energy = 0.3
 shadow_enabled = true
 omni_range = 2.0
 omni_attenuation = 3.249

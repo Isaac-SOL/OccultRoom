@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=48 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://dkcclecvpkvum" path="res://assets/textures/table_hint.png" id="18_tf8sk"]
 [ext_resource type="Texture2D" uid="uid://bysc4u4i16e02" path="res://assets/textures/inspect_hint.png" id="19_4aftl"]
 [ext_resource type="Texture2D" uid="uid://cvulckh5b7y0" path="res://assets/textures/turn_object_hint.png" id="20_srbnq"]
+[ext_resource type="Texture2D" uid="uid://cwsp70a8iyu6a" path="res://assets/textures/zoom_hint.png" id="21_6kdao"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jo56l"]
 streams_count = 5
@@ -214,7 +215,7 @@ script = ExtResource("2_xlx1h")
 
 [node name="Shaker" type="Node3D" parent="CameraRotation"]
 unique_name_in_owner = true
-transform = Transform3D(1, -8.9407e-08, 2.68221e-07, -4.47035e-08, 0.866025, 0.5, -2.38419e-07, -0.5, 0.866025, 2.86102e-06, 11.732, 18.9739)
+transform = Transform3D(1, -8.9407e-08, 2.38419e-07, -4.47035e-08, 0.866025, 0.5, -2.68221e-07, -0.5, 0.866025, 1.14441e-05, 24.232, 40.6245)
 script = ExtResource("6_gn2dp")
 shake_interval = 0.07
 shake_factor = 2.0
@@ -230,14 +231,14 @@ ouija_size = 2.0
 
 [node name="InspectPosition" type="Marker3D" parent="CameraRotation/Shaker/Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(-4.37114e-07, 2.38418e-07, -10, -4.05311e-06, 10, 2.38418e-07, 10, 4.05311e-06, -4.37114e-07, 0, 0, -6)
+transform = Transform3D(-2.38419e-06, 4.76837e-07, -10, -3.09944e-06, 10, -4.76837e-07, 10, 4.05312e-06, 1.90735e-06, 0, -2, -11.051)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraRotation/Shaker/Camera3D"]
-spot_range = 10.0
+spot_range = 18.22
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="CameraRotation/Shaker/Camera3D"]
-transform = Transform3D(-1, 1.93715e-07, -3.57628e-07, 0, 0.866025, 0.5, 4.17233e-07, 0.5, -0.866025, -4.76837e-07, 2.83195, -10.2412)
-spot_range = 10.0
+transform = Transform3D(-1, 2.23518e-07, -3.27826e-07, 0, 0.866025, 0.5, 4.76837e-07, 0.5, -0.866025, -9.53674e-07, 6.3396, -16.3166)
+spot_range = 17.7907
 
 [node name="BlockerArea" type="Area3D" parent="CameraRotation/Shaker/Camera3D"]
 unique_name_in_owner = true
@@ -246,7 +247,7 @@ collision_mask = 8
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRotation/Shaker/Camera3D/BlockerArea"]
-transform = Transform3D(1, 0, 0, -2.98023e-08, 1, 0, -2.98023e-08, -2.98023e-08, 1, -9.53674e-07, -4.76837e-07, -12)
+transform = Transform3D(1, 0, -2.98023e-08, 5.96046e-08, 1, 0, -2.38419e-07, -2.98023e-08, 1, 7.62939e-06, 4.76837e-07, -26)
 shape = SubResource("WorldBoundaryShape3D_tkjhf")
 
 [node name="Blurrer" type="MeshInstance3D" parent="CameraRotation/Shaker/Camera3D"]
@@ -257,7 +258,7 @@ surface_material_override/0 = ExtResource("5_tjfw7")
 
 [node name="HighlightSprite" type="Sprite3D" parent="CameraRotation/Shaker/Camera3D"]
 unique_name_in_owner = true
-transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -12)
+transform = Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -25.762)
 texture = SubResource("GradientTexture2D_aigiy")
 script = SubResource("GDScript_kr5dd")
 
@@ -271,7 +272,7 @@ transform = Transform3D(-0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107
 script = SubResource("GDScript_x2obc")
 
 [node name="Camera3D" type="Camera3D" parent="CrystalViewport/CrystalTargetPosition"]
-transform = Transform3D(1, -8.9407e-08, 2.68221e-07, -4.47035e-08, 0.866025, 0.5, -2.38419e-07, -0.5, 0.866025, 0, 5.732, 8.5816)
+transform = Transform3D(1, -8.9407e-08, 2.68221e-07, -4.47035e-08, 0.866025, 0.5, -2.38419e-07, -0.5, 0.866025, 1.43051e-06, 8.732, 13.7778)
 environment = SubResource("Environment_5x05i")
 projection = 1
 size = 3.0
@@ -397,6 +398,21 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ZoomHint" type="TextureRect" parent="UI/HintsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("21_6kdao")
+
+[node name="Panel" type="Panel" parent="UI/HintsContainer/ZoomHint"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="DialogControl" type="Control" parent="UI"]
 unique_name_in_owner = true
 visible = false
@@ -491,7 +507,8 @@ base_text = "Mouse Left: Pick up / Put down
 Mouse Right: Inspect
 Mouse Wheel: Turn held object"
 inspect_text = "Mouse Left: Touch
-Mouse Right: Put down"
+Mouse Right: Put down
+Mouse Wheel: Zoom"
 
 [node name="LabelTopLeft" type="Label" parent="PauseLayer/PauseMenu"]
 unique_name_in_owner = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cnmco5mvxbmif"]
+[gd_scene load_steps=44 format=3 uid="uid://cnmco5mvxbmif"]
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_1vuhw"]
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_kn5p5"]
@@ -43,6 +43,7 @@ sky_material = SubResource("ProceduralSkyMaterial_4lg0k")
 [sub_resource type="Environment" id="Environment_x8wh7"]
 background_mode = 1
 sky = SubResource("Sky_56k6r")
+tonemap_white = 3.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bbacu"]
 size = Vector2(10, 6)
@@ -53,6 +54,9 @@ colors = PackedColorArray(0, 0, 0, 1, 0.485601, 0.000166388, 0.485597, 1, 0, 0, 
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qr3yn"]
 size = Vector3(2, 2, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gv5hx"]
+size = Vector3(2.47839, 2, 1.74982)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mjtkf"]
 albedo_color = Color(0.23, 0.157167, 0, 1)
@@ -222,7 +226,6 @@ texture = ExtResource("1_pj54u")
 script = ExtResource("7_emt5d")
 animated_gradient = SubResource("Gradient_tibh6")
 gradient_length = 4.0
-animated = true
 
 [node name="PlacementPoints" type="Node3D" parent="."]
 
@@ -611,6 +614,16 @@ input_ray_pickable = false
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WindowLightArea"]
 transform = Transform3D(0.965926, -0.0726982, 0.248399, 7.45058e-09, 0.959742, 0.280885, -0.258819, -0.271314, 0.927039, 1.79849, 1.75133, -1.95184)
 shape = SubResource("BoxShape3D_qr3yn")
+
+[node name="OuijaLightArea" type="Area3D" parent="." groups=["LightArea"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.35022, 1.57888, -4.40324)
+collision_layer = 16
+collision_mask = 4
+input_ray_pickable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OuijaLightArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.442444, 0, -0.121168)
+shape = SubResource("BoxShape3D_gv5hx")
 
 [node name="Objects" type="Node3D" parent="."]
 

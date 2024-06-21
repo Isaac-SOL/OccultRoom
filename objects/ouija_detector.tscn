@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://wry4x8x1djv4"]
+[gd_scene load_steps=16 format=3 uid="uid://wry4x8x1djv4"]
 
 [ext_resource type="Script" path="res://scripts/ouija_detector.gd" id="1_ejanw"]
 [ext_resource type="Script" path="res://scripts/ouija_system.gd" id="2_b34w5"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bqwosq5rv0ea5" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_003.ogg" id="8_ih63a"]
 [ext_resource type="AudioStream" uid="uid://eoer4nwxjqhl" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_004.ogg" id="9_nxgok"]
 [ext_resource type="AudioStream" uid="uid://bb46kv4mijra0" path="res://assets/audio/Kenney/spaceEngineLow_000.ogg" id="10_n5ru1"]
+[ext_resource type="AudioStream" uid="uid://cl7yx3m7c1yoq" path="res://assets/audio/Kenney/MagicShortLow.ogg" id="11_wb6ad"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f353b"]
 size = Vector3(2.1, 0.3, 2.1)
@@ -147,3 +148,8 @@ volume_db = -6.0
 unique_name_in_owner = true
 stream = ExtResource("10_n5ru1")
 volume_db = -35.0
+
+[node name="MagicAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_wb6ad")
+volume_db = -10.0

@@ -5,3 +5,4 @@ var room: Room
 var ouija: OuijaDetector
 var ouija_system: OuijaSystem
 var stool: PlaceableStool
+var shaker: Shaker3D

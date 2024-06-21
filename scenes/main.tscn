@@ -277,10 +277,6 @@ environment = SubResource("Environment_5x05i")
 projection = 1
 size = 3.0
 
-[node name="ChangeVisionTimer" type="Timer" parent="CrystalViewport/CrystalTargetPosition"]
-wait_time = 20.0
-autostart = true
-
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]
 copy_mode = 2
 
@@ -458,6 +454,17 @@ vertical_alignment = 1
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 
+[node name="LabelTopLeft" type="Label" parent="PauseLayer"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 0, 1)
+offset_right = 223.0
+offset_bottom = 58.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("6_o16yu")
+text = "Objects left: 5"
+
 [node name="PauseMenu" parent="PauseLayer" instance=ExtResource("6_o1hb0")]
 unique_name_in_owner = true
 visible = false
@@ -510,19 +517,6 @@ inspect_text = "Mouse Left: Touch
 Mouse Right: Put down
 Mouse Wheel: Zoom"
 
-[node name="LabelTopLeft" type="Label" parent="PauseLayer/PauseMenu"]
-unique_name_in_owner = true
-visible = false
-modulate = Color(1, 1, 0, 1)
-layout_mode = 0
-offset_right = 223.0
-offset_bottom = 58.0
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme = ExtResource("6_o16yu")
-text = "Objects left: 5"
-
 [connection signal="object_placed" from="Room" to="." method="_on_room_object_placed"]
 [connection signal="stool_just_placed" from="Room" to="." method="_on_room_stool_just_placed"]
-[connection signal="timeout" from="CrystalViewport/CrystalTargetPosition/ChangeVisionTimer" to="." method="_on_change_vision_timer_timeout"]
 [connection signal="gui_input" from="UI/DialogControl" to="." method="_on_dialog_control_gui_input"]

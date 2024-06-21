@@ -12,6 +12,9 @@ var current_radius: float
 @onready var base_pos: Vector3 = position
 @onready var target_position: Vector3 = position
 
+func _ready():
+	Singletons.shaker = self
+
 func _process(delta):
 	# Move to target
 	if target_node:

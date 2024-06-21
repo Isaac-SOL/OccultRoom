@@ -123,6 +123,7 @@ func _on_pause_finished():
 			state = State.MOVING
 			if current_sequence[idx_in_sequence] == Pos.SHAKE:
 				%ShakeAudio.play()
+				Singletons.shaker.shake(0.1, 0.5)
 				_on_position_reached()
 			else:
 				target_move_pos = get_pos(current_sequence[idx_in_sequence])

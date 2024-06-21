@@ -82,7 +82,7 @@ func _process(delta):
 				%TurnHint.visible = false
 		elif Input.is_action_just_pressed("special"):
 			if not inspecting:
-				CameraManager.toggle_ouija()
+				ouija_clicked()
 				if not CameraManager.ouija:
 					%TableHint.visible = false
 		elif Input.is_action_just_pressed("turn_left"):

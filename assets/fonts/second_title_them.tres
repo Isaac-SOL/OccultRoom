@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dtqnw4yhbe0kk"]
+
+[ext_resource type="FontFile" uid="uid://cfcpbnf37p2u" path="res://assets/fonts/buxotic/Buxotic.otf" id="1_vaj3n"]
+
+[resource]
+default_font = ExtResource("1_vaj3n")
+default_font_size = 80

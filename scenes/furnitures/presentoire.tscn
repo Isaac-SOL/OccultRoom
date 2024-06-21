@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://dok0jaispvaq8"]
+[gd_scene load_steps=11 format=3 uid="uid://dok0jaispvaq8"]
 
 [ext_resource type="PackedScene" uid="uid://dvn1wjblhqo38" path="res://assets/3Dmodels/furnitures/presentoire.glb" id="1_tvk28"]
+[ext_resource type="Script" path="res://scripts/furnitures/presentoire.gd" id="2_3xxqa"]
 
 [sub_resource type="Gradient" id="Gradient_18icy"]
 offsets = PackedFloat32Array(0.0213904, 0.385027, 1)
@@ -54,6 +55,7 @@ material = SubResource("StandardMaterial3D_d8ake")
 size = Vector2(0.1, 0.1)
 
 [node name="presentoire" instance=ExtResource("1_tvk28")]
+script = ExtResource("2_3xxqa")
 
 [node name="presentoire" parent="." index="0"]
 transform = Transform3D(0.323779, 0, 0, 0, 0.323779, 0, 0, 0, 0.323779, 0.0260121, 0.896188, 0.0526025)

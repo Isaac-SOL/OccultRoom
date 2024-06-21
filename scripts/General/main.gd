@@ -4,19 +4,27 @@ signal grabbed_object(object: Node3D)
 signal released_object(object: Node3D, point: ObjectPlacementPoint)
 
 @export var holding_object: Node3D
-
-var object_list: Array[PlaceableObject] = []
-var inspecting: PlaceableObject = null
 @onready var crystal_viewport: SubViewport = %CrystalViewport
 var targeting_stool: bool = true
+var object_list: Array[PlaceableObject] = []
+var inspecting: PlaceableObject = null
+var pause = false
+
 
 func _ready():
 	Singletons.main = self
 	await get_tree().process_frame
 	check_valid_objects()
 	%CrystalTargetPosition.target = get_tree().get_first_node_in_group("Stool")
+	$PauseMenu.hide()
+	Global.prevscene = get_tree().current_scene.scene_file_path
 
 func _process(_delta):
+	#Play game song
+	#NodeAudio.playAudio(NodeAudio.audioGame)
+	#Pause menus
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
 	if Input.is_action_just_pressed("left"):
 		if not inspecting: CameraManager.rotate_left()
 		else: inspecting.inspect_rotate_left()
@@ -81,6 +89,15 @@ func stop_inspect_object(object:PlaceableObject):
 	%LabelLeft.set_inspect(false)
 	%LabelRight.set_inspect(false)
 	inspecting = null
+		
+func pauseMenu():
+	if pause:
+		$PauseMenu.hide()
+		Engine.time_scale = 1
+	else:
+		$PauseMenu.show()
+		Engine.time_scale = 0
+	pause = !pause
 
 func position_from_symbol(symbol: OuijaSystem.Pos) -> Vector3:
 	return %Room.position_from_symbol(symbol)

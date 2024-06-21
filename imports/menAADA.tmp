@@ -1,0 +1,157 @@
+[gd_scene load_steps=10 format=3 uid="uid://bqq2ouiqujyhp"]
+
+[ext_resource type="Script" path="res://imports/Menu.gd" id="1_pq7he"]
+[ext_resource type="PackedScene" uid="uid://bmc0o46na0a0r" path="res://imports/ball.tscn" id="2_gotg6"]
+[ext_resource type="Theme" path="res://imports/pixel_theme.tres" id="2_jmb4f"]
+[ext_resource type="Texture2D" uid="uid://c7ppa4guq2mv3" path="res://imports/pong_title.png" id="2_rd6l3"]
+[ext_resource type="StyleBox" path="res://imports/style_box_normal.tres" id="3_gqmre"]
+[ext_resource type="StyleBox" path="res://imports/style_box_hover.tres" id="4_vvg3v"]
+[ext_resource type="StyleBox" path="res://imports/style_box_click.tres" id="5_wwka2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tex3"]
+size = Vector2(1173, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4bt6v"]
+size = Vector2(20, 645.5)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pq7he")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0507352, 0.0863939, 0.145259, 1)
+
+[node name="Ball" parent="." instance=ExtResource("2_gotg6")]
+position = Vector2(610, 315)
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="WallTop" type="StaticBody2D" parent="MarginContainer2/VBoxContainer"]
+position = Vector2(586, -10)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer2/VBoxContainer/WallTop"]
+shape = SubResource("RectangleShape2D_0tex3")
+
+[node name="WallBottom" type="StaticBody2D" parent="MarginContainer2/VBoxContainer"]
+position = Vector2(576, 658)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer2/VBoxContainer/WallBottom"]
+shape = SubResource("RectangleShape2D_0tex3")
+
+[node name="WallLeft" type="StaticBody2D" parent="MarginContainer2/VBoxContainer"]
+position = Vector2(-13, 321)
+disable_mode = 2
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer2/VBoxContainer/WallLeft"]
+shape = SubResource("RectangleShape2D_4bt6v")
+
+[node name="WallRight" type="StaticBody2D" parent="MarginContainer2/VBoxContainer"]
+position = Vector2(1166, 324)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarginContainer2/VBoxContainer/WallRight"]
+shape = SubResource("RectangleShape2D_4bt6v")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 100
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="Sprite2D_title" type="Sprite2D" parent="MarginContainer/VBoxContainer2"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_rd6l3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+metadata/_edit_group_ = true
+
+[node name="StartButton1P" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jmb4f")
+theme_override_colors/font_color = Color(0.662745, 0.709804, 1, 1)
+theme_override_styles/normal = ExtResource("3_gqmre")
+theme_override_styles/hover = ExtResource("4_vvg3v")
+theme_override_styles/pressed = ExtResource("5_wwka2")
+text = "1 Player"
+
+[node name="StartButton2P" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jmb4f")
+theme_override_colors/font_color = Color(0.662745, 0.709804, 1, 1)
+theme_override_styles/normal = ExtResource("3_gqmre")
+theme_override_styles/hover = ExtResource("4_vvg3v")
+theme_override_styles/pressed = ExtResource("5_wwka2")
+text = "2 Players"
+
+[node name="DifficultyButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jmb4f")
+theme_override_colors/font_color = Color(0.662745, 0.709804, 1, 1)
+theme_override_styles/normal = ExtResource("3_gqmre")
+theme_override_styles/hover = ExtResource("4_vvg3v")
+theme_override_styles/pressed = ExtResource("5_wwka2")
+text = "Difficulty"
+
+[node name="OptionButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jmb4f")
+theme_override_colors/font_color = Color(0.662745, 0.709804, 1, 1)
+theme_override_styles/normal = ExtResource("3_gqmre")
+theme_override_styles/hover = ExtResource("4_vvg3v")
+theme_override_styles/pressed = ExtResource("5_wwka2")
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_jmb4f")
+theme_override_colors/font_color = Color(0.662745, 0.709804, 1, 1)
+theme_override_styles/normal = ExtResource("3_gqmre")
+theme_override_styles/hover = ExtResource("4_vvg3v")
+theme_override_styles/pressed = ExtResource("5_wwka2")
+text = "Quit"
+
+[node name="AudioMainMenu" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton1P" to="." method="_on_start_button_1p_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton1P" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton2P" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StartButton2P" to="." method="_on_start_button_2p_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/DifficultyButton" to="." method="_on_difficulty_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

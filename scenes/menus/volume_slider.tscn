@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://c1phc7mtpk8db"]
+
+[ext_resource type="Script" path="res://scripts/menus/volume_slider.gd" id="1_cm7es"]
+[ext_resource type="Theme" uid="uid://ujjtd62wvxsf" path="res://imports/pixel_theme.tres" id="2_poaec"]
+[ext_resource type="Texture2D" uid="uid://dp20hrsshks5h" path="res://imports/big_ball.png" id="3_7otmb"]
+[ext_resource type="StyleBox" uid="uid://cln15kpjcsiss" path="res://imports/style_box_normal.tres" id="4_jghdw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ey1x6"]
+bg_color = Color(0.372549, 0.407843, 0.698039, 1)
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.282353, 0.196078, 0.458824, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[node name="VolumeSlider" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cm7es")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_poaec")
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.662745, 0.709804, 1, 1)
+text = "Bus Name"
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/center_grabber = 0
+theme_override_constants/grabber_offset = -1
+theme_override_icons/grabber = ExtResource("3_7otmb")
+theme_override_icons/grabber_highlight = ExtResource("3_7otmb")
+theme_override_icons/grabber_disabled = ExtResource("3_7otmb")
+theme_override_styles/slider = SubResource("StyleBoxFlat_ey1x6")
+theme_override_styles/grabber_area = ExtResource("4_jghdw")
+theme_override_styles/grabber_area_highlight = ExtResource("4_jghdw")
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]

@@ -15,8 +15,7 @@ point_count = 3
 curve = SubResource("Curve_bp6gv")
 
 [resource]
-angle_min = -720.0
-angle_max = 362.7
+angle_max = 360.0
 direction = Vector3(0, 1, 0)
 spread = 5.0
 initial_velocity_min = 1.0

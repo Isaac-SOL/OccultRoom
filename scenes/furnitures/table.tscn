@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dmhsk5o2frurl"]
 
-[ext_resource type="PackedScene" uid="uid://b0jprtmb4kasc" path="res://assets/3Dmodels/furnitures/table.glb" id="1_4e1dr"]
+[ext_resource type="PackedScene" uid="uid://b0jprtmb4kasc" path="res://assets/3Dmodels/furnitures/ouija_table.glb" id="1_4e1dr"]
 
 [node name="table" instance=ExtResource("1_4e1dr")]
 

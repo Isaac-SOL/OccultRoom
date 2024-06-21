@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://cnmco5mvxbmif"]
+[gd_scene load_steps=43 format=3 uid="uid://cnmco5mvxbmif"]
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_1vuhw"]
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_kn5p5"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cskdi3l4e5ptn" path="res://assets/textures/symbols/triskelion-96.png" id="4_7pbam"]
 [ext_resource type="PackedScene" uid="uid://bkf1vadtu7p38" path="res://objects/test_thing.tscn" id="5_adnc5"]
 [ext_resource type="Texture2D" uid="uid://c3k47cmqjkgcb" path="res://assets/textures/door.png" id="5_l8kh7"]
-[ext_resource type="PackedScene" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
+[ext_resource type="PackedScene" uid="uid://4axxv4ncukbv" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
 [ext_resource type="Texture2D" uid="uid://bj016jvyxdu12" path="res://assets/textures/symbols/modify/illuminati-100-w.png" id="6_jdx8u"]
 [ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="7_emt5d"]
 [ext_resource type="PackedScene" uid="uid://dikduy73dav8r" path="res://objects/code_chest.tscn" id="12_r5a1l"]
@@ -32,7 +32,6 @@
 [ext_resource type="PackedScene" uid="uid://dmit33gq3mpqq" path="res://scenes/place_holder/artefacts/sonnette_p.tscn" id="27_o4ndo"]
 [ext_resource type="PackedScene" uid="uid://b7wlrjf1l416h" path="res://scenes/place_holder/artefacts/thor_hammer_p.tscn" id="28_uvhel"]
 [ext_resource type="PackedScene" uid="uid://f122y7vdq6jl" path="res://scenes/artefacts/bougie.tscn" id="31_27d00"]
-[ext_resource type="PackedScene" uid="uid://wq5rg8bsyb6a" path="res://scenes/artefacts/ouija/pyramid_cursor.tscn" id="33_4pr77"]
 [ext_resource type="PackedScene" uid="uid://b00bfo0pfcc7e" path="res://scenes/place_holder/artefacts/pandora_box_p.tscn" id="33_6vd2a"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4lg0k"]
@@ -492,7 +491,7 @@ small = true
 
 [node name="CompassPlacementPoint102" parent="PlacementPoints/Basic" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70475, 2.6, -8.63708)
-holding_object = NodePath("../../../Objects/Compass")
+holding_object = NodePath("../../../Objects/artefacts/Compass")
 small = true
 
 [node name="ObjectPlacementPoint94" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
@@ -512,7 +511,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 2.10216, -9)
 
 [node name="ThingPlacementPoint" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.6, -8)
-holding_object = NodePath("../../Objects/TestThing")
+holding_object = NodePath("../../Objects/artefacts/TestThing")
 
 [node name="OuijaPlacementPoint" parent="PlacementPoints" instance=ExtResource("2_tkrdm")]
 unique_name_in_owner = true
@@ -528,7 +527,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.6, 0)
 
 [node name="ChestPlacementPoint" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, -3)
-holding_object = NodePath("../../Objects/CodeChest")
+holding_object = NodePath("../../Objects/artefacts/CodeChest")
 
 [node name="pandoraPlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -7)
@@ -583,6 +582,57 @@ small = true
 [node name="OuijaDetector" parent="." instance=ExtResource("1_xcxt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.2, -4.5)
 
+[node name="None" parent="OuijaDetector/OuijaSystem/Positions" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00999999, 0.193668)
+
+[node name="Triskele" parent="OuijaDetector/OuijaSystem/Positions" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.757965, 0.00999999, 0.462329)
+
+[node name="Moon" parent="OuijaDetector/OuijaSystem/Positions" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.737984, 0.00999999, 0.433476)
+
+[node name="Center" parent="OuijaDetector/OuijaSystem/Positions" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00646067, 0.00999999, -0.220718)
+
+[node name="North" parent="OuijaDetector/OuijaSystem/Positions" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00639343, 0.00999999, 0.031148)
+
+[node name="East" parent="OuijaDetector/OuijaSystem/Positions" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261813, 0.00999999, -0.222561)
+
+[node name="South" parent="OuijaDetector/OuijaSystem/Positions" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0059967, 0.00999999, -0.469023)
+
+[node name="West" parent="OuijaDetector/OuijaSystem/Positions" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.257661, 0.00999999, -0.224334)
+
+[node name="NorthWest" parent="OuijaDetector/OuijaSystem/Positions" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.168218, 0.00999999, -0.0551138)
+
+[node name="NorthEast" parent="OuijaDetector/OuijaSystem/Positions" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153319, 0.00999999, -0.0576057)
+
+[node name="SouthEast" parent="OuijaDetector/OuijaSystem/Positions" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.156218, 0.00999999, -0.372152)
+
+[node name="SouthWest" parent="OuijaDetector/OuijaSystem/Positions" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159589, 0.00999999, -0.368103)
+
+[node name="Close" parent="OuijaDetector/OuijaSystem/Positions" index="12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668974, 0.00999999, -0.367898)
+
+[node name="Far" parent="OuijaDetector/OuijaSystem/Positions" index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.651297, 0.00999999, -0.365573)
+
+[node name="Light" parent="OuijaDetector/OuijaSystem/Positions" index="14"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355242, 0.00999999, 0.45986)
+
+[node name="Flatwoods" parent="OuijaDetector/OuijaSystem/Positions" index="15"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.405768, 0.00999999, 0.477039)
+
+[node name="Rock" parent="OuijaDetector/OuijaSystem" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.00999999, 0.193668)
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.961516, -0.12941, 0.242363, 0.0146892, 0.905078, 0.424992, -0.274355, -0.405076, 0.872148, 9, 9, 0)
 visible = false
@@ -626,18 +676,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.442444, 0, -0.121168)
 shape = SubResource("BoxShape3D_gv5hx")
 
 [node name="Objects" type="Node3D" parent="."]
-
-[node name="TestThing" parent="Objects" node_paths=PackedStringArray("holder") instance=ExtResource("5_adnc5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.6, -8)
-holder = NodePath("../../PlacementPoints/ThingPlacementPoint")
-
-[node name="CodeChest" parent="Objects" node_paths=PackedStringArray("holder") instance=ExtResource("12_r5a1l")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9, 0.6, -3)
-holder = NodePath("../../PlacementPoints/ChestPlacementPoint")
-
-[node name="Compass" parent="Objects" node_paths=PackedStringArray("holder") instance=ExtResource("15_310g3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70475, 2.6, -8.63708)
-holder = NodePath("../../PlacementPoints/Basic/CompassPlacementPoint102")
 
 [node name="furnitures" type="Node3D" parent="Objects"]
 metadata/_edit_group_ = true
@@ -697,6 +735,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.09172, 1.33225, -3.62133)
 
 [node name="artefacts" type="Node3D" parent="Objects"]
 
+[node name="TestThing" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("5_adnc5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.6, -8)
+holder = NodePath("../../../PlacementPoints/ThingPlacementPoint")
+
+[node name="CodeChest" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("12_r5a1l")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9, 0.6, -3)
+holder = NodePath("../../../PlacementPoints/ChestPlacementPoint")
+
+[node name="Compass" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("15_310g3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70475, 2.6, -8.63708)
+holder = NodePath("../../../PlacementPoints/Basic/CompassPlacementPoint102")
+
 [node name="baguette_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("20_5tmdo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3598, 2, -0.588636)
 holder = NodePath("../../../PlacementPoints/baguettePlace")
@@ -730,9 +780,6 @@ holder = NodePath("../../../PlacementPoints/thorHammePlace")
 [node name="pandora_box_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("33_6vd2a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -7)
 holder = NodePath("../../../PlacementPoints/pandoraPlace")
-
-[node name="pyramid_cursor" parent="Objects/artefacts" instance=ExtResource("33_4pr77")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.39185, 0, -4.31666)
 
 [node name="presentoire_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("20_novct")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.6, 0)
@@ -772,5 +819,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.70537, 2.44876, -9.42242)
 
 [node name="ObjectPlacer" type="Node" parent="." node_paths=PackedStringArray("object")]
 script = ExtResource("13_ck4kk")
-object = NodePath("../Objects/Compass")
+object = NodePath("../Objects/artefacts/Compass")
 info = "Object linked to placement point!"
+
+[editable path="OuijaDetector"]

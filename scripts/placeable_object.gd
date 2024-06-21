@@ -102,6 +102,7 @@ func inspect():
 			save_transform()
 			Singletons.main.inspect_object(self)
 			start_inspecting.emit()
+			%Outline.visible = false
 	else:
 		inspecting = false
 		raw_rotation = global_rotation
@@ -133,10 +134,11 @@ func check_condition_valid(condition: ObjectCondition) -> bool:
 	return false
 
 func _on_object_mouse_entered():
-	pass
+	if not Singletons.main.holding_object and not Singletons.main.inspecting and in_light():
+		%Outline.visible = true
 
 func _on_object_mouse_exited():
-	pass
+	%Outline.visible = false
 
 func _on_object_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int):
 	if unclickable_timer <= 0 and event is InputEventMouseButton:

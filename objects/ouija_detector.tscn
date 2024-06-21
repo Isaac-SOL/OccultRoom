@@ -1,9 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://wry4x8x1djv4"]
+[gd_scene load_steps=13 format=3 uid="uid://wry4x8x1djv4"]
 
 [ext_resource type="Script" path="res://scripts/ouija_detector.gd" id="1_ejanw"]
 [ext_resource type="Script" path="res://scripts/ouija_system.gd" id="2_b34w5"]
-[ext_resource type="Texture2D" uid="uid://babpxsb0lofes" path="res://assets/textures/object/ouija.png" id="3_it141"]
-[ext_resource type="Texture2D" uid="uid://kpj2bjhj5goj" path="res://assets/3Dmodels/bed_dirty_carpet_diff_1k.jpg" id="4_mwhu7"]
+[ext_resource type="PackedScene" uid="uid://wq5rg8bsyb6a" path="res://scenes/artefacts/ouija/pyramid_cursor.tscn" id="3_nhyb6"]
 [ext_resource type="AudioStream" uid="uid://05jkbyq3av5o" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_000.ogg" id="5_l4t0r"]
 [ext_resource type="AudioStream" uid="uid://biqq7cnkxqdik" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_001.ogg" id="6_r2o43"]
 [ext_resource type="AudioStream" uid="uid://2drx2gf5p062" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_002.ogg" id="7_2fxrw"]
@@ -14,17 +13,6 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f353b"]
 size = Vector3(2.1, 0.3, 2.1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_xbeis"]
-radius = 0.07
-height = 0.14
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nmtm"]
-albedo_color = Color(0.572669, 1.1792e-06, 3.36915e-07, 1)
-metallic = 1.0
-roughness = 0.61
-anisotropy_enabled = true
-anisotropy = 0.5
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_gb2qm"]
 streams_count = 5
@@ -51,20 +39,6 @@ shape = SubResource("BoxShape3D_f353b")
 [node name="OuijaSystem" type="Node3D" parent="."]
 script = ExtResource("2_b34w5")
 rock_speed = 0.3
-
-[node name="Sprite3D" type="Sprite3D" parent="OuijaSystem"]
-transform = Transform3D(-0.75, 0, 1.13247e-07, 0, 0.75, 0, -1.13247e-07, 0, -0.75, 0, 0.02, 0)
-axis = 1
-shaded = true
-texture_filter = 4
-texture = ExtResource("3_it141")
-
-[node name="Sprite3D2" type="Sprite3D" parent="OuijaSystem"]
-transform = Transform3D(-6, 0, 9.05975e-07, 0, 6, 0, -9.05975e-07, 0, -6, 0, 0.01, 0)
-axis = 1
-shaded = true
-texture_filter = 4
-texture = ExtResource("4_mwhu7")
 
 [node name="Positions" type="Node3D" parent="OuijaSystem"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
@@ -133,11 +107,12 @@ gizmo_extents = 0.05
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.235245, 0.01, 0.583455)
 gizmo_extents = 0.05
 
-[node name="Rock" type="MeshInstance3D" parent="OuijaSystem"]
+[node name="Rock" type="Node3D" parent="OuijaSystem"]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0.264353)
-mesh = SubResource("SphereMesh_xbeis")
-surface_material_override/0 = SubResource("StandardMaterial3D_4nmtm")
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="pyramid_cursor" parent="OuijaSystem/Rock" instance=ExtResource("3_nhyb6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131209, -1.2589, -0.049647)
 
 [node name="ShakeAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://2hkfiv3x3a63"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_0sd6h"]
+[ext_resource type="PackedScene" uid="uid://dhv8w28lw254y" path="res://scenes/artefacts/bougie_chandelier.tscn" id="2_0b8g3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ydyri"]
+height = 0.298755
+radius = 0.0433635
+
+[node name="bougie_chandelier_p" type="Area3D"]
+script = ExtResource("1_0sd6h")
+
+[node name="bougie_chandelier" parent="." instance=ExtResource("2_0b8g3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.706339, 0)
+shape = SubResource("CylinderShape3D_ydyri")

@@ -7,7 +7,7 @@
 
 [node name="chandelier" instance=ExtResource("1_2og5s")]
 
-[node name="GPUParticles3D_fire" type="GPUParticles3D" parent="." index="1"]
+[node name="GPUParticles3D_fire1" type="GPUParticles3D" parent="." index="1"]
 transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.127175, 1.41389, 0.0527578)
 amount = 6
 process_material = ExtResource("2_8n7b8")

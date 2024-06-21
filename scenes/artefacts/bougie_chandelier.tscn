@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhv8w28lw254y"]
+
+[ext_resource type="PackedScene" uid="uid://lu3n3tphsm0g" path="res://assets/3Dmodels/artefacts/bougie_chandelier.glb" id="1_dxyad"]
+
+[node name="bougie_chandelier" instance=ExtResource("1_dxyad")]

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b65xe6ry40juy"
-path.bptc="res://.godot/imported/pyramid-mouse.png-47af1ed5d66f4ac64bd802ca67da67ad.bptc.ctex"
+uid="uid://dl54lnb6regaa"
+path.bptc="res://.godot/imported/pyramid-mouse.png-b4071c12932fd8d8b1ceeeacc812f17a.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/textures/symbols/modify/pyramid-mouse.png"
-dest_files=["res://.godot/imported/pyramid-mouse.png-47af1ed5d66f4ac64bd802ca67da67ad.bptc.ctex"]
+source_file="res://assets/textures/mouse/pyramid-mouse.png"
+dest_files=["res://.godot/imported/pyramid-mouse.png-b4071c12932fd8d8b1ceeeacc812f17a.bptc.ctex"]
 
 [params]
 

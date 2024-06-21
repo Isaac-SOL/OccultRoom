@@ -304,7 +304,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.6, -5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.6, -6)
 
 [node name="ObjectPlacementPoint28" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.6, -7)
 
 [node name="ObjectPlacementPoint29" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.6, -8)

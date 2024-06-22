@@ -21,3 +21,7 @@ func _on_main_grabbed_object(_object: Node3D):
 
 func _on_main_released_object(_object: Node3D, _point: ObjectPlacementPoint):
 	set_detecting(true)
+
+func appear():
+	await get_tree().create_timer(1).timeout
+	%Rock.visible = true

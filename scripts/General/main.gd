@@ -217,7 +217,11 @@ func _on_room_stool_just_placed():
 	
 	await get_tree().create_timer(1).timeout
 	await start_multi_dialog([1.0, 1.0, "It does as it pleases!",
-							  1.0, 1.0, "It would be safer if I tidied up the room myself."])
+							  "Maybe it wants to move the furniture around...?",
+							  1.0, 1.0, "It would be safer if I reordered the room myself."])
+	%Room.ouija_appear()
+	await get_tree().create_timer(3).timeout
+	start_dialog("Let's see what it wants...")
 	ouija_message_next = false
 	ouija_explanation_next = true
 
@@ -230,7 +234,14 @@ func _on_room_object_placed(_object):
 func _on_crystal_touched():
 	if not targeting_stool:
 		var valid_objects: Array = get_tree().get_nodes_in_group("ValidationObject")
-		%CrystalTargetPosition.target = valid_objects.pick_random()
+		var invalid_objects: Array = []
+		for object in valid_objects:
+			if not object.check_valid():
+				invalid_objects.append(object)
+		if invalid_objects.is_empty():
+			%CrystalTargetPosition.visible = false
+		else:
+			%CrystalTargetPosition.target = invalid_objects.pick_random()
 
 func tween_noise_to(final_val: float):
 	if noise_tween:

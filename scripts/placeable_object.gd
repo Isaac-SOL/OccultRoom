@@ -91,7 +91,7 @@ func move_to_smooth(pos: Vector3, rot: Vector3, sca: Vector3 = Vector3(-1, 0, 0)
 	target_rotation = rot
 	if sca.x != -1:
 		target_scale = sca
-	unclickable_timer = 0.5
+	unclickable_timer = 0.2
 
 func move_back():
 	move_to_smooth(saved_position, saved_rotation, saved_scale, true)
@@ -130,7 +130,7 @@ func check_condition_valid(condition: ObjectCondition) -> bool:
 			var target: Vector3 = Singletons.main.position_from_symbol(condition.base_condition)
 			if condition.close and (global_position - target).length() < 3.5:
 				return true
-			if not condition.close and (global_position - target).length() > 10:
+			if not condition.close and (global_position - target).length() > 9:
 				return true
 	return false
 

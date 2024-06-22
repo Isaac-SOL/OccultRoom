@@ -110,6 +110,7 @@ func _on_pause_finished():
 		else:
 			# End reached, no next move scheduled
 			state = State.IDLE
+			Singletons.stool.set_active(false)
 	else:
 		if idx_in_sequence >= current_sequence.size() or replaced:
 			# Current movement has finished or been cancelled, must return to base position
@@ -128,3 +129,25 @@ func _on_pause_finished():
 			else:
 				target_move_pos = get_pos(current_sequence[idx_in_sequence])
 				%MoveAudio.play()
+
+func flames_sequence():
+	state = State.PAUSING
+	var flames: Array[Node] = %Flames.get_children()
+	var i: int = 0
+	for object: PlaceableObject in get_tree().get_nodes_in_group("ValidationObject"):
+		if object.check_valid():
+			pass
+		else:
+			%ShakeAudio.play()
+			Singletons.shaker.shake(0.1, 0.5)
+		flames[i].emitting = true
+		i += 1
+		if replaced:
+			break
+		await get_tree().create_timer(1).timeout
+	
+	await get_tree().create_timer(4).timeout
+	for flame: Node in flames:
+		flames[i].emitting = false
+	state = State.IDLE
+	pause_finished.emit()

@@ -422,7 +422,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.6, -8)
 
 [node name="ObjectPlacementPoint70" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.6, -9)
-holding_object = NodePath("")
 
 [node name="ObjectPlacementPoint71" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.6, -9)
@@ -580,6 +579,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3598, 2.6, -0.588636)
 small = true
 
 [node name="OuijaDetector" parent="." instance=ExtResource("1_xcxt8")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.2, -4.5)
 
 [node name="None" parent="OuijaDetector/OuijaSystem/Positions" index="0"]
@@ -722,16 +722,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2, -9)
 mesh = SubResource("BoxMesh_82ovq")
 
 [node name="ouija_table" parent="Objects/furnitures" instance=ExtResource("24_c1q2g")]
+unique_name_in_owner = true
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 4.32373, -0.0285225, -4.5226)
 
 [node name="bougie" parent="Objects/furnitures" instance=ExtResource("31_27d00")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50072, 1.33225, -3.62133)
+visible = false
 
 [node name="bougie2" parent="Objects/furnitures" instance=ExtResource("31_27d00")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22133, 1.33225, -3.62133)
+visible = false
 
 [node name="bougie3" parent="Objects/furnitures" instance=ExtResource("31_27d00")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.79172, 1.33225, -3.62133)
+visible = false
 
 [node name="artefacts" type="Node3D" parent="Objects"]
 

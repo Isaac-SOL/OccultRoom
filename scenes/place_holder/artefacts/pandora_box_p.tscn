@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://b00bfo0pfcc7e"]
+[gd_scene load_steps=15 format=3 uid="uid://b00bfo0pfcc7e"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_4g2cs"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_2jxaq"]
 [ext_resource type="AudioStream" uid="uid://k4ih1bgg4g7p" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_000.ogg" id="3_2dchx"]
 [ext_resource type="AudioStream" uid="uid://cdgm2ffprudag" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_001.ogg" id="4_s3jjh"]
 [ext_resource type="AudioStream" uid="uid://c5rj5ya0enh8h" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_002.ogg" id="5_bumxb"]
@@ -8,6 +9,11 @@
 [ext_resource type="PackedScene" uid="uid://ch1m8srqoa0sc" path="res://scenes/artefacts/pandora_box.tscn" id="7_b2npq"]
 [ext_resource type="AudioStream" uid="uid://c8bw08hgmydj0" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_004.ogg" id="7_kuu1e"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_wj7h5"]
+
+[sub_resource type="Resource" id="Resource_011b0"]
+script = ExtResource("2_2jxaq")
+base_condition = 13
+close = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_svxq6"]
 size = Vector3(0.6, 0.6, 0.6)
@@ -56,6 +62,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -0.1, 0)
 collision_layer = 4
 collision_mask = 23
 script = ExtResource("1_4g2cs")
+hints = Array[int]([13, 15])
+conditions = Array[ExtResource("2_2jxaq")]([SubResource("Resource_011b0")])
+needs_valid_placement = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.23517e-08, 0.3, 1.86265e-08)
@@ -85,3 +94,11 @@ cast_shadow = 0
 mesh = SubResource("ArrayMesh_g5bvb")
 skeleton = NodePath("../../pandora_box/pandora_box_bot")
 surface_material_override/0 = ExtResource("8_wj7h5")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.262782, 0.172127, 0.00275689)
+shaded = true
+text = "Do not try
+to open"
+font_size = 16
+outline_size = 6

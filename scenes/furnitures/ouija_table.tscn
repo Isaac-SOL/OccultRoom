@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtr12fgi36m3m"]
+[gd_scene load_steps=11 format=3 uid="uid://dtr12fgi36m3m"]
 
 [ext_resource type="PackedScene" uid="uid://b0jprtmb4kasc" path="res://assets/3Dmodels/furnitures/ouija_table.glb" id="1_4e1dr"]
 [ext_resource type="Script" path="res://scenes/furnitures/ouija_table.gd" id="2_5njpn"]
+[ext_resource type="Material" uid="uid://brabryakecb0p" path="res://shaders_mats/magic_dissolve_mat.tres" id="3_qa41t"]
+[ext_resource type="Material" uid="uid://do4gknpacwphc" path="res://shaders_mats/magic_dissolve_bougie_mat.tres" id="4_2r8ir"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bs5s8"]
 animation = &"ouija_board_idle"
@@ -28,12 +30,16 @@ transitions = ["Start", "ouija_board_idle", SubResource("AnimationNodeStateMachi
 [node name="ouija_table" instance=ExtResource("1_4e1dr")]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0)
 script = ExtResource("2_5njpn")
+dissolve_material = ExtResource("3_qa41t")
+dissolve_material_candle = ExtResource("4_2r8ir")
 
 [node name="tapis_table" parent="." index="1"]
 transform = Transform3D(0, 0, 3.10131, 0, 2.37703, 0, -2.65995, 0, 0, 0.160991, 1.1082, 0.0782348)
 
 [node name="ouija_board" parent="." index="2"]
 transform = Transform3D(-0.151601, 0, -2.28911e-08, 0, 0.151601, 0, 2.28911e-08, 0, -0.151601, 0.0865257, 1.28137, 0.157703)
+visible = false
+surface_material_override/3 = ExtResource("3_qa41t")
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="4"]
 tree_root = SubResource("AnimationNodeStateMachine_eaktn")

@@ -19,6 +19,7 @@ var dialog: bool = false
 # Dialog elements
 var ouija_message_next: bool = false
 var crystal_message_next: bool = false
+var crystal_message_2_next: bool = false
 var ouija_explanation_next: bool = false
 var already_inspected: bool = true
 @export var intro: bool = true
@@ -41,8 +42,9 @@ func start_intro_sequence():
 	await get_tree().create_timer(5).timeout
 	await start_multi_dialog([0.5, 0.5, 0.5,
 		"There is a spirit in this room.",
-		"I know this kind of spirit well.",
-		"I will play its little game for the time being."
+		"I know this kind of dangerous spirit.",
+		"I better play along for the time being.",
+		"I must figure out what it wants from me."
 	])
 	%Room.set_eye_animated(true)
 	ouija_message_next = true
@@ -118,12 +120,15 @@ func ouija_clicked():
 	if CameraManager.ouija:
 		if ouija_message_next:
 			await get_tree().create_timer(0.3).timeout
-			start_dialog("The glowing Eye... I see... now where could its twin be...?")
+			start_multi_dialog(["The glowing Eye... I see...",
+								"Its twin should be nearby. Let's find it."])
 			ouija_message_next = false
 		elif ouija_explanation_next:
 			await get_tree().create_timer(0.3).timeout
-			start_dialog("This table should help me figure out where it wants things to go.")
+			start_multi_dialog(["This table should help me figure out where it wants things to go.",
+								"Let's put something on that pedestal and ask directly."])
 			ouija_explanation_next = false
+			crystal_message_2_next = true
 
 func turn_object_left():
 	if holding_object:
@@ -165,8 +170,13 @@ func inspect_object(object: PlaceableObject):
 	%HintsContainerInspect.visible = true
 	if crystal_message_next and object.special_name == "CrystalBall":
 		await get_tree().create_timer(0.3).timeout
-		start_multi_dialog(["Visions of the future...", "Or hints, maybe?"])
+		await start_multi_dialog(["Visions of the future...", "Or hints, perhaps?"])
 		crystal_message_next = false
+	if crystal_message_2_next and object.special_name == "CrystalBall":
+		await get_tree().create_timer(0.3).timeout
+		await start_multi_dialog(["This trusty crystal ball will show me what I have yet to do.",
+								  "When I touch it, the images change..."])
+		crystal_message_2_next = false
 	if not already_inspected:
 		%PutDownHint.visible = true
 		%TurnHint.visible = true
@@ -198,7 +208,7 @@ func unzoom_inspect_object():
 	if inspect_scale_factor < 0.4:
 		inspect_scale_factor = 0.4
 	inspecting.move_to_smooth(inspecting.target_position, inspecting.target_rotation, %InspectPosition.scale * inspect_scale_factor)
-	%ZoomHint.visible = false
+	#%ZoomHint.visible = false
 
 func pauseMenu():
 	if pause:
@@ -231,15 +241,15 @@ func _on_room_stool_just_placed():
 	_on_crystal_touched()
 	ouija_message_next = false
 	
-	if not intro: return
-	
-	await get_tree().create_timer(1).timeout
-	await start_multi_dialog([1.0, 1.0, "It's trying to move the furniture around...?",
-							  1.0, 1.0, "It would be safer if I reordered the room myself."])
+	if intro:
+		await get_tree().create_timer(1).timeout
+		await start_multi_dialog([1.0, 1.0, "It's trying to move the furniture around...?",
+								  1.0, 1.0, "It would be safer if I reordered the room myself."])
 	%Room.ouija_appear()
-	await get_tree().create_timer(2).timeout
-	start_dialog("Let's see what it wants...")
-	ouija_explanation_next = true
+	if intro:
+		await get_tree().create_timer(2).timeout
+		start_dialog("Let's see what it wants...")
+		ouija_explanation_next = true
 
 func _on_room_object_placed(_object):
 	check_valid_objects()
@@ -274,6 +284,7 @@ func start_dialog(text: String):
 	dialog_unclickable_time = 1
 	dialog = true
 	%DialogControl.visible = true
+	%DialogAudio.play()
 
 func _on_dialog_control_gui_input(event: InputEvent):
 	if dialog_unclickable_time <= 0:

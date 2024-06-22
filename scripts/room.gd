@@ -44,4 +44,6 @@ func ouija_appear():
 	%bougie.appear()
 	%bougie2.appear()
 	%bougie3.appear()
-	
+
+func shake_ouija():
+	%ouija_table.ouija_table_jump()

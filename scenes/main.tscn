@@ -1,11 +1,13 @@
-[gd_scene load_steps=53 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=59 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
 [ext_resource type="Script" path="res://scripts/camera_rotation.gd" id="2_xlx1h"]
 [ext_resource type="AudioStream" uid="uid://cl7yx3m7c1yoq" path="res://assets/audio/Kenney/MagicShortLow.ogg" id="3_w5kr4"]
+[ext_resource type="AudioStream" uid="uid://blx6eepr1drn0" path="res://assets/audio/Kenney/forceField_000.ogg" id="4_3advk"]
 [ext_resource type="Script" path="res://scripts/room_camera.gd" id="4_j5ui4"]
 [ext_resource type="AudioStream" uid="uid://05jkbyq3av5o" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_000.ogg" id="4_jbsch"]
+[ext_resource type="AudioStream" uid="uid://bus83ldcsdy2e" path="res://assets/audio/Kenney/forceField_001.ogg" id="5_n3gpu"]
 [ext_resource type="Material" uid="uid://de7wyw0dv0jn6" path="res://shaders_mats/blur5x5.tres" id="5_tjfw7"]
 [ext_resource type="AudioStream" uid="uid://biqq7cnkxqdik" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_001.ogg" id="5_vyq4l"]
 [ext_resource type="Script" path="res://scripts/shaker.gd" id="6_gn2dp"]
@@ -13,8 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://bjdd44yp5226i" path="res://scenes/menus/pause_menu.tscn" id="6_o1hb0"]
 [ext_resource type="Theme" uid="uid://ciwtpa400up3y" path="res://ui/in_game_theme.tres" id="6_o16yu"]
 [ext_resource type="AudioStream" uid="uid://2drx2gf5p062" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_002.ogg" id="6_t04mm"]
+[ext_resource type="AudioStream" uid="uid://carrp2rc60ol0" path="res://assets/audio/Kenney/forceField_002.ogg" id="6_ts0k6"]
+[ext_resource type="AudioStream" uid="uid://clp5rjd6pd8yx" path="res://assets/audio/Kenney/forceField_003.ogg" id="7_kerjk"]
 [ext_resource type="AudioStream" uid="uid://bqwosq5rv0ea5" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_003.ogg" id="7_q3smn"]
 [ext_resource type="AudioStream" uid="uid://eoer4nwxjqhl" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_004.ogg" id="8_h256d"]
+[ext_resource type="AudioStream" uid="uid://deo1ltok5kr05" path="res://assets/audio/Kenney/forceField_004.ogg" id="8_rnero"]
 [ext_resource type="Shader" uid="uid://ce07dllsq8rex" path="res://shaders_mats/noise_shader.tres" id="8_t2fxk"]
 [ext_resource type="Texture2D" uid="uid://cgnfu3xy3jomt" path="res://assets/textures/moon.png" id="9_wcb2f"]
 [ext_resource type="Texture2D" uid="uid://b5xp58v40peoi" path="res://assets/textures/look_around_hint.png" id="15_w5546"]
@@ -37,6 +42,19 @@ stream_2/weight = 1.0
 stream_3/stream = ExtResource("7_q3smn")
 stream_3/weight = 1.0
 stream_4/stream = ExtResource("8_h256d")
+stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e8p40"]
+streams_count = 5
+stream_0/stream = ExtResource("4_3advk")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_n3gpu")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_ts0k6")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_kerjk")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_rnero")
 stream_4/weight = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_t3pin"]
@@ -202,6 +220,12 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_jo56l")
 volume_db = -5.0
 
+[node name="DialogAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_e8p40")
+volume_db = -15.0
+pitch_scale = 0.5
+
 [node name="Moon" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.414768, 0.526633, 0.506187, -0.33378, 0.654414, -0.407349, -0.649737, 1.75238e-07, 0.532392, 0.791453, 0.363527, 7.95188)
 mesh = SubResource("SphereMesh_t3pin")
@@ -365,6 +389,7 @@ layout_mode = 2
 texture = ExtResource("15_w5546")
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/LookHint"]
+modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -380,6 +405,7 @@ layout_mode = 2
 texture = ExtResource("16_2d4bi")
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/PickupHint"]
+modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -395,6 +421,7 @@ layout_mode = 2
 texture = ExtResource("17_legkf")
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/FreeTurnHint"]
+modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -410,6 +437,7 @@ layout_mode = 2
 texture = ExtResource("18_tf8sk")
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/TableHint"]
+modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -425,6 +453,7 @@ layout_mode = 2
 texture = ExtResource("19_4aftl")
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/InspectHint"]
+modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -451,6 +480,7 @@ layout_mode = 2
 texture = ExtResource("20_6x1w7")
 
 [node name="Panel" type="Panel" parent="UI/HintsContainerInspect/PutDownHint"]
+modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -466,6 +496,7 @@ layout_mode = 2
 texture = ExtResource("20_srbnq")
 
 [node name="Panel" type="Panel" parent="UI/HintsContainerInspect/TurnHint"]
+modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -481,6 +512,7 @@ layout_mode = 2
 texture = ExtResource("21_6kdao")
 
 [node name="Panel" type="Panel" parent="UI/HintsContainerInspect/ZoomHint"]
+modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -597,4 +629,5 @@ inspect_text = "Mouse Left: Touch
 Mouse Right: Put down
 Mouse Wheel: Zoom"
 
+[connection signal="stool_just_placed" from="Room" to="." method="_on_room_stool_just_placed"]
 [connection signal="gui_input" from="UI/DialogControl" to="." method="_on_dialog_control_gui_input"]

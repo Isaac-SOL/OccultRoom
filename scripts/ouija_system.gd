@@ -71,6 +71,8 @@ func _on_object_placed(object: PlaceableObject):
 	match state:
 		State.IDLE:
 			idx_in_sequence = 0
+			if not current_sequence.is_empty():
+				%pyramid_cursor.pyramid_rotate()
 			state = State.PAUSING
 			await get_tree().create_timer(1).timeout
 			pause_finished.emit()
@@ -103,6 +105,7 @@ func _on_pause_finished():
 			replaced = false
 			idx_in_sequence = 0
 			move_progress = 0
+			%pyramid_cursor.pyramid_rotate()
 			start_next_move()
 		else:
 			# End reached, no next move scheduled
@@ -122,8 +125,7 @@ func _on_pause_finished():
 
 func start_next_move():
 	if current_sequence[idx_in_sequence] == Pos.SHAKE:
-		%ShakeAudio.play()
-		Singletons.shaker.shake(0.1, 0.5)
+		shake()
 		state = State.FAKE_MOVING
 		_on_position_reached()
 	elif current_sequence[idx_in_sequence] == Pos.CRYSTAL_HINT:
@@ -142,8 +144,7 @@ func flames_sequence():
 			flames[i].process_material = valid_flame
 		else:
 			flames[i].process_material = invalid_flame
-			%ShakeAudio.play()
-			Singletons.shaker.shake(0.1, 0.5)
+			shake()
 		flames[i].emitting = true
 		i += 1
 		if replaced:
@@ -154,3 +155,9 @@ func flames_sequence():
 	for flame: Node in flames:
 		flame.emitting = false
 	_on_position_reached()
+
+func shake():
+	Singletons.room.shake_ouija()
+	%pyramid_cursor.pyramid_jump()
+	%ShakeAudio.play()
+	Singletons.shaker.shake(0.1, 0.5)

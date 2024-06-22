@@ -114,10 +114,10 @@ gizmo_extents = 0.05
 
 [node name="Rock" type="Node3D" parent="OuijaSystem"]
 unique_name_in_owner = true
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 visible = false
 
 [node name="pyramid_cursor" parent="OuijaSystem/Rock" instance=ExtResource("3_nhyb6")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00430085, 0.0058047, 0.00286668)
 
 [node name="Flames" type="Node3D" parent="OuijaSystem"]

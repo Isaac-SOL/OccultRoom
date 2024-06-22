@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhpufcy15hbya"]
+
+[ext_resource type="PackedScene" uid="uid://cfi5y3bjgwsd3" path="res://assets/3Dmodels/artefacts/rose_des_vents.glb" id="1_m35pt"]
+
+[node name="rose_des_vents" instance=ExtResource("1_m35pt")]

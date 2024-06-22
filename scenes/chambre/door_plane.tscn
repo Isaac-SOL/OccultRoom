@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://wt2312k41wo8"]
+
+[ext_resource type="PackedScene" uid="uid://dl0om1kadxrl8" path="res://assets/3Dmodels/room/door_plane.glb" id="1_a45t6"]
+
+[node name="door_plane" instance=ExtResource("1_a45t6")]

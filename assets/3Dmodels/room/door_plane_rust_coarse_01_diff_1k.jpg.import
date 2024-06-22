@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://bhp6adjs2o10r"
+path.bptc="res://.godot/imported/door_plane_rust_coarse_01_diff_1k.jpg-ecac02a9c0c052a3856e0116400ac11b.bptc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "5ed85d8cb75600f90185859281d2f65e"
+}
+
+[deps]
+
+source_file="res://assets/3Dmodels/room/door_plane_rust_coarse_01_diff_1k.jpg"
+dest_files=["res://.godot/imported/door_plane_rust_coarse_01_diff_1k.jpg-ecac02a9c0c052a3856e0116400ac11b.bptc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=true
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://2afuqainpx47"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_nxaxe"]
+[ext_resource type="PackedScene" uid="uid://ci22jetudoh3x" path="res://scenes/artefacts/large_chest.tscn" id="2_j18xd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lla4m"]
+size = Vector3(0.552979, 0.902954, 0.809448)
+
+[node name="large_chest_p" type="Area3D"]
+script = ExtResource("1_nxaxe")
+
+[node name="large_chest" parent="." instance=ExtResource("2_j18xd")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00158691, 0.424169, 0.00238037)
+shape = SubResource("BoxShape3D_lla4m")

@@ -1,5 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://wq5rg8bsyb6a"]
+[gd_scene load_steps=12 format=3 uid="uid://wq5rg8bsyb6a"]
 
 [ext_resource type="PackedScene" uid="uid://bjj6thkwpsqhk" path="res://assets/3Dmodels/artefacts/pyramid_cursor.glb" id="1_is77n"]
+[ext_resource type="Script" path="res://scripts/furnitures/pyramid_cursor.gd" id="2_j3my4"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_se53p"]
+animation = &"pyramid_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_npj0c"]
+animation = &"pyramid_jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ipp0g"]
+animation = &"pyramid_rotate"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_07wca"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_is7cm"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pr1gw"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lo5jr"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ap8v8"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_vn8mo"]
+states/pyramid_idle/node = SubResource("AnimationNodeAnimation_se53p")
+states/pyramid_idle/position = Vector2(358, 99.7778)
+states/pyramid_jump/node = SubResource("AnimationNodeAnimation_npj0c")
+states/pyramid_jump/position = Vector2(534, 44.6667)
+states/pyramid_rotate/node = SubResource("AnimationNodeAnimation_ipp0g")
+states/pyramid_rotate/position = Vector2(528, 178)
+transitions = ["Start", "pyramid_idle", SubResource("AnimationNodeStateMachineTransition_07wca"), "pyramid_idle", "pyramid_jump", SubResource("AnimationNodeStateMachineTransition_is7cm"), "pyramid_jump", "pyramid_idle", SubResource("AnimationNodeStateMachineTransition_pr1gw"), "pyramid_idle", "pyramid_rotate", SubResource("AnimationNodeStateMachineTransition_lo5jr"), "pyramid_rotate", "pyramid_idle", SubResource("AnimationNodeStateMachineTransition_ap8v8")]
 
 [node name="pyramid_cursor" instance=ExtResource("1_is77n")]
+script = ExtResource("2_j3my4")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource("AnimationNodeStateMachine_vn8mo")
+anim_player = NodePath("../AnimationPlayer")

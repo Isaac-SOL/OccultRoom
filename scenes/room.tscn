@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://2afuqainpx47" path="res://scenes/place_holder/artefacts/large_chest_p.tscn" id="33_0ixpr"]
 [ext_resource type="PackedScene" uid="uid://b00bfo0pfcc7e" path="res://scenes/place_holder/artefacts/pandora_box_p.tscn" id="33_6vd2a"]
 [ext_resource type="PackedScene" uid="uid://d1m1p8cg07hcf" path="res://scenes/place_holder/artefacts/chaudron_p.tscn" id="35_8lhf2"]
+[ext_resource type="PackedScene" uid="uid://d32hibugde61v" path="res://scenes/chambre/ghost.tscn" id="39_6hprf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4lg0k"]
 
@@ -813,6 +814,9 @@ holder = NodePath("../../../PlacementPoints/largeChestPlace2")
 [node name="chaudron_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("35_8lhf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, -3)
 holder = NodePath("../../../PlacementPoints/chaudronPlace")
+
+[node name="ghost" parent="Objects/artefacts" instance=ExtResource("39_6hprf")]
+transform = Transform3D(-0.595173, 0, 0.803597, 0, 1, 0, -0.803597, 0, -0.595173, 9.07104, 0.877391, 0.126474)
 
 [node name="SymbolPositions" type="Node3D" parent="."]
 metadata/_edit_lock_ = true

@@ -124,7 +124,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131209, -1.2589, -0.049647
 unique_name_in_owner = true
 
 [node name="Flame1" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.798794, 0.473138, -0.00786325)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.798794, 0.473138, -0.913921)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
@@ -132,7 +132,7 @@ process_material = ExtResource("4_wr2or")
 draw_pass_1 = ExtResource("5_mntsc")
 
 [node name="Flame2" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.719322, 0.473138, -0.00786325)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.616785, 0.473138, -0.913921)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
@@ -140,7 +140,7 @@ process_material = ExtResource("4_wr2or")
 draw_pass_1 = ExtResource("5_mntsc")
 
 [node name="Flame3" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.505099, 0.473138, -0.566298)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.434776, 0.473138, -0.913921)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
@@ -148,7 +148,7 @@ process_material = ExtResource("4_wr2or")
 draw_pass_1 = ExtResource("5_mntsc")
 
 [node name="Flame4" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.479401, 0.473138, -0.570435)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.265177, 0.473138, -0.913921)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
@@ -156,7 +156,7 @@ process_material = ExtResource("4_wr2or")
 draw_pass_1 = ExtResource("5_mntsc")
 
 [node name="Flame5" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.505099, 0.473138, 0.542299)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.0873047, 0.473138, -0.913921)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
@@ -164,7 +164,7 @@ process_material = ExtResource("4_wr2or")
 draw_pass_1 = ExtResource("5_mntsc")
 
 [node name="Flame6" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.500084, 0.473138, 0.550572)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.107114, 0.473138, -0.913921)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
@@ -172,7 +172,7 @@ process_material = ExtResource("4_wr2or")
 draw_pass_1 = ExtResource("5_mntsc")
 
 [node name="Flame7" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.00457567, 0.473138, -0.768989)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.297395, 0.473138, -0.913921)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
@@ -180,7 +180,7 @@ process_material = ExtResource("4_wr2or")
 draw_pass_1 = ExtResource("5_mntsc")
 
 [node name="Flame8" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.00457567, 0.473138, 0.711898)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.483541, 0.473138, -0.913921)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
@@ -188,7 +188,7 @@ process_material = ExtResource("4_wr2or")
 draw_pass_1 = ExtResource("5_mntsc")
 
 [node name="Flame9" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.251891, 0.473138, -0.00786325)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.694506, 0.473138, -0.913921)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
@@ -196,7 +196,7 @@ process_material = ExtResource("4_wr2or")
 draw_pass_1 = ExtResource("5_mntsc")
 
 [node name="Flame10" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.20313, 0.473138, -0.00786325)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.89306, 0.473138, -0.913921)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)

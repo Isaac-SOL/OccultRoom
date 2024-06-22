@@ -235,10 +235,12 @@ unique_name_in_owner = true
 transform = Transform3D(-2.38419e-06, 4.76837e-07, -10, -3.09944e-06, 10, -4.76837e-07, 10, 4.05312e-06, 1.90735e-06, 0, -2, -11.051)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="CameraRotation/Shaker/Camera3D"]
+light_energy = 2.0
 spot_range = 18.22
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="CameraRotation/Shaker/Camera3D"]
 transform = Transform3D(-1, 2.23518e-07, -3.27826e-07, 0, 0.866025, 0.5, 4.76837e-07, 0.5, -0.866025, -9.53674e-07, 6.3396, -16.3166)
+light_energy = 2.0
 spot_range = 17.7907
 
 [node name="BlockerArea" type="Area3D" parent="CameraRotation/Shaker/Camera3D"]
@@ -295,15 +297,15 @@ mouse_filter = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="HintsContainer" type="VFlowContainer" parent="UI"]
+[node name="HintsContainer" type="HFlowContainer" parent="UI"]
 unique_name_in_owner = true
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -128.0
-grow_horizontal = 0
-grow_vertical = 2
+offset_top = -37.0
+grow_horizontal = 2
+grow_vertical = 0
 alignment = 1
 
 [node name="LookHint" type="TextureRect" parent="UI/HintsContainer"]
@@ -381,16 +383,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HintsContainerInspect" type="VFlowContainer" parent="UI"]
+[node name="HintsContainerInspect" type="HFlowContainer" parent="UI"]
 unique_name_in_owner = true
 visible = false
-anchors_preset = 11
-anchor_left = 1.0
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -128.0
-grow_horizontal = 0
-grow_vertical = 2
+grow_horizontal = 2
+grow_vertical = 0
 alignment = 1
 
 [node name="PutDownHint" type="TextureRect" parent="UI/HintsContainerInspect"]

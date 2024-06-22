@@ -11,9 +11,10 @@ var viewport_size = DisplayServer.window_get_size()
 var prevscene = null
 
 func _process(delta):
-	setBotSpeed(botDifficulty)
-	get_viewport().size = viewport_size
-	calculScreensize()
+	#setBotSpeed(botDifficulty)
+	#get_viewport().size = viewport_size
+	#calculScreensize()
+	pass
 	
 
 func calculScreensize():

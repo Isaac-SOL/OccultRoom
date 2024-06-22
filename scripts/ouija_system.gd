@@ -7,9 +7,10 @@ enum Pos {
 	NORTH, EAST, SOUTH, WEST,
 	NORTH_WEST, NORTH_EAST, SOUTH_EAST, SOUTH_WEST,
 	TRISKELE,
-	CLOSE, FAR
+	CLOSE, FAR,
+	CRYSTAL_HINT
 }
-enum State {IDLE, PAUSING, MOVING}
+enum State {IDLE, PAUSING, MOVING, FAKE_MOVING}
 
 signal position_reached
 signal pause_finished
@@ -17,6 +18,8 @@ signal stopped_moving
 
 @export var rock_speed: float = 1
 @export var rock_wait: float = 1
+@export var valid_flame: ParticleProcessMaterial
+@export var invalid_flame: ParticleProcessMaterial
 
 @onready var last_move_pos: Vector3 = $Positions/None.position
 @onready var target_move_pos: Vector3 = $Positions/None.position
@@ -79,12 +82,12 @@ func _on_object_placed(object: PlaceableObject):
 func _on_object_removed():
 	current_sequence = []
 	match state:
-		State.PAUSING, State.MOVING:
+		State.PAUSING, State.MOVING, State.FAKE_MOVING:
 			replaced = false
 	Singletons.stool.set_active(false)
 
 func _on_position_reached():
-	assert(state == State.MOVING)
+	assert(state == State.MOVING or state == State.FAKE_MOVING)
 	last_move_pos = target_move_pos
 	idx_in_sequence += 1
 	%MoveAudio.stop()
@@ -100,13 +103,7 @@ func _on_pause_finished():
 			replaced = false
 			idx_in_sequence = 0
 			move_progress = 0
-			state = State.MOVING
-			if current_sequence[idx_in_sequence] == Pos.SHAKE:
-				%ShakeAudio.play()
-				_on_position_reached()
-			else:
-				target_move_pos = get_pos(current_sequence[idx_in_sequence])
-				%MoveAudio.play()
+			start_next_move()
 		else:
 			# End reached, no next move scheduled
 			state = State.IDLE
@@ -121,23 +118,30 @@ func _on_pause_finished():
 		else:
 			# Current movement is in progress and going fine
 			move_progress = 0
-			state = State.MOVING
-			if current_sequence[idx_in_sequence] == Pos.SHAKE:
-				%ShakeAudio.play()
-				Singletons.shaker.shake(0.1, 0.5)
-				_on_position_reached()
-			else:
-				target_move_pos = get_pos(current_sequence[idx_in_sequence])
-				%MoveAudio.play()
+			start_next_move()
+
+func start_next_move():
+	if current_sequence[idx_in_sequence] == Pos.SHAKE:
+		%ShakeAudio.play()
+		Singletons.shaker.shake(0.1, 0.5)
+		state = State.FAKE_MOVING
+		_on_position_reached()
+	elif current_sequence[idx_in_sequence] == Pos.CRYSTAL_HINT:
+		state = State.FAKE_MOVING
+		flames_sequence()
+	else:
+		target_move_pos = get_pos(current_sequence[idx_in_sequence])
+		%MoveAudio.play()
+		state = State.MOVING
 
 func flames_sequence():
-	state = State.PAUSING
 	var flames: Array[Node] = %Flames.get_children()
 	var i: int = 0
 	for object: PlaceableObject in get_tree().get_nodes_in_group("ValidationObject"):
 		if object.check_valid():
-			pass
+			flames[i].process_material = valid_flame
 		else:
+			flames[i].process_material = invalid_flame
 			%ShakeAudio.play()
 			Singletons.shaker.shake(0.1, 0.5)
 		flames[i].emitting = true
@@ -148,6 +152,5 @@ func flames_sequence():
 	
 	await get_tree().create_timer(4).timeout
 	for flame: Node in flames:
-		flames[i].emitting = false
-	state = State.IDLE
-	pause_finished.emit()
+		flame.emitting = false
+	_on_position_reached()

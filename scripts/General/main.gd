@@ -212,17 +212,16 @@ func _on_room_stool_just_placed():
 	targeting_stool = false
 	%MagicAudio.play()
 	_on_crystal_touched()
+	ouija_message_next = false
 	
 	if not intro: return
 	
 	await get_tree().create_timer(1).timeout
-	await start_multi_dialog([1.0, 1.0, "It does as it pleases!",
-							  "Maybe it wants to move the furniture around...?",
+	await start_multi_dialog([1.0, 1.0, "It's trying to move the furniture around...?",
 							  1.0, 1.0, "It would be safer if I reordered the room myself."])
 	%Room.ouija_appear()
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(2).timeout
 	start_dialog("Let's see what it wants...")
-	ouija_message_next = false
 	ouija_explanation_next = true
 
 func _on_room_object_placed(_object):

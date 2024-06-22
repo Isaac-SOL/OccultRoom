@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://wry4x8x1djv4"]
+[gd_scene load_steps=16 format=3 uid="uid://wry4x8x1djv4"]
 
 [ext_resource type="Script" path="res://scripts/ouija_detector.gd" id="1_ejanw"]
 [ext_resource type="Script" path="res://scripts/ouija_system.gd" id="2_b34w5"]
+[ext_resource type="Material" uid="uid://b2vx3hy8wqw4k" path="res://shaders_mats/flame_green.tres" id="3_kps8o"]
 [ext_resource type="PackedScene" uid="uid://wq5rg8bsyb6a" path="res://scenes/artefacts/ouija/pyramid_cursor.tscn" id="3_nhyb6"]
-[ext_resource type="Material" uid="uid://5es7glaa8vnf" path="res://assets/particules/fire_process_material.tres" id="4_fjavy"]
+[ext_resource type="Material" uid="uid://chramvq2g37p5" path="res://shaders_mats/flame_red.tres" id="4_wr2or"]
 [ext_resource type="AudioStream" uid="uid://05jkbyq3av5o" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_000.ogg" id="5_l4t0r"]
 [ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="5_mntsc"]
 [ext_resource type="AudioStream" uid="uid://biqq7cnkxqdik" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_001.ogg" id="6_r2o43"]
@@ -41,6 +42,8 @@ shape = SubResource("BoxShape3D_f353b")
 [node name="OuijaSystem" type="Node3D" parent="."]
 script = ExtResource("2_b34w5")
 rock_speed = 0.3
+valid_flame = ExtResource("3_kps8o")
+invalid_flame = ExtResource("4_wr2or")
 
 [node name="Positions" type="Node3D" parent="OuijaSystem"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
@@ -121,11 +124,83 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131209, -1.2589, -0.049647
 unique_name_in_owner = true
 
 [node name="Flame1" type="GPUParticles3D" parent="OuijaSystem/Flames"]
-transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.00871223, 0.473138, 0.22792)
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.798794, 0.473138, -0.00786325)
 emitting = false
 amount = 6
 visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
-process_material = ExtResource("4_fjavy")
+process_material = ExtResource("4_wr2or")
+draw_pass_1 = ExtResource("5_mntsc")
+
+[node name="Flame2" type="GPUParticles3D" parent="OuijaSystem/Flames"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.719322, 0.473138, -0.00786325)
+emitting = false
+amount = 6
+visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
+process_material = ExtResource("4_wr2or")
+draw_pass_1 = ExtResource("5_mntsc")
+
+[node name="Flame3" type="GPUParticles3D" parent="OuijaSystem/Flames"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.505099, 0.473138, -0.566298)
+emitting = false
+amount = 6
+visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
+process_material = ExtResource("4_wr2or")
+draw_pass_1 = ExtResource("5_mntsc")
+
+[node name="Flame4" type="GPUParticles3D" parent="OuijaSystem/Flames"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.479401, 0.473138, -0.570435)
+emitting = false
+amount = 6
+visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
+process_material = ExtResource("4_wr2or")
+draw_pass_1 = ExtResource("5_mntsc")
+
+[node name="Flame5" type="GPUParticles3D" parent="OuijaSystem/Flames"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.505099, 0.473138, 0.542299)
+emitting = false
+amount = 6
+visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
+process_material = ExtResource("4_wr2or")
+draw_pass_1 = ExtResource("5_mntsc")
+
+[node name="Flame6" type="GPUParticles3D" parent="OuijaSystem/Flames"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.500084, 0.473138, 0.550572)
+emitting = false
+amount = 6
+visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
+process_material = ExtResource("4_wr2or")
+draw_pass_1 = ExtResource("5_mntsc")
+
+[node name="Flame7" type="GPUParticles3D" parent="OuijaSystem/Flames"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.00457567, 0.473138, -0.768989)
+emitting = false
+amount = 6
+visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
+process_material = ExtResource("4_wr2or")
+draw_pass_1 = ExtResource("5_mntsc")
+
+[node name="Flame8" type="GPUParticles3D" parent="OuijaSystem/Flames"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.00457567, 0.473138, 0.711898)
+emitting = false
+amount = 6
+visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
+process_material = ExtResource("4_wr2or")
+draw_pass_1 = ExtResource("5_mntsc")
+
+[node name="Flame9" type="GPUParticles3D" parent="OuijaSystem/Flames"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.251891, 0.473138, -0.00786325)
+emitting = false
+amount = 6
+visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
+process_material = ExtResource("4_wr2or")
+draw_pass_1 = ExtResource("5_mntsc")
+
+[node name="Flame10" type="GPUParticles3D" parent="OuijaSystem/Flames"]
+transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, -0.20313, 0.473138, -0.00786325)
+emitting = false
+amount = 6
+visibility_aabb = AABB(-279.189, -4.87734, -1.77218, 558.378, 9.75469, 3.54436)
+process_material = ExtResource("4_wr2or")
 draw_pass_1 = ExtResource("5_mntsc")
 
 [node name="ShakeAudio" type="AudioStreamPlayer" parent="."]

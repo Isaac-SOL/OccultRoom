@@ -140,6 +140,7 @@ func flames_sequence():
 	var flames: Array[Node] = %Flames.get_children()
 	var i: int = 0
 	for object: PlaceableObject in get_tree().get_nodes_in_group("ValidationObject"):
+		Singletons.main.set_crystal_target(object)
 		if object.check_valid():
 			flames[i].process_material = valid_flame
 		else:
@@ -151,6 +152,7 @@ func flames_sequence():
 			break
 		await get_tree().create_timer(1).timeout
 	
+	Singletons.main._on_crystal_touched()
 	await get_tree().create_timer(4).timeout
 	for flame: Node in flames:
 		flame.emitting = false

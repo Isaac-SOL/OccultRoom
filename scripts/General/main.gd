@@ -258,6 +258,9 @@ func _on_room_object_placed(_object):
 		%InspectHint.visible = true
 	_on_crystal_touched()
 
+func set_crystal_target(target: Node3D):
+	%CrystalTargetPosition.target = target
+
 func _on_crystal_touched():
 	if not targeting_stool:
 		var valid_objects: Array = get_tree().get_nodes_in_group("ValidationObject")

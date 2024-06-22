@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cnmco5mvxbmif"]
+[gd_scene load_steps=49 format=3 uid="uid://cnmco5mvxbmif"]
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_1vuhw"]
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_kn5p5"]

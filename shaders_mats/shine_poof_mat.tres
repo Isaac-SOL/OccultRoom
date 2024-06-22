@@ -1,0 +1,11 @@
+[gd_resource type="ParticleProcessMaterial" format=3 uid="uid://cvek0di2fukl2"]
+
+[resource]
+lifetime_randomness = 0.4
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 0.9
+initial_velocity_max = 1.1
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+gravity = Vector3(0, 1, 0)

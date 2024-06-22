@@ -214,7 +214,7 @@ func check_valid_objects():
 		%LabelTopLeft.text += "\nCongratulations!"
 
 func _on_room_stool_just_placed():
-	%LabelTopLeft.visible = true
+	#%LabelTopLeft.visible = true
 	targeting_stool = false
 	%MagicAudio.play()
 	_on_crystal_touched()

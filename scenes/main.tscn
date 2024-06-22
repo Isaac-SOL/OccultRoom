@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=49 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://f4jlgk556d3i" path="res://assets/textures/free_turn_hint.png" id="17_legkf"]
 [ext_resource type="Texture2D" uid="uid://dkcclecvpkvum" path="res://assets/textures/table_hint.png" id="18_tf8sk"]
 [ext_resource type="Texture2D" uid="uid://bysc4u4i16e02" path="res://assets/textures/inspect_hint.png" id="19_4aftl"]
+[ext_resource type="Texture2D" uid="uid://cbwdu4qytnn03" path="res://assets/textures/putdown_hint.png" id="20_6x1w7"]
 [ext_resource type="Texture2D" uid="uid://cvulckh5b7y0" path="res://assets/textures/turn_object_hint.png" id="20_srbnq"]
 [ext_resource type="Texture2D" uid="uid://cwsp70a8iyu6a" path="res://assets/textures/zoom_hint.png" id="21_6kdao"]
 
@@ -294,6 +295,7 @@ mouse_filter = 2
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HintsContainer" type="VFlowContainer" parent="UI"]
+unique_name_in_owner = true
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
@@ -378,13 +380,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TurnHint" type="TextureRect" parent="UI/HintsContainer"]
+[node name="HintsContainerInspect" type="VFlowContainer" parent="UI"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="PutDownHint" type="TextureRect" parent="UI/HintsContainerInspect"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("20_srbnq")
+texture = ExtResource("20_6x1w7")
 
-[node name="Panel" type="Panel" parent="UI/HintsContainer/TurnHint"]
+[node name="Panel" type="Panel" parent="UI/HintsContainerInspect/PutDownHint"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15
@@ -393,13 +407,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ZoomHint" type="TextureRect" parent="UI/HintsContainer"]
+[node name="TurnHint" type="TextureRect" parent="UI/HintsContainerInspect"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("20_srbnq")
+
+[node name="Panel" type="Panel" parent="UI/HintsContainerInspect/TurnHint"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ZoomHint" type="TextureRect" parent="UI/HintsContainerInspect"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("21_6kdao")
 
-[node name="Panel" type="Panel" parent="UI/HintsContainer/ZoomHint"]
+[node name="Panel" type="Panel" parent="UI/HintsContainerInspect/ZoomHint"]
 z_index = -1
 layout_mode = 1
 anchors_preset = 15

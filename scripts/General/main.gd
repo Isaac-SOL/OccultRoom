@@ -107,7 +107,7 @@ func ouija_clicked():
 	if CameraManager.ouija:
 		if ouija_message_next:
 			await get_tree().create_timer(0.3).timeout
-			start_dialog("The glowing Eye... yes... now where could its twin be...?")
+			start_dialog("The glowing Eye... I see... now where could its twin be...?")
 			ouija_message_next = false
 		elif ouija_explanation_next:
 			await get_tree().create_timer(0.3).timeout
@@ -150,11 +150,14 @@ func inspect_object(object: PlaceableObject):
 	%HighlightSprite.target_scale = Vector3.ONE * 5
 	%LabelLeft.set_inspect(true)
 	%LabelRight.set_inspect(true)
+	%HintsContainer.visible = false
+	%HintsContainerInspect.visible = true
 	if crystal_message_next and object.special_name == "CrystalBall":
 		await get_tree().create_timer(0.3).timeout
 		start_multi_dialog(["Visions of the future...", "Or hints, maybe?"])
 		crystal_message_next = false
 	if not already_inspected:
+		%PutDownHint.visible = true
 		%TurnHint.visible = true
 		%ZoomHint.visible = true
 
@@ -165,7 +168,10 @@ func stop_inspect_object(object:PlaceableObject):
 	%HighlightSprite.target_scale = Vector3.ZERO
 	%LabelLeft.set_inspect(false)
 	%LabelRight.set_inspect(false)
+	%HintsContainerInspect.visible = false
+	%HintsContainer.visible = true
 	%InspectHint.visible = false
+	%PutDownHint.visible = false
 	inspecting = null
 	already_inspected = true
 

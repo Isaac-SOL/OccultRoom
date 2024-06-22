@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=53 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://bqwosq5rv0ea5" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_003.ogg" id="7_q3smn"]
 [ext_resource type="AudioStream" uid="uid://eoer4nwxjqhl" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_004.ogg" id="8_h256d"]
 [ext_resource type="Shader" uid="uid://ce07dllsq8rex" path="res://shaders_mats/noise_shader.tres" id="8_t2fxk"]
+[ext_resource type="Texture2D" uid="uid://cgnfu3xy3jomt" path="res://assets/textures/moon.png" id="9_wcb2f"]
 [ext_resource type="Texture2D" uid="uid://b5xp58v40peoi" path="res://assets/textures/look_around_hint.png" id="15_w5546"]
 [ext_resource type="Texture2D" uid="uid://i3udstbqhgnw" path="res://assets/textures/pickup_hint.png" id="16_2d4bi"]
 [ext_resource type="Texture2D" uid="uid://f4jlgk556d3i" path="res://assets/textures/free_turn_hint.png" id="17_legkf"]
@@ -44,6 +45,15 @@ stream_4/weight = 1.0
 albedo_color = Color(0, 0, 0, 1)
 emission_enabled = true
 emission = Color(0.37791, 0.1482, 0.39, 1)
+emission_texture = ExtResource("9_wcb2f")
+
+[sub_resource type="QuadMesh" id="QuadMesh_b1uq7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8xm7"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jnwdj"]
 
 [sub_resource type="GDScript" id="GDScript_x1w2v"]
 script/source = "extends Node3D
@@ -193,9 +203,48 @@ stream = SubResource("AudioStreamRandomizer_jo56l")
 volume_db = -5.0
 
 [node name="Moon" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.493771, 0.626944, 0.602604, -0.397357, 0.779064, -0.484939, -0.773497, 2.98023e-08, 0.633799, 6.56214, -4.62451, 13.7876)
+transform = Transform3D(0.414768, 0.526633, 0.506187, -0.33378, 0.654414, -0.407349, -0.649737, 1.75238e-07, 0.532392, 0.791453, 0.363527, 7.95188)
 mesh = SubResource("SphereMesh_t3pin")
 surface_material_override/0 = SubResource("StandardMaterial3D_nh86h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Moon"]
+transform = Transform3D(-0.416794, 1.11229e-07, -0.970687, 1.15504e-07, 1.73414, 7.13113e-08, 1.6833, -3.02249e-07, -0.240347, -0.72468, 5.96046e-08, -0.317887)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_b1uq7")
+surface_material_override/0 = SubResource("StandardMaterial3D_d8xm7")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Moon"]
+transform = Transform3D(-0.416794, 3.8266e-08, -0.970687, 1.15504e-07, 1.73414, 1.30916e-07, 1.6833, -3.50908e-07, -0.240347, -1.49631, 2.98023e-07, -2.45444)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_b1uq7")
+surface_material_override/0 = SubResource("StandardMaterial3D_d8xm7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Moon"]
+transform = Transform3D(-0.57949, 1.64004, -0.218671, 2.66729e-07, 0.390656, 0.974295, 2.34039, 0.40608, -0.0541443, -0.515191, 0.843697, 0.875275)
+mesh = SubResource("QuadMesh_b1uq7")
+surface_material_override/0 = SubResource("ShaderMaterial_jnwdj")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Moon"]
+transform = Transform3D(0.351726, 2.26879, -0.482474, -2.26233, 0.72329, 0.20918, 0.755886, 1.10907, 0.850566, -0.515191, 0.843697, 0.875275)
+mesh = SubResource("QuadMesh_b1uq7")
+surface_material_override/0 = SubResource("ShaderMaterial_jnwdj")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Moon"]
+transform = Transform3D(-0.57949, 2.10098, 0.574455, 3.26334e-07, -1.58906, 0.806083, 2.34039, 0.520213, 0.142237, 0.198206, 0.410351, 0.449914)
+mesh = SubResource("QuadMesh_b1uq7")
+surface_material_override/0 = SubResource("ShaderMaterial_jnwdj")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Moon"]
+transform = Transform3D(-4.74344, -4.02949, 0.840036, -8.07499, 7.90007, 0.0630559, -8.33981, -5.35736, -0.538843, -3.42966, -7.79961, -10.8907)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_b1uq7")
+surface_material_override/0 = SubResource("StandardMaterial3D_d8xm7")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Moon"]
+transform = Transform3D(-9.93567, -11.7065, 0.780814, -13.1378, 22.9513, -0.0250648, -11.9002, -15.5642, -0.624244, -9.0894, -1.28179, -15.0078)
+cast_shadow = 0
+mesh = SubResource("QuadMesh_b1uq7")
+surface_material_override/0 = SubResource("StandardMaterial3D_d8xm7")
 
 [node name="CrystalSpritePivot" type="Node3D" parent="."]
 transform = Transform3D(-0.707107, 0.353554, -0.612372, -5.96047e-08, 0.866025, 0.5, 0.707107, 0.353554, -0.612372, -9.38879, 9.59802, -9.38879)
@@ -226,6 +275,7 @@ move_speed = 10.0
 unique_name_in_owner = true
 transform = Transform3D(1, -2.98023e-08, 0, 0, 1, 5.96046e-08, -5.96046e-08, -2.98023e-08, 1, 0, 0, 0)
 projection = 1
+current = true
 size = 9.0
 script = ExtResource("4_j5ui4")
 ouija_size = 2.0

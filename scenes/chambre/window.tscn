@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv6tr7fro4dw2"]
+
+[ext_resource type="PackedScene" uid="uid://b2b4pxoy4rq88" path="res://assets/3Dmodels/room/window.glb" id="1_lvnmc"]
+
+[node name="window" instance=ExtResource("1_lvnmc")]

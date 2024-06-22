@@ -176,6 +176,7 @@ func set_inspect(inspect: bool):
 
 [node name="Main" type="Node3D" groups=["MainGroup"]]
 script = ExtResource("1_rshqp")
+intro = false
 
 [node name="Room" parent="." instance=ExtResource("1_vjk08")]
 unique_name_in_owner = true

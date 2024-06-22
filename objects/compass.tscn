@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bm6pk301avrfr"]
+[gd_scene load_steps=19 format=3 uid="uid://bm6pk301avrfr"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_wtmm3"]
+[ext_resource type="PackedScene" uid="uid://dhpufcy15hbya" path="res://scenes/artefacts/rose_des_vents.tscn" id="2_8dhc8"]
 [ext_resource type="AudioStream" uid="uid://b4i5h181hkrm4" path="res://assets/audio/Kenney/Impacts/impactMetal_medium_000.ogg" id="2_k8xm8"]
 [ext_resource type="AudioStream" uid="uid://bq32b5pd4b16u" path="res://assets/audio/Kenney/Impacts/impactMetal_medium_001.ogg" id="3_0u5bk"]
 [ext_resource type="AudioStream" uid="uid://b8s4ebsl8lxqw" path="res://assets/audio/Kenney/Impacts/impactMetal_medium_002.ogg" id="4_iywhu"]
@@ -94,8 +95,12 @@ script = SubResource("GDScript_tgmke")
 
 [node name="Needle" type="MeshInstance3D" parent="NeedleRotation"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0762172)
+visible = false
 mesh = SubResource("QuadMesh_b22tl")
 skeleton = NodePath("../..")
+
+[node name="rose_des_vents" parent="NeedleRotation" instance=ExtResource("2_8dhc8")]
+transform = Transform3D(-6.55671e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.55671e-08, 0, 0.00307427, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.123016, 0)

@@ -34,7 +34,9 @@ height = 0.1
 script/source = "extends Node3D
 
 func _process(_delta):
-	look_at(Vector3(9, 2.5, -9.5), Vector3.UP)
+	look_at(Vector3(9, 2.5, -9.5) * 100, transform * Vector3.UP)
+	rotation.x = 0
+	rotation.z = 0
 "
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eiqcn"]

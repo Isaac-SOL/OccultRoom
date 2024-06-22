@@ -365,12 +365,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.6, -2)
 [node name="ObjectPlacementPoint44" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.6, -3)
 
-[node name="ObjectPlacementPoint45" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.23715, -4)
-
-[node name="ObjectPlacementPoint46" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.23689, -5)
-
 [node name="ObjectPlacementPoint47" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.6, -6)
 
@@ -394,12 +388,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.6, -7)
 
 [node name="ObjectPlacementPoint54" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.6, -6)
-
-[node name="ObjectPlacementPoint55" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.23613, -5)
-
-[node name="ObjectPlacementPoint56" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.23639, -4)
 
 [node name="ObjectPlacementPoint57" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.6, -3)
@@ -855,9 +843,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.470442, 2.44876, -9.42242)
 [node name="NorthWest" type="Marker3D" parent="SymbolPositions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.70537, 2.44876, -9.42242)
 
-[node name="ObjectPlacer" type="Node" parent="." node_paths=PackedStringArray("object")]
+[node name="ObjectPlacer" type="Node" parent="."]
 script = ExtResource("13_ck4kk")
-object = NodePath("../Objects/artefacts/chaudron_p")
 info = "Object linked to placement point!"
 
 [editable path="OuijaDetector"]

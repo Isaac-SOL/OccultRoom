@@ -22,6 +22,7 @@ var crystal_message_next: bool = false
 var ouija_explanation_next: bool = false
 var already_inspected: bool = true
 @export var intro: bool = true
+var rotate_count: int = 0
 
 
 func _ready():
@@ -33,8 +34,9 @@ func _ready():
 	Global.prevscene = get_tree().current_scene.scene_file_path
 	
 	%LookHint.visible = true
-	if not intro:
-		return
+
+func start_intro_sequence():
+	if not intro: return
 	
 	await get_tree().create_timer(5).timeout
 	await start_multi_dialog([0.5, 0.5, 0.5,
@@ -63,38 +65,47 @@ func _process(delta):
 		if Input.is_action_just_pressed("left"):
 			if not inspecting:
 				CameraManager.rotate_left()
-				%LookHint.visible = false
+				if not CameraManager.ouija:
+					#%LookHint.visible = false
+					rotate_count += 1
+					if rotate_count == 3:
+						start_intro_sequence()
 			else:
 				inspecting.inspect_rotate_left()
 		elif Input.is_action_just_pressed("right"):
 			if not inspecting:
 				CameraManager.rotate_right()
-				%LookHint.visible = false
+				if not CameraManager.ouija:
+					#%LookHint.visible = false
+					rotate_count += 1
+					if rotate_count == 3:
+						start_intro_sequence()
 			else:
 				inspecting.inspect_rotate_right()
 		elif Input.is_action_just_pressed("up"):
 			if inspecting:
 				inspecting.inspect_rotate_up()
-				%TurnHint.visible = false
+				#%TurnHint.visible = false
 		elif Input.is_action_just_pressed("down"):
 			if inspecting:
 				inspecting.inspect_rotate_down()
-				%TurnHint.visible = false
+				#%TurnHint.visible = false
 		elif Input.is_action_just_pressed("special"):
 			if not inspecting:
 				ouija_clicked()
 				if not CameraManager.ouija:
-					%TableHint.visible = false
+					pass
+					#%TableHint.visible = false
 		elif Input.is_action_just_pressed("turn_left"):
 			if not inspecting:
 				turn_object_left()
-				%FreeTurnHint.visible = false
+				#%FreeTurnHint.visible = false
 			else:
 				zoom_inspect_object()
 		elif Input.is_action_just_pressed("turn_right"):
 			if not inspecting:
 				turn_object_right()
-				%FreeTurnHint.visible = false
+				#%FreeTurnHint.visible = false
 			else:
 				unzoom_inspect_object()
 	
@@ -170,8 +181,8 @@ func stop_inspect_object(object:PlaceableObject):
 	%LabelRight.set_inspect(false)
 	%HintsContainerInspect.visible = false
 	%HintsContainer.visible = true
-	%InspectHint.visible = false
-	%PutDownHint.visible = false
+	#%InspectHint.visible = false
+	#%PutDownHint.visible = false
 	inspecting = null
 	already_inspected = true
 
@@ -180,7 +191,7 @@ func zoom_inspect_object():
 	if inspect_scale_factor > 3:
 		inspect_scale_factor = 3
 	inspecting.move_to_smooth(inspecting.target_position, inspecting.target_rotation, %InspectPosition.scale * inspect_scale_factor)
-	%ZoomHint.visible = false
+	#%ZoomHint.visible = false
 
 func unzoom_inspect_object():
 	inspect_scale_factor -= 0.2
@@ -232,9 +243,10 @@ func _on_room_stool_just_placed():
 
 func _on_room_object_placed(_object):
 	check_valid_objects()
-	%PickupHint.visible = false
+	#%PickupHint.visible = false
 	if not already_inspected:
 		%InspectHint.visible = true
+	_on_crystal_touched()
 
 func _on_crystal_touched():
 	if not targeting_stool:
@@ -244,7 +256,7 @@ func _on_crystal_touched():
 			if not object.check_valid():
 				invalid_objects.append(object)
 		if invalid_objects.is_empty():
-			%CrystalTargetPosition.visible = false
+			%CrystalSprite.visible = false
 		else:
 			%CrystalTargetPosition.target = invalid_objects.pick_random()
 

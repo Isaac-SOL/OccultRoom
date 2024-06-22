@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://txa41kyeivut"]
+
+[ext_resource type="PackedScene" uid="uid://11im8uv3t5du" path="res://assets/3Dmodels/artefacts/chaudron.glb" id="1_b3ui2"]
+
+[node name="chaudron" instance=ExtResource("1_b3ui2")]
+
+[node name="chaudron" parent="." index="0"]
+transform = Transform3D(0.354221, 0, 0, 0, 0.354221, 0, 0, 0, 0.354221, 0, 0.269176, 0)

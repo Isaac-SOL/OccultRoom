@@ -547,6 +547,4 @@ inspect_text = "Mouse Left: Touch
 Mouse Right: Put down
 Mouse Wheel: Zoom"
 
-[connection signal="object_placed" from="Room" to="." method="_on_room_object_placed"]
-[connection signal="stool_just_placed" from="Room" to="." method="_on_room_stool_just_placed"]
 [connection signal="gui_input" from="UI/DialogControl" to="." method="_on_dialog_control_gui_input"]

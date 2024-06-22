@@ -1,0 +1,48 @@
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://do4gknpacwphc"]
+
+[ext_resource type="Shader" path="res://shaders_mats/dissolve_shader.gdshader" id="1_tq24w"]
+
+[sub_resource type="Gradient" id="Gradient_7fgsv"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_08wq3"]
+gradient = SubResource("Gradient_7fgsv")
+
+[sub_resource type="Gradient" id="Gradient_f4cli"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3r0a3"]
+frequency = 0.0602
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wg8sl"]
+width = 64
+height = 64
+seamless = true
+color_ramp = SubResource("Gradient_f4cli")
+noise = SubResource("FastNoiseLite_3r0a3")
+
+[sub_resource type="Gradient" id="Gradient_mri66"]
+colors = PackedColorArray(1, 1, 0.854902, 1, 1, 1, 0.505882, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qrooy"]
+gradient = SubResource("Gradient_mri66")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_tq24w")
+shader_parameter/offset = 1.0
+shader_parameter/up = true
+shader_parameter/borderColor = Color(0.88406, 0.871155, 0.688445, 1)
+shader_parameter/borderHeight = 0.1
+shader_parameter/waveAmplitude = 1.0
+shader_parameter/waveFrequency = 1.0
+shader_parameter/wavePhase = 0.1
+shader_parameter/emissionIntensity = 1.0
+shader_parameter/noiseSpeed = 0.01
+shader_parameter/noiseInfluence = 1.0
+shader_parameter/blendUVScale = Vector2(1, 1)
+shader_parameter/noiseUVScale = Vector2(1, 1)
+shader_parameter/textureUVScale = Vector2(1, 1)
+shader_parameter/global_transform = null
+shader_parameter/texture = SubResource("GradientTexture1D_qrooy")
+shader_parameter/blendTexture = SubResource("GradientTexture1D_08wq3")
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_wg8sl")

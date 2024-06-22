@@ -1,10 +1,32 @@
-[gd_scene load_steps=4 format=3 uid="uid://2afuqainpx47"]
+[gd_scene load_steps=12 format=3 uid="uid://2afuqainpx47"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_nxaxe"]
 [ext_resource type="PackedScene" uid="uid://ci22jetudoh3x" path="res://scenes/artefacts/large_chest.tscn" id="2_j18xd"]
+[ext_resource type="AudioStream" uid="uid://k4ih1bgg4g7p" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_000.ogg" id="3_lg1t4"]
+[ext_resource type="AudioStream" uid="uid://cdgm2ffprudag" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_001.ogg" id="4_jfois"]
+[ext_resource type="AudioStream" uid="uid://c5rj5ya0enh8h" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_002.ogg" id="5_s3vka"]
+[ext_resource type="AudioStream" uid="uid://ich42yeb30g8" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_003.ogg" id="6_s0soq"]
+[ext_resource type="AudioStream" uid="uid://c8bw08hgmydj0" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_004.ogg" id="7_o6sv5"]
+[ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_o4wra"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lla4m"]
 size = Vector3(0.552979, 0.902954, 0.809448)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_j5c1v"]
+streams_count = 5
+stream_0/stream = ExtResource("3_lg1t4")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("4_jfois")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("5_s3vka")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("6_s0soq")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("7_o6sv5")
+stream_4/weight = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_bjbse"]
+flip_faces = true
 
 [node name="large_chest_p" type="Area3D"]
 script = ExtResource("1_nxaxe")
@@ -14,3 +36,15 @@ script = ExtResource("1_nxaxe")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00158691, 0.424169, 0.00238037)
 shape = SubResource("BoxShape3D_lla4m")
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_j5c1v")
+volume_db = -10.0
+
+[node name="Outline" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.581585, 0, 0, 0, 0.97368, 0, 0, 0, 0.805554, 0, 0.430744, 0)
+visible = false
+mesh = SubResource("BoxMesh_bjbse")
+surface_material_override/0 = ExtResource("8_o4wra")

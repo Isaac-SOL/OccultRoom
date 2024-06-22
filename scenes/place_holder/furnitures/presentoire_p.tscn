@@ -47,6 +47,7 @@ _surfaces = [{
 
 [node name="presentoire_p" type="Area3D" groups=["Stool"]]
 script = ExtResource("1_ga1j0")
+special_name = "Stool"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.369408, 0)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bkf1vadtu7p38"]
+[gd_scene load_steps=18 format=3 uid="uid://bkf1vadtu7p38"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_2effn"]
 [ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_4aosf"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://bww8sad4r5gai" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_003.ogg" id="6_78km6"]
 [ext_resource type="AudioStream" uid="uid://ce7eg7kl2tggj" path="res://assets/audio/Kenney/Impacts/impactGeneric_light_004.ogg" id="7_7pw6w"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_jvgv6"]
+[ext_resource type="Material" uid="uid://cvek0di2fukl2" path="res://shaders_mats/shine_poof_mat.tres" id="9_p385v"]
+[ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="10_2tsgl"]
 
 [sub_resource type="Resource" id="Resource_x54l8"]
 script = ExtResource("2_4aosf")
@@ -108,3 +110,11 @@ cast_shadow = 0
 mesh = SubResource("ArrayMesh_gf3ip")
 skeleton = NodePath("../../Object/Object2")
 surface_material_override/0 = ExtResource("8_jvgv6")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+visible = false
+emitting = false
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("9_p385v")
+draw_pass_1 = ExtResource("10_2tsgl")

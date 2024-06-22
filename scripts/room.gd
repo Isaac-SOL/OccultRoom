@@ -37,3 +37,13 @@ func _on_object_placed(object: PlaceableObject):
 
 func set_eye_animated(animated: bool):
 	%StoolBottom.set_animated(animated)
+
+func ouija_appear():
+	%OuijaDetector.appear()
+	%ouija_table.appear()
+	%bougie.appear()
+	%bougie2.appear()
+	%bougie3.appear()
+
+func shake_ouija():
+	%ouija_table.ouija_table_jump()

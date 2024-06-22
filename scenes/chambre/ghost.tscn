@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://d32hibugde61v"]
+
+[ext_resource type="PackedScene" uid="uid://c3r7r7nuuusfw" path="res://assets/3Dmodels/room/ghost.glb" id="1_as0p2"]
+
+[node name="ghost" instance=ExtResource("1_as0p2")]

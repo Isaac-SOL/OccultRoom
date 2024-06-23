@@ -74,6 +74,7 @@ func place_at(pos: Vector3):
 	if needs_valid_placement:
 		if check_valid():
 			%ParticlesValid.emitting = true
+			Singletons.main.play_correct_audio()
 		else:
 			%ParticlesInvalid.emitting = true
 	object_placed.emit(self)

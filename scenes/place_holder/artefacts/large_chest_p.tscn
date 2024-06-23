@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://2afuqainpx47"]
+[gd_scene load_steps=26 format=3 uid="uid://2afuqainpx47"]
 
 [ext_resource type="Script" path="res://scripts/large_chest.gd" id="1_im0kb"]
 [ext_resource type="PackedScene" uid="uid://ci22jetudoh3x" path="res://scenes/artefacts/large_chest.tscn" id="2_j18xd"]
@@ -12,6 +12,12 @@
 [ext_resource type="AudioStream" uid="uid://dj7pcexdwtj0w" path="res://assets/audio/Kenney/doorClose_1.ogg" id="8_x0kut"]
 [ext_resource type="Texture2D" uid="uid://bb7vb2ubpo45q" path="res://assets/textures/totem_hint.png" id="9_m4wex"]
 [ext_resource type="Texture2D" uid="uid://c5go538vmo6k2" path="res://assets/textures/totem_hint_back.png" id="10_5a7wv"]
+[ext_resource type="Texture2D" uid="uid://dfq8yalgam2ad" path="res://assets/textures/symbols/close.png" id="13_7tl8g"]
+[ext_resource type="Texture2D" uid="uid://bj5up0065jugu" path="res://assets/textures/symbols/far.png" id="14_n8j70"]
+[ext_resource type="Texture2D" uid="uid://dwby1bc6qyms8" path="res://assets/textures/symbols/wind-rose-100.png" id="15_sp4pr"]
+[ext_resource type="Texture2D" uid="uid://dp20hrsshks5h" path="res://imports/big_ball.png" id="16_bwqoj"]
+[ext_resource type="Texture2D" uid="uid://dyrc06qt32jf5" path="res://assets/textures/symbols/light-64.png" id="17_nfpuj"]
+[ext_resource type="Texture2D" uid="uid://csd3acfwm3jmg" path="res://assets/textures/symbols/devil-64.png" id="18_xvq1d"]
 
 [sub_resource type="Resource" id="Resource_hyfdj"]
 script = ExtResource("2_ujj8w")
@@ -105,3 +111,41 @@ transform = Transform3D(6.4525e-08, -0.108527, -0.48808, 9.48769e-09, 0.48808, -
 shaded = true
 double_sided = false
 texture = ExtResource("10_5a7wv")
+
+[node name="Back" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.252308, 0, 0.0140253)
+
+[node name="Sprite3D" type="Sprite3D" parent="Back"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.18699, 0.660335, 0)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("13_7tl8g")
+
+[node name="Sprite3D6" type="Sprite3D" parent="Back"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.18699, 0.148807, 0)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("13_7tl8g")
+
+[node name="Sprite3D7" type="Sprite3D" parent="Back"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.18699, 0.396023, 0)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("14_n8j70")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Back"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.13542, 0.660335, 0)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("15_sp4pr")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Back"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -0.234154, 0.756622, -2.98023e-08)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("16_bwqoj")
+
+[node name="Sprite3D4" type="Sprite3D" parent="Back"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.13542, 0.40607, 0)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("17_nfpuj")
+
+[node name="Sprite3D5" type="Sprite3D" parent="Back"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.13542, 0.15558, 0)
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("18_xvq1d")

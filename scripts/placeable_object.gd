@@ -23,6 +23,7 @@ var saved_position: Vector3
 var saved_rotation: Vector3
 var saved_scale: Vector3
 @onready var raw_rotation: Vector3 = global_rotation
+@onready var raw_scale: Vector3 = scale
 var unclickable_timer: float = 0
 var hovering: ObjectPlacementPoint
 var rotation_addition: Vector3 = Vector3.ZERO
@@ -48,7 +49,8 @@ func _process(delta):
 	global_position = Util.decayv3(global_position, target_position, delta * move_speed)
 	raw_rotation = Util.decayv3(raw_rotation, target_rotation, delta * move_speed)
 	global_rotation = raw_rotation
-	scale = Util.decayv3(scale, target_scale, delta * move_speed)
+	raw_scale = Util.decayv3(raw_scale, target_scale, delta * move_speed)
+	scale = raw_scale
 
 func set_holder(new_holder: ObjectPlacementPoint):
 	holder = new_holder

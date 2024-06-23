@@ -1,0 +1,93 @@
+[gd_scene load_steps=18 format=3 uid="uid://dhls8dubu1t0y"]
+
+[ext_resource type="Script" path="res://scripts/stool.gd" id="1_30dk2"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_6i7p6"]
+[ext_resource type="PackedScene" uid="uid://deuc1fkuv44um" path="res://scenes/artefacts/books/book_green.tscn" id="2_wa7me"]
+[ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="3_haey8"]
+[ext_resource type="Material" uid="uid://cvek0di2fukl2" path="res://shaders_mats/shine_poof_mat.tres" id="4_qr7v5"]
+[ext_resource type="AudioStream" uid="uid://duguh5kqoytcu" path="res://assets/audio/Kenney/Impacts/footstep_carpet_000.ogg" id="4_v3lxt"]
+[ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="5_jcs8r"]
+[ext_resource type="AudioStream" uid="uid://gljvto8kdqvx" path="res://assets/audio/Kenney/Impacts/footstep_carpet_001.ogg" id="5_wcr17"]
+[ext_resource type="AudioStream" uid="uid://d3d6lxrlhov2d" path="res://assets/audio/Kenney/Impacts/footstep_carpet_002.ogg" id="6_84ruk"]
+[ext_resource type="Material" uid="uid://c6m148n5r8vxy" path="res://shaders_mats/shine_poof_red_mat.tres" id="6_d0gn6"]
+[ext_resource type="AudioStream" uid="uid://bgybwyv7di4ck" path="res://assets/audio/Kenney/Impacts/footstep_carpet_003.ogg" id="7_0omes"]
+[ext_resource type="AudioStream" uid="uid://wmd5d1as6yoh" path="res://assets/audio/Kenney/Impacts/footstep_carpet_004.ogg" id="8_chwbi"]
+[ext_resource type="Texture2D" uid="uid://csd3acfwm3jmg" path="res://assets/textures/symbols/devil-64.png" id="12_00hui"]
+
+[sub_resource type="Resource" id="Resource_wpvea"]
+script = ExtResource("2_6i7p6")
+base_condition = 4
+close = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8mws8"]
+size = Vector3(0.784546, 0.238083, 0.69751)
+
+[sub_resource type="BoxMesh" id="BoxMesh_x8ugw"]
+material = ExtResource("3_haey8")
+flip_faces = true
+size = Vector3(0.9, 0.35, 0.8)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_707tt"]
+streams_count = 5
+stream_0/stream = ExtResource("4_v3lxt")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_wcr17")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_84ruk")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_0omes")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_chwbi")
+stream_4/weight = 1.0
+
+[node name="Book" type="Area3D"]
+script = ExtResource("1_30dk2")
+hints = Array[int]([4, 14])
+small = true
+conditions = Array[ExtResource("2_6i7p6")]([SubResource("Resource_wpvea")])
+needs_valid_placement = true
+
+[node name="book_green" parent="." instance=ExtResource("2_wa7me")]
+transform = Transform3D(1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, -0.198625, 0.198625, -1.19837)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0165405, 0.125359, -0.00231934)
+shape = SubResource("BoxShape3D_8mws8")
+
+[node name="Outline" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121345, 0)
+visible = false
+mesh = SubResource("BoxMesh_x8ugw")
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_707tt")
+volume_db = -10.0
+
+[node name="Particles" type="Node3D" parent="."]
+
+[node name="ParticlesValid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("4_qr7v5")
+draw_pass_1 = ExtResource("5_jcs8r")
+
+[node name="ParticlesInvalid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("6_d0gn6")
+draw_pass_1 = ExtResource("5_jcs8r")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-0.645069, 0, 5.63937e-08, 0, 1, 0, -5.63937e-08, 0, -0.645069, 0, 0.2397, 0)
+axis = 1
+texture = ExtResource("12_00hui")

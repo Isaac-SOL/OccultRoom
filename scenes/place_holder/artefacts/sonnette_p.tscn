@@ -1,17 +1,26 @@
-[gd_scene load_steps=13 format=3 uid="uid://dmit33gq3mpqq"]
+[gd_scene load_steps=18 format=3 uid="uid://dmit33gq3mpqq"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_i7h7f"]
 [ext_resource type="PackedScene" uid="uid://bu4pt4ijj1en2" path="res://scenes/artefacts/sonnette.tscn" id="2_36025"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_hthi8"]
 [ext_resource type="AudioStream" uid="uid://b58rphfckemmj" path="res://assets/audio/Kenney/Impacts/impactMetal_light_000.ogg" id="3_0b4ua"]
 [ext_resource type="AudioStream" uid="uid://wovgmpppkkmg" path="res://assets/audio/Kenney/Impacts/impactMetal_light_001.ogg" id="4_qrndr"]
 [ext_resource type="AudioStream" uid="uid://cepyqhhk1q2b1" path="res://assets/audio/Kenney/Impacts/impactMetal_light_002.ogg" id="5_vuvqq"]
 [ext_resource type="AudioStream" uid="uid://bsq0o1oelucgj" path="res://assets/audio/Kenney/Impacts/impactMetal_light_003.ogg" id="6_644ls"]
 [ext_resource type="AudioStream" uid="uid://kwrxvhfee4sv" path="res://assets/audio/Kenney/Impacts/impactMetal_light_004.ogg" id="7_0sgby"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_qd208"]
+[ext_resource type="Material" uid="uid://cvek0di2fukl2" path="res://shaders_mats/shine_poof_mat.tres" id="10_igl4m"]
+[ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="11_kkd1n"]
+[ext_resource type="Material" uid="uid://c6m148n5r8vxy" path="res://shaders_mats/shine_poof_red_mat.tres" id="12_ifhdt"]
+
+[sub_resource type="Resource" id="Resource_mwluf"]
+script = ExtResource("2_hthi8")
+base_condition = 13
+close = true
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vnxo4"]
-height = 0.177921
-radius = 0.199932
+height = 0.212947
+radius = 0.292479
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uskd5"]
 streams_count = 5
@@ -55,14 +64,17 @@ _surfaces = [{
 [node name="sonnette_p" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0183709, 0)
 script = ExtResource("1_i7h7f")
+hints = Array[int]([13, 14])
 small = true
+conditions = Array[ExtResource("2_hthi8")]([SubResource("Resource_mwluf")])
+needs_valid_placement = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0772982, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11502, 0)
 shape = SubResource("CylinderShape3D_vnxo4")
 
 [node name="sonnette" parent="." instance=ExtResource("2_36025")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0020735, -0.0165735, -0.00148697)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.0020735, -0.0165735, -0.00148697)
 
 [node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
@@ -71,6 +83,7 @@ volume_db = -10.0
 
 [node name="Outline" type="Node3D" parent="."]
 unique_name_in_owner = true
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.0323139, 0)
 visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Outline"]
@@ -86,3 +99,25 @@ cast_shadow = 0
 mesh = SubResource("ArrayMesh_ktxsk")
 skeleton = NodePath("../../sonnette/sonnette_mid")
 surface_material_override/0 = ExtResource("8_qd208")
+
+[node name="Particles" type="Node3D" parent="."]
+
+[node name="ParticlesValid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("10_igl4m")
+draw_pass_1 = ExtResource("11_kkd1n")
+
+[node name="ParticlesInvalid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("12_ifhdt")
+draw_pass_1 = ExtResource("11_kkd1n")

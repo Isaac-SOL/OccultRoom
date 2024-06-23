@@ -233,6 +233,8 @@ func check_valid_objects():
 			print(node.name + " - " + str(node.check_valid()))
 			if not node.check_valid():
 				total_left += 1
+	if total_left <= 3:
+		%Room.open_box()
 	%LabelTopLeft.text = "Objects left: " + str(total_left)
 	if total_left == 0:
 		%LabelTopLeft.text += "\nCongratulations!"

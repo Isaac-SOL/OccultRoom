@@ -8,7 +8,8 @@ enum Pos {
 	NORTH_WEST, NORTH_EAST, SOUTH_EAST, SOUTH_WEST,
 	TRISKELE,
 	CLOSE, FAR,
-	CRYSTAL_HINT
+	CRYSTAL_HINT,
+	DEVIL, ANKH
 }
 enum State {IDLE, PAUSING, MOVING, FAKE_MOVING}
 
@@ -47,6 +48,8 @@ func _ready():
 	positions[Pos.TRISKELE] = $Positions/Triskele
 	positions[Pos.CLOSE] = $Positions/Close
 	positions[Pos.FAR] = $Positions/Far
+	positions[Pos.DEVIL] = $Positions/Devil
+	positions[Pos.ANKH] = $Positions/Ankh
 	position_reached.connect(_on_position_reached)
 	pause_finished.connect(_on_pause_finished)
 

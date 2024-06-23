@@ -110,3 +110,5 @@ transform = Transform3D(0.001, 0, 0, 0, 0.062, 0, 0, 0, 0.081, 0.0113836, 0.2279
 amount = 6
 process_material = SubResource("ParticleProcessMaterial_e4mfk")
 draw_pass_1 = SubResource("QuadMesh_il7md")
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

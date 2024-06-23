@@ -30,13 +30,23 @@ func stool_placed():
 	stool_just_placed.emit()
 
 func position_from_symbol(symbol: OuijaSystem.Pos) -> Vector3:
-	return symbol_to_position[symbol]
+	match symbol:
+		OuijaSystem.Pos.DEVIL:
+			return %Book.global_position
+		OuijaSystem.Pos.ANKH:
+			return %bougeoir_p.global_position
+		_:
+			return symbol_to_position[symbol]
 
 func _on_object_placed(object: PlaceableObject):
 	object_placed.emit(object)
 
 func set_eye_animated(animated: bool):
 	%StoolBottom.set_animated(animated)
+
+func open_box():
+	if not %box.is_open:
+		%box.anim_chest()
 
 func ouija_appear():
 	%OuijaDetector.appear()

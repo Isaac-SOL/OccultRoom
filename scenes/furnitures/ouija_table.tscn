@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://b0jprtmb4kasc" path="res://assets/3Dmodels/furnitures/ouija_table.glb" id="1_4e1dr"]
 [ext_resource type="Script" path="res://scenes/furnitures/ouija_table.gd" id="2_5njpn"]
-[ext_resource type="Material" uid="uid://brabryakecb0p" path="res://shaders_mats/magic_dissolve_mat.tres" id="3_qa41t"]
-[ext_resource type="Material" uid="uid://do4gknpacwphc" path="res://shaders_mats/magic_dissolve_bougie_mat.tres" id="4_2r8ir"]
+[ext_resource type="Material" uid="uid://bmgjffcsvkcbn" path="res://shaders_mats/magic_dissolve_mat.tres" id="3_qa41t"]
+[ext_resource type="Material" uid="uid://cqlmj2b64ku7k" path="res://shaders_mats/magic_dissolve_bougie_mat.tres" id="4_2r8ir"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bs5s8"]
 animation = &"ouija_board_idle"

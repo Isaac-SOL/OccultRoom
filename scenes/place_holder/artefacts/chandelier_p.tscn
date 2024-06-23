@@ -1,13 +1,22 @@
-[gd_scene load_steps=13 format=3 uid="uid://du2tmpiagabfs"]
+[gd_scene load_steps=18 format=3 uid="uid://du2tmpiagabfs"]
 
-[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_xo3lc"]
+[ext_resource type="Script" path="res://scripts/chandelier.gd" id="1_cc0d6"]
 [ext_resource type="PackedScene" uid="uid://dtx6gycsfd0nk" path="res://scenes/artefacts/chandelier.tscn" id="2_v3r0v"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_wq6if"]
 [ext_resource type="AudioStream" uid="uid://56evmw7rr2yi" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_000.ogg" id="3_uiafr"]
 [ext_resource type="AudioStream" uid="uid://cjyicm5xvocuv" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_001.ogg" id="4_sl8fj"]
 [ext_resource type="AudioStream" uid="uid://d2aarqt171o15" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_002.ogg" id="5_rjiib"]
 [ext_resource type="AudioStream" uid="uid://djsvv2o2rch23" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_003.ogg" id="6_nhwrw"]
 [ext_resource type="AudioStream" uid="uid://b6yt0acfhken8" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_004.ogg" id="7_nedjq"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_t58px"]
+[ext_resource type="Material" uid="uid://cvek0di2fukl2" path="res://shaders_mats/shine_poof_mat.tres" id="10_ti8rd"]
+[ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="11_7otdc"]
+[ext_resource type="Material" uid="uid://c6m148n5r8vxy" path="res://shaders_mats/shine_poof_red_mat.tres" id="12_taepo"]
+
+[sub_resource type="Resource" id="Resource_i32er"]
+script = ExtResource("2_wq6if")
+base_condition = 0
+close = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d7wor"]
 size = Vector3(0.261261, 0.866699, 0.465332)
@@ -42,7 +51,9 @@ _surfaces = [{
 }]
 
 [node name="chandelier_p" type="Area3D"]
-script = ExtResource("1_xo3lc")
+script = ExtResource("1_cc0d6")
+conditions = Array[ExtResource("2_wq6if")]([SubResource("Resource_i32er")])
+needs_valid_placement = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030838, 0.395285, -0.0153809)
@@ -52,6 +63,7 @@ shape = SubResource("BoxShape3D_d7wor")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -0.552, -0.046)
 
 [node name="LightArea" type="Area3D" parent="." groups=["LightArea"]]
+process_mode = 4
 collision_layer = 16
 collision_mask = 4
 input_ray_pickable = false
@@ -71,3 +83,27 @@ visible = false
 mesh = SubResource("ArrayMesh_xgdwl")
 skeleton = NodePath("../chandelier/chandelier")
 surface_material_override/0 = ExtResource("8_t58px")
+
+[node name="Particles" type="Node3D" parent="."]
+
+[node name="ParticlesValid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("10_ti8rd")
+draw_pass_1 = ExtResource("11_7otdc")
+
+[node name="ParticlesInvalid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("12_taepo")
+draw_pass_1 = ExtResource("11_7otdc")
+
+[connection signal="clicked_with" from="." to="." method="_on_clicked_with"]

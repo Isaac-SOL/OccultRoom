@@ -204,6 +204,7 @@ func set_inspect(inspect: bool):
 
 [node name="Main" type="Node3D" groups=["MainGroup"]]
 script = ExtResource("1_rshqp")
+intro = false
 
 [node name="Room" parent="." instance=ExtResource("1_vjk08")]
 unique_name_in_owner = true
@@ -637,6 +638,7 @@ inspect_text = "Mouse Left: Touch
 Mouse Right: Put down
 Mouse Wheel: Zoom"
 
+[connection signal="object_placed" from="Room" to="." method="_on_room_object_placed"]
 [connection signal="stool_just_placed" from="Room" to="." method="_on_room_stool_just_placed"]
 [connection signal="input_event" from="CameraRotation/Shaker/Camera3D/BlockerArea" to="." method="_on_blocker_area_input_event"]
 [connection signal="input_event" from="CameraRotation/Shaker/Camera3D/CatcherArea" to="." method="_on_catcher_area_input_event"]

@@ -4,6 +4,7 @@ signal object_placed(object: PlaceableObject)
 signal start_inspecting
 signal stop_inspecting
 signal touched
+signal clicked_with(object: PlaceableObject)
 
 @export var special_name: String = ""
 @export var move_speed: float = 25
@@ -144,6 +145,8 @@ func check_valid() -> bool:
 
 func check_condition_valid(condition: ObjectCondition) -> bool:
 	match condition.base_condition:
+		OuijaSystem.Pos.NONE:
+			return false
 		OuijaSystem.Pos.LIGHT:
 			return condition.close == in_light()
 		_:
@@ -167,7 +170,10 @@ func _on_object_input_event(_camera: Node, event: InputEvent, _position: Vector3
 			if not inspecting and not holder:
 				hovering._on_placement_clicked(event)
 			elif not inspecting and holder:
-				holder._on_placement_clicked(event)
+				if Singletons.main.holding_object:
+					clicked_with.emit(Singletons.main.holding_object)
+				else:
+					holder._on_placement_clicked(event)
 			elif inspecting:
 				%ImpactAudio.play()
 				add_random_rotation()
@@ -183,3 +189,10 @@ func add_random_rotation():
 
 func set_clickable(clickable: bool):
 	set_deferred("input_ray_pickable", clickable)
+
+func destroy():
+	if holder:
+		holder.holding_object = null
+	else:
+		Singletons.main.holding_object = null
+	queue_free()

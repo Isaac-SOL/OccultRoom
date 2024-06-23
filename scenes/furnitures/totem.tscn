@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://5mq5ryvvpbbd" path="res://assets/3Dmodels/furnitures/totem.glb" id="1_jpv3y"]
 
 [node name="totem" instance=ExtResource("1_jpv3y")]
+
+[node name="totem_face2" parent="." index="0"]
+transform = Transform3D(0.323779, 0, 0, 0, -0.323779, 1.26084e-07, 0, -1.26084e-07, -0.323779, 7.78947e-06, 1.58964, 4.97326e-06)

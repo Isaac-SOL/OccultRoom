@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://tu5b57jvbo15"]
+[gd_scene load_steps=18 format=3 uid="uid://tu5b57jvbo15"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_ii211"]
 [ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_dktc4"]
@@ -9,15 +9,23 @@
 [ext_resource type="AudioStream" uid="uid://bkf1cbc5g6kv0" path="res://assets/audio/Kenney/Impacts/impactTin_medium_003.ogg" id="7_pchfi"]
 [ext_resource type="AudioStream" uid="uid://cx8sg4ljinv3d" path="res://assets/audio/Kenney/Impacts/impactTin_medium_004.ogg" id="8_x3nlv"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="9_rrwc4"]
+[ext_resource type="Material" uid="uid://cvek0di2fukl2" path="res://shaders_mats/shine_poof_mat.tres" id="10_uan6h"]
+[ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="11_8sfk6"]
+[ext_resource type="Material" uid="uid://c6m148n5r8vxy" path="res://shaders_mats/shine_poof_red_mat.tres" id="12_6v7yo"]
 
-[sub_resource type="Resource" id="Resource_b7yxg"]
+[sub_resource type="Resource" id="Resource_077i2"]
 script = ExtResource("2_dktc4")
-base_condition = 3
+base_condition = 4
 close = true
 
+[sub_resource type="Resource" id="Resource_wdm4g"]
+script = ExtResource("2_dktc4")
+base_condition = 7
+close = false
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l5ek2"]
-radius = 0.1
-height = 0.6
+radius = 0.145723
+height = 0.720933
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e883s"]
 streams_count = 5
@@ -47,9 +55,9 @@ _surfaces = [{
 
 [node name="genie_p" type="Area3D"]
 script = ExtResource("1_ii211")
-hints = Array[int]([3, 14])
+hints = Array[int]([4, 14, 7, 15])
 small = true
-conditions = Array[ExtResource("2_dktc4")]([SubResource("Resource_b7yxg")])
+conditions = Array[ExtResource("2_dktc4")]([SubResource("Resource_077i2"), SubResource("Resource_wdm4g")])
 needs_valid_placement = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -72,3 +80,25 @@ cast_shadow = 0
 mesh = SubResource("ArrayMesh_7yrvl")
 skeleton = NodePath("../genie/genie")
 surface_material_override/0 = ExtResource("9_rrwc4")
+
+[node name="Particles" type="Node3D" parent="."]
+
+[node name="ParticlesValid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("10_uan6h")
+draw_pass_1 = ExtResource("11_8sfk6")
+
+[node name="ParticlesInvalid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("12_6v7yo")
+draw_pass_1 = ExtResource("11_8sfk6")

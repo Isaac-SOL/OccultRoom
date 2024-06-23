@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wt2312k41wo8" path="res://scenes/chambre/door_plane.tscn" id="3_vubc3"]
 [ext_resource type="Texture2D" uid="uid://cskdi3l4e5ptn" path="res://assets/textures/symbols/triskelion-96.png" id="4_7pbam"]
 [ext_resource type="Texture2D" uid="uid://c3k47cmqjkgcb" path="res://assets/textures/door.png" id="5_l8kh7"]
-[ext_resource type="PackedScene" uid="uid://4axxv4ncukbv" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
+[ext_resource type="PackedScene" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
 [ext_resource type="Texture2D" uid="uid://bj016jvyxdu12" path="res://assets/textures/symbols/modify/illuminati-100-w.png" id="6_jdx8u"]
 [ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="7_emt5d"]
 [ext_resource type="PackedScene" uid="uid://f6ow8vkcmf3n" path="res://scenes/chambre/window_plane.tscn" id="7_tgo6c"]
@@ -651,15 +651,6 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.00999999, 0.394029)
 
 [node name="pyramid_cursor" parent="OuijaDetector/OuijaSystem/Rock" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
-
-[node name="ShakeAudio" parent="OuijaDetector" index="3"]
-bus = &"Sfx"
-
-[node name="MoveAudio" parent="OuijaDetector" index="4"]
-bus = &"Sfx"
-
-[node name="MagicAudio" parent="OuijaDetector" index="5"]
-bus = &"Sfx"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.961516, -0.12941, 0.242363, 0.0146892, 0.905078, 0.424992, -0.274355, -0.405076, 0.872148, 9, 9, 0)

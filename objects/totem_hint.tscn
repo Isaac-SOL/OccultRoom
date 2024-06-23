@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=3 uid="uid://bfcpp83t17j7a"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_sge5c"]
+[ext_resource type="Texture2D" uid="uid://bb7vb2ubpo45q" path="res://assets/textures/totem_hint.png" id="2_aadl3"]
+[ext_resource type="Texture2D" uid="uid://c5go538vmo6k2" path="res://assets/textures/totem_hint_back.png" id="3_e1wyi"]
+[ext_resource type="AudioStream" uid="uid://dhy7riwwuy0p1" path="res://assets/audio/Kenney/Impacts/impactWood_light_000.ogg" id="4_8hefq"]
+[ext_resource type="AudioStream" uid="uid://ctfy7fano23m0" path="res://assets/audio/Kenney/Impacts/impactWood_light_001.ogg" id="5_yovop"]
+[ext_resource type="AudioStream" uid="uid://b4mvmk722nbpr" path="res://assets/audio/Kenney/Impacts/impactWood_light_002.ogg" id="6_s07a4"]
+[ext_resource type="AudioStream" uid="uid://b8ewcm18tow0y" path="res://assets/audio/Kenney/Impacts/impactWood_light_003.ogg" id="7_qtatf"]
+[ext_resource type="AudioStream" uid="uid://bkw6ygqy2o8cf" path="res://assets/audio/Kenney/Impacts/impactWood_light_004.ogg" id="8_bwt1n"]
+[ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="9_kdtqw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7vvyv"]
+size = Vector3(1.3, 1.9, 0.2)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_58cso"]
+streams_count = 5
+stream_0/stream = ExtResource("4_8hefq")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_yovop")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_s07a4")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_qtatf")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_bwt1n")
+stream_4/weight = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_cgp0w"]
+material = ExtResource("9_kdtqw")
+flip_faces = true
+size = Vector3(1.6, 2.2, 0.3)
+
+[node name="TotemHint" type="Area3D"]
+script = ExtResource("1_sge5c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.488082, 0.108527, 0, -0.108527, 0.488082, 0, 0.47197, 0)
+shape = SubResource("BoxShape3D_7vvyv")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.48808, 0.108526, 0, -0.108526, 0.48808, 0, 0.47197, 0)
+shaded = true
+double_sided = false
+texture = ExtResource("2_aadl3")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(-0.5, -8.88178e-16, -4.37114e-08, 9.48769e-09, 0.48808, -0.108526, 4.26693e-08, -0.108527, -0.48808, 0, 0.47197, 0)
+shaded = true
+double_sided = false
+texture = ExtResource("3_e1wyi")
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_58cso")
+volume_db = -10.0
+
+[node name="Outline" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.48808, 0.108526, 0, -0.108526, 0.48808, 0, 0.47197, 0)
+visible = false
+mesh = SubResource("BoxMesh_cgp0w")
+skeleton = NodePath("../Sprite3D")

@@ -1,13 +1,32 @@
-[gd_scene load_steps=12 format=3 uid="uid://2afuqainpx47"]
+[gd_scene load_steps=20 format=3 uid="uid://2afuqainpx47"]
 
-[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_nxaxe"]
+[ext_resource type="Script" path="res://scripts/large_chest.gd" id="1_im0kb"]
 [ext_resource type="PackedScene" uid="uid://ci22jetudoh3x" path="res://scenes/artefacts/large_chest.tscn" id="2_j18xd"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_ujj8w"]
 [ext_resource type="AudioStream" uid="uid://k4ih1bgg4g7p" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_000.ogg" id="3_lg1t4"]
 [ext_resource type="AudioStream" uid="uid://cdgm2ffprudag" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_001.ogg" id="4_jfois"]
 [ext_resource type="AudioStream" uid="uid://c5rj5ya0enh8h" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_002.ogg" id="5_s3vka"]
 [ext_resource type="AudioStream" uid="uid://ich42yeb30g8" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_003.ogg" id="6_s0soq"]
 [ext_resource type="AudioStream" uid="uid://c8bw08hgmydj0" path="res://assets/audio/Kenney/Impacts/impactWood_heavy_004.ogg" id="7_o6sv5"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_o4wra"]
+[ext_resource type="AudioStream" uid="uid://dj7pcexdwtj0w" path="res://assets/audio/Kenney/doorClose_1.ogg" id="8_x0kut"]
+[ext_resource type="Texture2D" uid="uid://bb7vb2ubpo45q" path="res://assets/textures/totem_hint.png" id="9_m4wex"]
+[ext_resource type="Texture2D" uid="uid://c5go538vmo6k2" path="res://assets/textures/totem_hint_back.png" id="10_5a7wv"]
+
+[sub_resource type="Resource" id="Resource_hyfdj"]
+script = ExtResource("2_ujj8w")
+base_condition = 10
+close = true
+
+[sub_resource type="Resource" id="Resource_h87fk"]
+script = ExtResource("2_ujj8w")
+base_condition = 17
+close = true
+
+[sub_resource type="Resource" id="Resource_0hmbi"]
+script = ExtResource("2_ujj8w")
+base_condition = 4
+close = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lla4m"]
 size = Vector3(0.552979, 0.902954, 0.809448)
@@ -28,8 +47,14 @@ stream_4/weight = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_bjbse"]
 flip_faces = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_cgp0w"]
+material = ExtResource("8_o4wra")
+flip_faces = true
+size = Vector3(1.6, 2.2, 0.3)
+
 [node name="large_chest_p" type="Area3D"]
-script = ExtResource("1_nxaxe")
+script = ExtResource("1_im0kb")
+conditions = Array[ExtResource("2_ujj8w")]([SubResource("Resource_hyfdj"), SubResource("Resource_h87fk"), SubResource("Resource_0hmbi")])
 
 [node name="large_chest" parent="." instance=ExtResource("2_j18xd")]
 
@@ -42,9 +67,41 @@ unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_j5c1v")
 volume_db = -10.0
 
-[node name="Outline" type="MeshInstance3D" parent="."]
+[node name="OpenAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_x0kut")
+volume_db = -10.0
+
+[node name="Outline" type="Node3D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ChestOutline" type="MeshInstance3D" parent="Outline"]
 unique_name_in_owner = true
 transform = Transform3D(0.581585, 0, 0, 0, 0.97368, 0, 0, 0, 0.805554, 0, 0.430744, 0)
-visible = false
 mesh = SubResource("BoxMesh_bjbse")
+skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("8_o4wra")
+
+[node name="Outline2" type="MeshInstance3D" parent="Outline"]
+unique_name_in_owner = true
+transform = Transform3D(-2.18557e-08, -0.108526, 0.48808, 0, 0.48808, 0.108526, -0.5, 4.74382e-09, -2.13347e-08, 0, 0.47197, 0)
+visible = false
+mesh = SubResource("BoxMesh_cgp0w")
+skeleton = NodePath("../../Content/Sprite3D")
+
+[node name="Content" type="Node3D" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="Content"]
+transform = Transform3D(-2.18557e-08, -0.108526, 0.48808, 0, 0.48808, 0.108526, -0.5, 4.74382e-09, -2.13347e-08, 0, 0.47197, 0)
+shaded = true
+double_sided = false
+texture = ExtResource("9_m4wex")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Content"]
+transform = Transform3D(6.4525e-08, -0.108527, -0.48808, 9.48769e-09, 0.48808, -0.108526, 0.5, 4.74387e-09, 6.50461e-08, 0, 0.47197, 0)
+shaded = true
+double_sided = false
+texture = ExtResource("10_5a7wv")

@@ -29,3 +29,6 @@ func _on_totem_click(event: InputEvent):
 		target_rotation.y += PI / 2
 		discrete_position = (discrete_position + 1) % 4
 		turned.emit(self)
+
+func deactivate():
+	set_deferred("input_ray_pickable", false)

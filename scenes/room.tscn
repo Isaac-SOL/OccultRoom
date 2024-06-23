@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cnmco5mvxbmif"]
+[gd_scene load_steps=52 format=3 uid="uid://cnmco5mvxbmif"]
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_1vuhw"]
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_kn5p5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://f6ow8vkcmf3n" path="res://scenes/chambre/window_plane.tscn" id="7_tgo6c"]
 [ext_resource type="PackedScene" uid="uid://ct70224ms883s" path="res://scenes/chambre/door.tscn" id="8_fi6hy"]
 [ext_resource type="PackedScene" uid="uid://cv6tr7fro4dw2" path="res://scenes/chambre/window.tscn" id="9_65dgu"]
+[ext_resource type="Texture2D" uid="uid://b63lm1cbnhxgq" path="res://assets/textures/arrow.png" id="12_du3rj"]
 [ext_resource type="PackedScene" uid="uid://dikduy73dav8r" path="res://objects/code_chest.tscn" id="12_r5a1l"]
 [ext_resource type="PackedScene" uid="uid://d0fyb8y16pja" path="res://scenes/furnitures/bed.tscn" id="13_bkm2f"]
 [ext_resource type="Script" path="res://scripts/General/object_placer.gd" id="13_ck4kk"]
@@ -245,6 +246,16 @@ transform = Transform3D(-0.559, -8.44067e-08, -5.35279e-15, 0, -2.44347e-08, 0.8
 modulate = Color(0, 0, 0, 1)
 texture_filter = 4
 texture = ExtResource("6_jdx8u")
+script = ExtResource("7_emt5d")
+animated_gradient = SubResource("Gradient_tibh6")
+gradient_length = 4.0
+
+[node name="TotemArrow" type="Sprite3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(4.40817e-07, -2.264, -1.43592e-07, 0, -9.89626e-08, 3.285, -2.264, -4.40817e-07, -2.79584e-14, 1.38865, 0.601797, -3.51404)
+modulate = Color(0, 0, 0, 1)
+texture_filter = 4
+texture = ExtResource("12_du3rj")
 script = ExtResource("7_emt5d")
 animated_gradient = SubResource("Gradient_tibh6")
 gradient_length = 4.0
@@ -570,6 +581,10 @@ holding_object = NodePath("../../Objects/artefacts/genie_p")
 transform = Transform3D(0.755, 0, 0, 0, 0.755, 0, 0, 0, 0.755, 9, 0.6, -5)
 holding_object = NodePath("../../Objects/artefacts/thor_hammer_p")
 
+[node name="LastCandlePlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0.5, 0.6, -3.5)
+holding_object = NodePath("../../Objects/artefacts/BougieChandelier2")
+
 [node name="OuijaDetector" parent="." instance=ExtResource("1_xcxt8")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.2, -4.5)
@@ -761,6 +776,10 @@ holder = NodePath("../../../PlacementPoints/Basic/ObjectPlacementPoint36")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.6, -9)
 holder = NodePath("../../../PlacementPoints/Basic/ObjectPlacementPoint70")
 
+[node name="BougieChandelier2" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("27_adssi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.6, -3.5)
+holder = NodePath("../../../PlacementPoints/LastCandlePlace")
+
 [node name="baguette_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("20_5tmdo")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 1.37855, -9)
 holder = NodePath("../../../PlacementPoints/Basic/ObjectPlacementPoint10")
@@ -846,7 +865,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.70537, 2.44876, -9.42242)
 
 [node name="ObjectPlacer" type="Node" parent="." node_paths=PackedStringArray("object")]
 script = ExtResource("13_ck4kk")
-object = NodePath("../Objects/artefacts/baguette_p")
+object = NodePath("../Objects/artefacts/BougieChandelier2")
 info = "Object linked to placement point!"
 
 [editable path="OuijaDetector"]

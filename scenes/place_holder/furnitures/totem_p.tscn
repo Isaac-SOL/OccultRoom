@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://bybhkwsicvt5s"]
+[gd_scene load_steps=35 format=3 uid="uid://bybhkwsicvt5s"]
 
 [ext_resource type="Texture2D" uid="uid://fv1ju6xp5q6y" path="res://assets/3Dmodels/furnitures/totem_Totem.png" id="1_jkxtm"]
+[ext_resource type="Script" path="res://scripts/totem.gd" id="1_plm2p"]
 [ext_resource type="Script" path="res://scripts/totem_face.gd" id="1_qbksi"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="2_5xhaa"]
 [ext_resource type="Texture2D" uid="uid://d28y1q7vh5l4l" path="res://assets/3Dmodels/furnitures/totem_Totem.nose.png" id="3_ht7eu"]
@@ -8,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://b4tbhqdoy5qgq" path="res://assets/3Dmodels/furnitures/totem_Totem.nose_3.png" id="5_2s32u"]
 [ext_resource type="Texture2D" uid="uid://d4aufipbbmvqp" path="res://assets/3Dmodels/furnitures/totem_Totem_4.png" id="6_v7jv5"]
 [ext_resource type="Texture2D" uid="uid://cdukuevifb3ed" path="res://assets/3Dmodels/furnitures/totem_Totem.face_5.png" id="7_p6gv2"]
+[ext_resource type="AudioStream" uid="uid://dbuqwxd3nyv7w" path="res://assets/audio/Kenney/slide_totem.ogg" id="10_y56vn"]
+[ext_resource type="AudioStream" uid="uid://bb46kv4mijra0" path="res://assets/audio/Kenney/spaceEngineLow_000.ogg" id="11_v4oo4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f4n7i"]
 resource_name = "jaune.001"
@@ -348,6 +351,7 @@ _surfaces = [{
 }]
 
 [node name="Totem" type="Node3D"]
+script = ExtResource("1_plm2p")
 
 [node name="Face1" type="Area3D" parent="."]
 script = ExtResource("1_qbksi")
@@ -434,3 +438,13 @@ visible = false
 mesh = SubResource("ArrayMesh_y748i")
 skeleton = NodePath("../totem_face4")
 surface_material_override/0 = ExtResource("2_5xhaa")
+
+[node name="MoveAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("10_y56vn")
+volume_db = -25.0
+
+[node name="BigMoveAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("11_v4oo4")
+volume_db = -20.0

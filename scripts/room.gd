@@ -57,3 +57,6 @@ func ouija_appear():
 
 func shake_ouija():
 	%ouija_table.ouija_table_jump()
+
+func set_arrow_animated(animated: bool):
+	%TotemArrow.set_animated(animated)

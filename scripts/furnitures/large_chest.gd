@@ -3,6 +3,8 @@ extends Node3D
 @onready var animation_tree = get_node("AnimationTree")
 @onready var playback = animation_tree.get("parameters/playback")
 
+signal opened
+
 # in process or elsewhere:
 var is_open = false
 
@@ -22,3 +24,6 @@ func anim_chest():
 	else:
 		playback.travel("open_large_chest")
 	is_open = !is_open
+
+func _on_animation_tree_animation_finished(anim_name):
+	opened.emit()

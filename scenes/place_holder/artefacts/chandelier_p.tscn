@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://du2tmpiagabfs"]
+[gd_scene load_steps=19 format=3 uid="uid://du2tmpiagabfs"]
 
 [ext_resource type="Script" path="res://scripts/chandelier.gd" id="1_cc0d6"]
 [ext_resource type="PackedScene" uid="uid://dtx6gycsfd0nk" path="res://scenes/artefacts/chandelier.tscn" id="2_v3r0v"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://djsvv2o2rch23" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_003.ogg" id="6_nhwrw"]
 [ext_resource type="AudioStream" uid="uid://b6yt0acfhken8" path="res://assets/audio/Kenney/Impacts/impactMetal_heavy_004.ogg" id="7_nedjq"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_t58px"]
+[ext_resource type="AudioStream" uid="uid://bs2lqitxeaxm" path="res://assets/audio/Kenney/start_fire.ogg" id="9_km5nu"]
 [ext_resource type="Material" uid="uid://cvek0di2fukl2" path="res://shaders_mats/shine_poof_mat.tres" id="10_ti8rd"]
 [ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="11_7otdc"]
 [ext_resource type="Material" uid="uid://c6m148n5r8vxy" path="res://shaders_mats/shine_poof_red_mat.tres" id="12_taepo"]
@@ -74,6 +75,11 @@ shape = SubResource("SphereShape3D_n0wxx")
 [node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_qvdy0")
+volume_db = -10.0
+
+[node name="FireStartAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_km5nu")
 volume_db = -10.0
 
 [node name="Outline" type="MeshInstance3D" parent="."]

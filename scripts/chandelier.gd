@@ -10,6 +10,7 @@ func _on_clicked_with(object: PlaceableObject):
 		if bougies < 3:
 			%ImpactAudio.play()
 		if bougies == 3:
+			%FireStartAudio.play()
 			$chandelier.light()
 			$LightArea.process_mode = Node.PROCESS_MODE_INHERIT
 			hints = [OuijaSystem.Pos.ANKH, OuijaSystem.Pos.FAR,

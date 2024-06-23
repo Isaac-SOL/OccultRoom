@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://d2gbhjkb3rrkl"]
 
+[ext_resource type="FontFile" uid="uid://mwckfnrars76" path="res://assets/fonts/angry-birds-postcard/AngryBirdsPostcard-Regular.ttf" id="1_2rt7d"]
 [ext_resource type="Theme" uid="uid://ujjtd62wvxsf" path="res://imports/pixel_theme.tres" id="1_l24xp"]
 [ext_resource type="StyleBox" uid="uid://cln15kpjcsiss" path="res://imports/style_box_normal.tres" id="2_aoko6"]
 [ext_resource type="Theme" uid="uid://dtqnw4yhbe0kk" path="res://assets/fonts/second_title_them.tres" id="2_srf47"]
 [ext_resource type="StyleBox" uid="uid://ddmyelf7ggrso" path="res://imports/style_box_hover.tres" id="3_eultm"]
 [ext_resource type="StyleBox" uid="uid://b3p1lms34esoy" path="res://imports/style_box_click.tres" id="4_s66lb"]
-[ext_resource type="FontFile" uid="uid://bqtsy0viujorh" path="res://imports/PixelifySans-Regular.ttf" id="6_0hq7w"]
 [ext_resource type="PackedScene" uid="uid://dp3n5kv3jxvhh" path="res://scenes/menus/rebind_button.tscn" id="6_ygs53"]
 [ext_resource type="PackedScene" uid="uid://c1phc7mtpk8db" path="res://scenes/menus/volume_slider.tscn" id="8_hh48g"]
 
@@ -26,7 +26,7 @@ func _on_exit_button_pressed():
 "
 
 [sub_resource type="Theme" id="Theme_a6xb6"]
-default_font = ExtResource("6_0hq7w")
+default_font = ExtResource("1_2rt7d")
 default_font_size = 75
 
 [node name="Options" type="Control"]
@@ -93,8 +93,10 @@ theme_override_colors/font_selected_color = Color(1, 0.92549, 0.815686, 1)
 theme_override_styles/tab_selected = ExtResource("4_s66lb")
 theme_override_styles/tab_hovered = ExtResource("3_eultm")
 theme_override_styles/tab_unselected = ExtResource("2_aoko6")
+current_tab = 1
 
 [node name="Controls" type="TabBar" parent="MarginContainer/VBoxContainer3/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer3/TabContainer/Controls"]
@@ -158,7 +160,6 @@ layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="Sound" type="TabBar" parent="MarginContainer/VBoxContainer3/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer3/TabContainer/Sound"]

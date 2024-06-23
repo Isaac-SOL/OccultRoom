@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://scripts/menus/menu.gd" id="1_lencv"]
 [ext_resource type="Theme" uid="uid://ujjtd62wvxsf" path="res://imports/pixel_theme.tres" id="3_31at3"]
-[ext_resource type="FontFile" uid="uid://cfcpbnf37p2u" path="res://assets/fonts/buxotic/Buxotic.otf" id="3_hm35d"]
 [ext_resource type="StyleBox" uid="uid://cln15kpjcsiss" path="res://imports/style_box_normal.tres" id="4_p0pco"]
 [ext_resource type="StyleBox" uid="uid://ddmyelf7ggrso" path="res://imports/style_box_hover.tres" id="5_giavi"]
 [ext_resource type="StyleBox" uid="uid://b3p1lms34esoy" path="res://imports/style_box_click.tres" id="6_hv51a"]
+[ext_resource type="FontFile" uid="uid://5fimeku4rxm8" path="res://assets/fonts/staypuft/StayPuft.ttf" id="6_x4vbu"]
 
 [sub_resource type="Theme" id="Theme_vv4fh"]
-default_font = ExtResource("3_hm35d")
-default_font_size = 100
+default_font = ExtResource("6_x4vbu")
+default_font_size = 120
 
 [node name="Menu" type="Control"]
 layout_mode = 3

@@ -1,7 +1,7 @@
 extends AudioStreamPlayer
 
 
-#const audioGame = preload("res://assets/sounds/mixkit-infected-vibes-157.mp3")
+const audioGame = preload("res://assets/audio/ambiant/occult_room_ambiant.ogg")
 #const audioMenu = preload("res://assets/sounds/infected_vibes_low.mp3")
 
 func playMusic(music: AudioStream):

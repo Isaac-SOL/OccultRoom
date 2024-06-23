@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://do4gknpacwphc"]
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://cqlmj2b64ku7k"]
 
 [ext_resource type="Shader" path="res://shaders_mats/dissolve_shader.gdshader" id="1_tq24w"]
 

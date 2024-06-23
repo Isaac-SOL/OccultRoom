@@ -1,5 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://d32hibugde61v"]
+[gd_scene load_steps=9 format=3 uid="uid://d32hibugde61v"]
 
 [ext_resource type="PackedScene" uid="uid://c3r7r7nuuusfw" path="res://assets/3Dmodels/room/ghost.glb" id="1_as0p2"]
+[ext_resource type="Script" path="res://scripts/furnitures/ghost.gd" id="2_vh6j4"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ntbuo"]
+animation = &"ghost_idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_smf8h"]
+animation = &"ghost_move"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ri61"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5e7ie"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qroan"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_if61m"]
+states/ghost_idle/node = SubResource("AnimationNodeAnimation_ntbuo")
+states/ghost_idle/position = Vector2(354, 99.3333)
+states/ghost_move/node = SubResource("AnimationNodeAnimation_smf8h")
+states/ghost_move/position = Vector2(535.333, 100.667)
+transitions = ["Start", "ghost_idle", SubResource("AnimationNodeStateMachineTransition_0ri61"), "ghost_idle", "ghost_move", SubResource("AnimationNodeStateMachineTransition_5e7ie"), "ghost_move", "ghost_idle", SubResource("AnimationNodeStateMachineTransition_qroan")]
 
 [node name="ghost" instance=ExtResource("1_as0p2")]
+script = ExtResource("2_vh6j4")
+
+[node name="ghost_body" parent="." index="0"]
+transform = Transform3D(0.29401, 0, 0, 0, 0.856073, 0, 0, 0, 0.476874, 0, 0.97, -0.0100838)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+tree_root = SubResource("AnimationNodeStateMachine_if61m")
+anim_player = NodePath("../AnimationPlayer")

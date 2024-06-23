@@ -10,13 +10,9 @@ func _ready():
 
 func _process(delta):
 	screensize = Global.screenSize
-	#NodeAudio.playAudio(NodeAudio.audioMenu)
+	NodeAudio.playAudio(NodeAudio.audioGame)
 	
-		
-func _on_start_button_1p_pressed():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
-	
-func _on_start_button_2p_pressed():
+func _on_new_game_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _on_quit_button_pressed():
@@ -24,4 +20,8 @@ func _on_quit_button_pressed():
 
 func _on_option_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/menus/options.tscn")
+
+func _on_credit_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/menus/credits.tscn")
+
 

@@ -52,7 +52,7 @@ func start_intro_sequence():
 	crystal_message_next = true
 	%PickupHint.visible = true
 	%FreeTurnHint.visible = true
-	%TableHint.visible = true
+	#%TableHint.visible = true
 	already_inspected = false
 
 func _process(delta):
@@ -123,6 +123,7 @@ func ouija_clicked():
 			await get_tree().create_timer(0.3).timeout
 			start_multi_dialog(["The glowing Eye... I see...",
 								"Its twin should be nearby. Let's find it."])
+			%InspectHint.visible = true
 			ouija_message_next = false
 		elif ouija_explanation_next:
 			await get_tree().create_timer(0.3).timeout
@@ -130,6 +131,7 @@ func ouija_clicked():
 								"Let's put something on that pedestal and ask directly."])
 			ouija_explanation_next = false
 			crystal_message_2_next = true
+			%InspectHint.visible = true
 
 func turn_object_left():
 	if holding_object:
@@ -255,8 +257,6 @@ func _on_room_stool_just_placed():
 func _on_room_object_placed(_object):
 	check_valid_objects()
 	#%PickupHint.visible = false
-	if not already_inspected:
-		%InspectHint.visible = true
 	_on_crystal_touched()
 
 func set_crystal_target(target: Node3D):

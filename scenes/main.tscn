@@ -204,7 +204,6 @@ func set_inspect(inspect: bool):
 
 [node name="Main" type="Node3D" groups=["MainGroup"]]
 script = ExtResource("1_rshqp")
-intro = false
 
 [node name="Room" parent="." instance=ExtResource("1_vjk08")]
 unique_name_in_owner = true
@@ -320,7 +319,7 @@ spot_range = 17.7907
 [node name="BlockerArea" type="Area3D" parent="CameraRotation/Shaker/Camera3D"]
 unique_name_in_owner = true
 collision_layer = 8
-collision_mask = 8
+collision_mask = 0
 input_ray_pickable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRotation/Shaker/Camera3D/BlockerArea"]
@@ -330,7 +329,7 @@ shape = SubResource("WorldBoundaryShape3D_tkjhf")
 [node name="CatcherArea" type="Area3D" parent="CameraRotation/Shaker/Camera3D"]
 unique_name_in_owner = true
 collision_layer = 8
-collision_mask = 8
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRotation/Shaker/Camera3D/CatcherArea"]
 transform = Transform3D(1, 0, -2.98023e-08, 5.96046e-08, 1, 0, -2.38419e-07, -2.98023e-08, 1, 1.38283e-05, 0, -65.0822)
@@ -423,6 +422,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="InspectHint" type="TextureRect" parent="UI/HintsContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("19_4aftl")
+
+[node name="Panel" type="Panel" parent="UI/HintsContainer/InspectHint"]
+modulate = Color(1, 1, 1, 0.392157)
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="FreeTurnHint" type="TextureRect" parent="UI/HintsContainer"]
 unique_name_in_owner = true
 visible = false
@@ -455,22 +470,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InspectHint" type="TextureRect" parent="UI/HintsContainer"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-texture = ExtResource("19_4aftl")
-
-[node name="Panel" type="Panel" parent="UI/HintsContainer/InspectHint"]
-modulate = Color(1, 1, 1, 0.392157)
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="HintsContainerInspect" type="HFlowContainer" parent="UI"]
 unique_name_in_owner = true
 visible = false
@@ -482,13 +481,13 @@ grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
-[node name="PutDownHint" type="TextureRect" parent="UI/HintsContainerInspect"]
+[node name="TurnHint" type="TextureRect" parent="UI/HintsContainerInspect"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("20_6x1w7")
+texture = ExtResource("20_srbnq")
 
-[node name="Panel" type="Panel" parent="UI/HintsContainerInspect/PutDownHint"]
+[node name="Panel" type="Panel" parent="UI/HintsContainerInspect/TurnHint"]
 modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
 layout_mode = 1
@@ -498,13 +497,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TurnHint" type="TextureRect" parent="UI/HintsContainerInspect"]
+[node name="PutDownHint" type="TextureRect" parent="UI/HintsContainerInspect"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("20_srbnq")
+texture = ExtResource("20_6x1w7")
 
-[node name="Panel" type="Panel" parent="UI/HintsContainerInspect/TurnHint"]
+[node name="Panel" type="Panel" parent="UI/HintsContainerInspect/PutDownHint"]
 modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
 layout_mode = 1

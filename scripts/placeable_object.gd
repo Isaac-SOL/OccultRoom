@@ -23,8 +23,12 @@ var saved_rotation: Vector3
 var saved_scale: Vector3
 @onready var raw_rotation: Vector3 = global_rotation
 var unclickable_timer: float = 0
+var hovering: ObjectPlacementPoint
+var rotation_addition: Vector3 = Vector3.ZERO
 
 func _ready():
+	if holder:
+		hovering = holder
 	collision_layer = 1 << 2
 	if not is_in_group("PlaceableObject"):
 		add_to_group("PlaceableObject")
@@ -35,6 +39,9 @@ func _ready():
 	input_event.connect(_on_object_input_event)
 
 func _process(delta):
+	if inspecting:
+		target_position = Singletons.main.inspect_position.global_position
+		target_rotation = Singletons.main.inspect_position.global_rotation + rotation_addition
 	if unclickable_timer > 0:
 		unclickable_timer -= delta
 	global_position = Util.decayv3(global_position, target_position, delta * move_speed)
@@ -44,7 +51,10 @@ func _process(delta):
 
 func set_holder(new_holder: ObjectPlacementPoint):
 	holder = new_holder
-	set_collision_active(holder != null)
+	#set_collision_active(holder != null)
+
+func set_hovering(point: ObjectPlacementPoint):
+	hovering = point
 
 func set_collision_active(active: bool):
 	set_deferred("input_ray_pickable", active)
@@ -76,15 +86,19 @@ func rotate_right():
 
 func inspect_rotate_left():
 	target_rotation.y += PI / 4
+	rotation_addition.y += PI / 4
 
 func inspect_rotate_right():
 	target_rotation.y -= PI / 4
+	rotation_addition.y -= PI / 4
 
 func inspect_rotate_up():
 	target_rotation.z += PI / 4
+	rotation_addition.z += PI / 4
 
 func inspect_rotate_down():
 	target_rotation.z -= PI / 4
+	rotation_addition.z -= PI / 4
 
 func move_to_smooth(pos: Vector3, rot: Vector3, sca: Vector3 = Vector3(-1, 0, 0), _reverse: bool = false):
 	target_position = pos
@@ -98,7 +112,7 @@ func move_back():
 
 func inspect():
 	if not inspecting:
-		if in_light() and not Singletons.main.holding_object:
+		if in_light() or Singletons.main.holding_object:
 			inspecting = true
 			save_transform()
 			Singletons.main.inspect_object(self)
@@ -106,6 +120,7 @@ func inspect():
 			%Outline.visible = false
 	else:
 		inspecting = false
+		rotation_addition = Vector3.ZERO
 		raw_rotation = global_rotation
 		Singletons.main.stop_inspect_object(self)
 		stop_inspecting.emit()
@@ -144,15 +159,18 @@ func _on_object_mouse_exited():
 func _on_object_input_event(_camera: Node, event: InputEvent, _position: Vector3, _normal: Vector3, _shape_idx: int):
 	if unclickable_timer <= 0 and event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			if not inspecting and holder:
+			if not inspecting and not holder:
+				hovering._on_placement_clicked(event)
+			elif not inspecting and holder:
 				holder._on_placement_clicked(event)
 			elif inspecting:
 				%ImpactAudio.play()
 				add_random_rotation()
 				touched.emit()
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			if not CameraManager.ouija:
-				inspect()
+			if CameraManager.ouija:
+				Singletons.main.ouija_clicked()
+			inspect()
 
 func add_random_rotation():
 	raw_rotation += Vector3(randf_range(-0.05, 0.05), randf_range(-0.05, 0.05), randf_range(-0.05, 0.05))

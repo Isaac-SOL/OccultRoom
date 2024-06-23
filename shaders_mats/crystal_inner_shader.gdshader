@@ -9,7 +9,7 @@ void vertex() {
 
 void fragment() {
 	ALBEDO = texture(crystal_texture, UV).rgb;
-	EMISSION = texture(crystal_texture, UV).rgb * 0.1;
+	EMISSION = texture(crystal_texture, UV).rgb * 0.2;
 	ALPHA = texture(mask_texture, UV).a;
 	// Called for every pixel the material is visible on.
 }

@@ -327,6 +327,15 @@ input_ray_pickable = false
 transform = Transform3D(1, 0, -2.98023e-08, 5.96046e-08, 1, 0, -2.38419e-07, -2.98023e-08, 1, 7.62939e-06, 4.76837e-07, -26)
 shape = SubResource("WorldBoundaryShape3D_tkjhf")
 
+[node name="CatcherArea" type="Area3D" parent="CameraRotation/Shaker/Camera3D"]
+unique_name_in_owner = true
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraRotation/Shaker/Camera3D/CatcherArea"]
+transform = Transform3D(1, 0, -2.98023e-08, 5.96046e-08, 1, 0, -2.38419e-07, -2.98023e-08, 1, 1.38283e-05, 0, -65.0822)
+shape = SubResource("WorldBoundaryShape3D_tkjhf")
+
 [node name="Blurrer" type="MeshInstance3D" parent="CameraRotation/Shaker/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-08, -2.98023e-08, -5.96046e-08, 1, -4.76837e-07, 0, -12)
 visible = false
@@ -630,4 +639,6 @@ Mouse Right: Put down
 Mouse Wheel: Zoom"
 
 [connection signal="stool_just_placed" from="Room" to="." method="_on_room_stool_just_placed"]
+[connection signal="input_event" from="CameraRotation/Shaker/Camera3D/BlockerArea" to="." method="_on_blocker_area_input_event"]
+[connection signal="input_event" from="CameraRotation/Shaker/Camera3D/CatcherArea" to="." method="_on_catcher_area_input_event"]
 [connection signal="gui_input" from="UI/DialogControl" to="." method="_on_dialog_control_gui_input"]

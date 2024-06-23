@@ -21,6 +21,7 @@ func get_ground_point() -> Vector3:
 func _on_own_mouse():
 	if Singletons.main.holding_object and not holding_object and not (small and not Singletons.main.holding_object.small):
 		Singletons.main.move_object_to(self)
+		Singletons.main.holding_object.set_hovering(self)
 
 func _on_disown_mouse():
 	pass

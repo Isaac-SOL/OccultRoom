@@ -15,6 +15,7 @@ var pause = false
 var noise_tween: Tween
 var dialog_unclickable_time: float = 0
 var dialog: bool = false
+@onready var inspect_position: Node3D = %InspectPosition
 
 # Dialog elements
 var ouija_message_next: bool = false
@@ -307,3 +308,11 @@ func start_multi_dialog(texts_and_effects: Array):
 			%Shaker.shake(text_effect, 0.5)
 			%ShakeAudio.play()
 			await get_tree().create_timer(1).timeout
+
+func _on_blocker_area_input_event(_camera, event, _position, _normal, _shape_idx):
+	if event is InputEventMouseButton and event.pressed and inspecting:
+		inspecting.inspect()
+
+func _on_catcher_area_input_event(_camera, event, _position, _normal, _shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and holding_object:
+		holding_object._on_object_input_event(_camera, event, _position, _normal, _shape_idx)

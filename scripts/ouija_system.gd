@@ -74,7 +74,9 @@ func _on_object_placed(object: PlaceableObject):
 	match state:
 		State.IDLE:
 			idx_in_sequence = 0
-			if not current_sequence.is_empty():
+			if current_sequence.is_empty():
+				Singletons.main.nothing_happened()
+			else:
 				%pyramid_cursor.pyramid_rotate()
 			state = State.PAUSING
 			await get_tree().create_timer(1).timeout

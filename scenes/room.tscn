@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wt2312k41wo8" path="res://scenes/chambre/door_plane.tscn" id="3_vubc3"]
 [ext_resource type="Texture2D" uid="uid://cskdi3l4e5ptn" path="res://assets/textures/symbols/triskelion-96.png" id="4_7pbam"]
 [ext_resource type="Texture2D" uid="uid://c3k47cmqjkgcb" path="res://assets/textures/door.png" id="5_l8kh7"]
-[ext_resource type="PackedScene" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
+[ext_resource type="PackedScene" uid="uid://4axxv4ncukbv" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
 [ext_resource type="Texture2D" uid="uid://bj016jvyxdu12" path="res://assets/textures/symbols/modify/illuminati-100-w.png" id="6_jdx8u"]
 [ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="7_emt5d"]
 [ext_resource type="PackedScene" uid="uid://f6ow8vkcmf3n" path="res://scenes/chambre/window_plane.tscn" id="7_tgo6c"]
@@ -629,10 +629,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117512, 0.00999999, -0.253
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.127714, 0.00999999, -0.263369)
 
 [node name="Close" parent="OuijaDetector/OuijaSystem/Positions" index="12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.482275, 0.00999999, -0.249503)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.459818, 0.00999999, -0.288)
 
 [node name="Far" parent="OuijaDetector/OuijaSystem/Positions" index="13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.494196, 0.00999999, -0.242624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.462116, 0.00999999, -0.284328)
 
 [node name="Light" parent="OuijaDetector/OuijaSystem/Positions" index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273276, 0.00999999, 0.382448)
@@ -641,10 +641,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.273276, 0.00999999, 0.38244
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305587, 0.00999999, 0.372305)
 
 [node name="Devil" parent="OuijaDetector/OuijaSystem/Positions" index="16"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.556278, 0.00999999, 0.164519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.562694, 0.00999999, 0.142062)
 
 [node name="Ankh" parent="OuijaDetector/OuijaSystem/Positions" index="17"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.305826, 0.00999999, 0.164519)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29941, 0.00999999, 0.151687)
 
 [node name="Rock" parent="OuijaDetector/OuijaSystem" index="1"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.00999999, 0.394029)

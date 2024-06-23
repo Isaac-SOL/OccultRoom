@@ -229,13 +229,16 @@ surface_material_override/0 = ExtResource("7_ctc0f")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_gb2qm")
 volume_db = -6.0
+bus = &"Sfx"
 
 [node name="MoveAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("10_n5ru1")
 volume_db = -35.0
+bus = &"Sfx"
 
 [node name="MagicAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("11_wb6ad")
 volume_db = -10.0
+bus = &"Sfx"

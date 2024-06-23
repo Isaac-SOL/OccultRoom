@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=61 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://deo1ltok5kr05" path="res://assets/audio/Kenney/forceField_004.ogg" id="8_rnero"]
 [ext_resource type="Shader" uid="uid://ce07dllsq8rex" path="res://shaders_mats/noise_shader.tres" id="8_t2fxk"]
 [ext_resource type="Texture2D" uid="uid://cgnfu3xy3jomt" path="res://assets/textures/moon.png" id="9_wcb2f"]
+[ext_resource type="AudioStream" uid="uid://dkl0it3apo3bt" path="res://assets/audio/706204__xkeril__nice-anime-sword-hit.wav" id="14_5b11s"]
 [ext_resource type="Texture2D" uid="uid://b5xp58v40peoi" path="res://assets/textures/look_around_hint.png" id="15_w5546"]
 [ext_resource type="Texture2D" uid="uid://i3udstbqhgnw" path="res://assets/textures/pickup_hint.png" id="16_2d4bi"]
 [ext_resource type="Texture2D" uid="uid://f4jlgk556d3i" path="res://assets/textures/free_turn_hint.png" id="17_legkf"]
@@ -56,6 +57,12 @@ stream_3/stream = ExtResource("7_kerjk")
 stream_3/weight = 1.0
 stream_4/stream = ExtResource("8_rnero")
 stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_qiyr1"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("14_5b11s")
+stream_0/weight = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_t3pin"]
 
@@ -213,17 +220,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
 unique_name_in_owner = true
 stream = ExtResource("3_w5kr4")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="ShakeAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_jo56l")
 volume_db = -5.0
+bus = &"Sfx"
 
 [node name="DialogAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_e8p40")
 volume_db = -15.0
 pitch_scale = 0.5
+bus = &"Sfx"
+
+[node name="CorrectAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_qiyr1")
+volume_db = -20.0
+max_polyphony = 4
+bus = &"Sfx"
 
 [node name="Moon" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.414768, 0.526633, 0.506187, -0.33378, 0.654414, -0.407349, -0.649737, 1.75238e-07, 0.532392, 0.791453, 0.363527, 7.95188)
@@ -477,6 +494,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1

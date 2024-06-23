@@ -22,5 +22,6 @@ func open_chest():
 	
 	await $large_chest.opened
 	$large_chest.visible = false
+	$Back.visible = false
 	opened = true
 	Singletons.room.set_arrow_animated(true)

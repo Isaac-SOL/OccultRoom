@@ -443,8 +443,10 @@ surface_material_override/0 = ExtResource("2_5xhaa")
 unique_name_in_owner = true
 stream = ExtResource("10_y56vn")
 volume_db = -25.0
+bus = &"Sfx"
 
 [node name="BigMoveAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("11_v4oo4")
 volume_db = -20.0
+bus = &"Sfx"

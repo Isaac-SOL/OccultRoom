@@ -22,9 +22,10 @@ var ouija_message_next: bool = false
 var crystal_message_next: bool = false
 var crystal_message_2_next: bool = false
 var ouija_explanation_next: bool = false
-var already_inspected: bool = true
+var already_inspected: bool = false
 @export var intro: bool = true
 var rotate_count: int = 0
+var saw_nothing_happen: bool = false
 
 
 func _ready():
@@ -52,6 +53,7 @@ func start_intro_sequence():
 	crystal_message_next = true
 	%PickupHint.visible = true
 	%FreeTurnHint.visible = true
+	%InspectHint.visible = true
 	#%TableHint.visible = true
 	already_inspected = false
 
@@ -311,6 +313,15 @@ func start_multi_dialog(texts_and_effects: Array):
 			%ShakeAudio.play()
 			await get_tree().create_timer(1).timeout
 
+func nothing_happened():
+	await get_tree().create_timer(1).timeout
+	if not saw_nothing_happen:
+		start_multi_dialog(["Hmm... nothing?", "Let's try something else then."])
+		saw_nothing_happen = true
+
+func play_correct_audio():
+	%CorrectAudio.play()
+
 func end_sequence():
 	start_multi_dialog(["There it is!", "It's finally calmed down.",
 						"And now, while it's no longer paying attention...",
@@ -323,6 +334,7 @@ func end_sequence_2():
 	await get_tree().create_timer(2).timeout
 	await start_multi_dialog(["Finally! It's gone.", "And, well, my crystal ball is gone, too.",
 							  "Oh well. What was I doing again?"])
+	get_tree().change_scene_to_file("res://scenes/menus/victory_screen.tscn")
 
 func _on_blocker_area_input_event(_camera, event, _position, _normal, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and inspecting:

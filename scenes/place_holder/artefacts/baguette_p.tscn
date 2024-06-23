@@ -1,16 +1,25 @@
-[gd_scene load_steps=12 format=3 uid="uid://ci1gei2tmwrcj"]
+[gd_scene load_steps=17 format=3 uid="uid://ci1gei2tmwrcj"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_7wr48"]
 [ext_resource type="PackedScene" uid="uid://t613cf1f1w7u" path="res://scenes/artefacts/baguette.tscn" id="2_8wcqk"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_npcnv"]
 [ext_resource type="AudioStream" uid="uid://dhy7riwwuy0p1" path="res://assets/audio/Kenney/Impacts/impactWood_light_000.ogg" id="3_mdxh4"]
 [ext_resource type="AudioStream" uid="uid://ctfy7fano23m0" path="res://assets/audio/Kenney/Impacts/impactWood_light_001.ogg" id="4_uau8q"]
 [ext_resource type="AudioStream" uid="uid://b4mvmk722nbpr" path="res://assets/audio/Kenney/Impacts/impactWood_light_002.ogg" id="5_31txq"]
 [ext_resource type="AudioStream" uid="uid://b8ewcm18tow0y" path="res://assets/audio/Kenney/Impacts/impactWood_light_003.ogg" id="6_2lf77"]
 [ext_resource type="AudioStream" uid="uid://bkw6ygqy2o8cf" path="res://assets/audio/Kenney/Impacts/impactWood_light_004.ogg" id="7_47m4t"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_s0113"]
+[ext_resource type="Material" uid="uid://cvek0di2fukl2" path="res://shaders_mats/shine_poof_mat.tres" id="9_mwd4n"]
+[ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="10_ppad0"]
+[ext_resource type="Material" uid="uid://c6m148n5r8vxy" path="res://shaders_mats/shine_poof_red_mat.tres" id="11_lwetf"]
+
+[sub_resource type="Resource" id="Resource_7qtlx"]
+script = ExtResource("2_npcnv")
+base_condition = 2
+close = true
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ocqet"]
-radius = 0.1
+radius = 0.15
 height = 0.673456
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_1n6lq"]
@@ -28,12 +37,15 @@ stream_4/weight = 1.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_334h8"]
 flip_faces = true
-radius = 0.055
+radius = 0.1
 height = 0.655
 
 [node name="baguette_p" type="Area3D"]
 script = ExtResource("1_7wr48")
+hints = Array[int]([2, 14])
 small = true
+conditions = Array[ExtResource("2_npcnv")]([SubResource("Resource_7qtlx")])
+needs_valid_placement = true
 
 [node name="baguette" parent="." instance=ExtResource("2_8wcqk")]
 transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -0.137793, -0.608566, 0)
@@ -49,8 +61,30 @@ volume_db = -15.0
 
 [node name="Outline" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.02804, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -0.69079, 0, 1, -3.01954e-08, 0, 0.0714209, 0)
 visible = false
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_334h8")
 surface_material_override/0 = ExtResource("8_s0113")
+
+[node name="Particles" type="Node3D" parent="."]
+
+[node name="ParticlesValid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("9_mwd4n")
+draw_pass_1 = ExtResource("10_ppad0")
+
+[node name="ParticlesInvalid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("11_lwetf")
+draw_pass_1 = ExtResource("10_ppad0")

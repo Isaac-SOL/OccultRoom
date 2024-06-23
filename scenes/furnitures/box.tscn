@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3x7emqm0kl3w"]
+[gd_scene load_steps=15 format=3 uid="uid://d3x7emqm0kl3w"]
 
 [ext_resource type="PackedScene" uid="uid://cqyhtb0tshm" path="res://assets/3Dmodels/furnitures/box.glb" id="1_5xstn"]
 [ext_resource type="Script" path="res://scripts/furnitures/box.gd" id="2_1vj6h"]
+[ext_resource type="AudioStream" uid="uid://dj7pcexdwtj0w" path="res://assets/audio/Kenney/doorClose_1.ogg" id="3_l85cm"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2w8f8"]
 animation = &"chest_close"
@@ -43,7 +44,7 @@ transitions = ["Start", "chest_close", SubResource("AnimationNodeStateMachineTra
 graph_offset = Vector2(-261, -35)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jmhjg"]
-size = Vector3(0.9, 0.9, 1.9)
+size = Vector3(1, 1.05261, 2)
 
 [node name="box" instance=ExtResource("1_5xstn")]
 transform = Transform3D(1.43, 0, 0, 0, 1, 0, 0, 0, 1.2, 0, 0, 0)
@@ -59,7 +60,10 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="Area3D" type="Area3D" parent="." index="4"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.95, 0.0498386)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.94904, 0.0498386)
 shape = SubResource("BoxShape3D_jmhjg")
 
-[connection signal="input_event" from="Area3D" to="." method="_on_area_3d_input_event"]
+[node name="OpenAudio" type="AudioStreamPlayer" parent="." index="5"]
+unique_name_in_owner = true
+stream = ExtResource("3_l85cm")
+volume_db = -10.0

@@ -54,3 +54,5 @@ transform = Transform3D(1.14955e-07, 0, 0.224259, 0, 0.424098, 0, -0.366196, 0, 
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 tree_root = SubResource("AnimationNodeStateMachine_7p8u6")
 anim_player = NodePath("../AnimationPlayer")
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

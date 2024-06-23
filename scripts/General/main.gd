@@ -15,6 +15,7 @@ var pause = false
 var noise_tween: Tween
 var dialog_unclickable_time: float = 0
 var dialog: bool = false
+@onready var inspect_position: Node3D = %InspectPosition
 
 # Dialog elements
 var ouija_message_next: bool = false
@@ -51,7 +52,7 @@ func start_intro_sequence():
 	crystal_message_next = true
 	%PickupHint.visible = true
 	%FreeTurnHint.visible = true
-	%TableHint.visible = true
+	#%TableHint.visible = true
 	already_inspected = false
 
 func _process(delta):
@@ -122,6 +123,7 @@ func ouija_clicked():
 			await get_tree().create_timer(0.3).timeout
 			start_multi_dialog(["The glowing Eye... I see...",
 								"Its twin should be nearby. Let's find it."])
+			%InspectHint.visible = true
 			ouija_message_next = false
 		elif ouija_explanation_next:
 			await get_tree().create_timer(0.3).timeout
@@ -129,6 +131,7 @@ func ouija_clicked():
 								"Let's put something on that pedestal and ask directly."])
 			ouija_explanation_next = false
 			crystal_message_2_next = true
+			%InspectHint.visible = true
 
 func turn_object_left():
 	if holding_object:
@@ -230,6 +233,8 @@ func check_valid_objects():
 			print(node.name + " - " + str(node.check_valid()))
 			if not node.check_valid():
 				total_left += 1
+	if total_left <= 3:
+		%Room.open_box()
 	%LabelTopLeft.text = "Objects left: " + str(total_left)
 	if total_left == 0:
 		%LabelTopLeft.text += "\nCongratulations!"
@@ -254,9 +259,10 @@ func _on_room_stool_just_placed():
 func _on_room_object_placed(_object):
 	check_valid_objects()
 	#%PickupHint.visible = false
-	if not already_inspected:
-		%InspectHint.visible = true
 	_on_crystal_touched()
+
+func set_crystal_target(target: Node3D):
+	%CrystalTargetPosition.target = target
 
 func _on_crystal_touched():
 	if not targeting_stool:
@@ -304,3 +310,26 @@ func start_multi_dialog(texts_and_effects: Array):
 			%Shaker.shake(text_effect, 0.5)
 			%ShakeAudio.play()
 			await get_tree().create_timer(1).timeout
+
+func end_sequence():
+	start_multi_dialog(["There it is!", "It's finally calmed down.",
+						"And now, while it's no longer paying attention...",
+						"Let's get rid of it!"])
+	$Room/Objects/artefacts/crystal_ball_p.set_pickable(false)
+	$Room/Objects/artefacts/thor_hammer_p.start_glowing()
+
+func end_sequence_2():
+	$CrystalSpritePivot.visible = false
+	await get_tree().create_timer(2).timeout
+	await start_multi_dialog(["Finally! It's gone.", "And, well, my crystal ball is gone, too.",
+							  "Oh well. What was I doing again?"])
+	$CreditsLayer.visible = true
+
+func _on_blocker_area_input_event(_camera, event, _position, _normal, _shape_idx):
+	if event is InputEventMouseButton and event.pressed and inspecting:
+		if event.button_index == MOUSE_BUTTON_LEFT or event.button_index == MOUSE_BUTTON_RIGHT:
+			inspecting.inspect()
+
+func _on_catcher_area_input_event(_camera, event, _position, _normal, _shape_idx):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and holding_object:
+		holding_object._on_object_input_event(_camera, event, _position, _normal, _shape_idx)

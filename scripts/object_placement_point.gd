@@ -21,13 +21,14 @@ func get_ground_point() -> Vector3:
 func _on_own_mouse():
 	if Singletons.main.holding_object and not holding_object and not (small and not Singletons.main.holding_object.small):
 		Singletons.main.move_object_to(self)
+		Singletons.main.holding_object.set_hovering(self)
 
 func _on_disown_mouse():
 	pass
 
 func _on_placement_clicked(event: InputEventMouseButton):
 	if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		if holding_object and not Singletons.main.holding_object and holding_object.in_light():
+		if holding_object and not Singletons.main.holding_object and holding_object.in_light() and holding_object.can_pickup:
 			release_object()
 		elif Singletons.main.holding_object and not holding_object and not (small and not Singletons.main.holding_object.small):
 			grab_object()

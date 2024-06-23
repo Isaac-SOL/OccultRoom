@@ -49,3 +49,7 @@ func open_chest():
 			 OuijaSystem.Pos.MOON, OuijaSystem.Pos.FAR]
 	$code_chest.anim_chest()
 	%OpenAudio.play()
+	$Outline/ChestOutline1.visible = false
+	$Outline/ChestOutline2.visible = false
+	$Outline/Outline.visible = true
+	special_name = "BougieChandelier"

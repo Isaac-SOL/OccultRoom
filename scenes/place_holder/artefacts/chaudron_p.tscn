@@ -1,13 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1m1p8cg07hcf"]
+[gd_scene load_steps=17 format=3 uid="uid://d1m1p8cg07hcf"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_7rf4r"]
 [ext_resource type="PackedScene" uid="uid://txa41kyeivut" path="res://scenes/artefacts/chaudron.tscn" id="2_e68fu"]
+[ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_rq358"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="3_f3e0s"]
 [ext_resource type="AudioStream" uid="uid://dsqatp37tugyu" path="res://assets/audio/Kenney/Impacts/impactBell_heavy_000.ogg" id="4_qr5p7"]
 [ext_resource type="AudioStream" uid="uid://cvne8nua0aju8" path="res://assets/audio/Kenney/Impacts/impactBell_heavy_001.ogg" id="5_t70y2"]
 [ext_resource type="AudioStream" uid="uid://ben2vmdachxm5" path="res://assets/audio/Kenney/Impacts/impactBell_heavy_002.ogg" id="6_fn38c"]
 [ext_resource type="AudioStream" uid="uid://o2upnwlwtd2u" path="res://assets/audio/Kenney/Impacts/impactBell_heavy_003.ogg" id="7_40nss"]
 [ext_resource type="AudioStream" uid="uid://ckxbce3s0cxgt" path="res://assets/audio/Kenney/Impacts/impactBell_heavy_004.ogg" id="8_ogskh"]
+[ext_resource type="Material" uid="uid://cvek0di2fukl2" path="res://shaders_mats/shine_poof_mat.tres" id="9_p1tkp"]
+[ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="10_ps6e5"]
+[ext_resource type="Material" uid="uid://c6m148n5r8vxy" path="res://shaders_mats/shine_poof_red_mat.tres" id="11_3x63k"]
+
+[sub_resource type="Resource" id="Resource_shm2r"]
+script = ExtResource("2_rq358")
+base_condition = 13
+close = false
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_rkdca"]
 radius = 0.442361
@@ -40,6 +49,9 @@ stream_4/weight = 1.0
 
 [node name="chaudron_p" type="Area3D"]
 script = ExtResource("1_7rf4r")
+hints = Array[int]([13, 15])
+conditions = Array[ExtResource("2_rq358")]([SubResource("Resource_shm2r")])
+needs_valid_placement = true
 
 [node name="chaudron" parent="." instance=ExtResource("2_e68fu")]
 
@@ -59,3 +71,25 @@ surface_material_override/0 = ExtResource("3_f3e0s")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_slt8d")
 volume_db = -10.0
+
+[node name="Particles" type="Node3D" parent="."]
+
+[node name="ParticlesValid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("9_p1tkp")
+draw_pass_1 = ExtResource("10_ps6e5")
+
+[node name="ParticlesInvalid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("11_3x63k")
+draw_pass_1 = ExtResource("10_ps6e5")

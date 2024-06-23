@@ -1,0 +1,81 @@
+[gd_scene load_steps=15 format=3 uid="uid://b2hdu0etnh1ea"]
+
+[ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_var0u"]
+[ext_resource type="PackedScene" uid="uid://lu3n3tphsm0g" path="res://assets/3Dmodels/artefacts/bougie_chandelier.glb" id="2_edvnb"]
+[ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="3_jyg1p"]
+[ext_resource type="AudioStream" uid="uid://bfce58thsio7m" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_000.ogg" id="4_fpxtc"]
+[ext_resource type="AudioStream" uid="uid://blmrwm8ih1sp4" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_001.ogg" id="5_wyh3i"]
+[ext_resource type="AudioStream" uid="uid://b28fil2tgjdbx" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_002.ogg" id="6_3wbpt"]
+[ext_resource type="AudioStream" uid="uid://cjmj52qpsvbs8" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_003.ogg" id="7_835cj"]
+[ext_resource type="AudioStream" uid="uid://dkkncu1gctmth" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_004.ogg" id="8_rk5xu"]
+[ext_resource type="Material" uid="uid://cvek0di2fukl2" path="res://shaders_mats/shine_poof_mat.tres" id="9_fhuqs"]
+[ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="10_ngu5d"]
+[ext_resource type="Material" uid="uid://c6m148n5r8vxy" path="res://shaders_mats/shine_poof_red_mat.tres" id="11_i7lhj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ks6ud"]
+radius = 0.164938
+height = 0.817527
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wdi2j"]
+material = ExtResource("3_jyg1p")
+flip_faces = true
+top_radius = 0.15
+bottom_radius = 0.15
+height = 0.7
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_p44wi"]
+streams_count = 5
+stream_0/stream = ExtResource("4_fpxtc")
+stream_0/weight = 1.0
+stream_1/stream = ExtResource("5_wyh3i")
+stream_1/weight = 1.0
+stream_2/stream = ExtResource("6_3wbpt")
+stream_2/weight = 1.0
+stream_3/stream = ExtResource("7_835cj")
+stream_3/weight = 1.0
+stream_4/stream = ExtResource("8_rk5xu")
+stream_4/weight = 1.0
+
+[node name="BougieChandelier" type="Area3D"]
+script = ExtResource("1_var0u")
+special_name = "BougieChandelier"
+
+[node name="bougie_chandelier" parent="." instance=ExtResource("2_edvnb")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -1.12554, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.260506, 0)
+shape = SubResource("CapsuleShape3D_ks6ud")
+
+[node name="Outline" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.253512, 0)
+visible = false
+mesh = SubResource("CylinderMesh_wdi2j")
+
+[node name="ImpactAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_p44wi")
+volume_db = -10.0
+
+[node name="Particles" type="Node3D" parent="."]
+
+[node name="ParticlesValid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("9_fhuqs")
+draw_pass_1 = ExtResource("10_ngu5d")
+
+[node name="ParticlesInvalid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("11_i7lhj")
+draw_pass_1 = ExtResource("10_ngu5d")

@@ -16,9 +16,5 @@ func anim_chest():
 	else:
 		playback.travel("open_chest")
 	is_open = !is_open
-
-
-func _on_area_3d_input_event(camera, event, position, normal, shape_idx):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed == true:
-			anim_chest()
+	%OpenAudio.play()
+	$Area3D.set_deferred("input_ray_pickable", false)

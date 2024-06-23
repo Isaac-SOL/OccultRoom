@@ -13,3 +13,4 @@ func _on_ball_clicked_with(object: PlaceableObject):
 		Singletons.shaker.shake(1.5, 1)
 		$crystal_ball.hide_ball()
 		$GPUParticles3D.emitting = true
+		Singletons.main.end_sequence_2()

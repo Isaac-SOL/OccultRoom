@@ -17,8 +17,8 @@ func _on_ouija_clicked(event: InputEventMouseButton):
 			Singletons.main.ouija_clicked()
 
 func set_detecting(detecting: bool):
-	set_deferred("collision_layer", 1 if detecting else 0)
-	set_deferred("collision_mask", 1 if detecting else 0)
+	set_deferred("collision_layer", 1)
+	set_deferred("collision_mask", 1)
 
 func _on_main_grabbed_object(_object: Node3D):
 	set_detecting(false)

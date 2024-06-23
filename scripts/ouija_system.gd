@@ -155,11 +155,14 @@ func flames_sequence():
 			break
 		await get_tree().create_timer(1).timeout
 	
-	Singletons.main._on_crystal_touched()
-	await get_tree().create_timer(4).timeout
-	for flame: Node in flames:
-		flame.emitting = false
-	_on_position_reached()
+	if true:
+		Singletons.main.end_sequence()
+	else:
+		Singletons.main._on_crystal_touched()
+		await get_tree().create_timer(4).timeout
+		for flame: Node in flames:
+			flame.emitting = false
+		_on_position_reached()
 
 func shake():
 	Singletons.room.shake_ouija()

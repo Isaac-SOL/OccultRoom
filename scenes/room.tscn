@@ -268,13 +268,13 @@ gradient_length = 4.0
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.708613, 0.7, -0.634026)
 small = true
 
-[node name="ObjectPlacementPoint72" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+[node name="ObjectPlacementPoint72" parent="PlacementPoints/Basic" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.659739, 2, -0.618516)
+holding_object = NodePath("../../../Objects/artefacts/sonnette_p")
 small = true
 
-[node name="ObjectPlacementPoint36" parent="PlacementPoints/Basic" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
+[node name="ObjectPlacementPoint36" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(0.707106, 0.00169297, 0.707106, -0.00119711, 0.999999, -0.00119711, -0.707107, 0, 0.707107, 0.659738, 2.59949, -0.618516)
-holding_object = NodePath("../../../Objects/artefacts/Book")
 small = true
 
 [node name="ObjectPlacementPoint6" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
@@ -498,8 +498,9 @@ small = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.68974, 2, -8.63334)
 small = true
 
-[node name="CompassPlacementPoint102" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+[node name="CompassPlacementPoint102" parent="PlacementPoints/Basic" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70475, 2.6, -8.63708)
+holding_object = NodePath("../../../Objects/artefacts/Book")
 small = true
 
 [node name="ObjectPlacementPoint94" parent="PlacementPoints/Basic" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
@@ -552,9 +553,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -2)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37716, -8)
 holding_object = NodePath("../../Objects/artefacts/pandora_box_p")
 
-[node name="sonnettePlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
+[node name="sonnettePlace" parent="PlacementPoints" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70475, 0.7, -8.68728)
-holding_object = NodePath("../../Objects/artefacts/sonnette_p")
 small = true
 
 [node name="chandelierPlace" parent="PlacementPoints" node_paths=PackedStringArray("holding_object") instance=ExtResource("1_kn5p5")]
@@ -773,8 +773,8 @@ holder = NodePath("../../../PlacementPoints/codeChestPlace")
 
 [node name="Book" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("27_qx21j")]
 unique_name_in_owner = true
-transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 0.659738, 2.59949, -0.618516)
-holder = NodePath("../../../PlacementPoints/Basic/ObjectPlacementPoint36")
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 8.70475, 2.6, -8.63708)
+holder = NodePath("../../../PlacementPoints/Basic/CompassPlacementPoint102")
 
 [node name="BougieChandelier" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("27_adssi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.6, -9)
@@ -794,12 +794,7 @@ holder = NodePath("../../../PlacementPoints/Basic/ObjectPlacementPoint94")
 
 [node name="crystal_ball_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("24_rhh4s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.4, -7)
-move_speed = 25.0
 holder = NodePath("../../../PlacementPoints/crystalBallPlace")
-rotation_discrete = 0
-small = false
-conditions = Array[Resource("res://scripts/resources/object_condition.gd")]([])
-needs_valid_placement = false
 
 [node name="genie_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("25_bondq")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 9, 0.904653, -4)
@@ -810,8 +805,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.68974, 1.3, -8.63334)
 holder = NodePath("../../../PlacementPoints/Basic/ObjectPlacementPoint97")
 
 [node name="sonnette_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("27_o4ndo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.70475, 0.7, -8.68728)
-holder = NodePath("../../../PlacementPoints/sonnettePlace")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659739, 2, -0.618516)
+holder = NodePath("../../../PlacementPoints/Basic/ObjectPlacementPoint72")
 
 [node name="thor_hammer_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("28_uvhel")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, -5)
@@ -871,7 +866,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.70537, 2.44876, -9.42242)
 
 [node name="ObjectPlacer" type="Node" parent="." node_paths=PackedStringArray("object")]
 script = ExtResource("13_ck4kk")
-object = NodePath("../Objects/artefacts/BougieChandelier2")
+object = NodePath("../Objects/artefacts/sonnette_p")
 info = "Object linked to placement point!"
 
 [node name="Timer" type="Timer" parent="."]

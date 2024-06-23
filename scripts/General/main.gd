@@ -323,7 +323,6 @@ func end_sequence_2():
 	await get_tree().create_timer(2).timeout
 	await start_multi_dialog(["Finally! It's gone.", "And, well, my crystal ball is gone, too.",
 							  "Oh well. What was I doing again?"])
-	$CreditsLayer.visible = true
 
 func _on_blocker_area_input_event(_camera, event, _position, _normal, _shape_idx):
 	if event is InputEventMouseButton and event.pressed and inspecting:

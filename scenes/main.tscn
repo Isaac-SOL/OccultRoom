@@ -213,17 +213,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0, 4.5)
 unique_name_in_owner = true
 stream = ExtResource("3_w5kr4")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="ShakeAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_jo56l")
 volume_db = -5.0
+bus = &"Sfx"
 
 [node name="DialogAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_e8p40")
 volume_db = -15.0
 pitch_scale = 0.5
+bus = &"Sfx"
 
 [node name="Moon" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.414768, 0.526633, 0.506187, -0.33378, 0.654414, -0.407349, -0.649737, 1.75238e-07, 0.532392, 0.791453, 0.363527, 7.95188)
@@ -360,6 +363,7 @@ script = SubResource("GDScript_x2obc")
 transform = Transform3D(1, -8.9407e-08, 2.68221e-07, -4.47035e-08, 0.866025, 0.5, -2.38419e-07, -0.5, 0.866025, 1.43051e-06, 8.6087, 13.849)
 environment = SubResource("Environment_5x05i")
 projection = 1
+current = true
 size = 3.0
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]

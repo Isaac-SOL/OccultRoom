@@ -64,6 +64,7 @@ outline_size = 6
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_v3ybj")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Outline" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true

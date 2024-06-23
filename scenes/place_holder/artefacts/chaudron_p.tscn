@@ -71,6 +71,7 @@ surface_material_override/0 = ExtResource("3_f3e0s")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_slt8d")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Particles" type="Node3D" parent="."]
 

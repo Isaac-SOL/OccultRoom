@@ -66,6 +66,7 @@ shape = SubResource("SphereShape3D_a1jub")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_edp2a")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Outline" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true

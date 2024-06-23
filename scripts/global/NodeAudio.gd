@@ -2,7 +2,8 @@ extends AudioStreamPlayer
 
 
 const audioGame = preload("res://assets/audio/ambiant/occult_room_ambiant.ogg")
-#const audioMenu = preload("res://assets/sounds/infected_vibes_low.mp3")
+const audioMenu = preload("res://assets/audio/ambiant/occultroom_mainMenu.ogg")
+const audioTransit = preload("res://assets/audio/ambiant/occultroom_transit.ogg")
 
 func playMusic(music: AudioStream):
 	if stream == music:

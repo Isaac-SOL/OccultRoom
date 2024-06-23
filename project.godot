@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="OccultRoom"
+config/name="Polterbust"
 run/main_scene="res://scenes/menus/menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="res://assets/textures/mouse/loading_screen.png"
+config/icon="res://assets/textures/mouse/cursor.png"
 
 [autoload]
 

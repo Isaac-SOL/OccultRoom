@@ -83,6 +83,7 @@ gradient_length = 2.0
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_2fnc8")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Outline" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true

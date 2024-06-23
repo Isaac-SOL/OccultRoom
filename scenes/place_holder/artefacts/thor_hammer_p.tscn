@@ -121,6 +121,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113235, -1.14569, -0.03334
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_678wn")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Outline" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true

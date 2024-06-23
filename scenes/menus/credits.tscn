@@ -11,6 +11,7 @@
 script/source = "extends Control
 
 
+
 func _on_exit_button_pressed():
 	get_tree().change_scene_to_file(\"res://scenes/menus/menu.tscn\")
 "
@@ -107,3 +108,5 @@ theme_override_styles/hover = ExtResource("5_5lkmn")
 theme_override_styles/pressed = ExtResource("6_rj8dg")
 text = "Exit
 "
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer2/VBoxContainer3/ExitButton" to="." method="_on_exit_button_pressed"]

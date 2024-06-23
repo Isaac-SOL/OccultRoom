@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/menus/volume_slider.gd" id="1_cm7es"]
 [ext_resource type="Theme" uid="uid://ujjtd62wvxsf" path="res://imports/pixel_theme.tres" id="2_poaec"]
-[ext_resource type="Texture2D" uid="uid://dp20hrsshks5h" path="res://imports/big_ball.png" id="3_7otmb"]
+[ext_resource type="Texture2D" uid="uid://bsh0puupnlsnt" path="res://assets/textures/mouse/cursor.png" id="3_vcd4f"]
 [ext_resource type="StyleBox" uid="uid://cln15kpjcsiss" path="res://imports/style_box_normal.tres" id="4_jghdw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ey1x6"]
@@ -59,9 +59,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/center_grabber = 0
 theme_override_constants/grabber_offset = -1
-theme_override_icons/grabber = ExtResource("3_7otmb")
-theme_override_icons/grabber_highlight = ExtResource("3_7otmb")
-theme_override_icons/grabber_disabled = ExtResource("3_7otmb")
+theme_override_icons/grabber = ExtResource("3_vcd4f")
+theme_override_icons/grabber_highlight = ExtResource("3_vcd4f")
+theme_override_icons/grabber_disabled = ExtResource("3_vcd4f")
 theme_override_styles/slider = SubResource("StyleBoxFlat_ey1x6")
 theme_override_styles/grabber_area = ExtResource("4_jghdw")
 theme_override_styles/grabber_area_highlight = ExtResource("4_jghdw")

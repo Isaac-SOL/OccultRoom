@@ -80,6 +80,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -0.0020735, -0.0165735, -0.00
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_uskd5")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Outline" type="Node3D" parent="."]
 unique_name_in_owner = true

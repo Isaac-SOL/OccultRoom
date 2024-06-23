@@ -66,11 +66,13 @@ shape = SubResource("BoxShape3D_lla4m")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_j5c1v")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="OpenAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("8_x0kut")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Outline" type="Node3D" parent="."]
 unique_name_in_owner = true

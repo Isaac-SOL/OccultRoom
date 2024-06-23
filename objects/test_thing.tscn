@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bkf1vadtu7p38"]
+[gd_scene load_steps=19 format=3 uid="uid://bkf1vadtu7p38"]
 
 [ext_resource type="Script" path="res://scripts/placeable_object.gd" id="1_2effn"]
 [ext_resource type="Script" path="res://scripts/resources/object_condition.gd" id="2_4aosf"]
@@ -10,6 +10,7 @@
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_jvgv6"]
 [ext_resource type="Material" uid="uid://cvek0di2fukl2" path="res://shaders_mats/shine_poof_mat.tres" id="9_p385v"]
 [ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="10_2tsgl"]
+[ext_resource type="Material" uid="uid://c6m148n5r8vxy" path="res://shaders_mats/shine_poof_red_mat.tres" id="11_0qgd0"]
 
 [sub_resource type="Resource" id="Resource_x54l8"]
 script = ExtResource("2_4aosf")
@@ -111,10 +112,24 @@ mesh = SubResource("ArrayMesh_gf3ip")
 skeleton = NodePath("../../Object/Object2")
 surface_material_override/0 = ExtResource("8_jvgv6")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-visible = false
+[node name="Particles" type="Node3D" parent="."]
+
+[node name="ParticlesValid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
 emitting = false
+amount = 12
+lifetime = 0.7
 one_shot = true
 explosiveness = 1.0
 process_material = ExtResource("9_p385v")
+draw_pass_1 = ExtResource("10_2tsgl")
+
+[node name="ParticlesInvalid" type="GPUParticles3D" parent="Particles"]
+unique_name_in_owner = true
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("11_0qgd0")
 draw_pass_1 = ExtResource("10_2tsgl")

@@ -67,6 +67,11 @@ func place_at(pos: Vector3):
 	raw_rotation = global_rotation
 	unclickable_timer = 0
 	%ImpactAudio.play()
+	if needs_valid_placement:
+		if check_valid():
+			%ParticlesValid.emitting = true
+		else:
+			%ParticlesInvalid.emitting = true
 	object_placed.emit(self)
 
 func save_transform():

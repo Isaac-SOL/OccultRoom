@@ -377,6 +377,7 @@ script = SubResource("GDScript_x2obc")
 transform = Transform3D(1, -8.9407e-08, 2.68221e-07, -4.47035e-08, 0.866025, 0.5, -2.38419e-07, -0.5, 0.866025, 1.43051e-06, 8.6087, 13.849)
 environment = SubResource("Environment_5x05i")
 projection = 1
+current = true
 size = 3.0
 
 [node name="BackBufferCopy" type="BackBufferCopy" parent="."]

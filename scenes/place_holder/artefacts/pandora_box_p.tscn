@@ -151,11 +151,13 @@ shape = SubResource("BoxShape3D_svxq6")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_0ylgx")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="OpenAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("7_4tsao")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="pandora_box" parent="." instance=ExtResource("7_b2npq")]
 

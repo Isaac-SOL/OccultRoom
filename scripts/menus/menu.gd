@@ -10,9 +10,12 @@ func _ready():
 
 func _process(delta):
 	screensize = Global.screenSize
-	NodeAudio.playAudio(NodeAudio.audioGame)
+	NodeAudio.playAudio(NodeAudio.audioMenu)
 	
 func _on_new_game_button_pressed():
+	$AudioTransitEffect.play()
+	#await $AudioTransitEffect.finished
+	NodeAudio.playAudio(NodeAudio.audioTransit)
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func _on_quit_button_pressed():

@@ -76,11 +76,13 @@ shape = SubResource("SphereShape3D_n0wxx")
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_qvdy0")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="FireStartAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("9_km5nu")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="Outline" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true

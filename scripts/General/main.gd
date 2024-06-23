@@ -59,7 +59,7 @@ func start_intro_sequence():
 
 func _process(delta):
 	# Play game song
-	#NodeAudio.playAudio(NodeAudio.audioGame)
+	NodeAudio.playAudio(NodeAudio.audioGame)
 	
 	# Pause menus
 	if Input.is_action_just_pressed("pause"):

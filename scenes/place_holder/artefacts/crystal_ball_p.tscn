@@ -96,11 +96,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45397, 0)
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_ittyt")
 volume_db = -10.0
+bus = &"Sfx"
 
 [node name="BreakAudio" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("8_kr1c0")
 volume_db = -5.0
+bus = &"Sfx"
 
 [node name="Outline" type="Node3D" parent="."]
 unique_name_in_owner = true

@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://brabryakecb0p"]
+[gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://bmgjffcsvkcbn"]
 
 [ext_resource type="Shader" path="res://shaders_mats/dissolve_shader.gdshader" id="1_c3b2v"]
 [ext_resource type="Texture2D" uid="uid://df4qn81vvbi3m" path="res://assets/3Dmodels/furnitures/box_rust_coarse_01_diff_1k.jpg" id="2_g2wh2"]

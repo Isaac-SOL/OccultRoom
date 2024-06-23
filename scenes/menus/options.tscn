@@ -182,7 +182,7 @@ busName = "Master"
 
 [node name="VolumeSliderMusic" parent="MarginContainer/VBoxContainer3/TabContainer/Sound/MarginContainer/VBoxContainer" instance=ExtResource("8_hh48g")]
 layout_mode = 2
-busName = "Music"
+busName = "Ambiant"
 
 [node name="VolumeSliderSfx" parent="MarginContainer/VBoxContainer3/TabContainer/Sound/MarginContainer/VBoxContainer" instance=ExtResource("8_hh48g")]
 layout_mode = 2

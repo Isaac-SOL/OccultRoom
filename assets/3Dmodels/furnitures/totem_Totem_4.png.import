@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fv1ju6xp5q6y"
-path.bptc="res://.godot/imported/totem_Totem.png-47de8304f46bf37bef17da9c839c1f88.bptc.ctex"
+uid="uid://d4aufipbbmvqp"
+path.bptc="res://.godot/imported/totem_Totem_4.png-894af4974f88e3289b5c557a35a8052a.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "b327da11e152eaebe2828614426c151e"
+"md5": "003bd939c0a00b914317df10040f5bab"
 }
 
 [deps]
 
-source_file="res://assets/3Dmodels/furnitures/totem_Totem.png"
-dest_files=["res://.godot/imported/totem_Totem.png-47de8304f46bf37bef17da9c839c1f88.bptc.ctex"]
+source_file="res://assets/3Dmodels/furnitures/totem_Totem_4.png"
+dest_files=["res://.godot/imported/totem_Totem_4.png-894af4974f88e3289b5c557a35a8052a.bptc.ctex"]
 
 [params]
 

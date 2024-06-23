@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cnmco5mvxbmif"]
+[gd_scene load_steps=50 format=3 uid="uid://cnmco5mvxbmif"]
 
 [ext_resource type="Script" path="res://scripts/room.gd" id="1_1vuhw"]
 [ext_resource type="PackedScene" uid="uid://3e4wmb8o4v6e" path="res://objects/object_placement_point.tscn" id="1_kn5p5"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cskdi3l4e5ptn" path="res://assets/textures/symbols/triskelion-96.png" id="4_7pbam"]
 [ext_resource type="PackedScene" uid="uid://bkf1vadtu7p38" path="res://objects/test_thing.tscn" id="5_adnc5"]
 [ext_resource type="Texture2D" uid="uid://c3k47cmqjkgcb" path="res://assets/textures/door.png" id="5_l8kh7"]
-[ext_resource type="PackedScene" uid="uid://4axxv4ncukbv" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
+[ext_resource type="PackedScene" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
 [ext_resource type="Texture2D" uid="uid://bj016jvyxdu12" path="res://assets/textures/symbols/modify/illuminati-100-w.png" id="6_jdx8u"]
 [ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="7_emt5d"]
 [ext_resource type="PackedScene" uid="uid://f6ow8vkcmf3n" path="res://scenes/chambre/window_plane.tscn" id="7_tgo6c"]
@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://ce0y02q4swkxw" path="res://scenes/place_holder/furnitures/presentoire_p.tscn" id="20_novct"]
 [ext_resource type="PackedScene" uid="uid://d3x7emqm0kl3w" path="res://scenes/furnitures/box.tscn" id="21_rl1nk"]
 [ext_resource type="PackedScene" uid="uid://du2tmpiagabfs" path="res://scenes/place_holder/artefacts/chandelier_p.tscn" id="22_0qjls"]
+[ext_resource type="PackedScene" uid="uid://bjn4xgwnjmqj" path="res://scenes/place_holder/artefacts/chest_key_p.tscn" id="23_adsxp"]
 [ext_resource type="PackedScene" uid="uid://dtr12fgi36m3m" path="res://scenes/furnitures/ouija_table.tscn" id="24_c1q2g"]
 [ext_resource type="PackedScene" uid="uid://dehme7jiixlxf" path="res://scenes/place_holder/artefacts/crystal_ball_p.tscn" id="24_rhh4s"]
 [ext_resource type="PackedScene" uid="uid://tu5b57jvbo15" path="res://scenes/place_holder/artefacts/genie_p.tscn" id="25_bondq"]
@@ -366,6 +367,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.6, -2)
 [node name="ObjectPlacementPoint44" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.6, -3)
 
+[node name="ObjectPlacementPoint45" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.23715, -4)
+
+[node name="ObjectPlacementPoint46" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1.23689, -5)
+
 [node name="ObjectPlacementPoint47" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0.6, -6)
 
@@ -389,6 +396,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.6, -7)
 
 [node name="ObjectPlacementPoint54" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.6, -6)
+
+[node name="ObjectPlacementPoint55" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.23613, -5)
+
+[node name="ObjectPlacementPoint56" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.23639, -4)
 
 [node name="ObjectPlacementPoint57" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.6, -3)
@@ -428,6 +441,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.6, -8)
 
 [node name="ObjectPlacementPoint70" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0.6, -9)
+holding_object = NodePath("")
 
 [node name="ObjectPlacementPoint71" parent="PlacementPoints/Basic" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.6, -9)
@@ -590,65 +604,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.6, -3)
 holding_object = NodePath("../../Objects/artefacts/chaudron_p")
 
 [node name="OuijaDetector" parent="." instance=ExtResource("1_xcxt8")]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.2, -4.5)
 
-[node name="Positions" parent="OuijaDetector/OuijaSystem" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0443214, 0)
-
 [node name="None" parent="OuijaDetector/OuijaSystem/Positions" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00999999, 0.367902)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00999999, 0.193668)
 
 [node name="Triskele" parent="OuijaDetector/OuijaSystem/Positions" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.555854, 0.00999999, 0.364758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.757965, 0.00999999, 0.462329)
 
 [node name="Moon" parent="OuijaDetector/OuijaSystem/Positions" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.560266, 0.00999999, 0.377721)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.737984, 0.00999999, 0.433476)
 
 [node name="Center" parent="OuijaDetector/OuijaSystem/Positions" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00297594, 0.00999999, -0.133601)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00646067, 0.00999999, -0.220718)
 
 [node name="North" parent="OuijaDetector/OuijaSystem/Positions" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00639343, 0.00999999, 0.031148)
 
 [node name="East" parent="OuijaDetector/OuijaSystem/Positions" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19212, 0.00999999, -0.135444)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261813, 0.00999999, -0.222561)
 
 [node name="South" parent="OuijaDetector/OuijaSystem/Positions" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0059967, 0.00999999, -0.34009)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0059967, 0.00999999, -0.469023)
 
 [node name="West" parent="OuijaDetector/OuijaSystem/Positions" index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.187967, 0.00999999, -0.133732)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.257661, 0.00999999, -0.224334)
 
 [node name="NorthWest" parent="OuijaDetector/OuijaSystem/Positions" index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.129887, 0.00999999, -0.0167828)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.168218, 0.00999999, -0.0551138)
 
 [node name="NorthEast" parent="OuijaDetector/OuijaSystem/Positions" index="9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118472, 0.00999999, -0.0123048)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153319, 0.00999999, -0.0576057)
 
 [node name="SouthEast" parent="OuijaDetector/OuijaSystem/Positions" index="10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.114402, 0.00999999, -0.267612)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.156218, 0.00999999, -0.372152)
 
 [node name="SouthWest" parent="OuijaDetector/OuijaSystem/Positions" index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.121258, 0.00999999, -0.253109)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.159589, 0.00999999, -0.368103)
 
 [node name="Close" parent="OuijaDetector/OuijaSystem/Positions" index="12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.480802, 0.00999999, -0.245934)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.668974, 0.00999999, -0.367898)
 
 [node name="Far" parent="OuijaDetector/OuijaSystem/Positions" index="13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.497971, 0.00999999, -0.247094)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.651297, 0.00999999, -0.365573)
 
 [node name="Light" parent="OuijaDetector/OuijaSystem/Positions" index="14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27161, 0.00999999, 0.376228)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.355242, 0.00999999, 0.45986)
 
 [node name="Flatwoods" parent="OuijaDetector/OuijaSystem/Positions" index="15"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.308197, 0.00999999, 0.375983)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.405768, 0.00999999, 0.477039)
 
 [node name="Rock" parent="OuijaDetector/OuijaSystem" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0525057, 0.376442)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.00999999, 0.193668)
 
 [node name="pyramid_cursor" parent="OuijaDetector/OuijaSystem/Rock" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0469884, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.961516, -0.12941, 0.242363, 0.0146892, 0.905078, 0.424992, -0.274355, -0.405076, 0.872148, 9, 9, 0)
@@ -739,23 +749,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2, -9)
 mesh = SubResource("BoxMesh_82ovq")
 
 [node name="ouija_table" parent="Objects/furnitures" instance=ExtResource("24_c1q2g")]
-unique_name_in_owner = true
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 4.32373, -0.0285225, -4.5226)
 
 [node name="bougie" parent="Objects/furnitures" instance=ExtResource("31_27d00")]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.50072, 1.33225, -3.62133)
-visible = false
 
 [node name="bougie2" parent="Objects/furnitures" instance=ExtResource("31_27d00")]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.22133, 1.33225, -3.62133)
-visible = false
 
 [node name="bougie3" parent="Objects/furnitures" instance=ExtResource("31_27d00")]
-unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.79172, 1.33225, -3.62133)
-visible = false
 
 [node name="artefacts" type="Node3D" parent="Objects"]
 
@@ -778,6 +781,8 @@ holder = NodePath("../../../PlacementPoints/baguettePlace")
 [node name="chandelier_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("22_0qjls")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.20033, -5)
 holder = NodePath("../../../PlacementPoints/chandelierPlace")
+
+[node name="chest_key_p" parent="Objects/artefacts" instance=ExtResource("23_adsxp")]
 
 [node name="crystal_ball_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("24_rhh4s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.4, -7)
@@ -849,8 +854,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.470442, 2.44876, -9.42242)
 [node name="NorthWest" type="Marker3D" parent="SymbolPositions"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.70537, 2.44876, -9.42242)
 
-[node name="ObjectPlacer" type="Node" parent="."]
+[node name="ObjectPlacer" type="Node" parent="." node_paths=PackedStringArray("object")]
 script = ExtResource("13_ck4kk")
+object = NodePath("../Objects/artefacts/chaudron_p")
 info = "Object linked to placement point!"
 
 [editable path="OuijaDetector"]

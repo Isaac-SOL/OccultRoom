@@ -22,7 +22,7 @@ var ouija_message_next: bool = false
 var crystal_message_next: bool = false
 var crystal_message_2_next: bool = false
 var ouija_explanation_next: bool = false
-var already_inspected: bool = true
+var already_inspected: bool = false
 @export var intro: bool = true
 var rotate_count: int = 0
 
@@ -52,6 +52,7 @@ func start_intro_sequence():
 	crystal_message_next = true
 	%PickupHint.visible = true
 	%FreeTurnHint.visible = true
+	%InspectHint.visible = true
 	#%TableHint.visible = true
 	already_inspected = false
 

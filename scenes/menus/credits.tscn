@@ -87,6 +87,7 @@ text = "Game Design, Programming : Arkatein, SaltyIsaac
 Using audio and texture assets by Kenney"
 
 [node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 210.0
 offset_top = 284.0
 offset_right = 402.0

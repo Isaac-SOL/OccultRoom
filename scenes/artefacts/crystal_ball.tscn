@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cj7ngfioppdlb"]
+[gd_scene load_steps=4 format=3 uid="uid://cj7ngfioppdlb"]
 
 [ext_resource type="PackedScene" uid="uid://b73al4taq0une" path="res://assets/3Dmodels/artefacts/crystal_ball.glb" id="1_mb6fm"]
 [ext_resource type="Material" uid="uid://cu3g8sjek7v4r" path="res://assets/textures/glass_crystal_ball_material.tres" id="2_jmoco"]
 
+[sub_resource type="GDScript" id="GDScript_h3v0g"]
+script/source = "extends Node3D
+
+func hide_ball():
+	$ball.visible = false
+"
+
 [node name="crystal_ball" instance=ExtResource("1_mb6fm")]
+script = SubResource("GDScript_h3v0g")
 
 [node name="ball" parent="." index="0"]
 surface_material_override/0 = ExtResource("2_jmoco")

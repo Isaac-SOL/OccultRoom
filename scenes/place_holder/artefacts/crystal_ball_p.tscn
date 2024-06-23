@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dehme7jiixlxf"]
+[gd_scene load_steps=19 format=3 uid="uid://dehme7jiixlxf"]
 
 [ext_resource type="Script" path="res://scripts/crystal_ball.gd" id="1_5cbiw"]
 [ext_resource type="PackedScene" uid="uid://cj7ngfioppdlb" path="res://scenes/artefacts/crystal_ball.tscn" id="2_f1el1"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://cjmj52qpsvbs8" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_003.ogg" id="6_cmb3g"]
 [ext_resource type="AudioStream" uid="uid://dkkncu1gctmth" path="res://assets/audio/Kenney/Impacts/impactSoft_medium_004.ogg" id="7_hylh8"]
 [ext_resource type="Material" uid="uid://b44mjug2jqmjr" path="res://shaders_mats/outline_mat.tres" id="8_j32uj"]
+[ext_resource type="AudioStream" uid="uid://dj136n33ne7ba" path="res://assets/audio/Kenney/glass_break.ogg" id="8_kr1c0"]
+[ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="10_ubc5s"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_jfp12"]
 height = 0.8
@@ -55,6 +57,25 @@ _surfaces = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_62bu4"]
 radius = 0.349962
 
+[sub_resource type="Curve" id="Curve_u8mpp"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.72308, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_m8fmf"]
+curve = SubResource("Curve_u8mpp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eqp0s"]
+lifetime_randomness = 0.2
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 2.0
+initial_velocity_max = 6.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_m8fmf")
+color = Color(0.752941, 0, 1, 1)
+
 [node name="crystal_ball_p" type="Area3D" groups=["CrystalBall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00878441, 0)
 script = ExtResource("1_5cbiw")
@@ -75,6 +96,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45397, 0)
 unique_name_in_owner = true
 stream = SubResource("AudioStreamRandomizer_ittyt")
 volume_db = -10.0
+
+[node name="BreakAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("8_kr1c0")
+volume_db = -5.0
 
 [node name="Outline" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -106,3 +132,11 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("SphereShape3D_62bu4")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_eqp0s")
+draw_pass_1 = ExtResource("10_ubc5s")

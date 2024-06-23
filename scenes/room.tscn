@@ -794,7 +794,12 @@ holder = NodePath("../../../PlacementPoints/Basic/ObjectPlacementPoint94")
 
 [node name="crystal_ball_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("24_rhh4s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.4, -7)
+move_speed = 25.0
 holder = NodePath("../../../PlacementPoints/crystalBallPlace")
+rotation_discrete = 0
+small = false
+conditions = Array[Resource("res://scripts/resources/object_condition.gd")]([])
+needs_valid_placement = false
 
 [node name="genie_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("25_bondq")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 9, 0.904653, -4)

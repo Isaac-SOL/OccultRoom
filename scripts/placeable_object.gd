@@ -27,6 +27,7 @@ var saved_scale: Vector3
 var unclickable_timer: float = 0
 var hovering: ObjectPlacementPoint
 var rotation_addition: Vector3 = Vector3.ZERO
+var can_pickup: bool = true
 
 func _ready():
 	if holder:
@@ -191,6 +192,9 @@ func add_random_rotation():
 
 func set_clickable(clickable: bool):
 	set_deferred("input_ray_pickable", clickable)
+
+func set_pickable(pickable: bool):
+	can_pickup = pickable
 
 func destroy():
 	if holder:

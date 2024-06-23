@@ -1,7 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://q1jplmh66s0p"]
+[gd_scene load_steps=10 format=3 uid="uid://q1jplmh66s0p"]
 
 [ext_resource type="Theme" uid="uid://dtqnw4yhbe0kk" path="res://assets/fonts/second_title_them.tres" id="1_pxvht"]
 [ext_resource type="FontFile" uid="uid://bqtsy0viujorh" path="res://imports/PixelifySans-Regular.ttf" id="1_ujx8y"]
+[ext_resource type="Theme" uid="uid://ujjtd62wvxsf" path="res://imports/pixel_theme.tres" id="3_8cejn"]
+[ext_resource type="StyleBox" uid="uid://cln15kpjcsiss" path="res://imports/style_box_normal.tres" id="4_pmhgn"]
+[ext_resource type="StyleBox" uid="uid://ddmyelf7ggrso" path="res://imports/style_box_hover.tres" id="5_5lkmn"]
+[ext_resource type="StyleBox" uid="uid://b3p1lms34esoy" path="res://imports/style_box_click.tres" id="6_rj8dg"]
+
+[sub_resource type="GDScript" id="GDScript_elj4b"]
+script/source = "extends Control
+
+
+func _on_exit_button_pressed():
+	get_tree().change_scene_to_file(\"res://scenes/menus/menu.tscn\")
+"
 
 [sub_resource type="Theme" id="Theme_2ffht"]
 default_font_size = 75
@@ -17,6 +29,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_elj4b")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -72,3 +85,18 @@ theme_override_colors/font_color = Color(0.945098, 0.835294, 0.729412, 1)
 text = "Game Design, Programming : Arkatein, SaltyIsaac
 3D Modeling : Arkatein
 Using audio and texture assets by Kenney"
+
+[node name="ExitButton" type="Button" parent="."]
+offset_left = 210.0
+offset_top = 284.0
+offset_right = 402.0
+offset_bottom = 349.0
+theme = ExtResource("3_8cejn")
+theme_override_colors/font_color = Color(1, 0.92549, 0.815686, 1)
+theme_override_styles/normal = ExtResource("4_pmhgn")
+theme_override_styles/hover = ExtResource("5_5lkmn")
+theme_override_styles/pressed = ExtResource("6_rj8dg")
+text = "Exit
+"
+
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]

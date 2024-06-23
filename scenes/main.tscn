@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=60 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://cbwdu4qytnn03" path="res://assets/textures/putdown_hint.png" id="20_6x1w7"]
 [ext_resource type="Texture2D" uid="uid://cvulckh5b7y0" path="res://assets/textures/turn_object_hint.png" id="20_srbnq"]
 [ext_resource type="Texture2D" uid="uid://cwsp70a8iyu6a" path="res://assets/textures/zoom_hint.png" id="21_6kdao"]
+[ext_resource type="PackedScene" uid="uid://q1jplmh66s0p" path="res://scenes/menus/credits.tscn" id="31_ih2nf"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jo56l"]
 streams_count = 5
@@ -204,7 +205,6 @@ func set_inspect(inspect: bool):
 
 [node name="Main" type="Node3D" groups=["MainGroup"]]
 script = ExtResource("1_rshqp")
-intro = false
 
 [node name="Room" parent="." instance=ExtResource("1_vjk08")]
 unique_name_in_owner = true
@@ -637,6 +637,11 @@ Mouse Wheel: Turn held object"
 inspect_text = "Mouse Left: Touch
 Mouse Right: Put down
 Mouse Wheel: Zoom"
+
+[node name="CreditsLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="credits" parent="CreditsLayer" instance=ExtResource("31_ih2nf")]
 
 [connection signal="object_placed" from="Room" to="." method="_on_room_object_placed"]
 [connection signal="stool_just_placed" from="Room" to="." method="_on_room_stool_just_placed"]

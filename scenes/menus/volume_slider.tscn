@@ -6,10 +6,10 @@
 [ext_resource type="StyleBox" uid="uid://cln15kpjcsiss" path="res://imports/style_box_normal.tres" id="4_jghdw"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ey1x6"]
-bg_color = Color(0.372549, 0.407843, 0.698039, 1)
+bg_color = Color(0.647059, 0.341176, 0.247059, 1)
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(0.282353, 0.196078, 0.458824, 1)
+border_color = Color(0.415686, 0.0862745, 0, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -42,7 +42,7 @@ alignment = 1
 [node name="Label" type="Label" parent="HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_colors/font_color = Color(0.662745, 0.709804, 1, 1)
+theme_override_colors/font_color = Color(0.945098, 0.835294, 0.729412, 1)
 text = "Bus Name"
 
 [node name="VSeparator" type="VSeparator" parent="HBoxContainer"]

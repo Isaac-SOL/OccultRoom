@@ -37,10 +37,8 @@ dissolve_material_candle = ExtResource("4_2r8ir")
 transform = Transform3D(0, 0, 3.10131, 0, 2.37703, 0, -2.65995, 0, 0, 0.160991, 1.1082, 0.0782348)
 
 [node name="ouija_board" parent="." index="2"]
-transform = Transform3D(-0.151601, 0, -2.28911e-08, 0, 0.151601, 0, 2.28911e-08, 0, -0.151601, 0.0865257, 1.28137, 0.157703)
-visible = false
-surface_material_override/3 = ExtResource("3_qa41t")
+transform = Transform3D(-0.166781, 0, -6.49471e-08, 0, 0.166781, 0, 6.49471e-08, 0, -0.166781, 0.0865257, 1.28137, 0.157703)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 tree_root = SubResource("AnimationNodeStateMachine_eaktn")
 anim_player = NodePath("../AnimationPlayer")

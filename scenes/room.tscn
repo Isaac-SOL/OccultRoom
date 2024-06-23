@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wt2312k41wo8" path="res://scenes/chambre/door_plane.tscn" id="3_vubc3"]
 [ext_resource type="Texture2D" uid="uid://cskdi3l4e5ptn" path="res://assets/textures/symbols/triskelion-96.png" id="4_7pbam"]
 [ext_resource type="Texture2D" uid="uid://c3k47cmqjkgcb" path="res://assets/textures/door.png" id="5_l8kh7"]
-[ext_resource type="PackedScene" uid="uid://4axxv4ncukbv" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
+[ext_resource type="PackedScene" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
 [ext_resource type="Texture2D" uid="uid://bj016jvyxdu12" path="res://assets/textures/symbols/modify/illuminati-100-w.png" id="6_jdx8u"]
 [ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="7_emt5d"]
 [ext_resource type="PackedScene" uid="uid://f6ow8vkcmf3n" path="res://scenes/chambre/window_plane.tscn" id="7_tgo6c"]
@@ -794,12 +794,7 @@ holder = NodePath("../../../PlacementPoints/Basic/ObjectPlacementPoint94")
 
 [node name="crystal_ball_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("24_rhh4s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 1.4, -7)
-move_speed = 25.0
 holder = NodePath("../../../PlacementPoints/crystalBallPlace")
-rotation_discrete = 0
-small = false
-conditions = Array[Resource("res://scripts/resources/object_condition.gd")]([])
-needs_valid_placement = false
 
 [node name="genie_p" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("25_bondq")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 9, 0.904653, -4)

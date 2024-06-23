@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dtqnw4yhbe0kk"]
 
-[ext_resource type="FontFile" uid="uid://cfcpbnf37p2u" path="res://assets/fonts/buxotic/Buxotic.otf" id="1_vaj3n"]
+[ext_resource type="FontFile" uid="uid://5fimeku4rxm8" path="res://assets/fonts/staypuft/StayPuft.ttf" id="1_40iir"]
 
 [resource]
-default_font = ExtResource("1_vaj3n")
-default_font_size = 80
+default_font = ExtResource("1_40iir")
+default_font_size = 100

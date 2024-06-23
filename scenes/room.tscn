@@ -31,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://dtr12fgi36m3m" path="res://scenes/furnitures/ouija_table.tscn" id="24_c1q2g"]
 [ext_resource type="PackedScene" uid="uid://dehme7jiixlxf" path="res://scenes/place_holder/artefacts/crystal_ball_p.tscn" id="24_rhh4s"]
 [ext_resource type="PackedScene" uid="uid://tu5b57jvbo15" path="res://scenes/place_holder/artefacts/genie_p.tscn" id="25_bondq"]
+[ext_resource type="PackedScene" uid="uid://j5wg6vef801n" path="res://objects/move_ghost.tscn" id="26_dew2q"]
 [ext_resource type="PackedScene" uid="uid://bchf7pbgoe4nb" path="res://scenes/place_holder/artefacts/pandora_key_p.tscn" id="26_l1t6v"]
 [ext_resource type="PackedScene" uid="uid://b2hdu0etnh1ea" path="res://objects/bougie_chandelier.tscn" id="27_adssi"]
 [ext_resource type="PackedScene" uid="uid://dmit33gq3mpqq" path="res://scenes/place_holder/artefacts/sonnette_p.tscn" id="27_o4ndo"]
@@ -40,7 +41,6 @@
 [ext_resource type="PackedScene" uid="uid://2afuqainpx47" path="res://scenes/place_holder/artefacts/large_chest_p.tscn" id="33_0ixpr"]
 [ext_resource type="PackedScene" uid="uid://b00bfo0pfcc7e" path="res://scenes/place_holder/artefacts/pandora_box_p.tscn" id="33_6vd2a"]
 [ext_resource type="PackedScene" uid="uid://d1m1p8cg07hcf" path="res://scenes/place_holder/artefacts/chaudron_p.tscn" id="35_8lhf2"]
-[ext_resource type="PackedScene" uid="uid://d32hibugde61v" path="res://scenes/chambre/ghost.tscn" id="39_6hprf"]
 [ext_resource type="PackedScene" uid="uid://ubs3m3sum8sf" path="res://scenes/place_holder/artefacts/bougeoir_p.tscn" id="39_rpjnc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4lg0k"]
@@ -761,6 +761,10 @@ visible = false
 [node name="Totem" parent="Objects/furnitures" instance=ExtResource("24_3epat")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.589983, -3.5)
 
+[node name="MoveGhost" parent="Objects/furnitures" instance=ExtResource("26_dew2q")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.81161, 0.638559, -4.3407)
+
 [node name="artefacts" type="Node3D" parent="Objects"]
 
 [node name="CodeChest" parent="Objects/artefacts" node_paths=PackedStringArray("holder") instance=ExtResource("12_r5a1l")]
@@ -829,9 +833,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.20033, -5)
 holder = NodePath("../../../PlacementPoints/chandelierPlace")
 
-[node name="ghost" parent="Objects/artefacts" instance=ExtResource("39_6hprf")]
-transform = Transform3D(-0.595173, 0, 0.803597, 0, 1, 0, -0.803597, 0, -0.595173, 9.07104, 0.877391, 0.126474)
-
 [node name="SymbolPositions" type="Node3D" parent="."]
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
@@ -867,5 +868,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.70537, 2.44876, -9.42242)
 script = ExtResource("13_ck4kk")
 object = NodePath("../Objects/artefacts/BougieChandelier2")
 info = "Object linked to placement point!"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 180.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="move_ghost"]
 
 [editable path="OuijaDetector"]

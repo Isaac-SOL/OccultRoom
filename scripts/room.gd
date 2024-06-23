@@ -4,6 +4,7 @@ signal stool_just_placed
 signal object_placed(object: PlaceableObject)
 
 var symbol_to_position: Dictionary = {}
+var all_placement_points: Array[ObjectPlacementPoint] = []
 
 func _ready():
 	Singletons.room = self
@@ -21,6 +22,9 @@ func _ready():
 	for child: Node in find_children("*", "PlaceableObject", true):
 		if child is PlaceableObject:
 			child.object_placed.connect(_on_object_placed)
+	for child: Node in find_children("*", "ObjectPlacementPoint", true):
+		if child is ObjectPlacementPoint:
+			all_placement_points.append(child)
 
 func stool_placed():
 	%OuijaPlacementPoint.process_mode = Node.PROCESS_MODE_INHERIT
@@ -60,3 +64,11 @@ func shake_ouija():
 
 func set_arrow_animated(animated: bool):
 	%TotemArrow.set_animated(animated)
+
+func move_ghost():
+	var pos: Vector3 = all_placement_points.pick_random().position
+	%MoveGhost.position = pos
+	%MoveGhost.squish()
+	await get_tree().process_frame
+	if not %MoveGhost.in_light():
+		%MoveGhost.appear()

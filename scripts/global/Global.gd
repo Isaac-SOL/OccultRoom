@@ -9,6 +9,8 @@ var botDifficulty = 1
 var botSpeed = 450
 var viewport_size = DisplayServer.window_get_size()
 var prevscene = null
+var french: bool = false
+var dithering: bool = true
 
 func _process(delta):
 	#setBotSpeed(botDifficulty)

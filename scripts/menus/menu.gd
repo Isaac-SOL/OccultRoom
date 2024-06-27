@@ -27,4 +27,8 @@ func _on_option_button_pressed():
 func _on_credit_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/menus/credits.tscn")
 
+func _on_check_button_toggled(toggled_on):
+	Global.french = toggled_on
 
+func _on_dither_button_toggled(toggled_on):
+	Global.dithering = toggled_on

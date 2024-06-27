@@ -98,6 +98,19 @@ theme_override_styles/hover = ExtResource("5_giavi")
 theme_override_styles/pressed = ExtResource("6_hv51a")
 text = "Quit"
 
+[node name="FrenchButton" type="CheckButton" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "English <---> Français"
+expand_icon = true
+
+[node name="DitherButton" type="CheckButton" parent="MarginContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+button_pressed = true
+text = "Dithering"
+expand_icon = true
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -118,3 +131,5 @@ bus = &"Sfx"
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="toggled" from="MarginContainer2/MarginContainer/VBoxContainer/FrenchButton" to="." method="_on_check_button_toggled"]
+[connection signal="toggled" from="MarginContainer2/MarginContainer/VBoxContainer/DitherButton" to="." method="_on_dither_button_toggled"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=66 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -200,6 +200,14 @@ fill_to = Vector2(0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_545jf"]
 shader = ExtResource("30_oh8ic")
+
+[sub_resource type="GDScript" id="GDScript_te63y"]
+script/source = "extends ColorRect
+
+func _ready():
+	if not Global.dithering:
+		visible = false
+"
 
 [sub_resource type="LabelSettings" id="LabelSettings_75ksr"]
 font_size = 24
@@ -613,6 +621,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = SubResource("GDScript_te63y")
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 

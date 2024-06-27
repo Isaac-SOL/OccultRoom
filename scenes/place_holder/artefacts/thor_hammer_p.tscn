@@ -19,12 +19,17 @@ script/source = "extends PlaceableObject
 
 func _process(delta):
 	super._process(delta)
-	%GPUParticles3D.look_at(ball.position)
+	%GPUParticles3D.look_at(ball.global_position)
 
 func start_glowing():
 	%SoundTimer.start()
 	%OmniLight3D.visible = true
 	%GPUParticles3D.emitting = true
+
+func stop_glowing():
+	%SoundTimer.stop()
+	%OmniLight3D.visible = false
+	%GPUParticles3D.emitting = false
 
 func break_animation():
 	%SoundTimer.stop()

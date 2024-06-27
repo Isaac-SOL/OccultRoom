@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=63 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://cbwdu4qytnn03" path="res://assets/textures/putdown_hint.png" id="20_6x1w7"]
 [ext_resource type="Texture2D" uid="uid://cvulckh5b7y0" path="res://assets/textures/turn_object_hint.png" id="20_srbnq"]
 [ext_resource type="Texture2D" uid="uid://cwsp70a8iyu6a" path="res://assets/textures/zoom_hint.png" id="21_6kdao"]
+[ext_resource type="Shader" path="res://shaders_mats/quantize.gdshader" id="30_oh8ic"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jo56l"]
 streams_count = 5
@@ -195,6 +196,9 @@ fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nn5vu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_545jf"]
+shader = ExtResource("30_oh8ic")
 
 [sub_resource type="GDScript" id="GDScript_hhhcl"]
 script/source = "extends Label
@@ -590,6 +594,20 @@ text = "Je connais bien ce genre d'esprit. Je vais jouer son jeu pour le moment.
 label_settings = SubResource("LabelSettings_nn5vu")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
+copy_mode = 2
+
+[node name="PostProcessLayer2" type="CanvasLayer" parent="."]
+
+[node name="DitherRect" type="ColorRect" parent="PostProcessLayer2"]
+material = SubResource("ShaderMaterial_545jf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 

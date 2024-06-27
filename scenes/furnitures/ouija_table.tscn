@@ -1,10 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dtr12fgi36m3m"]
+[gd_scene load_steps=12 format=3 uid="uid://dtr12fgi36m3m"]
 
 [ext_resource type="PackedScene" uid="uid://b0jprtmb4kasc" path="res://assets/3Dmodels/furnitures/ouija_table.glb" id="1_4e1dr"]
 [ext_resource type="Script" path="res://scenes/furnitures/ouija_table.gd" id="2_5njpn"]
 [ext_resource type="Material" uid="uid://bmgjffcsvkcbn" path="res://shaders_mats/magic_dissolve_mat.tres" id="3_qa41t"]
 [ext_resource type="Material" uid="uid://cqlmj2b64ku7k" path="res://shaders_mats/magic_dissolve_bougie_mat.tres" id="4_2r8ir"]
-[ext_resource type="FontFile" uid="uid://5fimeku4rxm8" path="res://assets/fonts/staypuft/StayPuft.ttf" id="5_oma8l"]
 [ext_resource type="AudioStream" uid="uid://cx3nb2a1ihfsx" path="res://assets/audio/522694__julianmateo__magic-spell-sorcery-enchant-appear-ghost.wav" id="6_gesee"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bs5s8"]
@@ -37,19 +36,13 @@ dissolve_material_candle = ExtResource("4_2r8ir")
 
 [node name="tapis_table" parent="." index="1"]
 transform = Transform3D(0, 0, 3.10131, 0, 2.37703, 0, -2.65995, 0, 0, 0.160991, 1.1082, 0.0782348)
+surface_material_override/1 = ExtResource("3_qa41t")
 
 [node name="ouija_board" parent="." index="2"]
 transform = Transform3D(-0.166781, 0, -6.49469e-08, 0, 0.166781, 0, 6.49469e-08, 0, -0.166781, 0.0865257, 1.28137, 0.157703)
 visible = false
 cast_shadow = 0
 surface_material_override/4 = ExtResource("3_qa41t")
-
-[node name="Label3D" type="Label3D" parent="ouija_board" index="0"]
-transform = Transform3D(3, 0, 1.14641e-14, -1.14641e-14, 1.31134e-07, 3, 0, -3, 1.31134e-07, -0.195109, 0.0871449, 0.424712)
-modulate = Color(0.150658, 0.107713, 0.0186094, 1)
-text = "N"
-font = ExtResource("5_oma8l")
-outline_size = 0
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 tree_root = SubResource("AnimationNodeStateMachine_eaktn")

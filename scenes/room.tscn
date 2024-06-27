@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wt2312k41wo8" path="res://scenes/chambre/door_plane.tscn" id="3_vubc3"]
 [ext_resource type="Texture2D" uid="uid://cskdi3l4e5ptn" path="res://assets/textures/symbols/triskelion-96.png" id="4_7pbam"]
 [ext_resource type="Texture2D" uid="uid://c3k47cmqjkgcb" path="res://assets/textures/door.png" id="5_l8kh7"]
-[ext_resource type="PackedScene" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
+[ext_resource type="PackedScene" uid="uid://4axxv4ncukbv" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
 [ext_resource type="Texture2D" uid="uid://bj016jvyxdu12" path="res://assets/textures/symbols/modify/illuminati-100-w.png" id="6_jdx8u"]
 [ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="7_emt5d"]
 [ext_resource type="PackedScene" uid="uid://f6ow8vkcmf3n" path="res://scenes/chambre/window_plane.tscn" id="7_tgo6c"]
@@ -27,8 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://ce0y02q4swkxw" path="res://scenes/place_holder/furnitures/presentoire_p.tscn" id="20_novct"]
 [ext_resource type="PackedScene" uid="uid://d3x7emqm0kl3w" path="res://scenes/furnitures/box.tscn" id="21_rl1nk"]
 [ext_resource type="PackedScene" uid="uid://du2tmpiagabfs" path="res://scenes/place_holder/artefacts/chandelier_p.tscn" id="22_0qjls"]
+[ext_resource type="PackedScene" uid="uid://dtr12fgi36m3m" path="res://scenes/furnitures/ouija_table.tscn" id="23_01fqv"]
 [ext_resource type="PackedScene" uid="uid://bybhkwsicvt5s" path="res://scenes/place_holder/furnitures/totem_p.tscn" id="24_3epat"]
-[ext_resource type="PackedScene" uid="uid://dtr12fgi36m3m" path="res://scenes/furnitures/ouija_table.tscn" id="24_c1q2g"]
 [ext_resource type="PackedScene" uid="uid://dehme7jiixlxf" path="res://scenes/place_holder/artefacts/crystal_ball_p.tscn" id="24_rhh4s"]
 [ext_resource type="PackedScene" uid="uid://tu5b57jvbo15" path="res://scenes/place_holder/artefacts/genie_p.tscn" id="25_bondq"]
 [ext_resource type="PackedScene" uid="uid://j5wg6vef801n" path="res://objects/move_ghost.tscn" id="26_dew2q"]
@@ -739,7 +739,7 @@ transform = Transform3D(1, 0, 0, 0, 1.3, 0, 0, 0, 1, 3.02743, 0.519453, -4.99672
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2, -9)
 mesh = SubResource("BoxMesh_82ovq")
 
-[node name="ouija_table" parent="Objects/furnitures" instance=ExtResource("24_c1q2g")]
+[node name="ouija_table" parent="Objects/furnitures" instance=ExtResource("23_01fqv")]
 unique_name_in_owner = true
 transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 4.32373, -0.0285225, -4.5226)
 

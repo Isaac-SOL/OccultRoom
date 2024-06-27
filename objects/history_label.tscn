@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cbhtxudr3y676"]
+
+[node name="HistoryLabel" type="Label"]
+custom_minimum_size = Vector2(200, 0)
+size_flags_vertical = 1
+text = "History Label"
+autowrap_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

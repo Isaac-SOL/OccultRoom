@@ -5,6 +5,8 @@ signal released_object(object: Node3D, point: ObjectPlacementPoint)
 signal dialog_clicked
 
 @export var holding_object: Node3D
+@export var history_label_scene: PackedScene
+
 @onready var crystal_viewport: SubViewport = %CrystalViewport
 var targeting_stool: bool = true
 var object_list: Array[PlaceableObject] = []
@@ -286,6 +288,11 @@ func tween_noise_to(final_val: float):
 	noise_tween.tween_method(func(val: float): noise_mat.set_shader_parameter("Strength", val),
 							 curr_val, final_val, 0.5)
 
+func add_dialog_history(text: String):
+	var new_label: Label = history_label_scene.instantiate()
+	new_label.text = text
+	%HistoryContainer.add_child(new_label)
+
 func start_dialog(text: String):
 	tween_noise_to(0.04)
 	%DialogText.text = text
@@ -293,6 +300,7 @@ func start_dialog(text: String):
 	dialog = true
 	%DialogControl.visible = true
 	%DialogAudio.play()
+	add_dialog_history(text)
 
 func _on_dialog_control_gui_input(event: InputEvent):
 	if dialog_unclickable_time <= 0:

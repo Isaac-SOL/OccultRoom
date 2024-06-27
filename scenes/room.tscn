@@ -51,7 +51,7 @@ sky_material = SubResource("ProceduralSkyMaterial_4lg0k")
 [sub_resource type="Environment" id="Environment_x8wh7"]
 background_mode = 1
 sky = SubResource("Sky_56k6r")
-tonemap_white = 3.0
+tonemap_mode = 2
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_bbacu"]
 size = Vector2(10, 6)
@@ -671,6 +671,7 @@ spot_angle = 15.6049
 
 [node name="EditorLight" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.25745, 4, -4.37432)
+visible = false
 light_energy = 8.745
 editor_only = true
 omni_range = 12.661

@@ -5,6 +5,8 @@ signal released_object(object: Node3D, point: ObjectPlacementPoint)
 signal dialog_clicked
 
 @export var holding_object: Node3D
+@export var history_label_scene: PackedScene
+
 @onready var crystal_viewport: SubViewport = %CrystalViewport
 var targeting_stool: bool = true
 var object_list: Array[PlaceableObject] = []
@@ -47,6 +49,11 @@ func start_intro_sequence():
 		"I know this kind of dangerous spirit.",
 		"I better play along for the time being.",
 		"I must figure out what it wants from me."
+	], [0.5, 0.5, 0.5,
+		"Cette pièce est hantée par un esprit.",
+		"Je connais bien ce genre d'esprits frappeurs.",
+		"Je vais jouer le jeu pour le moment.",
+		"Je dois comprendre ce qu'il veut."
 	])
 	%Room.set_eye_animated(true)
 	ouija_message_next = true
@@ -124,13 +131,17 @@ func ouija_clicked():
 		if ouija_message_next:
 			await get_tree().create_timer(0.3).timeout
 			start_multi_dialog(["The glowing Eye... I see...",
-								"Its twin should be nearby. Let's find it."])
+								"Its twin should be nearby. Let's find it."],
+								["L'Œil brillant... Je vois...",
+								"Son jumeau ne doit pas être très loin. Cherchons-le."])
 			%InspectHint.visible = true
 			ouija_message_next = false
 		elif ouija_explanation_next:
 			await get_tree().create_timer(0.3).timeout
 			start_multi_dialog(["This table should help me figure out where it wants things to go.",
-								"Let's put something on that pedestal and ask directly."])
+								"Let's put something on that pedestal and ask directly."],
+								["Cette table devrait m'aider à comprendre où il veut que je dispose les objets.",
+								"Mettons quelque chose sur cce piédestal pour de mander directement."])
 			ouija_explanation_next = false
 			crystal_message_2_next = true
 			%InspectHint.visible = true
@@ -175,12 +186,15 @@ func inspect_object(object: PlaceableObject):
 	%HintsContainerInspect.visible = true
 	if crystal_message_next and object.special_name == "CrystalBall":
 		await get_tree().create_timer(0.3).timeout
-		await start_multi_dialog(["Visions of the future...", "Or hints, perhaps?"])
+		await start_multi_dialog(["Visions of the future...", "Or hints, perhaps?"],
+								 ["Des visions futures...", "Ou des indices, tout simplement ?"])
 		crystal_message_next = false
 	if crystal_message_2_next and object.special_name == "CrystalBall":
 		await get_tree().create_timer(0.3).timeout
 		await start_multi_dialog(["This trusty crystal ball will show me what I have yet to do.",
-								  "When I touch it, the images change..."])
+								  "When I touch it, the images change..."],
+								 ["Ma boule de cristal me montrera ce qu'il me reste à faire.",
+								  "Quand je la touche, les images changent..."])
 		crystal_message_2_next = false
 	if not already_inspected:
 		%PutDownHint.visible = true
@@ -251,11 +265,13 @@ func _on_room_stool_just_placed():
 	if intro:
 		await get_tree().create_timer(1).timeout
 		await start_multi_dialog([1.0, 1.0, "It's trying to move the furniture around...?",
-								  1.0, 1.0, "It would be safer if I reordered the room myself."])
+								  1.0, 1.0, "It would be safer if I reordered the room myself."],
+								 [1.0, 1.0, "Il essaie de déplacer les objets... ?",
+								  1.0, 1.0, "Il vaudrait mieux que je réarrange tout ça moi-même."])
 	%Room.ouija_appear()
 	if intro:
 		await get_tree().create_timer(2).timeout
-		start_dialog("Let's see what it wants...")
+		start_dialog("Let's see what it wants...", "Voyons voir ce qu'il veut...")
 		ouija_explanation_next = true
 
 func _on_room_object_placed(_object):
@@ -286,13 +302,19 @@ func tween_noise_to(final_val: float):
 	noise_tween.tween_method(func(val: float): noise_mat.set_shader_parameter("Strength", val),
 							 curr_val, final_val, 0.5)
 
-func start_dialog(text: String):
+func add_dialog_history(text: String):
+	var new_label: Label = history_label_scene.instantiate()
+	new_label.text = text
+	%HistoryContainer.add_child(new_label)
+
+func start_dialog(text: String, french_text: String = ""):
 	tween_noise_to(0.04)
-	%DialogText.text = text
+	%DialogText.text = french_text if Global.french and not french_text.is_empty() else text
 	dialog_unclickable_time = 1
 	dialog = true
 	%DialogControl.visible = true
 	%DialogAudio.play()
+	add_dialog_history(text)
 
 func _on_dialog_control_gui_input(event: InputEvent):
 	if dialog_unclickable_time <= 0:
@@ -302,8 +324,9 @@ func _on_dialog_control_gui_input(event: InputEvent):
 			%DialogControl.visible = false
 			dialog_clicked.emit()
 
-func start_multi_dialog(texts_and_effects: Array):
-	for text_effect in texts_and_effects:
+func start_multi_dialog(texts_and_effects: Array, taf_french: Array = []):
+	var eff_taf: Array = taf_french if Global.french and not taf_french.is_empty() else texts_and_effects
+	for text_effect in eff_taf:
 		if text_effect is String:
 			start_dialog(text_effect)
 			await dialog_clicked
@@ -316,7 +339,8 @@ func start_multi_dialog(texts_and_effects: Array):
 func nothing_happened():
 	await get_tree().create_timer(1).timeout
 	if not saw_nothing_happen:
-		start_multi_dialog(["Hmm... nothing?", "Let's try something else then."])
+		start_multi_dialog(["Hmm... nothing?", "Let's try something else then."],
+						   ["Hmm... rien ne se passe ?", "Eh bien, essayons autre chose."])
 		saw_nothing_happen = true
 
 func play_correct_audio():
@@ -325,15 +349,21 @@ func play_correct_audio():
 func end_sequence():
 	start_multi_dialog(["There it is!", "It's finally calmed down.",
 						"And now, while it's no longer paying attention...",
-						"Let's get rid of it!"])
+						"Let's get rid of it!"],
+					   ["Et voilà le travail!", "Il s'est enfin calmé.",
+						"Et maintenant qu'il a le dos tourné...",
+						"C'est le moment de s'en débarrasser !"])
 	$Room/Objects/artefacts/crystal_ball_p.set_pickable(false)
 	$Room/Objects/artefacts/thor_hammer_p.start_glowing()
 
 func end_sequence_2():
 	$CrystalSpritePivot.visible = false
+	$Room/Objects/artefacts/thor_hammer_p.stop_glowing()
 	await get_tree().create_timer(2).timeout
 	await start_multi_dialog(["Finally! It's gone.", "And, well, my crystal ball is gone, too.",
-							  "Oh well. What was I doing again?"])
+							  "Oh well. What was I doing again?"],
+							 ["Enfin! Il est parti.", "Et, euh, ma boule de cristal aussi, on dirait.",
+							  "...Bon. Je faisais quoi, déjà, moi ?"])
 	get_tree().change_scene_to_file("res://scenes/menus/victory_screen.tscn")
 
 func _on_blocker_area_input_event(_camera, event, _position, _normal, _shape_idx):

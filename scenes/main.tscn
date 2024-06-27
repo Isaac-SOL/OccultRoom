@@ -1,7 +1,8 @@
-[gd_scene load_steps=61 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=66 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
+[ext_resource type="PackedScene" uid="uid://cbhtxudr3y676" path="res://objects/history_label.tscn" id="2_w5min"]
 [ext_resource type="Script" path="res://scripts/camera_rotation.gd" id="2_xlx1h"]
 [ext_resource type="AudioStream" uid="uid://cl7yx3m7c1yoq" path="res://assets/audio/Kenney/MagicShortLow.ogg" id="3_w5kr4"]
 [ext_resource type="AudioStream" uid="uid://blx6eepr1drn0" path="res://assets/audio/Kenney/forceField_000.ogg" id="4_3advk"]
@@ -31,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cbwdu4qytnn03" path="res://assets/textures/putdown_hint.png" id="20_6x1w7"]
 [ext_resource type="Texture2D" uid="uid://cvulckh5b7y0" path="res://assets/textures/turn_object_hint.png" id="20_srbnq"]
 [ext_resource type="Texture2D" uid="uid://cwsp70a8iyu6a" path="res://assets/textures/zoom_hint.png" id="21_6kdao"]
+[ext_resource type="Shader" path="res://shaders_mats/quantize.gdshader" id="30_oh8ic"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jo56l"]
 streams_count = 5
@@ -196,6 +198,20 @@ fill_to = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nn5vu"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_545jf"]
+shader = ExtResource("30_oh8ic")
+
+[sub_resource type="GDScript" id="GDScript_te63y"]
+script/source = "extends ColorRect
+
+func _ready():
+	if not Global.dithering:
+		visible = false
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_75ksr"]
+font_size = 24
+
 [sub_resource type="GDScript" id="GDScript_hhhcl"]
 script/source = "extends Label
 
@@ -211,6 +227,7 @@ func set_inspect(inspect: bool):
 
 [node name="Main" type="Node3D" groups=["MainGroup"]]
 script = ExtResource("1_rshqp")
+history_label_scene = ExtResource("2_w5min")
 
 [node name="Room" parent="." instance=ExtResource("1_vjk08")]
 unique_name_in_owner = true
@@ -591,22 +608,62 @@ label_settings = SubResource("LabelSettings_nn5vu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PauseLayer" type="CanvasLayer" parent="."]
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
+copy_mode = 2
 
-[node name="LabelTopLeft" type="Label" parent="PauseLayer"]
-unique_name_in_owner = true
-visible = false
-modulate = Color(1, 1, 0, 1)
-offset_right = 223.0
-offset_bottom = 58.0
-size_flags_horizontal = 0
-size_flags_vertical = 8
-theme = ExtResource("6_o16yu")
-text = "Objects left: 5"
+[node name="PostProcessLayer2" type="CanvasLayer" parent="."]
+
+[node name="DitherRect" type="ColorRect" parent="PostProcessLayer2"]
+material = SubResource("ShaderMaterial_545jf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = SubResource("GDScript_te63y")
+
+[node name="PauseLayer" type="CanvasLayer" parent="."]
 
 [node name="PauseMenu" parent="PauseLayer" instance=ExtResource("6_o1hb0")]
 unique_name_in_owner = true
-visible = false
+
+[node name="MarginContainer" parent="PauseLayer/PauseMenu" index="1"]
+offset_right = -248.0
+
+[node name="MarginContainerHistory" type="MarginContainer" parent="PauseLayer/PauseMenu"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -241.0
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseLayer/PauseMenu/MarginContainerHistory"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PauseLayer/PauseMenu/MarginContainerHistory/VBoxContainer"]
+layout_mode = 2
+text = "History"
+label_settings = SubResource("LabelSettings_75ksr")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PauseLayer/PauseMenu/MarginContainerHistory/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="HistoryContainer" type="VBoxContainer" parent="PauseLayer/PauseMenu/MarginContainerHistory/VBoxContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
 
 [node name="LabelLeft" type="Label" parent="PauseLayer/PauseMenu"]
 unique_name_in_owner = true
@@ -656,8 +713,22 @@ inspect_text = "Mouse Left: Touch
 Mouse Right: Put down
 Mouse Wheel: Zoom"
 
+[node name="LabelTopLeft" type="Label" parent="PauseLayer/PauseMenu"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_right = 223.0
+offset_bottom = 58.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("6_o16yu")
+text = "Objects left: 5"
+
 [connection signal="object_placed" from="Room" to="." method="_on_room_object_placed"]
 [connection signal="stool_just_placed" from="Room" to="." method="_on_room_stool_just_placed"]
 [connection signal="input_event" from="CameraRotation/Shaker/Camera3D/BlockerArea" to="." method="_on_blocker_area_input_event"]
 [connection signal="input_event" from="CameraRotation/Shaker/Camera3D/CatcherArea" to="." method="_on_catcher_area_input_event"]
 [connection signal="gui_input" from="UI/DialogControl" to="." method="_on_dialog_control_gui_input"]
+
+[editable path="PauseLayer/PauseMenu"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=68 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://cvulckh5b7y0" path="res://assets/textures/turn_object_hint.png" id="20_srbnq"]
 [ext_resource type="Texture2D" uid="uid://cwsp70a8iyu6a" path="res://assets/textures/zoom_hint.png" id="21_6kdao"]
 [ext_resource type="Shader" path="res://shaders_mats/quantize.gdshader" id="30_oh8ic"]
+[ext_resource type="Shader" path="res://shaders_mats/chromatic_aberration.gdshader" id="32_w0418"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jo56l"]
 streams_count = 5
@@ -208,6 +209,10 @@ func _ready():
 	if not Global.dithering:
 		visible = false
 "
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aem2k"]
+shader = ExtResource("32_w0418")
+shader_parameter/strength = 0.3
 
 [sub_resource type="LabelSettings" id="LabelSettings_75ksr"]
 font_size = 24
@@ -608,13 +613,26 @@ label_settings = SubResource("LabelSettings_nn5vu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="BackBufferCopy2" type="BackBufferCopy" parent="."]
-copy_mode = 2
-
 [node name="PostProcessLayer2" type="CanvasLayer" parent="."]
+
+[node name="BackBufferCopy2" type="BackBufferCopy" parent="PostProcessLayer2"]
+copy_mode = 2
 
 [node name="DitherRect" type="ColorRect" parent="PostProcessLayer2"]
 material = SubResource("ShaderMaterial_545jf")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = SubResource("GDScript_te63y")
+
+[node name="BackBufferCopy3" type="BackBufferCopy" parent="PostProcessLayer2"]
+copy_mode = 2
+
+[node name="ChromaRect" type="ColorRect" parent="PostProcessLayer2"]
+material = SubResource("ShaderMaterial_aem2k")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -627,6 +645,7 @@ script = SubResource("GDScript_te63y")
 
 [node name="PauseMenu" parent="PauseLayer" instance=ExtResource("6_o1hb0")]
 unique_name_in_owner = true
+visible = false
 
 [node name="MarginContainer" parent="PauseLayer/PauseMenu" index="1"]
 offset_right = -248.0

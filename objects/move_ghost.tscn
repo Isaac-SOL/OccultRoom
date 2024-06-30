@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://j5wg6vef801n"]
+[gd_scene load_steps=5 format=3 uid="uid://j5wg6vef801n"]
 
 [ext_resource type="Script" path="res://scripts/move_ghost.gd" id="1_3m4rx"]
 [ext_resource type="PackedScene" uid="uid://d32hibugde61v" path="res://scenes/chambre/ghost.tscn" id="1_m07xv"]
+[ext_resource type="AudioStream" uid="uid://cp8yonb81acqv" path="res://assets/audio/Kenney/scary_blow.ogg" id="3_f1yd2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jkw1c"]
 
@@ -18,3 +19,8 @@ shape = SubResource("CapsuleShape3D_jkw1c")
 [node name="ghost" parent="." instance=ExtResource("1_m07xv")]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 0.1, 0, -1, 0, -4.37114e-08, 0, -1, 0)
+
+[node name="Audio_scary_blow" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_f1yd2")
+volume_db = 8.0
+bus = &"Sfx"

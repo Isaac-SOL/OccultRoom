@@ -2,17 +2,27 @@
 
 [ext_resource type="PackedScene" uid="uid://b7h2qscqsy6am" path="res://assets/3Dmodels/artefacts/bougie.glb" id="1_du2b7"]
 [ext_resource type="Material" uid="uid://5es7glaa8vnf" path="res://assets/particules/fire_process_material.tres" id="2_ds56l"]
-[ext_resource type="Material" uid="uid://do4gknpacwphc" path="res://shaders_mats/magic_dissolve_bougie_mat.tres" id="2_smwu1"]
+[ext_resource type="Material" uid="uid://cqlmj2b64ku7k" path="res://shaders_mats/magic_dissolve_bougie_mat.tres" id="2_smwu1"]
 [ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="3_3uwgy"]
 [ext_resource type="Script" path="res://scripts/candle.gd" id="4_clvm2"]
 
 [sub_resource type="GDScript" id="GDScript_mkysd"]
 script/source = "extends Node3D
 
+
+
 func appear():
 	visible = true
 	await get_tree().create_timer(2).timeout
 	$bougie.set_surface_override_material(1, null)
+
+func switch_light(light_on : bool):
+	if light_on:
+		$Candle_light.visible = false
+		$GPUParticles3D_dark.emitting = false
+	else:
+		$Candle_light.visible = true
+		$GPUParticles3D_dark.emitting = true
 "
 
 [sub_resource type="Gradient" id="Gradient_bewny"]
@@ -46,7 +56,7 @@ scale_max = 2.0
 scale_curve = SubResource("CurveTexture_cxnh3")
 color_ramp = SubResource("GradientTexture1D_kom04")
 
-[node name="bougie" instance=ExtResource("1_du2b7")]
+[node name="bougie" groups=["light_source_group"] instance=ExtResource("1_du2b7")]
 script = SubResource("GDScript_mkysd")
 
 [node name="bougie" parent="." index="0"]

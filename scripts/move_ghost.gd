@@ -19,11 +19,21 @@ func appear():
 
 func disappear():
 	unsquished = false
+	await get_tree().create_timer(3.0).timeout
 	%ghost.position = Vector3.ZERO
 	%ghost.scale = Vector3.ONE
 	var tween: Tween = get_tree().create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(%ghost, "position", Vector3(0, -4, 0), 0.5)
 	tween.parallel().tween_property(%ghost, "scale", Vector3(1, 0.1, 1), 0.5)
+	NodeAudio.pauseAudio()
+	$Audio_scary_blow.play()
+	get_tree().call_group("light_source_group", "switch_light", true)
+	await get_tree().create_timer(4.0).timeout
+	Singletons.shaker.shake(0.5, 2.0)
+	await get_tree().create_timer(3.0).timeout
+	NodeAudio.pauseAudio()
+	get_tree().call_group("light_source_group", "switch_light", false)
+	
 
 func squish():
 	%ghost.position = Vector3(0, -4, 0)

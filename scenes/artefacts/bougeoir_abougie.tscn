@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgdxrp8y31pje"]
+[gd_scene load_steps=6 format=3 uid="uid://dgdxrp8y31pje"]
 
 [ext_resource type="PackedScene" uid="uid://bdwkouwvrmdm0" path="res://assets/3Dmodels/artefacts/bougeoir_Abougie.glb" id="1_qde21"]
 [ext_resource type="Material" uid="uid://5es7glaa8vnf" path="res://assets/particules/fire_process_material.tres" id="2_debbu"]
+[ext_resource type="Script" path="res://scripts/bougeoir_abougie.gd" id="2_ipbxa"]
 [ext_resource type="QuadMesh" uid="uid://c6ooteefrfm4q" path="res://assets/particules/fire_mesh.tres" id="3_hkm5g"]
 [ext_resource type="Script" path="res://scripts/candle.gd" id="4_d5y0f"]
 
-[node name="bougeoir_Abougie" instance=ExtResource("1_qde21")]
+[node name="bougeoir_Abougie" groups=["light_source_group"] instance=ExtResource("1_qde21")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131176, 0, 0)
+script = ExtResource("2_ipbxa")
 
 [node name="GPUParticles3D_fire" type="GPUParticles3D" parent="." index="1"]
 transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0.125974, 0.978422, 0.0515167)

@@ -149,6 +149,7 @@ func flames_sequence():
 		Singletons.main.set_crystal_target(object)
 		if object.check_valid():
 			flames[i].process_material = valid_flame
+			%CorrectAudio.play()
 			valids += 1
 		else:
 			flames[i].process_material = invalid_flame

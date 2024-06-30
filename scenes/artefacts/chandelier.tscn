@@ -9,6 +9,7 @@
 script/source = "extends Node3D
 
 var bougie_amount: int = 0
+var chandelier_active = false
 
 func add_bougie():
 	bougie_amount += 1
@@ -18,13 +19,29 @@ func add_bougie():
 		3: $chandelier_bougies_solo_3.visible = true
 
 func light():
-	$chandelier_bougies_solo_1/GPUParticles3D_fire1.visible = true
-	$chandelier_bougies_solo_2/GPUParticles3D_fire2.visible = true
-	$chandelier_bougies_solo_3/GPUParticles3D_fire3.visible = true
-	$Candle_light.visible = true
+		$chandelier_bougies_solo_1/GPUParticles3D_fire1.visible = true
+		$chandelier_bougies_solo_2/GPUParticles3D_fire2.visible = true
+		$chandelier_bougies_solo_3/GPUParticles3D_fire3.visible = true
+		$Candle_light.visible = true
+		chandelier_active = true
+
+func switch_light(light_on : bool):
+	if chandelier_active:
+		if light_on:
+			$chandelier_bougies_solo_1/GPUParticles3D_fire1.visible = false
+			$chandelier_bougies_solo_2/GPUParticles3D_fire2.visible = false
+			$chandelier_bougies_solo_3/GPUParticles3D_fire3.visible = false
+			$Candle_light.visible = false
+		else:
+			$chandelier_bougies_solo_1/GPUParticles3D_fire1.visible = true
+			$chandelier_bougies_solo_2/GPUParticles3D_fire2.visible = true
+			$chandelier_bougies_solo_3/GPUParticles3D_fire3.visible = true
+			$Candle_light.visible = true
+	else:
+		return
 "
 
-[node name="chandelier" instance=ExtResource("1_2og5s")]
+[node name="chandelier" groups=["light_source_group"] instance=ExtResource("1_2og5s")]
 script = SubResource("GDScript_8u42v")
 
 [node name="Candle_light" type="Node3D" parent="." index="1"]

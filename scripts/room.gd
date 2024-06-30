@@ -72,3 +72,4 @@ func move_ghost():
 	await get_tree().process_frame
 	if not %MoveGhost.in_light():
 		%MoveGhost.appear()
+

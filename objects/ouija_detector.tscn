@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://wry4x8x1djv4"]
+[gd_scene load_steps=20 format=3 uid="uid://wry4x8x1djv4"]
 
 [ext_resource type="Script" path="res://scripts/ouija_detector.gd" id="1_ejanw"]
 [ext_resource type="Script" path="res://scripts/ouija_system.gd" id="2_b34w5"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://eoer4nwxjqhl" path="res://assets/audio/Kenney/Impacts/impactPlate_heavy_004.ogg" id="9_nxgok"]
 [ext_resource type="AudioStream" uid="uid://bb46kv4mijra0" path="res://assets/audio/Kenney/spaceEngineLow_000.ogg" id="10_n5ru1"]
 [ext_resource type="AudioStream" uid="uid://cl7yx3m7c1yoq" path="res://assets/audio/Kenney/MagicShortLow.ogg" id="11_wb6ad"]
+[ext_resource type="AudioStream" uid="uid://dkl0it3apo3bt" path="res://assets/audio/706204__xkeril__nice-anime-sword-hit.wav" id="15_oop8l"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f353b"]
 size = Vector3(2.1, 0.3, 2.1)
@@ -43,6 +44,12 @@ stream_3/stream = ExtResource("8_ih63a")
 stream_3/weight = 1.0
 stream_4/stream = ExtResource("9_nxgok")
 stream_4/weight = 1.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_v5kk7"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("15_oop8l")
+stream_0/weight = 1.0
 
 [node name="OuijaDetector" type="Area3D" groups=["SpecialDetector"]]
 collision_layer = 0
@@ -251,4 +258,11 @@ bus = &"Sfx"
 unique_name_in_owner = true
 stream = ExtResource("11_wb6ad")
 volume_db = -10.0
+bus = &"Sfx"
+
+[node name="CorrectAudio" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_v5kk7")
+volume_db = -20.0
+max_polyphony = 4
 bus = &"Sfx"

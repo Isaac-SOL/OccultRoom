@@ -2,6 +2,8 @@
 
 [resource]
 transparency = 1
-albedo_color = Color(0.619608, 1, 1, 0.313726)
+albedo_color = Color(0.619608, 1, 1, 0.34902)
 roughness = 0.0
+emission = Color(0.619608, 1, 1, 1)
+emission_energy_multiplier = 0.5
 refraction_scale = -0.44

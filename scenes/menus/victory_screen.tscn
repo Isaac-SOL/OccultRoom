@@ -57,7 +57,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_gf5ju")
-theme_override_constants/margin_top = 20
+theme_override_constants/margin_top = 10
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -88,11 +88,12 @@ custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 20
+theme_override_constants/separation = -5
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
@@ -107,25 +108,31 @@ layout_mode = 2
 size_flags_horizontal = 0
 
 [node name="Label2" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = SubResource("Theme_ud7t6")
 theme_override_colors/font_color = Color(0.945098, 0.835294, 0.729412, 1)
 text = "Game Design, Programming : Arkatein, SaltyIsaac"
+autowrap_mode = 3
 
 [node name="Label3" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = SubResource("Theme_ud7t6")
 theme_override_colors/font_color = Color(0.945098, 0.835294, 0.729412, 1)
 text = "3D Modeling : Arkatein"
+autowrap_mode = 3
 
 [node name="Label4" type="Label" parent="MarginContainer/VBoxContainer2/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme = SubResource("Theme_ud7t6")
 theme_override_colors/font_color = Color(0.945098, 0.835294, 0.729412, 1)
 text = "Using audio and texture assets by Kenney"
+autowrap_mode = 3
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="MarginContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(200, 0)

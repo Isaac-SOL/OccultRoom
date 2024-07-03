@@ -24,7 +24,7 @@
 [ext_resource type="Shader" uid="uid://ce07dllsq8rex" path="res://shaders_mats/noise_shader.tres" id="8_t2fxk"]
 [ext_resource type="Texture2D" uid="uid://cgnfu3xy3jomt" path="res://assets/textures/moon.png" id="9_wcb2f"]
 [ext_resource type="AudioStream" uid="uid://dkl0it3apo3bt" path="res://assets/audio/706204__xkeril__nice-anime-sword-hit.wav" id="14_5b11s"]
-[ext_resource type="Texture2D" uid="uid://dgbwlvr4rxe4u" path="res://assets/textures/pause_hint.png" id="23_25edo"]
+[ext_resource type="Texture2D" uid="uid://d2yshlaudailp" path="res://assets/textures/hints/pause_hint.png" id="23_6m64r"]
 [ext_resource type="Texture2D" uid="uid://cw1mmclxbd2lq" path="res://assets/textures/hints/look_around_hint.png" id="23_fly4b"]
 [ext_resource type="Texture2D" uid="uid://cth08upwrup5p" path="res://assets/textures/hints/pickup_hint.png" id="24_ale6i"]
 [ext_resource type="Texture2D" uid="uid://cgxy0xqnne7i3" path="res://assets/textures/hints/inspect_hint.png" id="25_tuuho"]
@@ -426,7 +426,29 @@ mouse_filter = 2
 [node name="PauseHint" type="TextureRect" parent="UI"]
 offset_right = 85.0
 offset_bottom = 32.0
-texture = ExtResource("23_25edo")
+texture = ExtResource("23_6m64r")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/PauseHint"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="UI/PauseHint/HBoxContainer"]
+custom_minimum_size = Vector2(53, 0)
+layout_mode = 2
+theme_override_constants/line_spacing = -5
+theme_override_font_sizes/font_size = 12
+text = "Pause & History"
+autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/PauseHint"]
 modulate = Color(1, 1, 1, 0.392157)

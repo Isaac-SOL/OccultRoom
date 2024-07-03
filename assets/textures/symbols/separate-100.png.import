@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ixf2idurcyd7"
-path.bptc="res://.godot/imported/separate-100.png-a85a50fe7c9d0b7b6f4eae5e7bc1749e.bptc.ctex"
+path="res://.godot/imported/separate-100.png-a85a50fe7c9d0b7b6f4eae5e7bc1749e.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/separate-100.png"
-dest_files=["res://.godot/imported/separate-100.png-a85a50fe7c9d0b7b6f4eae5e7bc1749e.bptc.ctex"]
+dest_files=["res://.godot/imported/separate-100.png-a85a50fe7c9d0b7b6f4eae5e7bc1749e.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

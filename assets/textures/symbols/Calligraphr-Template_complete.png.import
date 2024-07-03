@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btqoj2nd77r5y"
-path.bptc="res://.godot/imported/Calligraphr-Template_complete.png-fb0f4c2c6d8c5c3aeb894798bc081113.bptc.ctex"
+path="res://.godot/imported/Calligraphr-Template_complete.png-fb0f4c2c6d8c5c3aeb894798bc081113.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/Calligraphr-Template_complete.png"
-dest_files=["res://.godot/imported/Calligraphr-Template_complete.png-fb0f4c2c6d8c5c3aeb894798bc081113.bptc.ctex"]
+dest_files=["res://.godot/imported/Calligraphr-Template_complete.png-fb0f4c2c6d8c5c3aeb894798bc081113.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

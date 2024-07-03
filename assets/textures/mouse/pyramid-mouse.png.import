@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dl54lnb6regaa"
-path.bptc="res://.godot/imported/pyramid-mouse.png-b4071c12932fd8d8b1ceeeacc812f17a.bptc.ctex"
+path="res://.godot/imported/pyramid-mouse.png-b4071c12932fd8d8b1ceeeacc812f17a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/mouse/pyramid-mouse.png"
-dest_files=["res://.godot/imported/pyramid-mouse.png-b4071c12932fd8d8b1ceeeacc812f17a.bptc.ctex"]
+dest_files=["res://.godot/imported/pyramid-mouse.png-b4071c12932fd8d8b1ceeeacc812f17a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c301hmkbsbtd0"
-path.bptc="res://.godot/imported/candle-100.png-77ef0863e4932953fd97831367276ed4.bptc.ctex"
+path="res://.godot/imported/candle-100.png-77ef0863e4932953fd97831367276ed4.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/candle-100.png"
-dest_files=["res://.godot/imported/candle-100.png-77ef0863e4932953fd97831367276ed4.bptc.ctex"]
+dest_files=["res://.godot/imported/candle-100.png-77ef0863e4932953fd97831367276ed4.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

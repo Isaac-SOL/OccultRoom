@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baxyl44wi331r"
-path.bptc="res://.godot/imported/presentoire_rubber_tiles_diff_2.jpg-68f5f0f7bd6cf5b2f5340f46b41f745b.bptc.ctex"
+path="res://.godot/imported/presentoire_rubber_tiles_diff_2.jpg-68f5f0f7bd6cf5b2f5340f46b41f745b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "585e908bdd724abeee2acd7ed50e10f2"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/furnitures/presentoire_rubber_tiles_diff_2.jpg"
-dest_files=["res://.godot/imported/presentoire_rubber_tiles_diff_2.jpg-68f5f0f7bd6cf5b2f5340f46b41f745b.bptc.ctex"]
+dest_files=["res://.godot/imported/presentoire_rubber_tiles_diff_2.jpg-68f5f0f7bd6cf5b2f5340f46b41f745b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

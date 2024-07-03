@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cvulckh5b7y0"
-path.bptc="res://.godot/imported/turn_object_hint.png-b74f9877cee4a1d40cdb1bac83ba0c86.bptc.ctex"
+path="res://.godot/imported/turn_object_hint.png-b74f9877cee4a1d40cdb1bac83ba0c86.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/turn_object_hint.png"
-dest_files=["res://.godot/imported/turn_object_hint.png-b74f9877cee4a1d40cdb1bac83ba0c86.bptc.ctex"]
+dest_files=["res://.godot/imported/turn_object_hint.png-b74f9877cee4a1d40cdb1bac83ba0c86.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

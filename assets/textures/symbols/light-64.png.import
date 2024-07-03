@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyrc06qt32jf5"
-path.bptc="res://.godot/imported/light-64.png-4f5f3ef51576aac2074a0de74f1a291c.bptc.ctex"
+path="res://.godot/imported/light-64.png-4f5f3ef51576aac2074a0de74f1a291c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/light-64.png"
-dest_files=["res://.godot/imported/light-64.png-4f5f3ef51576aac2074a0de74f1a291c.bptc.ctex"]
+dest_files=["res://.godot/imported/light-64.png-4f5f3ef51576aac2074a0de74f1a291c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7ppa4guq2mv3"
-path.bptc="res://.godot/imported/pong_title.png-f7cb186427176fbcaa61e55f6bc7762b.bptc.ctex"
+path="res://.godot/imported/pong_title.png-f7cb186427176fbcaa61e55f6bc7762b.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://imports/pong_title.png"
-dest_files=["res://.godot/imported/pong_title.png-f7cb186427176fbcaa61e55f6bc7762b.bptc.ctex"]
+dest_files=["res://.godot/imported/pong_title.png-f7cb186427176fbcaa61e55f6bc7762b.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://f4jlgk556d3i"
-path.bptc="res://.godot/imported/free_turn_hint.png-e31ac35275fec1151a171d9a784a357f.bptc.ctex"
+path="res://.godot/imported/free_turn_hint.png-e31ac35275fec1151a171d9a784a357f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/free_turn_hint.png"
-dest_files=["res://.godot/imported/free_turn_hint.png-e31ac35275fec1151a171d9a784a357f.bptc.ctex"]
+dest_files=["res://.godot/imported/free_turn_hint.png-e31ac35275fec1151a171d9a784a357f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

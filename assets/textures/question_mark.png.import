@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7pil0oa2t4nf"
-path.bptc="res://.godot/imported/question_mark.png-be320fdf097fa602f1f80048a4e1bea1.bptc.ctex"
+path="res://.godot/imported/question_mark.png-be320fdf097fa602f1f80048a4e1bea1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/question_mark.png"
-dest_files=["res://.godot/imported/question_mark.png-be320fdf097fa602f1f80048a4e1bea1.bptc.ctex"]
+dest_files=["res://.godot/imported/question_mark.png-be320fdf097fa602f1f80048a4e1bea1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://baj7qy4b1gmef"
-path.bptc="res://.godot/imported/chandelier_Totem.png-5dda58e179dc96d126a98c69fe2ac897.bptc.ctex"
+path="res://.godot/imported/chandelier_Totem.png-5dda58e179dc96d126a98c69fe2ac897.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "fbcb99c00ff2bad1749a61f4bb9dea9f"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/chandelier_Totem.png"
-dest_files=["res://.godot/imported/chandelier_Totem.png-5dda58e179dc96d126a98c69fe2ac897.bptc.ctex"]
+dest_files=["res://.godot/imported/chandelier_Totem.png-5dda58e179dc96d126a98c69fe2ac897.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

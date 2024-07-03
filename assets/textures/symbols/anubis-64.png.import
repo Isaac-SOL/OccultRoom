@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc7ckyp6lok72"
-path.bptc="res://.godot/imported/anubis-64.png-d455a3bdae450ec8478c56cdcdae892f.bptc.ctex"
+path="res://.godot/imported/anubis-64.png-d455a3bdae450ec8478c56cdcdae892f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/anubis-64.png"
-dest_files=["res://.godot/imported/anubis-64.png-d455a3bdae450ec8478c56cdcdae892f.bptc.ctex"]
+dest_files=["res://.godot/imported/anubis-64.png-d455a3bdae450ec8478c56cdcdae892f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

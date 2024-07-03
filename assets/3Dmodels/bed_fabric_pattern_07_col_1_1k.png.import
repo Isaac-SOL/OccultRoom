@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjgouckgiufdp"
-path.bptc="res://.godot/imported/bed_fabric_pattern_07_col_1_1k.png-21f15f0b28a0105c6b9e9fee65581817.bptc.ctex"
+path="res://.godot/imported/bed_fabric_pattern_07_col_1_1k.png-21f15f0b28a0105c6b9e9fee65581817.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "fcda610fa0c52a41269b9620bc2878f4"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/bed_fabric_pattern_07_col_1_1k.png"
-dest_files=["res://.godot/imported/bed_fabric_pattern_07_col_1_1k.png-21f15f0b28a0105c6b9e9fee65581817.bptc.ctex"]
+dest_files=["res://.godot/imported/bed_fabric_pattern_07_col_1_1k.png-21f15f0b28a0105c6b9e9fee65581817.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

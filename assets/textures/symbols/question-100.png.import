@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b8vube50bbgkb"
-path.bptc="res://.godot/imported/question-100.png-eb96af78f71ce2fb15cada8ddc58c516.bptc.ctex"
+path="res://.godot/imported/question-100.png-eb96af78f71ce2fb15cada8ddc58c516.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/question-100.png"
-dest_files=["res://.godot/imported/question-100.png-eb96af78f71ce2fb15cada8ddc58c516.bptc.ctex"]
+dest_files=["res://.godot/imported/question-100.png-eb96af78f71ce2fb15cada8ddc58c516.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

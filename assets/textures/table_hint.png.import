@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dkcclecvpkvum"
-path.bptc="res://.godot/imported/table_hint.png-7a91aa820cbd29a1978527a9dff683fc.bptc.ctex"
+path="res://.godot/imported/table_hint.png-7a91aa820cbd29a1978527a9dff683fc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/table_hint.png"
-dest_files=["res://.godot/imported/table_hint.png-7a91aa820cbd29a1978527a9dff683fc.bptc.ctex"]
+dest_files=["res://.godot/imported/table_hint.png-7a91aa820cbd29a1978527a9dff683fc.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

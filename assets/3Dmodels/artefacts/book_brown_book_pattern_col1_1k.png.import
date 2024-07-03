@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://beqampm086axo"
-path.bptc="res://.godot/imported/book_brown_book_pattern_col1_1k.png-748d7cb9a11ae19e27c4323b045e76a2.bptc.ctex"
+path="res://.godot/imported/book_brown_book_pattern_col1_1k.png-748d7cb9a11ae19e27c4323b045e76a2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "ab5218cdf16989cef83864fbbc46d59f"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/artefacts/book_brown_book_pattern_col1_1k.png"
-dest_files=["res://.godot/imported/book_brown_book_pattern_col1_1k.png-748d7cb9a11ae19e27c4323b045e76a2.bptc.ctex"]
+dest_files=["res://.godot/imported/book_brown_book_pattern_col1_1k.png-748d7cb9a11ae19e27c4323b045e76a2.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

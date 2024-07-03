@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cbwdu4qytnn03"
-path.bptc="res://.godot/imported/putdown_hint.png-dc4ddd7f78449f0b3b46ca6e90e6e1d1.bptc.ctex"
+path="res://.godot/imported/putdown_hint.png-dc4ddd7f78449f0b3b46ca6e90e6e1d1.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/putdown_hint.png"
-dest_files=["res://.godot/imported/putdown_hint.png-dc4ddd7f78449f0b3b46ca6e90e6e1d1.bptc.ctex"]
+dest_files=["res://.godot/imported/putdown_hint.png-dc4ddd7f78449f0b3b46ca6e90e6e1d1.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

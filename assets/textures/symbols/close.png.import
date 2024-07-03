@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfq8yalgam2ad"
-path.bptc="res://.godot/imported/close.png-9e0e751afe8182d510a4ca1ad0521090.bptc.ctex"
+path="res://.godot/imported/close.png-9e0e751afe8182d510a4ca1ad0521090.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/close.png"
-dest_files=["res://.godot/imported/close.png-9e0e751afe8182d510a4ca1ad0521090.bptc.ctex"]
+dest_files=["res://.godot/imported/close.png-9e0e751afe8182d510a4ca1ad0521090.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

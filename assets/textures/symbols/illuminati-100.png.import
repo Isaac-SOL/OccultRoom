@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chagifl87ykxo"
-path.bptc="res://.godot/imported/illuminati-100.png-01e23c8e1aa611e76ec06fc7d4d5438d.bptc.ctex"
+path="res://.godot/imported/illuminati-100.png-01e23c8e1aa611e76ec06fc7d4d5438d.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/illuminati-100.png"
-dest_files=["res://.godot/imported/illuminati-100.png-01e23c8e1aa611e76ec06fc7d4d5438d.bptc.ctex"]
+dest_files=["res://.godot/imported/illuminati-100.png-01e23c8e1aa611e76ec06fc7d4d5438d.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

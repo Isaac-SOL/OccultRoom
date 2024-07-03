@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bs6h26bm5u8a7"
-path.bptc="res://.godot/imported/table_Totem.png-51bde1396b61b3f0d56811191d40163c.bptc.ctex"
+path="res://.godot/imported/table_Totem.png-51bde1396b61b3f0d56811191d40163c.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "fbcb99c00ff2bad1749a61f4bb9dea9f"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/furnitures/table_Totem.png"
-dest_files=["res://.godot/imported/table_Totem.png-51bde1396b61b3f0d56811191d40163c.bptc.ctex"]
+dest_files=["res://.godot/imported/table_Totem.png-51bde1396b61b3f0d56811191d40163c.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

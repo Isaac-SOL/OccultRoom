@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bct0orofet8ml"
-path.bptc="res://.godot/imported/deathly-hallows-100.png-1d9ab41a2b4747e5e80be10d002623aa.bptc.ctex"
+path="res://.godot/imported/deathly-hallows-100.png-1d9ab41a2b4747e5e80be10d002623aa.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/deathly-hallows-100.png"
-dest_files=["res://.godot/imported/deathly-hallows-100.png-1d9ab41a2b4747e5e80be10d002623aa.bptc.ctex"]
+dest_files=["res://.godot/imported/deathly-hallows-100.png-1d9ab41a2b4747e5e80be10d002623aa.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

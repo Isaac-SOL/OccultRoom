@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://carv3yob7a6sp"
-path.bptc="res://.godot/imported/yes-100.png-88d1416797ca3ccfd63e207d6a92d5b3.bptc.ctex"
+path="res://.godot/imported/yes-100.png-88d1416797ca3ccfd63e207d6a92d5b3.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/yes-100.png"
-dest_files=["res://.godot/imported/yes-100.png-88d1416797ca3ccfd63e207d6a92d5b3.bptc.ctex"]
+dest_files=["res://.godot/imported/yes-100.png-88d1416797ca3ccfd63e207d6a92d5b3.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=70 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -24,6 +24,7 @@
 [ext_resource type="Shader" uid="uid://ce07dllsq8rex" path="res://shaders_mats/noise_shader.tres" id="8_t2fxk"]
 [ext_resource type="Texture2D" uid="uid://cgnfu3xy3jomt" path="res://assets/textures/moon.png" id="9_wcb2f"]
 [ext_resource type="AudioStream" uid="uid://dkl0it3apo3bt" path="res://assets/audio/706204__xkeril__nice-anime-sword-hit.wav" id="14_5b11s"]
+[ext_resource type="Texture2D" uid="uid://dgbwlvr4rxe4u" path="res://assets/textures/pause_hint.png" id="23_25edo"]
 [ext_resource type="Texture2D" uid="uid://cw1mmclxbd2lq" path="res://assets/textures/hints/look_around_hint.png" id="23_fly4b"]
 [ext_resource type="Texture2D" uid="uid://cth08upwrup5p" path="res://assets/textures/hints/pickup_hint.png" id="24_ale6i"]
 [ext_resource type="Texture2D" uid="uid://cgxy0xqnne7i3" path="res://assets/textures/hints/inspect_hint.png" id="25_tuuho"]

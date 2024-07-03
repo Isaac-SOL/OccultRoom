@@ -24,17 +24,17 @@
 [ext_resource type="Shader" uid="uid://ce07dllsq8rex" path="res://shaders_mats/noise_shader.tres" id="8_t2fxk"]
 [ext_resource type="Texture2D" uid="uid://cgnfu3xy3jomt" path="res://assets/textures/moon.png" id="9_wcb2f"]
 [ext_resource type="AudioStream" uid="uid://dkl0it3apo3bt" path="res://assets/audio/706204__xkeril__nice-anime-sword-hit.wav" id="14_5b11s"]
-[ext_resource type="Texture2D" uid="uid://b5xp58v40peoi" path="res://assets/textures/look_around_hint.png" id="15_w5546"]
-[ext_resource type="Texture2D" uid="uid://i3udstbqhgnw" path="res://assets/textures/pickup_hint.png" id="16_2d4bi"]
-[ext_resource type="Texture2D" uid="uid://f4jlgk556d3i" path="res://assets/textures/free_turn_hint.png" id="17_legkf"]
-[ext_resource type="Texture2D" uid="uid://dkcclecvpkvum" path="res://assets/textures/table_hint.png" id="18_tf8sk"]
-[ext_resource type="Texture2D" uid="uid://bysc4u4i16e02" path="res://assets/textures/inspect_hint.png" id="19_4aftl"]
-[ext_resource type="Texture2D" uid="uid://cbwdu4qytnn03" path="res://assets/textures/putdown_hint.png" id="20_6x1w7"]
-[ext_resource type="Texture2D" uid="uid://cvulckh5b7y0" path="res://assets/textures/turn_object_hint.png" id="20_srbnq"]
-[ext_resource type="Texture2D" uid="uid://cwsp70a8iyu6a" path="res://assets/textures/zoom_hint.png" id="21_6kdao"]
-[ext_resource type="Texture2D" uid="uid://dgbwlvr4rxe4u" path="res://assets/textures/pause_hint.png" id="23_25edo"]
+[ext_resource type="Texture2D" uid="uid://cw1mmclxbd2lq" path="res://assets/textures/hints/look_around_hint.png" id="23_fly4b"]
+[ext_resource type="Texture2D" uid="uid://cth08upwrup5p" path="res://assets/textures/hints/pickup_hint.png" id="24_ale6i"]
+[ext_resource type="Texture2D" uid="uid://cgxy0xqnne7i3" path="res://assets/textures/hints/inspect_hint.png" id="25_tuuho"]
+[ext_resource type="Texture2D" uid="uid://dtai8hu3ajunl" path="res://assets/textures/hints/free_turn_hint.png" id="26_aiktl"]
+[ext_resource type="Texture2D" uid="uid://bcfvmif06ddfa" path="res://assets/textures/hints/table_hint.png" id="27_361sk"]
+[ext_resource type="Texture2D" uid="uid://u0nnx7rjb5i3" path="res://assets/textures/hints/turn_object_hint.png" id="28_h8etl"]
+[ext_resource type="Texture2D" uid="uid://dg0tvswlr2td0" path="res://assets/textures/hints/putdown_hint.png" id="29_354j7"]
+[ext_resource type="Texture2D" uid="uid://c1wa52j8hx15n" path="res://assets/textures/hints/zoom_hint.png" id="30_4w4i5"]
 [ext_resource type="Shader" path="res://shaders_mats/quantize.gdshader" id="30_oh8ic"]
 [ext_resource type="Shader" path="res://shaders_mats/chromatic_aberration.gdshader" id="32_w0418"]
+[ext_resource type="FontFile" uid="uid://yybrduxftfy8" path="res://assets/fonts/seventeen-deon/seventeen_Déon.ttf" id="34_tqb3j"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jo56l"]
 streams_count = 5
@@ -216,7 +216,9 @@ shader = ExtResource("32_w0418")
 shader_parameter/strength = 0.3
 
 [sub_resource type="LabelSettings" id="LabelSettings_75ksr"]
-font_size = 24
+font = ExtResource("34_tqb3j")
+font_size = 50
+font_color = Color(1, 0.92549, 0.815686, 1)
 
 [sub_resource type="GDScript" id="GDScript_hhhcl"]
 script/source = "extends Label
@@ -449,7 +451,27 @@ alignment = 1
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("15_w5546")
+texture = ExtResource("23_fly4b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainer/LookHint"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="UI/HintsContainer/LookHint/HBoxContainer"]
+custom_minimum_size = Vector2(73, 0)
+layout_mode = 2
+text = "Look around"
+autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/LookHint"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -465,7 +487,27 @@ grow_vertical = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("16_2d4bi")
+texture = ExtResource("24_ale6i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainer/PickupHint"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="UI/HintsContainer/PickupHint/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Pick up Put down"
+autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/PickupHint"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -481,7 +523,27 @@ grow_vertical = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("19_4aftl")
+texture = ExtResource("25_tuuho")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainer/InspectHint"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="UI/HintsContainer/InspectHint/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Inspect object"
+autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/InspectHint"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -497,7 +559,27 @@ grow_vertical = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("17_legkf")
+texture = ExtResource("26_aiktl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainer/FreeTurnHint"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="UI/HintsContainer/FreeTurnHint/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Turn held object"
+autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/FreeTurnHint"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -513,7 +595,27 @@ grow_vertical = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("18_tf8sk")
+texture = ExtResource("27_361sk")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainer/TableHint"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="UI/HintsContainer/TableHint/HBoxContainer"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+text = "Look at table"
+autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/TableHint"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -540,13 +642,32 @@ alignment = 1
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("20_srbnq")
+texture = ExtResource("28_h8etl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainerInspect/TurnHint"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="UI/HintsContainerInspect/TurnHint/HBoxContainer"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+text = "Turn object"
+autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainerInspect/TurnHint"]
 modulate = Color(1, 1, 1, 0.392157)
 z_index = -1
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -556,7 +677,27 @@ grow_vertical = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("20_6x1w7")
+texture = ExtResource("29_354j7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainerInspect/PutDownHint"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="UI/HintsContainerInspect/PutDownHint/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Put down object"
+autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainerInspect/PutDownHint"]
 modulate = Color(1, 1, 1, 0.392157)
@@ -572,7 +713,27 @@ grow_vertical = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-texture = ExtResource("21_6kdao")
+texture = ExtResource("30_4w4i5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainerInspect/ZoomHint"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -24.5
+offset_bottom = 24.5
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="UI/HintsContainerInspect/ZoomHint/HBoxContainer"]
+custom_minimum_size = Vector2(65, 0)
+layout_mode = 2
+text = "Zoom"
+autowrap_mode = 1
 
 [node name="Panel" type="Panel" parent="UI/HintsContainerInspect/ZoomHint"]
 modulate = Color(1, 1, 1, 0.392157)

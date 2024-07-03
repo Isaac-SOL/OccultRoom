@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp20hrsshks5h"
-path="res://.godot/imported/big_ball.png-1065a8317b30abd33809e3caab47f05f.ctex"
+uid="uid://u0nnx7rjb5i3"
+path.bptc="res://.godot/imported/turn_object_hint.png-91d8f3f6418e3d66e4fb83ec988b0a79.bptc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://imports/big_ball.png"
-dest_files=["res://.godot/imported/big_ball.png-1065a8317b30abd33809e3caab47f05f.ctex"]
+source_file="res://assets/textures/hints/turn_object_hint.png"
+dest_files=["res://.godot/imported/turn_object_hint.png-91d8f3f6418e3d66e4fb83ec988b0a79.bptc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

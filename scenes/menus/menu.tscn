@@ -1,13 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bqq2ouiqujyhp"]
+[gd_scene load_steps=8 format=3 uid="uid://bqq2ouiqujyhp"]
 
 [ext_resource type="Script" path="res://scripts/menus/menu.gd" id="1_lencv"]
-[ext_resource type="AudioStream" uid="uid://dfipmfe3rirfg" path="res://assets/audio/ambiant/occultroom_mainMenu.ogg" id="2_3sdxv"]
 [ext_resource type="Theme" uid="uid://ujjtd62wvxsf" path="res://imports/pixel_theme.tres" id="3_31at3"]
 [ext_resource type="StyleBox" uid="uid://cln15kpjcsiss" path="res://imports/style_box_normal.tres" id="4_p0pco"]
 [ext_resource type="StyleBox" uid="uid://ddmyelf7ggrso" path="res://imports/style_box_hover.tres" id="5_giavi"]
 [ext_resource type="StyleBox" uid="uid://b3p1lms34esoy" path="res://imports/style_box_click.tres" id="6_hv51a"]
 [ext_resource type="FontFile" uid="uid://5fimeku4rxm8" path="res://assets/fonts/staypuft/StayPuft.ttf" id="6_x4vbu"]
-[ext_resource type="AudioStream" uid="uid://bxoqivmy71sj6" path="res://assets/audio/ambiant/occultroom_transit.ogg" id="8_apwul"]
 
 [sub_resource type="Theme" id="Theme_vv4fh"]
 default_font = ExtResource("6_x4vbu")
@@ -30,10 +28,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.12828, 0.0586829, 0.0102415, 1)
-
-[node name="AudioMainMenu" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_3sdxv")
-bus = &"Ambiant"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -98,19 +92,6 @@ theme_override_styles/hover = ExtResource("5_giavi")
 theme_override_styles/pressed = ExtResource("6_hv51a")
 text = "Quit"
 
-[node name="FrenchButton" type="CheckButton" parent="MarginContainer2/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-text = "English <---> Français"
-expand_icon = true
-
-[node name="DitherButton" type="CheckButton" parent="MarginContainer2/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 24
-button_pressed = true
-text = "Dithering"
-expand_icon = true
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -123,13 +104,7 @@ theme = SubResource("Theme_vv4fh")
 theme_override_colors/font_color = Color(0.99265, 0.511324, 0.323574, 1)
 text = "Polterbust"
 
-[node name="AudioTransitEffect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_apwul")
-bus = &"Sfx"
-
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/OptionButton" to="." method="_on_option_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/CreditButton" to="." method="_on_credit_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="toggled" from="MarginContainer2/MarginContainer/VBoxContainer/FrenchButton" to="." method="_on_check_button_toggled"]
-[connection signal="toggled" from="MarginContainer2/MarginContainer/VBoxContainer/DitherButton" to="." method="_on_dither_button_toggled"]

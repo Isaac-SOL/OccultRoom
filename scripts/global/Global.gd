@@ -1,61 +1,39 @@
 extends Node
 
-
-var barMargin = 50
-var ballSpeed = 650
 var screenSize =  Vector2(640,360) #Vector2(1920,1080)
-var playerSpeed = 550
-var botDifficulty = 1
-var botSpeed = 450
 var viewport_size = DisplayServer.window_get_size()
 var prevscene = null
 var french: bool = false
 var dithering: bool = true
-
-func _process(delta):
-	#setBotSpeed(botDifficulty)
-	#get_viewport().size = viewport_size
-	#calculScreensize()
-	pass
-	
-
-func calculScreensize():
-	screenSize = Vector2(1152,648) #DisplayServer.window_get_size()
-
-func setBallSpeed(speed):
-	ballSpeed = speed
-	
-func setPlayerSpeed(speed):
-	playerSpeed = speed
-	
-func setBotSpeed(speed):
-	if botDifficulty == 0:
-		botSpeed = 300
-	elif botDifficulty == 1:
-		botSpeed = 450
-	elif botDifficulty == 2:
-		botSpeed = 700
-	elif botDifficulty == 3:
-		botSpeed = 900
-	else:
-		botSpeed = botSpeed
+var displayMode = 0
+var langage = getLangage()
 		
 func setDisplayMode(index):
 	if index == 0:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) 
 	elif index == 1:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
+	displayMode = index
 		
-func setResolution(index):
+func setLangage(index):
 	if index == 0:
-		viewport_size = DisplayServer.screen_get_size()
-	if index == 1:
-		viewport_size = (Vector2i(1152,648))
-	elif index == 2:
-		viewport_size = (Vector2i(1920,1080))
-	elif index == 3:
-		viewport_size = (Vector2i(3840,2160))
+		french = false 
+		TranslationServer.set_locale("en")
+	elif index == 1:
+		french = true 
+		TranslationServer.set_locale("fr")
+	langage = index
 	
-func setBotDifficulty(difficulty):
-	botDifficulty = difficulty
+func getLangage():
+	if TranslationServer.get_locale() == "en_EN":
+		return 0
+	if TranslationServer.get_locale() == "fr_FR":
+		return 1
+	if TranslationServer.get_locale() == "pt_BR" or TranslationServer.get_locale() == "pt_PT":
+		return 2
+	else:
+		return 0	
+		
+
+
 	

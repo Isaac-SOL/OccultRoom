@@ -38,6 +38,7 @@ func _ready():
 	%PauseMenu.hide()
 	Global.prevscene = get_tree().current_scene.scene_file_path
 	
+	
 	%LookHint.visible = true
 
 func start_intro_sequence():
@@ -141,7 +142,7 @@ func ouija_clicked():
 			start_multi_dialog(["This table should help me figure out where it wants things to go.",
 								"Let's put something on that pedestal and ask directly."],
 								["Cette table devrait m'aider à comprendre où il veut que je dispose les objets.",
-								"Mettons quelque chose sur cce piédestal pour de mander directement."])
+								"Mettons quelque chose sur ce piédestal pour de mander directement."])
 			ouija_explanation_next = false
 			crystal_message_2_next = true
 			%InspectHint.visible = true

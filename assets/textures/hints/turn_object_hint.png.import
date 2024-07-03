@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ppa4guq2mv3"
-path.bptc="res://.godot/imported/pong_title.png-f7cb186427176fbcaa61e55f6bc7762b.bptc.ctex"
+uid="uid://u0nnx7rjb5i3"
+path.bptc="res://.godot/imported/turn_object_hint.png-91d8f3f6418e3d66e4fb83ec988b0a79.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://imports/pong_title.png"
-dest_files=["res://.godot/imported/pong_title.png-f7cb186427176fbcaa61e55f6bc7762b.bptc.ctex"]
+source_file="res://assets/textures/hints/turn_object_hint.png"
+dest_files=["res://.godot/imported/turn_object_hint.png-91d8f3f6418e3d66e4fb83ec988b0a79.bptc.ctex"]
 
 [params]
 

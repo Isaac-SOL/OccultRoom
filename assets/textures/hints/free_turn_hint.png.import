@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dp20hrsshks5h"
-path.bptc="res://.godot/imported/big_ball.png-1065a8317b30abd33809e3caab47f05f.bptc.ctex"
+uid="uid://dtai8hu3ajunl"
+path.bptc="res://.godot/imported/free_turn_hint.png-c08f06ec4f94aaf1e532c31ce4d9dc8e.bptc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://imports/big_ball.png"
-dest_files=["res://.godot/imported/big_ball.png-1065a8317b30abd33809e3caab47f05f.bptc.ctex"]
+source_file="res://assets/textures/hints/free_turn_hint.png"
+dest_files=["res://.godot/imported/free_turn_hint.png-c08f06ec4f94aaf1e532c31ce4d9dc8e.bptc.ctex"]
 
 [params]
 

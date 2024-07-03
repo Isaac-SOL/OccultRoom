@@ -203,7 +203,7 @@ transform = Transform3D(-4.39299e-08, 0, 1.005, 0, 1.005, 0, -1.005, 0, -4.39299
 
 [node name="StoolBottom" type="Sprite3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.559, -8.44067e-08, -5.35279e-15, 0, -2.44347e-08, 0.811, -8.44067e-08, 0.559, 3.54499e-08, 3, 0.601797, -4)
+transform = Transform3D(-0.559, -8.44067e-08, -5.35279e-15, 0, -2.44347e-08, 0.811, -8.44067e-08, 0.559, 3.54499e-08, 3, 0.603683, -4)
 modulate = Color(0, 0, 0, 1)
 texture_filter = 4
 texture = ExtResource("6_jdx8u")
@@ -486,11 +486,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.6, -8)
 [node name="OuijaPlacementPoint" parent="PlacementPoints" instance=ExtResource("2_tkrdm")]
 unique_name_in_owner = true
 process_mode = 4
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.24969, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.29228, -4)
 
 [node name="StoolPlacementPoint" parent="PlacementPoints" instance=ExtResource("5_we8fn")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.497216, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.595393, -4)
 
 [node name="geniePlace" parent="PlacementPoints" instance=ExtResource("1_kn5p5")]
 transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.659739, 1.3, -0.618516)

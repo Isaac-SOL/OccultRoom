@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://ujjtd62wvxsf"]
 
-[ext_resource type="FontFile" uid="uid://mwckfnrars76" path="res://assets/fonts/angry-birds-postcard/AngryBirdsPostcard-Regular.ttf" id="1_mqp2k"]
+[ext_resource type="FontFile" uid="uid://yybrduxftfy8" path="res://assets/fonts/seventeen-deon/seventeen_Déon.ttf" id="1_arren"]
 
 [resource]
-default_font = ExtResource("1_mqp2k")
-default_font_size = 60
+default_font = ExtResource("1_arren")
+default_font_size = 45

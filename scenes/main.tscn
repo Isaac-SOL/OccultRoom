@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://cuughpl51whns"]
+[gd_scene load_steps=69 format=3 uid="uid://cuughpl51whns"]
 
 [ext_resource type="Script" path="res://scripts/General/main.gd" id="1_rshqp"]
 [ext_resource type="PackedScene" uid="uid://cnmco5mvxbmif" path="res://scenes/room.tscn" id="1_vjk08"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cbwdu4qytnn03" path="res://assets/textures/putdown_hint.png" id="20_6x1w7"]
 [ext_resource type="Texture2D" uid="uid://cvulckh5b7y0" path="res://assets/textures/turn_object_hint.png" id="20_srbnq"]
 [ext_resource type="Texture2D" uid="uid://cwsp70a8iyu6a" path="res://assets/textures/zoom_hint.png" id="21_6kdao"]
+[ext_resource type="Texture2D" uid="uid://dgbwlvr4rxe4u" path="res://assets/textures/pause_hint.png" id="23_25edo"]
 [ext_resource type="Shader" path="res://shaders_mats/quantize.gdshader" id="30_oh8ic"]
 [ext_resource type="Shader" path="res://shaders_mats/chromatic_aberration.gdshader" id="32_w0418"]
 
@@ -419,13 +420,27 @@ mouse_filter = 2
 
 [node name="UI" type="CanvasLayer" parent="."]
 
+[node name="PauseHint" type="TextureRect" parent="UI"]
+offset_right = 85.0
+offset_bottom = 32.0
+texture = ExtResource("23_25edo")
+
+[node name="Panel" type="Panel" parent="UI/PauseHint"]
+modulate = Color(1, 1, 1, 0.392157)
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="HintsContainer" type="HFlowContainer" parent="UI"]
 unique_name_in_owner = true
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -37.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
@@ -517,7 +532,6 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -50.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
@@ -632,6 +646,7 @@ script = SubResource("GDScript_te63y")
 copy_mode = 2
 
 [node name="ChromaRect" type="ColorRect" parent="PostProcessLayer2"]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_aem2k")
 anchors_preset = 15
 anchor_right = 1.0
@@ -639,7 +654,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = SubResource("GDScript_te63y")
 
 [node name="PauseLayer" type="CanvasLayer" parent="."]
 
@@ -686,6 +700,7 @@ layout_mode = 2
 
 [node name="LabelLeft" type="Label" parent="PauseLayer/PauseMenu"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -706,6 +721,7 @@ inspect_text = "Left / Right / Up / Down: Look"
 
 [node name="LabelRight" type="Label" parent="PauseLayer/PauseMenu"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0

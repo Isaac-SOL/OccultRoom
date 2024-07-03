@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://fw6nn25p8d8q"
-path.bptc="res://.godot/imported/tabouret_rust_coarse_01_diff_1k.jpg-0cab78bf32789471e9f471113cc22ba6.bptc.ctex"
+path="res://.godot/imported/tabouret_rust_coarse_01_diff_1k.jpg-0cab78bf32789471e9f471113cc22ba6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "5ed85d8cb75600f90185859281d2f65e"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/furnitures/tabouret_rust_coarse_01_diff_1k.jpg"
-dest_files=["res://.godot/imported/tabouret_rust_coarse_01_diff_1k.jpg-0cab78bf32789471e9f471113cc22ba6.bptc.ctex"]
+dest_files=["res://.godot/imported/tabouret_rust_coarse_01_diff_1k.jpg-0cab78bf32789471e9f471113cc22ba6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

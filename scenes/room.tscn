@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2vaujr4s1f23" path="res://objects/ouija_placement_point.tscn" id="2_tkrdm"]
 [ext_resource type="Texture2D" uid="uid://d3k2ufxfo1yoe" path="res://assets/textures/symbols/unity-symbol-100.png" id="3_emjou"]
 [ext_resource type="Texture2D" uid="uid://cskdi3l4e5ptn" path="res://assets/textures/symbols/triskelion-96.png" id="4_7pbam"]
-[ext_resource type="PackedScene" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
+[ext_resource type="PackedScene" uid="uid://4axxv4ncukbv" path="res://objects/stool_placement_point.tscn" id="5_we8fn"]
 [ext_resource type="Texture2D" uid="uid://bj016jvyxdu12" path="res://assets/textures/symbols/modify/illuminati-100-w.png" id="6_jdx8u"]
 [ext_resource type="Script" path="res://scripts/animatable_sprite.gd" id="7_emt5d"]
 [ext_resource type="PackedScene" uid="uid://ct70224ms883s" path="res://scenes/chambre/door.tscn" id="8_fi6hy"]

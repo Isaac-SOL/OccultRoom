@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dt2ajiutejeka"
-path.bptc="res://.godot/imported/wall4_patterned_clay_plaster_diff_1k.jpg-43fad9075426437023e06a21c54270dd.bptc.ctex"
+path="res://.godot/imported/wall4_patterned_clay_plaster_diff_1k.jpg-43fad9075426437023e06a21c54270dd.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "c29536ed05484e833f004459bbe1a200"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/room/wall4_patterned_clay_plaster_diff_1k.jpg"
-dest_files=["res://.godot/imported/wall4_patterned_clay_plaster_diff_1k.jpg-43fad9075426437023e06a21c54270dd.bptc.ctex"]
+dest_files=["res://.godot/imported/wall4_patterned_clay_plaster_diff_1k.jpg-43fad9075426437023e06a21c54270dd.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://crkm2u3kxmwpv"
-path.bptc="res://.godot/imported/etagere_wood_table_001_diff_1k.jpg-c5896369ab031a46e59c4c662943e1ef.bptc.ctex"
+path="res://.godot/imported/etagere_wood_table_001_diff_1k.jpg-c5896369ab031a46e59c4c662943e1ef.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "23b5e6896bba402d214f7ef8d8f8339c"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/furnitures/etagere_wood_table_001_diff_1k.jpg"
-dest_files=["res://.godot/imported/etagere_wood_table_001_diff_1k.jpg-c5896369ab031a46e59c4c662943e1ef.bptc.ctex"]
+dest_files=["res://.godot/imported/etagere_wood_table_001_diff_1k.jpg-c5896369ab031a46e59c4c662943e1ef.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

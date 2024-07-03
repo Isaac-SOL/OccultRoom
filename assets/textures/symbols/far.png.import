@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bj5up0065jugu"
-path.bptc="res://.godot/imported/far.png-796d2d3ee98418a15d25303891ea3857.bptc.ctex"
+path="res://.godot/imported/far.png-796d2d3ee98418a15d25303891ea3857.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/far.png"
-dest_files=["res://.godot/imported/far.png-796d2d3ee98418a15d25303891ea3857.bptc.ctex"]
+dest_files=["res://.godot/imported/far.png-796d2d3ee98418a15d25303891ea3857.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

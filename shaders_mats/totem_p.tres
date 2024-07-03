@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://ds1mgx3pddxck"]
+
+[ext_resource type="Texture2D" uid="uid://fv1ju6xp5q6y" path="res://assets/3Dmodels/furnitures/totem_Totem.png" id="1_6kj5m"]
+
+[resource]
+resource_name = "rouge.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_6kj5m")
+roughness = 0.5

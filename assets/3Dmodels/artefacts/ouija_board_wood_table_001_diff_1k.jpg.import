@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc0u3x6nhd7kp"
-path.bptc="res://.godot/imported/ouija_board_wood_table_001_diff_1k.jpg-fe7ac3d427343f3aae61bc79b0237788.bptc.ctex"
+path="res://.godot/imported/ouija_board_wood_table_001_diff_1k.jpg-fe7ac3d427343f3aae61bc79b0237788.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "23b5e6896bba402d214f7ef8d8f8339c"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/artefacts/ouija_board_wood_table_001_diff_1k.jpg"
-dest_files=["res://.godot/imported/ouija_board_wood_table_001_diff_1k.jpg-fe7ac3d427343f3aae61bc79b0237788.bptc.ctex"]
+dest_files=["res://.godot/imported/ouija_board_wood_table_001_diff_1k.jpg-fe7ac3d427343f3aae61bc79b0237788.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

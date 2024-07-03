@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bc3r0caypvkbn"
-path.bptc="res://.godot/imported/table_fabric_red.png-78e288ac655b80460b63610e7fd460a4.bptc.ctex"
+path="res://.godot/imported/table_fabric_red.png-78e288ac655b80460b63610e7fd460a4.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "e24e862e6eb513be631f86ef9b2daff4"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/furnitures/table_fabric_red.png"
-dest_files=["res://.godot/imported/table_fabric_red.png-78e288ac655b80460b63610e7fd460a4.bptc.ctex"]
+dest_files=["res://.godot/imported/table_fabric_red.png-78e288ac655b80460b63610e7fd460a4.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6deapgdniqq"
-path.bptc="res://.godot/imported/pandora_box_Totem.png-98369024f95476c41fbee1e8f6a063be.bptc.ctex"
+path="res://.godot/imported/pandora_box_Totem.png-98369024f95476c41fbee1e8f6a063be.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "fbcb99c00ff2bad1749a61f4bb9dea9f"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/artefacts/pandora_box_Totem.png"
-dest_files=["res://.godot/imported/pandora_box_Totem.png-98369024f95476c41fbee1e8f6a063be.bptc.ctex"]
+dest_files=["res://.godot/imported/pandora_box_Totem.png-98369024f95476c41fbee1e8f6a063be.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

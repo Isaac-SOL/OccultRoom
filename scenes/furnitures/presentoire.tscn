@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dvn1wjblhqo38" path="res://assets/3Dmodels/furnitures/presentoire.glb" id="1_tvk28"]
 [ext_resource type="Script" path="res://scripts/furnitures/presentoire.gd" id="2_3xxqa"]
+[ext_resource type="Texture2D" uid="uid://nwwro50tuqmk" path="res://assets/particules/fire_02.png" id="3_rog1w"]
 
 [sub_resource type="Gradient" id="Gradient_18icy"]
 offsets = PackedFloat32Array(0.0213904, 0.385027, 1)
@@ -34,14 +35,11 @@ scale_max = 30.0
 scale_curve = SubResource("CurveTexture_ob7jd")
 color_ramp = SubResource("GradientTexture1D_fojii")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ygj3h"]
-load_path = "res://.godot/imported/fire_02.png-ec3d5f3f6b03a217cabb41312821f242.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d8ake"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4j1eo"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource("CompressedTexture2D_ygj3h")
+albedo_texture = ExtResource("3_rog1w")
 heightmap_scale = -16.0
 texture_filter = 0
 billboard_mode = 3
@@ -50,8 +48,8 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_4m6t6"]
-material = SubResource("StandardMaterial3D_d8ake")
+[sub_resource type="QuadMesh" id="QuadMesh_3c4xy"]
+material = SubResource("StandardMaterial3D_4j1eo")
 size = Vector2(0.1, 0.1)
 
 [node name="presentoire" instance=ExtResource("1_tvk28")]
@@ -63,7 +61,8 @@ transform = Transform3D(0.323779, 0, 0, 0, 0.323779, 0, 0, 0, 0.323779, 0.026012
 [node name="GPUParticles3D_presentoire" type="GPUParticles3D" parent="." index="1"]
 unique_name_in_owner = true
 transform = Transform3D(0.001, 0, 0, 0, 0.112, 0, 0, 0, 0.146, 0, 1.185, 0)
+emitting = false
 amount = 6
 visibility_aabb = AABB(-4, -3.5, -4, 8, 7, 8)
 process_material = SubResource("ParticleProcessMaterial_bp6gy")
-draw_pass_1 = SubResource("QuadMesh_4m6t6")
+draw_pass_1 = SubResource("QuadMesh_3c4xy")

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dktp752oygjwu" path="res://assets/3Dmodels/artefacts/pandora_box.glb" id="1_3or2a"]
 [ext_resource type="Script" path="res://scripts/furnitures/pandora_box.gd" id="2_vt31q"]
+[ext_resource type="Texture2D" uid="uid://nwwro50tuqmk" path="res://assets/particules/fire_02.png" id="3_sxym0"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dn7i8"]
 animation = &"close_pandora"
@@ -72,14 +73,11 @@ scale_max = 20.0
 scale_curve = SubResource("CurveTexture_85qd6")
 color_ramp = SubResource("GradientTexture1D_ew6gu")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r1mf1"]
-load_path = "res://.godot/imported/fire_02.png-ec3d5f3f6b03a217cabb41312821f242.s3tc.ctex"
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6nj57"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4j1eo"]
 transparency = 1
 shading_mode = 0
 vertex_color_use_as_albedo = true
-albedo_texture = SubResource("CompressedTexture2D_r1mf1")
+albedo_texture = ExtResource("3_sxym0")
 heightmap_scale = -16.0
 texture_filter = 0
 billboard_mode = 3
@@ -88,8 +86,8 @@ particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_il7md"]
-material = SubResource("StandardMaterial3D_6nj57")
+[sub_resource type="QuadMesh" id="QuadMesh_5241f"]
+material = SubResource("StandardMaterial3D_4j1eo")
 size = Vector2(0.05, 0.05)
 
 [node name="pandora_box" instance=ExtResource("1_3or2a")]
@@ -109,6 +107,6 @@ anim_player = NodePath("../AnimationPlayer")
 transform = Transform3D(0.001, 0, 0, 0, 0.062, 0, 0, 0, 0.081, 0.0113836, 0.227952, 0)
 amount = 6
 process_material = SubResource("ParticleProcessMaterial_e4mfk")
-draw_pass_1 = SubResource("QuadMesh_il7md")
+draw_pass_1 = SubResource("QuadMesh_5241f")
 
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

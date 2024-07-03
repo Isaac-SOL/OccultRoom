@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfik674atkok2"
-path.bptc="res://.godot/imported/chest_key_Totem.png-0f352a92f1dc3eda326298380337a13a.bptc.ctex"
+path="res://.godot/imported/chest_key_Totem.png-0f352a92f1dc3eda326298380337a13a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "fbcb99c00ff2bad1749a61f4bb9dea9f"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/artefacts/chest_key_Totem.png"
-dest_files=["res://.godot/imported/chest_key_Totem.png-0f352a92f1dc3eda326298380337a13a.bptc.ctex"]
+dest_files=["res://.godot/imported/chest_key_Totem.png-0f352a92f1dc3eda326298380337a13a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

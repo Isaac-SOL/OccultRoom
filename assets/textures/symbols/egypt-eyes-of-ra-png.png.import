@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxxb5t2otpaw2"
-path.bptc="res://.godot/imported/egypt-eyes-of-ra-png.png-313c0f060af4f552d5bc7af3f7effc5a.bptc.ctex"
+path="res://.godot/imported/egypt-eyes-of-ra-png.png-313c0f060af4f552d5bc7af3f7effc5a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/egypt-eyes-of-ra-png.png"
-dest_files=["res://.godot/imported/egypt-eyes-of-ra-png.png-313c0f060af4f552d5bc7af3f7effc5a.bptc.ctex"]
+dest_files=["res://.godot/imported/egypt-eyes-of-ra-png.png-313c0f060af4f552d5bc7af3f7effc5a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

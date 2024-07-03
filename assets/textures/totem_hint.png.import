@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb7vb2ubpo45q"
-path.bptc="res://.godot/imported/totem_hint.png-7aa5948c640f70b50ca8f88292639978.bptc.ctex"
+path="res://.godot/imported/totem_hint.png-7aa5948c640f70b50ca8f88292639978.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/totem_hint.png"
-dest_files=["res://.godot/imported/totem_hint.png-7aa5948c640f70b50ca8f88292639978.bptc.ctex"]
+dest_files=["res://.godot/imported/totem_hint.png-7aa5948c640f70b50ca8f88292639978.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

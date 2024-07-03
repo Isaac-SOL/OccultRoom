@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bl4uyatsudlvc"
-path.bptc="res://.godot/imported/pentagram-book-64.png-8972d2d314962946e470f8b6c26d85ef.bptc.ctex"
+path="res://.godot/imported/pentagram-book-64.png-8972d2d314962946e470f8b6c26d85ef.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/pentagram-book-64.png"
-dest_files=["res://.godot/imported/pentagram-book-64.png-8972d2d314962946e470f8b6c26d85ef.bptc.ctex"]
+dest_files=["res://.godot/imported/pentagram-book-64.png-8972d2d314962946e470f8b6c26d85ef.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

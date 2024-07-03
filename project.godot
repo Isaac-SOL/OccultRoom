@@ -40,9 +40,9 @@ movie_writer/movie_file="A:/Pierre/Documents/GodotProjects/OccultRoom/movies/mov
 texture={
 "compress/channel_pack": 0,
 "compress/hdr_compression": 1,
-"compress/high_quality": true,
+"compress/high_quality": false,
 "compress/lossy_quality": 0.7,
-"compress/mode": 2,
+"compress/mode": 0,
 "compress/normal_map": 0,
 "detect_3d/compress_to": 0,
 "mipmaps/generate": true,

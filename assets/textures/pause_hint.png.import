@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://23tnlhvnx665"
-path="res://.godot/imported/genie_Totem.png-a3f160aa7f76f4153933bc6fd450fd6a.ctex"
+uid="uid://dgbwlvr4rxe4u"
+path="res://.godot/imported/pause_hint.png-3d69af28aeb958bf231659d96a5750cc.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "fbcb99c00ff2bad1749a61f4bb9dea9f"
 }
 
 [deps]
 
-source_file="res://assets/3Dmodels/genie_Totem.png"
-dest_files=["res://.godot/imported/genie_Totem.png-a3f160aa7f76f4153933bc6fd450fd6a.ctex"]
+source_file="res://assets/textures/pause_hint.png"
+dest_files=["res://.godot/imported/pause_hint.png-3d69af28aeb958bf231659d96a5750cc.ctex"]
 
 [params]
 

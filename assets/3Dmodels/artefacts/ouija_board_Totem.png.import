@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://02jgvf513owd"
-path.bptc="res://.godot/imported/ouija_board_Totem.png-bcdd8f37078aac87d5142039e87c4016.bptc.ctex"
+path="res://.godot/imported/ouija_board_Totem.png-bcdd8f37078aac87d5142039e87c4016.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "fbcb99c00ff2bad1749a61f4bb9dea9f"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/artefacts/ouija_board_Totem.png"
-dest_files=["res://.godot/imported/ouija_board_Totem.png-bcdd8f37078aac87d5142039e87c4016.bptc.ctex"]
+dest_files=["res://.godot/imported/ouija_board_Totem.png-bcdd8f37078aac87d5142039e87c4016.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

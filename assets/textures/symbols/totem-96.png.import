@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cc2ctmxv2ktf7"
-path.bptc="res://.godot/imported/totem-96.png-a91f97b03964badbf76c8275d5db4e67.bptc.ctex"
+path="res://.godot/imported/totem-96.png-a91f97b03964badbf76c8275d5db4e67.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/symbols/totem-96.png"
-dest_files=["res://.godot/imported/totem-96.png-a91f97b03964badbf76c8275d5db4e67.bptc.ctex"]
+dest_files=["res://.godot/imported/totem-96.png-a91f97b03964badbf76c8275d5db4e67.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dp20hrsshks5h"
-path.bptc="res://.godot/imported/big_ball.png-1065a8317b30abd33809e3caab47f05f.bptc.ctex"
+path="res://.godot/imported/big_ball.png-1065a8317b30abd33809e3caab47f05f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://imports/big_ball.png"
-dest_files=["res://.godot/imported/big_ball.png-1065a8317b30abd33809e3caab47f05f.bptc.ctex"]
+dest_files=["res://.godot/imported/big_ball.png-1065a8317b30abd33809e3caab47f05f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

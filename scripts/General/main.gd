@@ -14,6 +14,7 @@ var inspecting: PlaceableObject = null
 var inspect_scale_factor: float = 1
 var pause = false
 @onready var noise_mat: ShaderMaterial = %NoiseRect.material
+@onready var chroma_mat: ShaderMaterial = %ChromaRect.material
 var noise_tween: Tween
 var dialog_unclickable_time: float = 0
 var dialog: bool = false
@@ -294,13 +295,16 @@ func _on_crystal_touched():
 		else:
 			%CrystalTargetPosition.target = invalid_objects.pick_random()
 
-func tween_noise_to(final_val: float):
+func tween_noise_to(final_val: float, final_chroma_val: float):
 	if noise_tween:
 		noise_tween.kill()
 	noise_tween = get_tree().create_tween()
 	var curr_val: float = noise_mat.get_shader_parameter("Strength")
+	var curr_chroma_val: float = chroma_mat.get_shader_parameter("strength")
 	noise_tween.tween_method(func(val: float): noise_mat.set_shader_parameter("Strength", val),
 							 curr_val, final_val, 0.5)
+	noise_tween.tween_method(func(val: float): chroma_mat.set_shader_parameter("strength", val),
+							 curr_chroma_val, final_chroma_val, 0.5)
 
 func add_dialog_history(text: String):
 	var new_label: Label = history_label_scene.instantiate()
@@ -308,7 +312,7 @@ func add_dialog_history(text: String):
 	%HistoryContainer.add_child(new_label)
 
 func start_dialog(text: String, french_text: String = ""):
-	tween_noise_to(0.04)
+	tween_noise_to(0.04, 0.5)
 	%DialogText.text = french_text if Global.french and not french_text.is_empty() else text
 	dialog_unclickable_time = 1
 	dialog = true
@@ -319,7 +323,7 @@ func start_dialog(text: String, french_text: String = ""):
 func _on_dialog_control_gui_input(event: InputEvent):
 	if dialog_unclickable_time <= 0:
 		if event is InputEventMouseButton and event.pressed:
-			tween_noise_to(0)
+			tween_noise_to(0, 0.3)
 			dialog = false
 			%DialogControl.visible = false
 			dialog_clicked.emit()

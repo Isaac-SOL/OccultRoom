@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kpj2bjhj5goj"
-path.bptc="res://.godot/imported/bed_dirty_carpet_diff_1k.jpg-56c9ec09f44b815cd721091d5928eb03.bptc.ctex"
+path="res://.godot/imported/bed_dirty_carpet_diff_1k.jpg-56c9ec09f44b815cd721091d5928eb03.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "8f20ee0adcf6c1223f4e98710b5af6fc"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/3Dmodels/bed_dirty_carpet_diff_1k.jpg"
-dest_files=["res://.godot/imported/bed_dirty_carpet_diff_1k.jpg-56c9ec09f44b815cd721091d5928eb03.bptc.ctex"]
+dest_files=["res://.godot/imported/bed_dirty_carpet_diff_1k.jpg-56c9ec09f44b815cd721091d5928eb03.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

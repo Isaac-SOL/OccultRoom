@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cw1mmclxbd2lq"
-path.bptc="res://.godot/imported/look_around_hint.png-fa4e5d1ed6f6308009b447823af07c92.bptc.ctex"
+path="res://.godot/imported/look_around_hint.png-fa4e5d1ed6f6308009b447823af07c92.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://assets/textures/hints/look_around_hint.png"
-dest_files=["res://.godot/imported/look_around_hint.png-fa4e5d1ed6f6308009b447823af07c92.bptc.ctex"]
+dest_files=["res://.godot/imported/look_around_hint.png-fa4e5d1ed6f6308009b447823af07c92.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=true
 compress/lossy_quality=0.7
 compress/hdr_compression=1

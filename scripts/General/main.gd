@@ -61,7 +61,7 @@ func start_intro_sequence():
 	ouija_message_next = true
 	crystal_message_next = true
 	%PickupHint.visible = true
-	%FreeTurnHint.visible = true
+	#%FreeTurnHint.visible = true
 	%InspectHint.visible = true
 	#%TableHint.visible = true
 	already_inspected = false

@@ -460,8 +460,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HintsContainer" type="HFlowContainer" parent="UI"]
+[node name="HintsContainer" type="HBoxContainer" parent="UI"]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -472,7 +473,6 @@ alignment = 1
 
 [node name="LookHint" type="TextureRect" parent="UI/HintsContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 texture = ExtResource("23_fly4b")
 
@@ -650,7 +650,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HintsContainerInspect" type="HFlowContainer" parent="UI"]
+[node name="HintsContainerInspect" type="HBoxContainer" parent="UI"]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 12

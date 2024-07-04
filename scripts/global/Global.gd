@@ -7,6 +7,7 @@ var french: bool = false
 var dithering: bool = true
 var displayMode = 0
 var langage = getLangage()
+var time_played: int = 0
 		
 func setDisplayMode(index):
 	if index == 0:

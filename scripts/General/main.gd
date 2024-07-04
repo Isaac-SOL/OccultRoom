@@ -38,9 +38,8 @@ func _ready():
 	%CrystalTargetPosition.target = get_tree().get_first_node_in_group("Stool")
 	%PauseMenu.hide()
 	Global.prevscene = get_tree().current_scene.scene_file_path
-	
-	
 	%LookHint.visible = true
+	$Timer.start()
 
 func start_intro_sequence():
 	if not intro: return
@@ -379,3 +378,7 @@ func _on_blocker_area_input_event(_camera, event, _position, _normal, _shape_idx
 func _on_catcher_area_input_event(_camera, event, _position, _normal, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and holding_object:
 		holding_object._on_object_input_event(_camera, event, _position, _normal, _shape_idx)
+
+
+func _on_timer_timeout():
+	Global.time_played += 1

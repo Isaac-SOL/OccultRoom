@@ -931,10 +931,14 @@ size_flags_vertical = 8
 theme = ExtResource("6_o16yu")
 text = "Objects left: 5"
 
+[node name="Timer" type="Timer" parent="."]
+process_callback = 0
+
 [connection signal="object_placed" from="Room" to="." method="_on_room_object_placed"]
 [connection signal="stool_just_placed" from="Room" to="." method="_on_room_stool_just_placed"]
 [connection signal="input_event" from="CameraRotation/Shaker/Camera3D/BlockerArea" to="." method="_on_blocker_area_input_event"]
 [connection signal="input_event" from="CameraRotation/Shaker/Camera3D/CatcherArea" to="." method="_on_catcher_area_input_event"]
 [connection signal="gui_input" from="UI/DialogControl" to="." method="_on_dialog_control_gui_input"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="PauseLayer/PauseMenu"]

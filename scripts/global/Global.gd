@@ -17,11 +17,11 @@ func setDisplayMode(index):
 		
 func setLangage(index):
 	if index == 0:
-		french = false 
 		TranslationServer.set_locale("en")
 	elif index == 1:
-		french = true 
 		TranslationServer.set_locale("fr")
+	elif index == 2:
+		TranslationServer.set_locale("pt")
 	langage = index
 	
 func getLangage():

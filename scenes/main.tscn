@@ -753,10 +753,10 @@ grow_vertical = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="UI/HintsContainerInspect/ZoomHint/HBoxContainer"]
-custom_minimum_size = Vector2(65, 0)
+custom_minimum_size = Vector2(82, 0)
 layout_mode = 2
 text = "Zoom"
-autowrap_mode = 1
+autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainerInspect/ZoomHint"]
 modulate = Color(1, 1, 1, 0.392157)

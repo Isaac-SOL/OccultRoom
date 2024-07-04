@@ -466,6 +466,7 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -32.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
@@ -475,25 +476,25 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("23_fly4b")
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainer/LookHint"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -24.5
-offset_bottom = 24.5
-grow_horizontal = 0
+anchor_bottom = 1.0
+offset_top = -0.5
+offset_bottom = 0.5
+grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="UI/HintsContainer/LookHint/HBoxContainer"]
-custom_minimum_size = Vector2(73, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "Look around"
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/LookHint"]
@@ -511,25 +512,23 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("24_ale6i")
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainer/PickupHint"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -24.5
-offset_bottom = 24.5
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="UI/HintsContainer/PickupHint/HBoxContainer"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "Pick up Put down"
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/PickupHint"]
@@ -547,25 +546,23 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("25_tuuho")
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainer/InspectHint"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -24.5
-offset_bottom = 24.5
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="UI/HintsContainer/InspectHint/HBoxContainer"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(58, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "Inspect object"
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/InspectHint"]
@@ -583,25 +580,23 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("26_aiktl")
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainer/FreeTurnHint"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -24.5
-offset_bottom = 24.5
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="UI/HintsContainer/FreeTurnHint/HBoxContainer"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "Turn held object"
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/FreeTurnHint"]
@@ -619,25 +614,23 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("27_361sk")
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainer/TableHint"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -24.5
-offset_bottom = 24.5
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="UI/HintsContainer/TableHint/HBoxContainer"]
-custom_minimum_size = Vector2(65, 0)
+custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "Look at table"
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainer/TableHint"]
@@ -666,25 +659,23 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("28_h8etl")
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainerInspect/TurnHint"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -24.5
-offset_bottom = 24.5
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="UI/HintsContainerInspect/TurnHint/HBoxContainer"]
-custom_minimum_size = Vector2(65, 0)
+custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "Turn object"
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainerInspect/TurnHint"]
@@ -701,25 +692,23 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("29_354j7")
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainerInspect/PutDownHint"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -24.5
-offset_bottom = 24.5
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="UI/HintsContainerInspect/PutDownHint/HBoxContainer"]
-custom_minimum_size = Vector2(80, 0)
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "Put down object"
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainerInspect/PutDownHint"]
@@ -737,25 +726,23 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 texture = ExtResource("30_4w4i5")
+stretch_mode = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/HintsContainerInspect/ZoomHint"]
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -24.5
-offset_bottom = 24.5
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
 [node name="Label" type="Label" parent="UI/HintsContainerInspect/ZoomHint/HBoxContainer"]
-custom_minimum_size = Vector2(82, 0)
+custom_minimum_size = Vector2(55, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 10
 text = "Zoom"
+vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Panel" type="Panel" parent="UI/HintsContainerInspect/ZoomHint"]

@@ -45,8 +45,7 @@ func open_chest():
 	if light_area:
 		light_area.set_deferred("monitoring", true)
 		light_area.set_deferred("monitorable", true)
-	hints = [OuijaSystem.Pos.FLATWOODS, OuijaSystem.Pos.FAR,
-			 OuijaSystem.Pos.MOON, OuijaSystem.Pos.FAR]
+	hints = []
 	$code_chest.anim_chest()
 	%OpenAudio.play()
 	$Outline/ChestOutline1.visible = false

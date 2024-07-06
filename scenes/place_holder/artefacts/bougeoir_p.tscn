@@ -70,7 +70,7 @@ bus = &"Sfx"
 
 [node name="Outline" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(0.323779, 0, 0, 0, 0.323779, 0, 0, 0, 0.323779, -0.131133, 0.161656, 0.0526132)
+transform = Transform3D(0.323779, 0, 0, 0, 0.323779, 0, 0, 0, 0.323779, -0.159611, 0.161656, 0.0027771)
 visible = false
 mesh = SubResource("ArrayMesh_c7yoj")
 skeleton = NodePath("../bougeoir_Abougie/bougeoir_Abougie")

@@ -1,6 +1,7 @@
 class_name MoveGhost extends Area3D
 
 var unsquished: bool = false
+var scared_once: bool = false
 
 func _process(_delta):
 	look_at(CameraManager.camera.global_position)
@@ -19,20 +20,22 @@ func appear():
 
 func disappear():
 	unsquished = false
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(1.0).timeout
 	%ghost.position = Vector3.ZERO
 	%ghost.scale = Vector3.ONE
 	var tween: Tween = get_tree().create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(%ghost, "position", Vector3(0, -4, 0), 0.5)
 	tween.parallel().tween_property(%ghost, "scale", Vector3(1, 0.1, 1), 0.5)
-	NodeAudio.pauseAudio()
-	$Audio_scary_blow.play()
-	get_tree().call_group("light_source_group", "switch_light", true)
-	await get_tree().create_timer(4.0).timeout
-	Singletons.shaker.shake(0.5, 2.0)
-	await get_tree().create_timer(3.0).timeout
-	NodeAudio.pauseAudio()
-	get_tree().call_group("light_source_group", "switch_light", false)
+	if not scared_once:
+		scared_once = true
+		NodeAudio.pauseAudio()
+		$Audio_scary_blow.play()
+		get_tree().call_group("light_source_group", "switch_light", true)
+		await get_tree().create_timer(4.0).timeout
+		Singletons.shaker.shake(0.5, 2.0)
+		await get_tree().create_timer(3.0).timeout
+		NodeAudio.pauseAudio()
+		get_tree().call_group("light_source_group", "switch_light", false)
 	
 
 func squish():

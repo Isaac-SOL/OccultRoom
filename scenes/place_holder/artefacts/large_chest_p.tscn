@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://2afuqainpx47"]
+[gd_scene load_steps=27 format=3 uid="uid://2afuqainpx47"]
 
 [ext_resource type="Script" path="res://scripts/large_chest.gd" id="1_im0kb"]
 [ext_resource type="PackedScene" uid="uid://ci22jetudoh3x" path="res://scenes/artefacts/large_chest.tscn" id="2_j18xd"]
@@ -56,6 +56,16 @@ flip_faces = true
 material = ExtResource("8_o4wra")
 flip_faces = true
 size = Vector3(1.6, 2.2, 0.3)
+
+[sub_resource type="Gradient" id="Gradient_b312u"]
+interpolation_mode = 1
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_76dpw"]
+gradient = SubResource("Gradient_b312u")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0.27)
 
 [node name="large_chest_p" type="Area3D"]
 script = ExtResource("1_im0kb")
@@ -135,6 +145,11 @@ texture = ExtResource("14_n8j70")
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.13542, 0.660335, 0)
 modulate = Color(0, 0, 0, 1)
 texture = ExtResource("15_sp4pr")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Back"]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.231385, 0.757611, 0)
+modulate = Color(0, 0, 0, 1)
+texture = SubResource("GradientTexture2D_76dpw")
 
 [node name="Sprite3D4" type="Sprite3D" parent="Back"]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.13542, 0.40607, 0)

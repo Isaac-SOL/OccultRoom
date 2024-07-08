@@ -2,7 +2,7 @@ key,en,fr,pt
 New Game,New Game,Nouvelle Partie,Novo Jogo
 Options,Options,Options,Opções 
 Credits,Credits,Credits,Créditos
-Quit,Quit,Quitter,Deixar
+Quit,Quit,Quitter,Sair
 Display Mode,Display Mode,Mode d’affichage,Modo de exibição
 Fullscreen,Fullscreen,Plein écran,Tela cheia
 Windowed,Windowed,Fenêtré,Janela
@@ -10,30 +10,30 @@ Langage,Langage,Langue,Idioma
 English,English,Anglais,Inglês
 French,French,Français,Francês
 Portuguese,Portuguese,Portugais,Português
-Dithering,Dithering,Filtre visuel,Pontilhamento
+Dithering,Dithering,Filtre visuel,Filtro visual
 Rotate Up,Rotate Up,Faire pivoter vers le haut,Girar para cima
 Rotate Down,Rotate Down,Faire pivoter vers le bas,Girar para baixo
-Rotate Left,Rotate Left,Tourner à gauche,Vire à esquerda
-Rotate Right,Rotate Right,Tourner à droite,Vire à direita
+Rotate Left,Rotate Left,Tourner à gauche,Virar à esquerda
+Rotate Right,Rotate Right,Tourner à droite,Virar à direita
 Rotate Left (on floor),Rotate Left (on floor),Rotation à gauche (au sol),Girar para a esquerda (no chão)
 Rotate Right (on floor),Rotate Right (on floor),Rotation à droite (au sol),Girar para a direita (no chão)
-Zoom,Zoom,Zoom,Ampliação
+Zoom,Zoom,Zoom,Ampliar 
 Pause,Pause,Pause ,Pausa
-Exit,Exit,Sortir,Saídar
+Exit,Exit,Sortir,Voltar
 Game,Game,Jeu,Jogo 
 Controls,Controls,Contrôles,Controles
 Sound,Sound,Son ,Som 
-History,History,Histoire,História 
+History,History,Histoire,Histórico
 Resume,Resume,Reprendre,Retomar
 Main Menu,Main Menu,Menu Principal,Menu Principal 
 Turn object,Turn object,Tourner l’objet,Virar objeto 
 Look around,Look around,Regarder autour,Olhar em volta
-Pick up Put down,Pick up Put down,Prendre Déposer,Pegar Liberar
+Pick up Put down,Pick up Put down,Prendre Déposer,Pegar Soltar
 Inspect object,Inspect object,Inspecter l'objet,Inspecionar objeto
-Turn held object,Turn held object,Tourner l'objet,Vire objeto
-Look at table,Look at table,Regarder la table,Olhe para a mesa
-Put down object,Put down object,Déposer un objet,Abaixe o objeto
-Zoom,Zoom,Zoom ,Ampliação 
+Turn held object,Turn held object,Tourner l'objet,Virar objeto
+Look at table,Look at table,Regarder la table,Olhar para a mesa
+Put down object,Put down object,Déposer un objet,Abaixar o objeto
+Zoom,Zoom,Zoom ,Ampliar 
 Congratulations!,Congratulations!,Félicitations !,Parabéns !
 You have banished the ghost in ,You have banished the ghost in ,Vous avez banni le fantôme en,Você baniu o fantasma em
 Credits :,Credits :,Credits :,Créditos :
@@ -46,12 +46,12 @@ I know this kind of dangerous spirit.,I know this kind of dangerous spirit.,Je c
 I better play along for the time being.,I better play along for the time being.,Je vais jouer le jeu pour le moment.,É melhor eu jogar junto por enquanto.
 I must figure out what it wants from me.,I must figure out what it wants from me.,Je dois comprendre ce qu'il veut.,Devo descobrir o que ele quer de mim.
 The glowing Eye... I see...,The glowing Eye... I see...,L'Œil brillant... Je vois...,O olho brilhante... entendo...
-Its twin should be nearby. Let's find it.,Its twin should be nearby. Let's find it.,Son jumeau ne doit pas être très loin. Cherchons-le.,Seu gêmeo deveria estar por perto. Vamos encontrá-lo.
-This table should help me figure out where it wants things to go.,This table should help me figure out where it wants things to go.,Cette table devrait m'aider à comprendre où il veut que je dispose les objets.,Esta tabela deve me ajudar a descobrir para onde ela quer que as coisas vão.
-Let's put something on that pedestal and ask directly.,Let's put something on that pedestal and ask directly.,Mettons quelque chose sur ce piédestal pour demander directement.,Vamos colocar algo nesse pedestal e perguntar diretamente.
-Visions of the future...,Visions of the future...,Des prémonitions…,Visões do futuro…
+Its twin should be nearby. Let's find it.,Its twin should be nearby. Let's find it.,Son double ne doit pas être très loin. Cherchons-le.,Sua cópia deve estar por perto. Vamos encontrá-la.
+This table should help me figure out where it wants things to go.,This table should help me figure out where it wants things to go.,Cette table devrait m'aider à comprendre où il veut que je dispose les objets.,Essa tabela deve me ajudar a descobrir para onde ela quer que as coisas vão.
+Let's put something on that pedestal and ask directly.,Let's put something on that pedestal and ask directly.,Mettons quelque chose sur ce piédestal pour de mander directement.,Vamos colocar algo nesse pedestal e perguntar diretamente.
+Visions of the future...,Visions of the future...,Des visions futures…,Visões do futuro…
 "Or hints, perhaps?","Or hints, perhaps?","Ou des indices, tout simplement ?","Ou dicas, talvez?"
-This trusty crystal ball will show me what I have yet to do.,This trusty crystal ball will show me what I have yet to do.,Ma boule de cristal me montrera ce qu'il me reste à faire.,Esta confiável bola de cristal me mostrará o que ainda tenho que fazer.
+This trusty crystal ball will show me what I have yet to do.,This trusty crystal ball will show me what I have yet to do.,Ma boule de cristal me montrera ce qu'il me reste à faire.,Essa bola de cristal confiável me mostrará o que ainda tenho que fazer.
 "When I touch it, the images change...","When I touch it, the images change...","Quand je la touche, les images changent...","Quando toco nele, as imagens mudam..."
 It's trying to move the furniture around...?,It's trying to move the furniture around...?,Il essaie de déplacer les objets... ?,Está tentando mover os móveis...?
 It would be safer if I reordered the room myself.,It would be safer if I reordered the room myself.,Il vaudrait mieux que je réarrange tout ça moi-même.,Seria mais seguro se eu mesmo reorganizasse o quarto.
